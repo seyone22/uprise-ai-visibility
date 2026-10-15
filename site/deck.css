@@ -1,9 +1,9 @@
 /* Layout: a fixed 1920×1080 stage scaled to the viewport; slides stack inside it. Narrow screens get a scrolling column of scaled slides. */
 :root {
-  --pulp: #FF4D2D; --pulp-dark: #D83A1B; --pulp-400: #FF6E52; --pulp-300: #FFA28D; --pulp-100: #FFEAE5; --pulp-50: #FFF5F2;
-  --dark-bg: #0C0F14; --dark-card: #151A24; --dark-card-2: #1C2331; --dark-border: #283347;
-  --paper: #FBF8F3; --paper-card: #F4EFE6; --white: #FFFFFF; --ink: #11151E; --slate: #576275; --line: #E5DFD5;
-  --comp: #B8C2D1; --leader: #11151E; --on-dark: #EDF2FA; --on-dark-2: #9DAAC0; --surround: #06080B;
+  --pulp: #7C3AED; --pulp-dark: #5B21B6; --pulp-400: #8B5CF6; --pulp-300: #A998FF; --pulp-100: #EDE9FE; --pulp-50: #F5F3FF;
+  --dark-bg: #0B0F19; --dark-card: #141B2D; --dark-card-2: #1E2742; --dark-border: #2D3748;
+  --paper: #F8FAFC; --paper-card: #F1F5F9; --white: #FFFFFF; --ink: #0F172A; --slate: #64748B; --line: #E2E8F0;
+  --comp: #CBD5E1; --leader: #0F172A; --on-dark: #F1F5F9; --on-dark-2: #94A3B8; --surround: #060911;
   --f-sans: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --f-mono: 'JetBrains Mono', 'Overpass Mono', ui-monospace, Menlo, Consolas, monospace;
   color-scheme: dark;
@@ -31,7 +31,7 @@ ol, ul { padding: 0; list-style: none; }
 /* ── Type ──────────────────────────────────────────────────────────────── */
 .eyebrow { font-family: var(--f-mono); font-size: 20px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--pulp); }
 .eyebrow.on-dark { color: var(--pulp-300); }
-.eyebrow.on-accent { color: #FFEAE5; }
+.eyebrow.on-accent { color: #EDE9FE; }
 .display { font-size: 80px; line-height: 1.04; font-weight: 800; letter-spacing: -2px; text-wrap: balance; max-width: 1520px; }
 .h1 { font-size: 50px; line-height: 1.1; font-weight: 800; letter-spacing: -1px; text-wrap: balance; max-width: 1560px; color: var(--ink); }
 .dark .h1 { color: var(--white); }
@@ -58,7 +58,7 @@ ol, ul { padding: 0; list-style: none; }
 .foot.on-dark { color: var(--on-dark-2); }
 .foot-logo .logo { height: 20px; width: auto; color: var(--ink); display: block; }
 .foot.on-dark .foot-logo .logo { color: var(--white); }
-.accent .foot { color: #FFEAE5; }
+.accent .foot { color: #EDE9FE; }
 .accent .foot-logo .logo { color: var(--white); }
 
 /* ── Layout helpers ────────────────────────────────────────────────────── */
@@ -122,7 +122,7 @@ ol, ul { padding: 0; list-style: none; }
 
 /* ── Cover ─────────────────────────────────────────────────────────────── */
 .cover { padding: 70px 104px 80px; display: grid; grid-template-columns: 840px 1fr; grid-template-rows: auto 1fr; gap: 0 64px; }
-.cover-bg { position: absolute; inset: 0; background: radial-gradient(1200px 700px at 85% 30%, rgba(255,77,45,.22), transparent 60%), radial-gradient(900px 600px at 0% 100%, rgba(255,77,45,.10), transparent 60%); pointer-events: none; }
+.cover-bg { position: absolute; inset: 0; background: radial-gradient(1200px 700px at 85% 30%, rgba(169,152,255,.22), transparent 60%), radial-gradient(900px 600px at 0% 100%, rgba(124,58,237,.14), transparent 60%); pointer-events: none; }
 .cover-logo, .close-logo { color: var(--white); grid-column: 1 / -1; }
 .cover-logo .logo { height: 40px; width: auto; display: block; }
 .cover-main { align-self: center; display: flex; flex-direction: column; gap: 28px; position: relative; }
@@ -418,8 +418,8 @@ ol, ul { padding: 0; list-style: none; }
 .is-active .g-phases span { animation: fadein .6s ease both; animation-delay: 1200ms; }
 .is-active .accent-stats > div, .is-active .next li { border-top-color: rgba(255,255,255,.4); }
 
-/* Pulp row gets a spotlight */
-@keyframes spotlight { 0% { box-shadow: 0 0 0 0 rgba(255,77,45,0); } 40% { box-shadow: 0 0 0 10px rgba(255,77,45,.25); } 100% { box-shadow: 0 0 0 0 rgba(255,77,45,0); } }
+/* Uprise row gets a spotlight */
+@keyframes spotlight { 0% { box-shadow: 0 0 0 0 rgba(124,58,237,0); } 40% { box-shadow: 0 0 0 10px rgba(124,58,237,.25); } 100% { box-shadow: 0 0 0 0 rgba(124,58,237,0); } }
 .is-active .hb-row.is-pulp { animation: fadein .5s ease both, spotlight 1.4s ease 1.5s both; animation-delay: calc(var(--i) * 70ms + 150ms), 1.6s; }
 .is-active .heat-row.is-pulp { animation: spotlight 1.4s ease 1.8s both; }
 .is-active .why-table tr.is-pulp td { animation: flashrow 1.6s ease 1.4s both; }
@@ -440,7 +440,7 @@ ol, ul { padding: 0; list-style: none; }
 
 /* ambient light on dark slides */
 @keyframes drift { 0% { transform: translate(0, 0) scale(1); } 50% { transform: translate(-60px, 40px) scale(1.08); } 100% { transform: translate(0, 0) scale(1); } }
-.slide.dark::before, .slide.accent::before { content: ''; position: absolute; width: 1400px; height: 1000px; right: -300px; top: -300px; background: radial-gradient(closest-side, rgba(255,77,45,.18), transparent 70%); pointer-events: none; animation: drift 14s ease-in-out infinite; }
+.slide.dark::before, .slide.accent::before { content: ''; position: absolute; width: 1400px; height: 1000px; right: -300px; top: -300px; background: radial-gradient(closest-side, rgba(124,58,237,.20), transparent 70%); pointer-events: none; animation: drift 14s ease-in-out infinite; }
 .slide.accent::before { background: radial-gradient(closest-side, rgba(255,255,255,.14), transparent 70%); }
 .slide > * { position: relative; }
 .slide > .src, .slide > .foot, .slide > .cover-bg, .slide > .close-logo { position: absolute; }
