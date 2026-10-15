@@ -1,0 +1,13 @@
+<svg viewBox="0 0 260 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g fill="currentColor">
+    <!-- Stylized Uprise Geometric Upward Arrow / Diamond Emblem -->
+    <path d="M14 6L24 16L19 16L19 32L9 32L9 16L4 16L14 6Z" fill="#A998FF"/>
+    <path d="M14 18L20 24L17 24L17 32L11 32L11 24L8 24L14 18Z" fill="#FFFFFF" fill-opacity="0.3"/>
+    
+    <!-- "UPRISE" modern bold tracked lettering -->
+    <text x="36" y="27" font-family="'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="20" font-weight="800" letter-spacing="2.5" fill="currentColor">UPRISE</text>
+    
+    <!-- "DIGITAL" lightweight modern accent -->
+    <text x="146" y="27" font-family="'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="14" font-weight="600" letter-spacing="4.5" fill="#A998FF">DIGITAL</text>
+  </g>
+</svg>

@@ -1,0 +1,2427 @@
+{
+  "cities": {
+    "melbourne": {
+      "answers": 21,
+      "lhdMentions": 1,
+      "somv": 4.8,
+      "ci95": [
+        0.9,
+        22.7
+      ],
+      "wvi": 0.0238,
+      "lhdRank": 12,
+      "firmsNamed": 15,
+      "totalMentions": 41,
+      "top": [
+        {
+          "name": "Impressive",
+          "n": 10,
+          "rec": 10,
+          "avgPos": 1.4
+        },
+        {
+          "name": "Megaphone Marketing",
+          "n": 8,
+          "rec": 8,
+          "avgPos": 1
+        },
+        {
+          "name": "Sparro",
+          "n": 8,
+          "rec": 8,
+          "avgPos": 2
+        },
+        {
+          "name": "Clearwater Agency",
+          "n": 4,
+          "rec": 4,
+          "avgPos": 1.3
+        },
+        {
+          "name": "Kill Boring Dead",
+          "n": 1,
+          "rec": 1,
+          "avgPos": 1
+        },
+        {
+          "name": "SIXGUN - SEO & Digital Marketing Agency",
+          "n": 1,
+          "rec": 1,
+          "avgPos": 1
+        },
+        {
+          "name": "farsiight",
+          "n": 1,
+          "rec": 1,
+          "avgPos": 2
+        },
+        {
+          "name": "NuKind Digital - Digital Marketing Agency Melbourne, Australia",
+          "n": 1,
+          "rec": 1,
+          "avgPos": 2
+        },
+        {
+          "name": "Rocket Agency",
+          "n": 1,
+          "rec": 1,
+          "avgPos": 2
+        },
+        {
+          "name": "Impressive - Digital Marketing & SEO Agency",
+          "n": 1,
+          "rec": 1,
+          "avgPos": 2
+        },
+        {
+          "name": "Online Marketing Gurus",
+          "n": 1,
+          "rec": 1,
+          "avgPos": 3
+        },
+        {
+          "name": "Uprise Digital",
+          "n": 1,
+          "rec": 1,
+          "avgPos": 3
+        }
+      ],
+      "lhd": {
+        "name": "Uprise Digital",
+        "n": 1,
+        "rec": 1,
+        "avgPos": 3
+      },
+      "byPlat": {
+        "gemini": {
+          "lhd": 1,
+          "n": 7,
+          "leader": "Impressive",
+          "leaderN": 6
+        },
+        "claude": {
+          "lhd": 0,
+          "n": 7,
+          "leader": "Clearwater Agency",
+          "leaderN": 4
+        },
+        "aimode": {
+          "lhd": 0,
+          "n": 7,
+          "leader": "Megaphone Marketing",
+          "leaderN": 5
+        }
+      },
+      "byPrompt": {
+        "general": {
+          "lhd": 0,
+          "n": 3,
+          "leader": "Impressive",
+          "leaderN": 2
+        },
+        "geo": {
+          "lhd": 0,
+          "n": 3,
+          "leader": "Megaphone Marketing",
+          "leaderN": 3
+        },
+        "google": {
+          "lhd": 0,
+          "n": 3,
+          "leader": "Impressive",
+          "leaderN": 2
+        },
+        "meta": {
+          "lhd": 1,
+          "n": 3,
+          "leader": "Megaphone Marketing",
+          "leaderN": 2
+        },
+        "b2b_scaling": {
+          "lhd": 0,
+          "n": 3,
+          "leader": "Impressive",
+          "leaderN": 1
+        },
+        "cro": {
+          "lhd": 0,
+          "n": 3,
+          "leader": "Impressive",
+          "leaderN": 2
+        },
+        "seo": {
+          "lhd": 0,
+          "n": 3,
+          "leader": "Impressive",
+          "leaderN": 2
+        }
+      },
+      "matrix": {
+        "Impressive": {
+          "gemini": 6,
+          "claude": 3,
+          "aimode": 1
+        },
+        "Megaphone Marketing": {
+          "gemini": 1,
+          "claude": 2,
+          "aimode": 5
+        },
+        "Sparro": {
+          "gemini": 1,
+          "claude": 2,
+          "aimode": 5
+        },
+        "Clearwater Agency": {
+          "gemini": 0,
+          "claude": 4,
+          "aimode": 0
+        },
+        "Kill Boring Dead": {
+          "gemini": 0,
+          "claude": 0,
+          "aimode": 1
+        },
+        "SIXGUN - SEO & Digital Marketing Agency": {
+          "gemini": 0,
+          "claude": 0,
+          "aimode": 1
+        },
+        "Uprise Digital": {
+          "gemini": 1,
+          "claude": 0,
+          "aimode": 0
+        }
+      },
+      "cited": 0,
+      "topSources": [
+        [
+          "vertexaisearch.cloud.google.com",
+          7
+        ],
+        [
+          "agencies.semrush.com",
+          5
+        ],
+        [
+          "krowdbase.com",
+          3
+        ],
+        [
+          "itprofiles.com",
+          2
+        ],
+        [
+          "revenuebase.ai",
+          2
+        ],
+        [
+          "sentius.com.au",
+          2
+        ],
+        [
+          "seomelbourne.com",
+          2
+        ],
+        [
+          "ultragrowthmedia.com",
+          1
+        ],
+        [
+          "cytd.design-digital.com.au",
+          1
+        ],
+        [
+          "coherentlab.com",
+          1
+        ],
+        [
+          "millerleith.com.au",
+          1
+        ],
+        [
+          "goodfirms.co",
+          1
+        ]
+      ]
+    },
+    "sydney": {
+      "answers": 21,
+      "lhdMentions": 0,
+      "somv": 0,
+      "ci95": [
+        0,
+        15.5
+      ],
+      "wvi": 0,
+      "lhdRank": 14,
+      "firmsNamed": 13,
+      "totalMentions": 45,
+      "top": [
+        {
+          "name": "Sparro",
+          "n": 11,
+          "rec": 11,
+          "avgPos": 2.1
+        },
+        {
+          "name": "Megaphone Marketing",
+          "n": 10,
+          "rec": 10,
+          "avgPos": 1.2
+        },
+        {
+          "name": "Impressive",
+          "n": 6,
+          "rec": 6,
+          "avgPos": 2.2
+        },
+        {
+          "name": "Rocket Agency",
+          "n": 5,
+          "rec": 5,
+          "avgPos": 1
+        },
+        {
+          "name": "Clearwater Agency",
+          "n": 3,
+          "rec": 3,
+          "avgPos": 1
+        },
+        {
+          "name": "farsiight",
+          "n": 3,
+          "rec": 3,
+          "avgPos": 2.3
+        },
+        {
+          "name": "Onmove Digital Agency",
+          "n": 1,
+          "rec": 1,
+          "avgPos": 1
+        },
+        {
+          "name": "King Kong",
+          "n": 1,
+          "rec": 1,
+          "avgPos": 1
+        },
+        {
+          "name": "Eloquent",
+          "n": 1,
+          "rec": 1,
+          "avgPos": 2
+        },
+        {
+          "name": "First Page",
+          "n": 1,
+          "rec": 1,
+          "avgPos": 2
+        },
+        {
+          "name": "Orange Line",
+          "n": 1,
+          "rec": 1,
+          "avgPos": 2
+        },
+        {
+          "name": "Scale Smart Marketing",
+          "n": 1,
+          "rec": 1,
+          "avgPos": 3
+        }
+      ],
+      "lhd": {
+        "name": "Uprise Digital",
+        "n": 0,
+        "rec": 0,
+        "avgPos": 0
+      },
+      "byPlat": {
+        "gemini": {
+          "lhd": 0,
+          "n": 7,
+          "leader": "Rocket Agency",
+          "leaderN": 4
+        },
+        "claude": {
+          "lhd": 0,
+          "n": 7,
+          "leader": "Impressive",
+          "leaderN": 4
+        },
+        "aimode": {
+          "lhd": 0,
+          "n": 7,
+          "leader": "Megaphone Marketing",
+          "leaderN": 5
+        }
+      },
+      "byPrompt": {
+        "general": {
+          "lhd": 0,
+          "n": 3,
+          "leader": "Impressive",
+          "leaderN": 2
+        },
+        "geo": {
+          "lhd": 0,
+          "n": 3,
+          "leader": "Megaphone Marketing",
+          "leaderN": 3
+        },
+        "google": {
+          "lhd": 0,
+          "n": 3,
+          "leader": "Sparro",
+          "leaderN": 2
+        },
+        "meta": {
+          "lhd": 0,
+          "n": 3,
+          "leader": "Megaphone Marketing",
+          "leaderN": 2
+        },
+        "b2b_scaling": {
+          "lhd": 0,
+          "n": 3,
+          "leader": "Megaphone Marketing",
+          "leaderN": 2
+        },
+        "cro": {
+          "lhd": 0,
+          "n": 3,
+          "leader": "Megaphone Marketing",
+          "leaderN": 1
+        },
+        "seo": {
+          "lhd": 0,
+          "n": 3,
+          "leader": "Impressive",
+          "leaderN": 1
+        }
+      },
+      "matrix": {
+        "Sparro": {
+          "gemini": 4,
+          "claude": 2,
+          "aimode": 5
+        },
+        "Megaphone Marketing": {
+          "gemini": 3,
+          "claude": 2,
+          "aimode": 5
+        },
+        "Impressive": {
+          "gemini": 1,
+          "claude": 4,
+          "aimode": 1
+        },
+        "Rocket Agency": {
+          "gemini": 4,
+          "claude": 0,
+          "aimode": 1
+        },
+        "Clearwater Agency": {
+          "gemini": 0,
+          "claude": 3,
+          "aimode": 0
+        },
+        "farsiight": {
+          "gemini": 3,
+          "claude": 0,
+          "aimode": 0
+        },
+        "Uprise Digital": {
+          "gemini": 0,
+          "claude": 0,
+          "aimode": 0
+        }
+      },
+      "cited": 0,
+      "topSources": [
+        [
+          "vertexaisearch.cloud.google.com",
+          7
+        ],
+        [
+          "revenuebase.ai",
+          2
+        ],
+        [
+          "agencies.semrush.com",
+          2
+        ],
+        [
+          "vtdigital.com.au",
+          1
+        ],
+        [
+          "salesforge.ai",
+          1
+        ],
+        [
+          "impressive.com.au",
+          1
+        ],
+        [
+          "efficientmedia.com.au",
+          1
+        ],
+        [
+          "builtinsydney.au",
+          1
+        ],
+        [
+          "hays.com.au",
+          1
+        ],
+        [
+          "s2m.com.au",
+          1
+        ],
+        [
+          "outsourceaccelerator.com",
+          1
+        ],
+        [
+          "clixpert.com.au",
+          1
+        ]
+      ]
+    },
+    "brisbane": {
+      "answers": 21,
+      "lhdMentions": 0,
+      "somv": 0,
+      "ci95": [
+        0,
+        15.5
+      ],
+      "wvi": 0,
+      "lhdRank": 18,
+      "firmsNamed": 17,
+      "totalMentions": 45,
+      "top": [
+        {
+          "name": "Megaphone Marketing",
+          "n": 11,
+          "rec": 11,
+          "avgPos": 1.2
+        },
+        {
+          "name": "Sparro",
+          "n": 10,
+          "rec": 10,
+          "avgPos": 2
+        },
+        {
+          "name": "BAMBRICK®️ - Brisbane SEO & Digital Marketing Agency",
+          "n": 4,
+          "rec": 4,
+          "avgPos": 2.3
+        },
+        {
+          "name": "farsiight",
+          "n": 3,
+          "rec": 3,
+          "avgPos": 1
+        },
+        {
+          "name": "Impressive",
+          "n": 3,
+          "rec": 3,
+          "avgPos": 1.3
+        },
+        {
+          "name": "R6 Digital®️ - Brisbane Marketing & Creative Agency",
+          "n": 2,
+          "rec": 2,
+          "avgPos": 1
+        },
+        {
+          "name": "Resurge Digital",
+          "n": 2,
+          "rec": 2,
+          "avgPos": 2
+        },
+        {
+          "name": "Brisbane PPC & Google Ads Agency",
+          "n": 1,
+          "rec": 1,
+          "avgPos": 1
+        },
+        {
+          "name": "Clearwater Agency",
+          "n": 1,
+          "rec": 1,
+          "avgPos": 1
+        },
+        {
+          "name": "Yoghurt Digital",
+          "n": 1,
+          "rec": 1,
+          "avgPos": 2
+        },
+        {
+          "name": "Reputable",
+          "n": 1,
+          "rec": 1,
+          "avgPos": 2
+        },
+        {
+          "name": "Ape-X - Digital Marketing Agency",
+          "n": 1,
+          "rec": 1,
+          "avgPos": 2
+        }
+      ],
+      "lhd": {
+        "name": "Uprise Digital",
+        "n": 0,
+        "rec": 0,
+        "avgPos": 0
+      },
+      "byPlat": {
+        "gemini": {
+          "lhd": 0,
+          "n": 7,
+          "leader": "Megaphone Marketing",
+          "leaderN": 4
+        },
+        "claude": {
+          "lhd": 0,
+          "n": 7,
+          "leader": "Megaphone Marketing",
+          "leaderN": 5
+        },
+        "aimode": {
+          "lhd": 0,
+          "n": 7,
+          "leader": "BAMBRICK®️ - Brisbane SEO & Digital Marketing Agency",
+          "leaderN": 4
+        }
+      },
+      "byPrompt": {
+        "general": {
+          "lhd": 0,
+          "n": 3,
+          "leader": "farsiight",
+          "leaderN": 1
+        },
+        "geo": {
+          "lhd": 0,
+          "n": 3,
+          "leader": "Megaphone Marketing",
+          "leaderN": 2
+        },
+        "google": {
+          "lhd": 0,
+          "n": 3,
+          "leader": "Megaphone Marketing",
+          "leaderN": 2
+        },
+        "meta": {
+          "lhd": 0,
+          "n": 3,
+          "leader": "Megaphone Marketing",
+          "leaderN": 2
+        },
+        "b2b_scaling": {
+          "lhd": 0,
+          "n": 3,
+          "leader": "farsiight",
+          "leaderN": 1
+        },
+        "cro": {
+          "lhd": 0,
+          "n": 3,
+          "leader": "Megaphone Marketing",
+          "leaderN": 2
+        },
+        "seo": {
+          "lhd": 0,
+          "n": 3,
+          "leader": "Megaphone Marketing",
+          "leaderN": 1
+        }
+      },
+      "matrix": {
+        "Megaphone Marketing": {
+          "gemini": 4,
+          "claude": 5,
+          "aimode": 2
+        },
+        "Sparro": {
+          "gemini": 4,
+          "claude": 4,
+          "aimode": 2
+        },
+        "BAMBRICK®️ - Brisbane SEO & Digital Marketing Agency": {
+          "gemini": 0,
+          "claude": 0,
+          "aimode": 4
+        },
+        "farsiight": {
+          "gemini": 3,
+          "claude": 0,
+          "aimode": 0
+        },
+        "Impressive": {
+          "gemini": 0,
+          "claude": 3,
+          "aimode": 0
+        },
+        "R6 Digital®️ - Brisbane Marketing & Creative Agency": {
+          "gemini": 0,
+          "claude": 0,
+          "aimode": 2
+        },
+        "Uprise Digital": {
+          "gemini": 0,
+          "claude": 0,
+          "aimode": 0
+        }
+      },
+      "cited": 0,
+      "topSources": [
+        [
+          "vertexaisearch.cloud.google.com",
+          7
+        ],
+        [
+          "agencies.semrush.com",
+          6
+        ],
+        [
+          "revenuebase.ai",
+          5
+        ],
+        [
+          "rankingco.com.au",
+          1
+        ],
+        [
+          "saleshandy.com",
+          1
+        ],
+        [
+          "kaanturk.com",
+          1
+        ],
+        [
+          "nexit.com.au",
+          1
+        ],
+        [
+          "weframetech.com",
+          1
+        ],
+        [
+          "1stpage.com.au",
+          1
+        ],
+        [
+          "designrush.com",
+          1
+        ],
+        [
+          "nextweb.com.au",
+          1
+        ],
+        [
+          "cloudseomarketing.com",
+          1
+        ]
+      ]
+    },
+    "perth": {
+      "answers": 21,
+      "lhdMentions": 1,
+      "somv": 4.8,
+      "ci95": [
+        0.9,
+        22.7
+      ],
+      "wvi": 0.0476,
+      "lhdRank": 6,
+      "firmsNamed": 16,
+      "totalMentions": 44,
+      "top": [
+        {
+          "name": "Megaphone Marketing",
+          "n": 15,
+          "rec": 15,
+          "avgPos": 1
+        },
+        {
+          "name": "Sparro",
+          "n": 15,
+          "rec": 15,
+          "avgPos": 2
+        },
+        {
+          "name": "Social Force™",
+          "n": 1,
+          "rec": 1,
+          "avgPos": 1
+        },
+        {
+          "name": "Search Scope",
+          "n": 1,
+          "rec": 1,
+          "avgPos": 1
+        },
+        {
+          "name": "Perth PPC & Google Ads Agency",
+          "n": 1,
+          "rec": 1,
+          "avgPos": 1
+        },
+        {
+          "name": "Uprise Digital",
+          "n": 1,
+          "rec": 1,
+          "avgPos": 1
+        },
+        {
+          "name": "Interact & Co",
+          "n": 1,
+          "rec": 1,
+          "avgPos": 1
+        },
+        {
+          "name": "Impressive",
+          "n": 1,
+          "rec": 1,
+          "avgPos": 1
+        },
+        {
+          "name": "Perth Digital Agency",
+          "n": 1,
+          "rec": 1,
+          "avgPos": 2
+        },
+        {
+          "name": "Halo Digital",
+          "n": 1,
+          "rec": 1,
+          "avgPos": 2
+        },
+        {
+          "name": "Ad Hoc Digital",
+          "n": 1,
+          "rec": 1,
+          "avgPos": 2
+        },
+        {
+          "name": "Kick Marketing",
+          "n": 1,
+          "rec": 1,
+          "avgPos": 2
+        }
+      ],
+      "lhd": {
+        "name": "Uprise Digital",
+        "n": 1,
+        "rec": 1,
+        "avgPos": 1
+      },
+      "byPlat": {
+        "gemini": {
+          "lhd": 1,
+          "n": 7,
+          "leader": "Megaphone Marketing",
+          "leaderN": 6
+        },
+        "claude": {
+          "lhd": 0,
+          "n": 7,
+          "leader": "Megaphone Marketing",
+          "leaderN": 6
+        },
+        "aimode": {
+          "lhd": 0,
+          "n": 7,
+          "leader": "Megaphone Marketing",
+          "leaderN": 3
+        }
+      },
+      "byPrompt": {
+        "general": {
+          "lhd": 0,
+          "n": 3,
+          "leader": "Megaphone Marketing",
+          "leaderN": 2
+        },
+        "geo": {
+          "lhd": 0,
+          "n": 3,
+          "leader": "Megaphone Marketing",
+          "leaderN": 2
+        },
+        "google": {
+          "lhd": 0,
+          "n": 3,
+          "leader": "Megaphone Marketing",
+          "leaderN": 2
+        },
+        "meta": {
+          "lhd": 1,
+          "n": 3,
+          "leader": "Megaphone Marketing",
+          "leaderN": 2
+        },
+        "b2b_scaling": {
+          "lhd": 0,
+          "n": 3,
+          "leader": "Megaphone Marketing",
+          "leaderN": 2
+        },
+        "cro": {
+          "lhd": 0,
+          "n": 3,
+          "leader": "Megaphone Marketing",
+          "leaderN": 3
+        },
+        "seo": {
+          "lhd": 0,
+          "n": 3,
+          "leader": "Megaphone Marketing",
+          "leaderN": 2
+        }
+      },
+      "matrix": {
+        "Megaphone Marketing": {
+          "gemini": 6,
+          "claude": 6,
+          "aimode": 3
+        },
+        "Sparro": {
+          "gemini": 6,
+          "claude": 6,
+          "aimode": 3
+        },
+        "Social Force™": {
+          "gemini": 0,
+          "claude": 0,
+          "aimode": 1
+        },
+        "Search Scope": {
+          "gemini": 0,
+          "claude": 0,
+          "aimode": 1
+        },
+        "Perth PPC & Google Ads Agency": {
+          "gemini": 0,
+          "claude": 0,
+          "aimode": 1
+        },
+        "Uprise Digital": {
+          "gemini": 1,
+          "claude": 0,
+          "aimode": 0
+        }
+      },
+      "cited": 0,
+      "topSources": [
+        [
+          "vertexaisearch.cloud.google.com",
+          7
+        ],
+        [
+          "agencies.semrush.com",
+          4
+        ],
+        [
+          "revenuebase.ai",
+          3
+        ],
+        [
+          "asthatechnology.com",
+          2
+        ],
+        [
+          "avenueperth.com",
+          2
+        ],
+        [
+          "krowdbase.com",
+          2
+        ],
+        [
+          "techbehemoths.com",
+          1
+        ],
+        [
+          "bluelinks.agency",
+          1
+        ],
+        [
+          "aerobusinesssolutions.com",
+          1
+        ],
+        [
+          "innovination.com",
+          1
+        ],
+        [
+          "okmg.com",
+          1
+        ],
+        [
+          "businessfirms.co",
+          1
+        ]
+      ]
+    },
+    "adelaide": {
+      "answers": 21,
+      "lhdMentions": 0,
+      "somv": 0,
+      "ci95": [
+        0,
+        15.5
+      ],
+      "wvi": 0,
+      "lhdRank": 12,
+      "firmsNamed": 11,
+      "totalMentions": 45,
+      "top": [
+        {
+          "name": "Megaphone Marketing",
+          "n": 17,
+          "rec": 17,
+          "avgPos": 1
+        },
+        {
+          "name": "Sparro",
+          "n": 17,
+          "rec": 17,
+          "avgPos": 2
+        },
+        {
+          "name": "Periscope Media",
+          "n": 2,
+          "rec": 2,
+          "avgPos": 1
+        },
+        {
+          "name": "Loudachris Digital Marketing - Google Ads & Local SEO Agency in Adelaide",
+          "n": 2,
+          "rec": 2,
+          "avgPos": 1.5
+        },
+        {
+          "name": "Yoghurt Digital",
+          "n": 1,
+          "rec": 1,
+          "avgPos": 1
+        },
+        {
+          "name": "Online Marketing Gurus",
+          "n": 1,
+          "rec": 1,
+          "avgPos": 2
+        },
+        {
+          "name": "Online Path Digital Marketing",
+          "n": 1,
+          "rec": 1,
+          "avgPos": 2
+        },
+        {
+          "name": "Advantage Digital Marketing",
+          "n": 1,
+          "rec": 1,
+          "avgPos": 2
+        },
+        {
+          "name": "Bold",
+          "n": 1,
+          "rec": 1,
+          "avgPos": 3
+        },
+        {
+          "name": "Digital Marketing Adelaide",
+          "n": 1,
+          "rec": 1,
+          "avgPos": 3
+        },
+        {
+          "name": "Bobo Digital",
+          "n": 1,
+          "rec": 1,
+          "avgPos": 3
+        }
+      ],
+      "lhd": {
+        "name": "Uprise Digital",
+        "n": 0,
+        "rec": 0,
+        "avgPos": 0
+      },
+      "byPlat": {
+        "gemini": {
+          "lhd": 0,
+          "n": 7,
+          "leader": "Megaphone Marketing",
+          "leaderN": 7
+        },
+        "claude": {
+          "lhd": 0,
+          "n": 7,
+          "leader": "Megaphone Marketing",
+          "leaderN": 6
+        },
+        "aimode": {
+          "lhd": 0,
+          "n": 7,
+          "leader": "Megaphone Marketing",
+          "leaderN": 4
+        }
+      },
+      "byPrompt": {
+        "general": {
+          "lhd": 0,
+          "n": 3,
+          "leader": "Megaphone Marketing",
+          "leaderN": 1
+        },
+        "geo": {
+          "lhd": 0,
+          "n": 3,
+          "leader": "Megaphone Marketing",
+          "leaderN": 2
+        },
+        "google": {
+          "lhd": 0,
+          "n": 3,
+          "leader": "Megaphone Marketing",
+          "leaderN": 3
+        },
+        "meta": {
+          "lhd": 0,
+          "n": 3,
+          "leader": "Megaphone Marketing",
+          "leaderN": 3
+        },
+        "b2b_scaling": {
+          "lhd": 0,
+          "n": 3,
+          "leader": "Megaphone Marketing",
+          "leaderN": 2
+        },
+        "cro": {
+          "lhd": 0,
+          "n": 3,
+          "leader": "Megaphone Marketing",
+          "leaderN": 3
+        },
+        "seo": {
+          "lhd": 0,
+          "n": 3,
+          "leader": "Megaphone Marketing",
+          "leaderN": 3
+        }
+      },
+      "matrix": {
+        "Megaphone Marketing": {
+          "gemini": 7,
+          "claude": 6,
+          "aimode": 4
+        },
+        "Sparro": {
+          "gemini": 7,
+          "claude": 6,
+          "aimode": 4
+        },
+        "Periscope Media": {
+          "gemini": 0,
+          "claude": 0,
+          "aimode": 2
+        },
+        "Loudachris Digital Marketing - Google Ads & Local SEO Agency in Adelaide": {
+          "gemini": 0,
+          "claude": 0,
+          "aimode": 2
+        },
+        "Yoghurt Digital": {
+          "gemini": 0,
+          "claude": 1,
+          "aimode": 0
+        },
+        "Online Marketing Gurus": {
+          "gemini": 0,
+          "claude": 1,
+          "aimode": 0
+        },
+        "Uprise Digital": {
+          "gemini": 0,
+          "claude": 0,
+          "aimode": 0
+        }
+      },
+      "cited": 0,
+      "topSources": [
+        [
+          "vertexaisearch.cloud.google.com",
+          7
+        ],
+        [
+          "revenuebase.ai",
+          2
+        ],
+        [
+          "goodfirms.co",
+          2
+        ],
+        [
+          "betteragencies.com.au",
+          1
+        ],
+        [
+          "businessfirms.co",
+          1
+        ],
+        [
+          "krowdbase.com",
+          1
+        ],
+        [
+          "aamax.co",
+          1
+        ],
+        [
+          "traffictail.com",
+          1
+        ],
+        [
+          "adelaideexaminer.com",
+          1
+        ],
+        [
+          "weframetech.com",
+          1
+        ],
+        [
+          "shirainfotech.com",
+          1
+        ],
+        [
+          "seotakeoff.com",
+          1
+        ]
+      ]
+    },
+    "goldcoast": {
+      "answers": 21,
+      "lhdMentions": 0,
+      "somv": 0,
+      "ci95": [
+        0,
+        15.5
+      ],
+      "wvi": 0,
+      "lhdRank": 15,
+      "firmsNamed": 14,
+      "totalMentions": 42,
+      "top": [
+        {
+          "name": "Megaphone Marketing",
+          "n": 15,
+          "rec": 15,
+          "avgPos": 1
+        },
+        {
+          "name": "Sparro",
+          "n": 15,
+          "rec": 15,
+          "avgPos": 2
+        },
+        {
+          "name": "Yoghurt Digital",
+          "n": 1,
+          "rec": 1,
+          "avgPos": 1
+        },
+        {
+          "name": "Searchical SEO Gold Coast",
+          "n": 1,
+          "rec": 1,
+          "avgPos": 1
+        },
+        {
+          "name": "farsiight",
+          "n": 1,
+          "rec": 1,
+          "avgPos": 1
+        },
+        {
+          "name": "The Social Cue",
+          "n": 1,
+          "rec": 1,
+          "avgPos": 1
+        },
+        {
+          "name": "Reform Digital",
+          "n": 1,
+          "rec": 1,
+          "avgPos": 1
+        },
+        {
+          "name": "King Kong",
+          "n": 1,
+          "rec": 1,
+          "avgPos": 1
+        },
+        {
+          "name": "Clearwater Agency",
+          "n": 1,
+          "rec": 1,
+          "avgPos": 2
+        },
+        {
+          "name": "Search Marketing Specialists",
+          "n": 1,
+          "rec": 1,
+          "avgPos": 2
+        },
+        {
+          "name": "Wexpert",
+          "n": 1,
+          "rec": 1,
+          "avgPos": 2
+        },
+        {
+          "name": "Impressive",
+          "n": 1,
+          "rec": 1,
+          "avgPos": 3
+        }
+      ],
+      "lhd": {
+        "name": "Uprise Digital",
+        "n": 0,
+        "rec": 0,
+        "avgPos": 0
+      },
+      "byPlat": {
+        "gemini": {
+          "lhd": 0,
+          "n": 7,
+          "leader": "Megaphone Marketing",
+          "leaderN": 5
+        },
+        "claude": {
+          "lhd": 0,
+          "n": 7,
+          "leader": "Megaphone Marketing",
+          "leaderN": 5
+        },
+        "aimode": {
+          "lhd": 0,
+          "n": 7,
+          "leader": "Megaphone Marketing",
+          "leaderN": 5
+        }
+      },
+      "byPrompt": {
+        "general": {
+          "lhd": 0,
+          "n": 3,
+          "leader": "Megaphone Marketing",
+          "leaderN": 2
+        },
+        "geo": {
+          "lhd": 0,
+          "n": 3,
+          "leader": "Megaphone Marketing",
+          "leaderN": 2
+        },
+        "google": {
+          "lhd": 0,
+          "n": 3,
+          "leader": "Megaphone Marketing",
+          "leaderN": 3
+        },
+        "meta": {
+          "lhd": 0,
+          "n": 3,
+          "leader": "Megaphone Marketing",
+          "leaderN": 3
+        },
+        "b2b_scaling": {
+          "lhd": 0,
+          "n": 3,
+          "leader": "farsiight",
+          "leaderN": 1
+        },
+        "cro": {
+          "lhd": 0,
+          "n": 3,
+          "leader": "Megaphone Marketing",
+          "leaderN": 2
+        },
+        "seo": {
+          "lhd": 0,
+          "n": 3,
+          "leader": "Megaphone Marketing",
+          "leaderN": 2
+        }
+      },
+      "matrix": {
+        "Megaphone Marketing": {
+          "gemini": 5,
+          "claude": 5,
+          "aimode": 5
+        },
+        "Sparro": {
+          "gemini": 5,
+          "claude": 5,
+          "aimode": 5
+        },
+        "Yoghurt Digital": {
+          "gemini": 0,
+          "claude": 1,
+          "aimode": 0
+        },
+        "Searchical SEO Gold Coast": {
+          "gemini": 0,
+          "claude": 0,
+          "aimode": 1
+        },
+        "farsiight": {
+          "gemini": 1,
+          "claude": 0,
+          "aimode": 0
+        },
+        "The Social Cue": {
+          "gemini": 0,
+          "claude": 0,
+          "aimode": 1
+        },
+        "Uprise Digital": {
+          "gemini": 0,
+          "claude": 0,
+          "aimode": 0
+        }
+      },
+      "cited": 0,
+      "topSources": [
+        [
+          "vertexaisearch.cloud.google.com",
+          7
+        ],
+        [
+          "revenuebase.ai",
+          5
+        ],
+        [
+          "krowdbase.com",
+          5
+        ],
+        [
+          "agencies.semrush.com",
+          2
+        ],
+        [
+          "elinix.ai",
+          1
+        ],
+        [
+          "weframetech.com",
+          1
+        ],
+        [
+          "1stpage.com.au",
+          1
+        ],
+        [
+          "searchmaxxed.com",
+          1
+        ],
+        [
+          "marginmedia.com.au",
+          1
+        ],
+        [
+          "10seos.com",
+          1
+        ],
+        [
+          "goldcoast.webocreators.com",
+          1
+        ],
+        [
+          "wisernotify.com",
+          1
+        ]
+      ]
+    },
+    "canberra": {
+      "answers": 21,
+      "lhdMentions": 0,
+      "somv": 0,
+      "ci95": [
+        0,
+        15.5
+      ],
+      "wvi": 0,
+      "lhdRank": 12,
+      "firmsNamed": 11,
+      "totalMentions": 44,
+      "top": [
+        {
+          "name": "Megaphone Marketing",
+          "n": 16,
+          "rec": 16,
+          "avgPos": 1
+        },
+        {
+          "name": "Sparro",
+          "n": 15,
+          "rec": 15,
+          "avgPos": 2
+        },
+        {
+          "name": "Planet Media",
+          "n": 3,
+          "rec": 3,
+          "avgPos": 2.7
+        },
+        {
+          "name": "one x - Marketing Agency Canberra",
+          "n": 2,
+          "rec": 2,
+          "avgPos": 1.5
+        },
+        {
+          "name": "SEO Canberra",
+          "n": 2,
+          "rec": 2,
+          "avgPos": 2
+        },
+        {
+          "name": "Small Business Digital",
+          "n": 1,
+          "rec": 1,
+          "avgPos": 1
+        },
+        {
+          "name": "SEO Company Canberra",
+          "n": 1,
+          "rec": 1,
+          "avgPos": 1
+        },
+        {
+          "name": "Online Marketing Gurus",
+          "n": 1,
+          "rec": 1,
+          "avgPos": 1
+        },
+        {
+          "name": "JSLmedia",
+          "n": 1,
+          "rec": 1,
+          "avgPos": 1
+        },
+        {
+          "name": "DigiSiam",
+          "n": 1,
+          "rec": 1,
+          "avgPos": 3
+        },
+        {
+          "name": "Canberra PPC & Google Ads Agency",
+          "n": 1,
+          "rec": 1,
+          "avgPos": 3
+        }
+      ],
+      "lhd": {
+        "name": "Uprise Digital",
+        "n": 0,
+        "rec": 0,
+        "avgPos": 0
+      },
+      "byPlat": {
+        "gemini": {
+          "lhd": 0,
+          "n": 7,
+          "leader": "Megaphone Marketing",
+          "leaderN": 6
+        },
+        "claude": {
+          "lhd": 0,
+          "n": 7,
+          "leader": "Megaphone Marketing",
+          "leaderN": 7
+        },
+        "aimode": {
+          "lhd": 0,
+          "n": 7,
+          "leader": "Megaphone Marketing",
+          "leaderN": 3
+        }
+      },
+      "byPrompt": {
+        "general": {
+          "lhd": 0,
+          "n": 3,
+          "leader": "Megaphone Marketing",
+          "leaderN": 2
+        },
+        "geo": {
+          "lhd": 0,
+          "n": 3,
+          "leader": "Megaphone Marketing",
+          "leaderN": 2
+        },
+        "google": {
+          "lhd": 0,
+          "n": 3,
+          "leader": "Megaphone Marketing",
+          "leaderN": 2
+        },
+        "meta": {
+          "lhd": 0,
+          "n": 3,
+          "leader": "Megaphone Marketing",
+          "leaderN": 3
+        },
+        "b2b_scaling": {
+          "lhd": 0,
+          "n": 3,
+          "leader": "Megaphone Marketing",
+          "leaderN": 2
+        },
+        "cro": {
+          "lhd": 0,
+          "n": 3,
+          "leader": "Megaphone Marketing",
+          "leaderN": 3
+        },
+        "seo": {
+          "lhd": 0,
+          "n": 3,
+          "leader": "Megaphone Marketing",
+          "leaderN": 2
+        }
+      },
+      "matrix": {
+        "Megaphone Marketing": {
+          "gemini": 6,
+          "claude": 7,
+          "aimode": 3
+        },
+        "Sparro": {
+          "gemini": 5,
+          "claude": 7,
+          "aimode": 3
+        },
+        "Planet Media": {
+          "gemini": 0,
+          "claude": 0,
+          "aimode": 3
+        },
+        "one x - Marketing Agency Canberra": {
+          "gemini": 0,
+          "claude": 0,
+          "aimode": 2
+        },
+        "SEO Canberra": {
+          "gemini": 0,
+          "claude": 0,
+          "aimode": 2
+        },
+        "Small Business Digital": {
+          "gemini": 0,
+          "claude": 0,
+          "aimode": 1
+        },
+        "Uprise Digital": {
+          "gemini": 0,
+          "claude": 0,
+          "aimode": 0
+        }
+      },
+      "cited": 0,
+      "topSources": [
+        [
+          "vertexaisearch.cloud.google.com",
+          7
+        ],
+        [
+          "krowdbase.com",
+          4
+        ],
+        [
+          "betteragencies.com.au",
+          2
+        ],
+        [
+          "sortlist.com",
+          2
+        ],
+        [
+          "goodfirms.co",
+          2
+        ],
+        [
+          "themanifest.com",
+          2
+        ],
+        [
+          "agencies.semrush.com",
+          2
+        ],
+        [
+          "aamax.co",
+          1
+        ],
+        [
+          "quinnmarketing.com.au",
+          1
+        ],
+        [
+          "arihantwebtech.com",
+          1
+        ],
+        [
+          "searchmaxxed.com",
+          1
+        ],
+        [
+          "growthpartnersgpx.com",
+          1
+        ]
+      ]
+    },
+    "national": {
+      "answers": 21,
+      "lhdMentions": 0,
+      "somv": 0,
+      "ci95": [
+        0,
+        15.5
+      ],
+      "wvi": 0,
+      "lhdRank": 11,
+      "firmsNamed": 10,
+      "totalMentions": 43,
+      "top": [
+        {
+          "name": "Megaphone Marketing",
+          "n": 9,
+          "rec": 9,
+          "avgPos": 1
+        },
+        {
+          "name": "Sparro",
+          "n": 9,
+          "rec": 9,
+          "avgPos": 2
+        },
+        {
+          "name": "Impressive",
+          "n": 7,
+          "rec": 7,
+          "avgPos": 1.9
+        },
+        {
+          "name": "Rocket Agency",
+          "n": 4,
+          "rec": 4,
+          "avgPos": 1
+        },
+        {
+          "name": "Clearwater Agency",
+          "n": 4,
+          "rec": 4,
+          "avgPos": 1.3
+        },
+        {
+          "name": "King Kong",
+          "n": 4,
+          "rec": 4,
+          "avgPos": 2.5
+        },
+        {
+          "name": "farsiight",
+          "n": 3,
+          "rec": 3,
+          "avgPos": 1.7
+        },
+        {
+          "name": "Yoghurt Digital",
+          "n": 1,
+          "rec": 1,
+          "avgPos": 1
+        },
+        {
+          "name": "First Page",
+          "n": 1,
+          "rec": 1,
+          "avgPos": 2
+        },
+        {
+          "name": "Soup Agency",
+          "n": 1,
+          "rec": 1,
+          "avgPos": 3
+        }
+      ],
+      "lhd": {
+        "name": "Uprise Digital",
+        "n": 0,
+        "rec": 0,
+        "avgPos": 0
+      },
+      "byPlat": {
+        "gemini": {
+          "lhd": 0,
+          "n": 7,
+          "leader": "Rocket Agency",
+          "leaderN": 4
+        },
+        "claude": {
+          "lhd": 0,
+          "n": 7,
+          "leader": "Impressive",
+          "leaderN": 5
+        },
+        "aimode": {
+          "lhd": 0,
+          "n": 7,
+          "leader": "Megaphone Marketing",
+          "leaderN": 7
+        }
+      },
+      "byPrompt": {
+        "general": {
+          "lhd": 0,
+          "n": 3,
+          "leader": "Impressive",
+          "leaderN": 2
+        },
+        "geo": {
+          "lhd": 0,
+          "n": 3,
+          "leader": "Megaphone Marketing",
+          "leaderN": 2
+        },
+        "google": {
+          "lhd": 0,
+          "n": 3,
+          "leader": "Rocket Agency",
+          "leaderN": 1
+        },
+        "meta": {
+          "lhd": 0,
+          "n": 3,
+          "leader": "farsiight",
+          "leaderN": 1
+        },
+        "b2b_scaling": {
+          "lhd": 0,
+          "n": 3,
+          "leader": "Rocket Agency",
+          "leaderN": 1
+        },
+        "cro": {
+          "lhd": 0,
+          "n": 3,
+          "leader": "Rocket Agency",
+          "leaderN": 1
+        },
+        "seo": {
+          "lhd": 0,
+          "n": 3,
+          "leader": "Megaphone Marketing",
+          "leaderN": 2
+        }
+      },
+      "matrix": {
+        "Megaphone Marketing": {
+          "gemini": 2,
+          "claude": 0,
+          "aimode": 7
+        },
+        "Sparro": {
+          "gemini": 2,
+          "claude": 0,
+          "aimode": 7
+        },
+        "Impressive": {
+          "gemini": 2,
+          "claude": 5,
+          "aimode": 0
+        },
+        "Rocket Agency": {
+          "gemini": 4,
+          "claude": 0,
+          "aimode": 0
+        },
+        "Clearwater Agency": {
+          "gemini": 0,
+          "claude": 4,
+          "aimode": 0
+        },
+        "King Kong": {
+          "gemini": 3,
+          "claude": 1,
+          "aimode": 0
+        },
+        "Uprise Digital": {
+          "gemini": 0,
+          "claude": 0,
+          "aimode": 0
+        }
+      },
+      "cited": 0,
+      "topSources": [
+        [
+          "vertexaisearch.cloud.google.com",
+          7
+        ],
+        [
+          "agencies.semrush.com",
+          3
+        ],
+        [
+          "revenuebase.ai",
+          2
+        ],
+        [
+          "j2group.com.au",
+          1
+        ],
+        [
+          "salesforge.ai",
+          1
+        ],
+        [
+          "soupagency.com.au",
+          1
+        ],
+        [
+          "leadagency.com.au",
+          1
+        ],
+        [
+          "hays.com.au",
+          1
+        ],
+        [
+          "linkedin.com",
+          1
+        ],
+        [
+          "sonder-digital.com",
+          1
+        ],
+        [
+          "weframetech.com",
+          1
+        ],
+        [
+          "searchmaxxed.com",
+          1
+        ]
+      ]
+    }
+  },
+  "national": {
+    "answers": 168,
+    "top": [
+      {
+        "name": "Megaphone Marketing",
+        "n": 101,
+        "rec": 101,
+        "avgPos": 1
+      },
+      {
+        "name": "Sparro",
+        "n": 100,
+        "rec": 100,
+        "avgPos": 2
+      },
+      {
+        "name": "Impressive",
+        "n": 28,
+        "rec": 28,
+        "avgPos": 1.7
+      },
+      {
+        "name": "Clearwater Agency",
+        "n": 13,
+        "rec": 13,
+        "avgPos": 1.2
+      },
+      {
+        "name": "farsiight",
+        "n": 11,
+        "rec": 11,
+        "avgPos": 1.6
+      },
+      {
+        "name": "Rocket Agency",
+        "n": 10,
+        "rec": 10,
+        "avgPos": 1.1
+      },
+      {
+        "name": "King Kong",
+        "n": 6,
+        "rec": 6,
+        "avgPos": 2
+      },
+      {
+        "name": "Online Marketing Gurus",
+        "n": 5,
+        "rec": 5,
+        "avgPos": 2.6
+      },
+      {
+        "name": "Yoghurt Digital",
+        "n": 4,
+        "rec": 4,
+        "avgPos": 1.3
+      },
+      {
+        "name": "BAMBRICK®️ - Brisbane SEO & Digital Marketing Agency",
+        "n": 4,
+        "rec": 4,
+        "avgPos": 2.3
+      },
+      {
+        "name": "Planet Media",
+        "n": 3,
+        "rec": 3,
+        "avgPos": 2.7
+      },
+      {
+        "name": "R6 Digital®️ - Brisbane Marketing & Creative Agency",
+        "n": 2,
+        "rec": 2,
+        "avgPos": 1
+      },
+      {
+        "name": "Periscope Media",
+        "n": 2,
+        "rec": 2,
+        "avgPos": 1
+      },
+      {
+        "name": "Loudachris Digital Marketing - Google Ads & Local SEO Agency in Adelaide",
+        "n": 2,
+        "rec": 2,
+        "avgPos": 1.5
+      },
+      {
+        "name": "one x - Marketing Agency Canberra",
+        "n": 2,
+        "rec": 2,
+        "avgPos": 1.5
+      }
+    ],
+    "lhdMentions": 2,
+    "somv": 1.2,
+    "ci95": [
+      0.3,
+      4.2
+    ],
+    "wvi": 0.0089,
+    "cited": 0,
+    "byPlat": {
+      "gemini": {
+        "lhd": 2,
+        "n": 56,
+        "somv": 3.6,
+        "top": [
+          {
+            "name": "Megaphone Marketing",
+            "n": 34,
+            "rec": 34,
+            "avgPos": 1.1
+          },
+          {
+            "name": "Sparro",
+            "n": 34,
+            "rec": 34,
+            "avgPos": 2
+          },
+          {
+            "name": "farsiight",
+            "n": 11,
+            "rec": 11,
+            "avgPos": 1.6
+          },
+          {
+            "name": "Rocket Agency",
+            "n": 9,
+            "rec": 9,
+            "avgPos": 1.1
+          },
+          {
+            "name": "Impressive",
+            "n": 9,
+            "rec": 9,
+            "avgPos": 1.4
+          }
+        ]
+      },
+      "claude": {
+        "lhd": 0,
+        "n": 56,
+        "somv": 0,
+        "top": [
+          {
+            "name": "Megaphone Marketing",
+            "n": 33,
+            "rec": 33,
+            "avgPos": 1.1
+          },
+          {
+            "name": "Sparro",
+            "n": 32,
+            "rec": 32,
+            "avgPos": 2
+          },
+          {
+            "name": "Impressive",
+            "n": 17,
+            "rec": 17,
+            "avgPos": 1.6
+          },
+          {
+            "name": "Clearwater Agency",
+            "n": 13,
+            "rec": 13,
+            "avgPos": 1.2
+          },
+          {
+            "name": "Yoghurt Digital",
+            "n": 4,
+            "rec": 4,
+            "avgPos": 1.3
+          }
+        ]
+      },
+      "aimode": {
+        "lhd": 0,
+        "n": 56,
+        "somv": 0,
+        "top": [
+          {
+            "name": "Megaphone Marketing",
+            "n": 34,
+            "rec": 34,
+            "avgPos": 1
+          },
+          {
+            "name": "Sparro",
+            "n": 34,
+            "rec": 34,
+            "avgPos": 2
+          },
+          {
+            "name": "BAMBRICK®️ - Brisbane SEO & Digital Marketing Agency",
+            "n": 4,
+            "rec": 4,
+            "avgPos": 2.3
+          },
+          {
+            "name": "Planet Media",
+            "n": 3,
+            "rec": 3,
+            "avgPos": 2.7
+          },
+          {
+            "name": "R6 Digital®️ - Brisbane Marketing & Creative Agency",
+            "n": 2,
+            "rec": 2,
+            "avgPos": 1
+          }
+        ]
+      }
+    },
+    "byPrompt": {
+      "general": {
+        "lhd": 0,
+        "n": 24,
+        "somv": 0,
+        "top": [
+          {
+            "name": "Megaphone Marketing",
+            "n": 10,
+            "rec": 10,
+            "avgPos": 1.2
+          },
+          {
+            "name": "Sparro",
+            "n": 10,
+            "rec": 10,
+            "avgPos": 2.1
+          },
+          {
+            "name": "Impressive",
+            "n": 8,
+            "rec": 8,
+            "avgPos": 2.1
+          },
+          {
+            "name": "Clearwater Agency",
+            "n": 4,
+            "rec": 4,
+            "avgPos": 1.5
+          },
+          {
+            "name": "Yoghurt Digital",
+            "n": 3,
+            "rec": 3,
+            "avgPos": 1.3
+          }
+        ]
+      },
+      "geo": {
+        "lhd": 0,
+        "n": 24,
+        "somv": 0,
+        "top": [
+          {
+            "name": "Megaphone Marketing",
+            "n": 18,
+            "rec": 18,
+            "avgPos": 1
+          },
+          {
+            "name": "Sparro",
+            "n": 18,
+            "rec": 18,
+            "avgPos": 2
+          },
+          {
+            "name": "Resurge Digital",
+            "n": 1,
+            "rec": 1,
+            "avgPos": 1
+          },
+          {
+            "name": "Search Scope",
+            "n": 1,
+            "rec": 1,
+            "avgPos": 1
+          },
+          {
+            "name": "Loudachris Digital Marketing - Google Ads & Local SEO Agency in Adelaide",
+            "n": 1,
+            "rec": 1,
+            "avgPos": 1
+          }
+        ]
+      },
+      "google": {
+        "lhd": 0,
+        "n": 24,
+        "somv": 0,
+        "top": [
+          {
+            "name": "Sparro",
+            "n": 16,
+            "rec": 16,
+            "avgPos": 2
+          },
+          {
+            "name": "Megaphone Marketing",
+            "n": 15,
+            "rec": 15,
+            "avgPos": 1
+          },
+          {
+            "name": "Impressive",
+            "n": 4,
+            "rec": 4,
+            "avgPos": 2.3
+          },
+          {
+            "name": "Clearwater Agency",
+            "n": 3,
+            "rec": 3,
+            "avgPos": 1
+          },
+          {
+            "name": "Rocket Agency",
+            "n": 2,
+            "rec": 2,
+            "avgPos": 1
+          }
+        ]
+      },
+      "meta": {
+        "lhd": 2,
+        "n": 24,
+        "somv": 8.3,
+        "top": [
+          {
+            "name": "Megaphone Marketing",
+            "n": 18,
+            "rec": 18,
+            "avgPos": 1.1
+          },
+          {
+            "name": "Sparro",
+            "n": 16,
+            "rec": 16,
+            "avgPos": 2
+          },
+          {
+            "name": "farsiight",
+            "n": 4,
+            "rec": 4,
+            "avgPos": 1.5
+          },
+          {
+            "name": "Impressive",
+            "n": 2,
+            "rec": 2,
+            "avgPos": 1
+          },
+          {
+            "name": "Uprise Digital",
+            "n": 2,
+            "rec": 2,
+            "avgPos": 2
+          }
+        ]
+      },
+      "b2b_scaling": {
+        "lhd": 0,
+        "n": 24,
+        "somv": 0,
+        "top": [
+          {
+            "name": "Megaphone Marketing",
+            "n": 11,
+            "rec": 11,
+            "avgPos": 1
+          },
+          {
+            "name": "Sparro",
+            "n": 11,
+            "rec": 11,
+            "avgPos": 2
+          },
+          {
+            "name": "farsiight",
+            "n": 3,
+            "rec": 3,
+            "avgPos": 1.7
+          },
+          {
+            "name": "Impressive",
+            "n": 2,
+            "rec": 2,
+            "avgPos": 1
+          },
+          {
+            "name": "Rocket Agency",
+            "n": 2,
+            "rec": 2,
+            "avgPos": 1
+          }
+        ]
+      },
+      "cro": {
+        "lhd": 0,
+        "n": 24,
+        "somv": 0,
+        "top": [
+          {
+            "name": "Megaphone Marketing",
+            "n": 16,
+            "rec": 16,
+            "avgPos": 1
+          },
+          {
+            "name": "Sparro",
+            "n": 16,
+            "rec": 16,
+            "avgPos": 2
+          },
+          {
+            "name": "Impressive",
+            "n": 5,
+            "rec": 5,
+            "avgPos": 1.2
+          },
+          {
+            "name": "Rocket Agency",
+            "n": 2,
+            "rec": 2,
+            "avgPos": 1
+          },
+          {
+            "name": "King Kong",
+            "n": 2,
+            "rec": 2,
+            "avgPos": 1.5
+          }
+        ]
+      },
+      "seo": {
+        "lhd": 0,
+        "n": 24,
+        "somv": 0,
+        "top": [
+          {
+            "name": "Megaphone Marketing",
+            "n": 13,
+            "rec": 13,
+            "avgPos": 1
+          },
+          {
+            "name": "Sparro",
+            "n": 13,
+            "rec": 13,
+            "avgPos": 2
+          },
+          {
+            "name": "Impressive",
+            "n": 6,
+            "rec": 6,
+            "avgPos": 1.8
+          },
+          {
+            "name": "Clearwater Agency",
+            "n": 4,
+            "rec": 4,
+            "avgPos": 1
+          },
+          {
+            "name": "SIXGUN - SEO & Digital Marketing Agency",
+            "n": 1,
+            "rec": 1,
+            "avgPos": 1
+          }
+        ]
+      }
+    }
+  },
+  "platforms": [
+    "gemini",
+    "claude",
+    "aimode"
+  ],
+  "prompts": [
+    "general",
+    "geo",
+    "google",
+    "meta",
+    "b2b_scaling",
+    "cro",
+    "seo"
+  ],
+  "totalSample": 168
+}

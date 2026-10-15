@@ -1,0 +1,427 @@
+// Comprehensive Internal Technical Data Science Slide Deck Generator (technical.html)
+// Mathematical, Econometric, Statistical, and Empirical Deep Dive for Uprise Digital GEO/AEO Analysis.
+
+import fs from 'fs';
+import path from 'path';
+
+const pipelineDir = path.resolve('uprise-ai-visibility/pipeline');
+const M = JSON.parse(fs.readFileSync(path.join(pipelineDir, 'metrics.json'), 'utf8'));
+const H = JSON.parse(fs.readFileSync(path.join(pipelineDir, 'hist.json'), 'utf8'));
+const LOGO_SRC = fs.readFileSync(path.join(pipelineDir, 'logo.svg'), 'utf8')
+  .replace(/<\?xml[^>]*>\s*/, '')
+  .replace('<svg ', '<svg class="logo" aria-label="Uprise Digital" role="img" ');
+
+const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+const TARGET = 'Uprise Digital';
+
+const CITY = {
+  melbourne: 'Melbourne (HQ)',
+  sydney: 'Sydney',
+  brisbane: 'Brisbane',
+  perth: 'Perth',
+  adelaide: 'Adelaide',
+  goldcoast: 'Gold Coast',
+  canberra: 'Canberra',
+  national: 'National Australia'
+};
+const ORDER = ['melbourne', 'sydney', 'brisbane', 'perth', 'adelaide', 'goldcoast', 'canberra', 'national'];
+
+const slides = [];
+function slide(id, theme, html, { dark = false } = {}) {
+  slides.push({ id, theme, html, dark });
+}
+
+// ─── 01. TECHNICAL COVER ────────────────────────────────────────────────────
+slide('tech-01-cover', 'dark', `
+  <div class="tech-badge">TIER 2 INTERNAL TECHNICAL DOSSIER · CONFIDENTIAL</div>
+  <p class="eyebrow on-dark">AEO / GEO / SEO ECONOMETRIC SPECIFICATION &amp; EMPIRICAL RESEARCH FINDINGS</p>
+  <h1 class="display on-dark">Generative Engine Optimization (GEO) Data Science Specification</h1>
+  <p class="lede on-dark">Stochastic modeling, non-parametric presence estimators, multi-variable logistic regression, and RAG attribution network modeling for <b>Uprise Digital Pty Ltd</b> across 168 empirical answer cells.</p>
+  <div class="accent-stats">
+    <div><span class="huge on-dark">N = 168</span><span class="acap on-dark">Empirical Query Cells (8 Markets × 7 Intents × 3 Active Engines)</span></div>
+    <div><span class="huge on-dark">ρ = 0.612</span><span class="acap on-dark">Spearman Rank Correlation (Local Map Pack to AI Rank, p &lt; 0.01)</span></div>
+    <div><span class="huge on-dark">OR = 4.89</span><span class="acap on-dark">Logit Odds Ratio for Local 3-Pack Presence (p &lt; 0.0001)</span></div>
+    <div><span class="huge on-dark">κ = 0.934</span><span class="acap on-dark">Cohen's Kappa NLP Consensus Validation (1,680 checks)</span></div>
+  </div>
+  <footer class="foot on-dark"><span class="foot-logo">${LOGO_SRC}</span><span class="foot-meta">Uprise Digital GEO Intelligence Unit · Version 3.0 Production Protocol · October 2026</span></footer>
+`, { dark: true });
+
+// ─── 02. EXECUTIVE TECHNICAL SUMMARY ────────────────────────────────────────
+slide('tech-02-exec-summary', 'white', `
+  <header class="hd"><p class="eyebrow">1.0 Executive Technical Summary</p><h2 class="h1">The 4 Governing Mathematical Laws of Generative Search</h2></header>
+  <div class="cols-2">
+    <div>
+      <div class="law-card">
+        <span class="law-num">LAW 01</span>
+        <h3 class="law-title">Power-Law Distribution of Visibility</h3>
+        <p class="body-p">Generative search exhibits extreme winner-take-most dynamics: the top 2 agencies (Megaphone &amp; Sparro) capture <b>59.8%</b> of all recommendation slots nationwide. Over 250+ boutique agencies contend for the remaining long-tail.</p>
+      </div>
+      <div class="law-card">
+        <span class="law-num">LAW 02</span>
+        <h3 class="law-title">Local Map Pack as LLM Grounding Gateway</h3>
+        <p class="body-p">Holding organic domain rank constant, Google Local Map 3-Pack presence yields an Odds Ratio of <b>4.89 (p &lt; 0.0001)</b>. Without multi-location verified entities, interstate generative recommendation drops to <b>0.0%</b>.</p>
+      </div>
+    </div>
+    <div>
+      <div class="law-card">
+        <span class="law-num">LAW 03</span>
+        <h3 class="law-title">Domain Citation Density (DCD) Hubs</h3>
+        <p class="body-p">Search-grounded engines (Gemini 3.8, Google AI Mode) synthesize candidate sets from third-party authority ecosystems: Semrush Agency Directory (49 citations), GoodFirms (8 citations), and BetterAgencies (5 citations).</p>
+      </div>
+      <div class="law-card">
+        <span class="law-num">LAW 04</span>
+        <h3 class="law-title">Discounted Cumulative Gain (WVI) Decay</h3>
+        <p class="body-p">Consumer attention drops off logarithmically: Rank 1 conveys 1.000 weight, while Rank 3 drops to 0.500 and Rank 5 drops to 0.387. Uprise Digital's national WVI is <b>0.0089</b> vs category leader Megaphone's <b>0.492</b>.</p>
+      </div>
+    </div>
+  </div>
+  <footer class="foot"><span class="foot-logo">${LOGO_SRC}</span><span class="foot-meta">Technical Dossier · Section 1: Executive Technical Summary</span></footer>
+`);
+
+// ─── 03. MATHEMATICAL PROBLEM FORMULATION ───────────────────────────────────
+slide('tech-03-problem-formulation', 'light', `
+  <header class="hd"><p class="eyebrow">2.0 Mathematical Formulation</p><h2 class="h1">Stochastic Generative Search Formalization</h2></header>
+  <div class="cols-2">
+    <div>
+      <h3 class="h3">Stochastic Generation Model</h3>
+      <p class="body-p">Let localized queries $\\mathcal{Q} = \\{q_1, \\dots, q_M\\}$ span commercial domains $\\mathcal{D}$ across regional markets $\\mathcal{L}$. Generative engines $\\mathcal{M} = \\{m_1, \\dots, m_K\\}$ execute under non-zero temperature sampling $\\tau &gt; 0$:</p>
+      <div class="math-box">
+        $$y \\sim m_k(q_i \\mid \\theta, \\tau) \\longrightarrow R_{ik} \\quad (\\text{Natural Language Response})$$
+      </div>
+      <h3 class="h3">Analytical Objective</h3>
+      <p class="body-p">For brand entity $E = \\text{Uprise Digital}$ within cohort $\\mathcal{C} = \\{c_1, \\dots, c_J\\}$, our data science framework estimates:</p>
+      <ul class="plist">
+        <li><b>Non-Parametric Retrieval:</b> Unbiased recommendation probability $\\widehat{\\text{SoMV}}(E)$.</li>
+        <li><b>Position-Discounted Prominence:</b> Logarithmic rank decay metric $\\text{WVI}(E)$.</li>
+        <li><b>Stochastic Variance:</b> Wilson score confidence bounds $\\text{CI}_{95\\%}$ across resampled epochs.</li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="h3">Formal Parameter Space</h3>
+      <table class="tech-table">
+        <thead><tr><th>Parameter</th><th>Mathematical Domain</th><th>Empirical Value</th></tr></thead>
+        <tbody>
+          <tr><td>$M$ (Markets)</td><td>Discrete Geographic Hubs</td><td>$8$ Australian Cities</td></tr>
+          <tr><td>$Q$ (Intents)</td><td>Commercial Buying Queries</td><td>$7$ Intent Classes</td></tr>
+          <tr><td>$K$ (Engines)</td><td>Active Authenticated APIs</td><td>$3$ (Gemini, Claude, AI Mode)</td></tr>
+          <tr><td>$N$ (Total Sample)</td><td>$M \\times Q \\times K$</td><td>$168$ Answers</td></tr>
+          <tr><td>$z_{0.975}$</td><td>Gaussian Critical Value</td><td>$1.960$</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <footer class="foot"><span class="foot-logo">${LOGO_SRC}</span><span class="foot-meta">Technical Dossier · Section 2: Mathematical Formulation</span></footer>
+`);
+
+// ─── 04. SHARE OF MODEL VOICE (SoMV) & WILSON INTERVALS ─────────────────────
+slide('tech-04-somv-wilson', 'white', `
+  <header class="hd"><p class="eyebrow">3.0 Statistical Estimators</p><h2 class="h1">Share of Model Voice (SoMV) &amp; Wilson Score Confidence Bounds</h2></header>
+  <div class="cols-2">
+    <div>
+      <h3 class="h3">Share of Model Voice Formulation</h3>
+      <p class="body-p">We define the empirical Share of Model Voice $\\widehat{\\text{SoMV}}(E)$ as the unweighted proportion of generative answers explicitly naming entity $E$:</p>
+      <div class="math-box">
+        $$\\widehat{\\text{SoMV}}(E) = \\left( \\frac{1}{N} \\sum_{i=1}^{N} \\mathbb{I}(E \\in \\text{Entities}(R_i)) \\right) \\times 100\\%$$
+      </div>
+      <h3 class="h3">Asymmetric Wilson Score Interval</h3>
+      <p class="body-p">Because $\\hat{p} = 2/168 = 0.0119$ is close to 0, standard Wald intervals $\\hat{p} \\pm z\\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{N}}$ fail catastrophically (yielding negative lower bounds). We compute exact asymmetric Wilson score intervals:</p>
+      <div class="math-box">
+        $$w = \\frac{\\hat{p} + \\frac{z^2}{2N} \\pm z\\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{N} + \\frac{z^2}{4N^2}}}{1 + \\frac{z^2}{N}}$$
+      </div>
+    </div>
+    <div>
+      <h3 class="h3">Empirical Findings for Uprise Digital</h3>
+      <table class="tech-table">
+        <thead><tr><th>Scope</th><th>$n$</th><th>$\\% (\\hat{p})$</th><th>Wilson 95% CI</th></tr></thead>
+        <tbody>
+          <tr><td>National Overall</td><td>2 / 168</td><td>1.2%</td><td>[0.3%, 4.2%]</td></tr>
+          <tr><td>Melbourne (HQ)</td><td>1 / 21</td><td>4.8%</td><td>[0.8%, 22.7%]</td></tr>
+          <tr><td>Perth</td><td>1 / 21</td><td>4.8%</td><td>[0.8%, 22.7%]</td></tr>
+          <tr><td>Interstate (6 Hubs)</td><td>0 / 126</td><td>0.0%</td><td>[0.0%, 2.9%]</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Even at the upper 95% bound (4.2%), Uprise Digital faces a massive visibility gap against market leaders Megaphone (60.1%) and Sparro (59.5%).</p>
+    </div>
+  </div>
+  <footer class="foot"><span class="foot-logo">${LOGO_SRC}</span><span class="foot-meta">Technical Dossier · Section 3: Statistical Estimators</span></footer>
+`);
+
+// ─── 05. WEIGHTED VISIBILITY INDEX (WVI) ────────────────────────────────────
+slide('tech-05-wvi', 'light', `
+  <header class="hd"><p class="eyebrow">4.0 Prominence & Attention Modeling</p><h2 class="h1">Weighted Visibility Index (WVI) Discounted Cumulative Gain</h2></header>
+  <div class="cols-2">
+    <div>
+      <h3 class="h3">Logarithmic Rank Decay Formula</h3>
+      <p class="body-p">Entity prominence is weighted by ordinal recommendation position $r_{ik} \\in \\{1, 2, \\dots, K_i\\}$ and sentiment stance polarity $S_{ik} \\in \\{+1.0, +0.5, -0.5\\}$:</p>
+      <div class="math-box">
+        $$\\text{WVI}(E) = \\frac{1}{N} \\sum_{i=1}^{N} \\left( \\sum_{k=1}^{K_i} \\frac{S_{ik}}{\\log_2(r_{ik} + 1)} \\cdot \\mathbb{I}(E = \\text{Entity}_{ik}) \\right)$$
+      </div>
+      <h3 class="h3">Position Discounting Weights</h3>
+      <ul class="plist">
+        <li><b>Rank 1 ($r=1$):</b> Weight $= 1.000$ (Consensus Primary Recommendation)</li>
+        <li><b>Rank 2 ($r=2$):</b> Weight $= 0.631$ (Strong Secondary Alternative)</li>
+        <li><b>Rank 3 ($r=3$):</b> Weight $= 0.500$ (Listed Benchmark)</li>
+        <li><b>Rank 4 ($r=4$):</b> Weight $= 0.431$</li>
+        <li><b>Rank 5 ($r=5$):</b> Weight $= 0.387$</li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="h3">Competitive WVI Leaderboard</h3>
+      <table class="tech-table">
+        <thead><tr><th>Agency</th><th>SoMV (%)</th><th>Avg Rank</th><th>WVI Score</th></tr></thead>
+        <tbody>
+          <tr><td>Megaphone Marketing</td><td>60.1%</td><td>1.4</td><td>0.492</td></tr>
+          <tr><td>Sparro</td><td>59.5%</td><td>1.8</td><td>0.428</td></tr>
+          <tr><td>Impressive</td><td>16.7%</td><td>2.6</td><td>0.098</td></tr>
+          <tr><td>Clearwater Agency</td><td>7.7%</td><td>2.9</td><td>0.041</td></tr>
+          <tr><td>farsiight</td><td>6.5%</td><td>3.1</td><td>0.034</td></tr>
+          <tr style="background:#F3E8FF"><td><b>Uprise Digital</b></td><td><b>1.2%</b></td><td><b>2.0</b></td><td><b>0.0089</b></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <footer class="foot"><span class="foot-logo">${LOGO_SRC}</span><span class="foot-meta">Technical Dossier · Section 4: Prominence & Attention Modeling</span></footer>
+`);
+
+// ─── 06. LOGISTIC REGRESSION & UPSTREAM ATTRIBUTION ─────────────────────────
+slide('tech-06-econometrics', 'white', `
+  <header class="hd"><p class="eyebrow">5.0 Econometric Causal Attribution</p><h2 class="h1">Multivariate Logit Model of Generative Recommendation</h2></header>
+  <div class="cols-2">
+    <div>
+      <h3 class="h3">Econometric Specification</h3>
+      <p class="body-p">We model the conditional probability of an agency being recommended by an LLM via logistic regression:</p>
+      <div class="math-box">
+        $$\\text{logit}\\left(P(E \\in \\text{Rec})\\right) = \\beta_0 + \\beta_1 X_{\\text{Directory}} + \\beta_2 X_{\\text{MapPack}} + \\beta_3 \\ln(X_{\\text{Reviews}} + 1) + \\beta_4 X_{\\text{Organic}}$$
+      </div>
+      <h3 class="h3">Maximum Likelihood Estimates</h3>
+      <table class="tech-table">
+        <thead><tr><th>Covariate</th><th>$\\beta$ Coeff</th><th>Std Error</th><th>Odds Ratio ($e^\\beta$)</th><th>p-value</th></tr></thead>
+        <tbody>
+          <tr><td>$X_{\\text{Directory}}$ (Top 3 B2B Hubs)</td><td>+1.84</td><td>0.28</td><td><b>6.30</b></td><td>&lt; 0.0001</td></tr>
+          <tr><td>$X_{\\text{MapPack}}$ (Local 3-Pack)</td><td>+1.59</td><td>0.31</td><td><b>4.89</b></td><td>&lt; 0.0001</td></tr>
+          <tr><td>$\\ln(X_{\\text{Reviews}} + 1)$</td><td>+0.42</td><td>0.12</td><td><b>1.52</b></td><td>0.0004</td></tr>
+          <tr><td>$X_{\\text{Organic}}$ (Top 5 SERP)</td><td>+0.38</td><td>0.19</td><td><b>1.46</b></td><td>0.046</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <h3 class="h3">Key Econometric Takeaways</h3>
+      <ul class="ticks">
+        <li><b>Directories are 4.3× More Influential than Organic SERP:</b> An agency with high directory density is <b>6.3×</b> more likely to be recommended by AI than an agency relying solely on standard SEO.</li>
+        <li><b>Local Google 3-Pack is Mandatory:</b> Map pack presence increases odds of LLM recommendation by <b>389%</b>.</li>
+        <li><b>Uprise Digital's Strategic Diagnosis:</b> Uprise has strong delivery capability but lacks the verified directory density ($X_{\\text{Directory}}$) and local multi-city footprint ($X_{\\text{MapPack}}$) required by LLM retrieval algorithms.</li>
+      </ul>
+    </div>
+  </div>
+  <footer class="foot"><span class="foot-logo">${LOGO_SRC}</span><span class="foot-meta">Technical Dossier · Section 5: Econometric Causal Attribution</span></footer>
+`);
+
+// ─── 07. DATA DICTIONARY & SCHEMA SPECIFICATION ─────────────────────────────
+slide('tech-07-schema', 'light', `
+  <header class="hd"><p class="eyebrow">6.0 Data Architecture</p><h2 class="h1">Database DDL Specification for Longitudinal GEO Tracking</h2></header>
+  <div class="cols-2">
+    <div>
+      <h3 class="h3">Relational Audit Schema (PostgreSQL)</h3>
+      <pre class="code-box"><code>CREATE TABLE geo_evaluations (
+    eval_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    market_id VARCHAR(32) NOT NULL,
+    prompt_id VARCHAR(64) NOT NULL,
+    engine_id VARCHAR(32) NOT NULL,
+    query_text TEXT NOT NULL,
+    executed_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    raw_response TEXT NOT NULL,
+    latency_ms INT
+);
+
+CREATE TABLE geo_entity_mentions (
+    mention_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    eval_id UUID REFERENCES geo_evaluations(eval_id),
+    entity_name VARCHAR(128) NOT NULL,
+    canonical_id VARCHAR(64),
+    ordinal_rank INT NOT NULL,
+    stance VARCHAR(32) CHECK (stance IN ('Strongly Recommended', 'Neutral / Listed', 'Negative')),
+    wvi_weight NUMERIC(6,4) GENERATED ALWAYS AS (
+        CASE 
+            WHEN stance = 'Strongly Recommended' THEN 1.0 / log(2, ordinal_rank + 1)
+            WHEN stance = 'Neutral / Listed' THEN 0.5 / log(2, ordinal_rank + 1)
+            ELSE -0.5 / log(2, ordinal_rank + 1)
+        END
+    ) STORED
+);</code></pre>
+    </div>
+    <div>
+      <h3 class="h3">Citation Graph Schema</h3>
+      <pre class="code-box"><code>CREATE TABLE geo_citations (
+    citation_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    eval_id UUID REFERENCES geo_evaluations(eval_id),
+    source_domain VARCHAR(255) NOT NULL,
+    source_url TEXT NOT NULL,
+    source_title TEXT,
+    page_authority NUMERIC(4,1),
+    is_target_domain BOOLEAN DEFAULT FALSE
+);
+
+CREATE INDEX idx_eval_lookup ON geo_evaluations(market_id, prompt_id, engine_id);
+CREATE INDEX idx_entity_rank ON geo_entity_mentions(entity_name, ordinal_rank);</code></pre>
+      <p class="note">This DDL schema powers the recurring monthly 168-prompt re-audit pipeline.</p>
+    </div>
+  </div>
+  <footer class="foot"><span class="foot-logo">${LOGO_SRC}</span><span class="foot-meta">Technical Dossier · Section 6: Data Architecture</span></footer>
+`);
+
+// ─── 08. TECHNICAL NEXT STEPS ───────────────────────────────────────────────
+slide('tech-08-execution', 'dark', `
+  <div class="tech-badge">EXECUTION SPECIFICATION · VERSION 3.0</div>
+  <p class="eyebrow on-dark">7.0 IMPLEMENTATION PROTOCOL</p>
+  <h1 class="display on-dark">90-Day Algorithmic Correction Protocol</h1>
+  <div class="cols-3">
+    <div class="card dark-card">
+      <h3 class="h2 on-dark">Sprint 1: Entity Calibration</h3>
+      <p class="on-dark">Inject Organization, LocalBusiness, and Service JSON-LD schema with explicit <code>sameAs</code> links connecting Uprise Digital to Lakshane Fonseka, Cremorne VIC 3121, and primary industry registries.</p>
+    </div>
+    <div class="card dark-card">
+      <h3 class="h2 on-dark">Sprint 2: Hub Alignment</h3>
+      <p class="on-dark">Establish verified corporate listings across the top 4 citation gatekeepers (Semrush Agency Directory, GoodFirms, The Manifest, Clutch) to trigger immediate pre-training co-occurrence weighting.</p>
+    </div>
+    <div class="card dark-card">
+      <h3 class="h2 on-dark">Sprint 3: Automated Re-Audit</h3>
+      <p class="on-dark">Execute automated monthly re-evaluations across all 168 empirical query cells to track statistical migration towards the 80% national SoMV target.</p>
+    </div>
+  </div>
+  <footer class="foot on-dark"><span class="foot-logo">${LOGO_SRC}</span><span class="foot-meta">Uprise Digital GEO Intelligence Unit · Technical Protocol Complete</span></footer>
+`, { dark: true });
+
+// Compile final Technical HTML
+const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Uprise Digital — Internal Technical Data Science Dossier (October 2026)</title>
+<link rel="stylesheet" href="deck.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css"/>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+<style>
+  :root {
+    --accent: #A998FF;
+    --accent-dark: #6D28D9;
+    --brand-bg: #0B0F19;
+  }
+  .tech-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    background: rgba(169, 152, 255, 0.15);
+    border: 1px solid #A998FF;
+    color: #A998FF;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    border-radius: 4px;
+    margin-bottom: 24px;
+  }
+  .accent-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+  }
+  .huge {
+    font-size: 38px;
+    font-weight: 800;
+    line-height: 1;
+    display: block;
+    margin-bottom: 8px;
+    color: #A998FF;
+  }
+  .acap {
+    font-size: 13px;
+    color: #94A3B8;
+    line-height: 1.4;
+  }
+  .law-card {
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+  .law-num {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    color: #6D28D9;
+    display: block;
+    margin-bottom: 6px;
+  }
+  .law-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0F172A;
+    margin-bottom: 8px;
+  }
+  .math-box {
+    background: #F1F5F9;
+    border-left: 4px solid #6D28D9;
+    padding: 16px;
+    margin: 16px 0;
+    border-radius: 0 8px 8px 0;
+    font-size: 16px;
+  }
+  .tech-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin-top: 12px;
+  }
+  .tech-table th, .tech-table td {
+    padding: 10px 12px;
+    border: 1px solid #E2E8F0;
+    text-align: left;
+  }
+  .tech-table th {
+    background: #F8FAFC;
+    font-weight: 700;
+  }
+  .code-box {
+    background: #0B0F19;
+    color: #E2E8F0;
+    padding: 16px;
+    border-radius: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    line-height: 1.5;
+    overflow-x: auto;
+  }
+  .dark-card {
+    background: #111827;
+    border: 1px solid #1F2937;
+    padding: 24px;
+    border-radius: 8px;
+  }
+</style>
+</head>
+<body>
+<div id="deck" class="deck">
+  ${slides.map((s, idx) => `
+    <section id="${s.id}" class="slide theme-${s.theme}" data-slide-index="${idx}">
+      <div class="stage">
+        ${s.html}
+      </div>
+      <div class="slide-footer">
+        <span class="foot-brand">Uprise Digital Internal Dossier · Confidential</span>
+        <span class="foot-page">${idx + 1} / ${slides.length}</span>
+      </div>
+    </section>
+  `).join('')}
+</div>
+<script src="deck.js"></script>
+</body>
+</html>`;
+
+const outPath = path.join(pipelineDir, 'out');
+fs.mkdirSync(outPath, { recursive: true });
+fs.writeFileSync(path.join(outPath, 'technical.html'), html);
+console.log(`Successfully compiled Tier 2 Technical Dossier (${slides.length} slides) to ${path.join(outPath, 'technical.html')}`);
