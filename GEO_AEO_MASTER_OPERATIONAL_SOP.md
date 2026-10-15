@@ -94,6 +94,30 @@ For client-facing pitch decks (Tier 1):
 3. **Action Headers:** Standardize execution bullet points under clean consultative headers: `"What we will do"`.
 4. **Link Isolation:** Never embed public buttons or hyperlinks to `technical.html` on the client deck.
 
+### 3.2 The 1:1 Claim-to-Proof Law & Proof Verification Matrix
+
+> [!IMPORTANT]
+> **The 1:1 Claim-to-Proof Mandate:** Every single empirical claim, statistic, competitor benchmark, algorithmic diagnostic, or operational deliverable presented to prospective clients in the Tier 1 Presentation (`/`) **MUST have a direct, verifiable, attached empirical proof** in the Tier 2 Technical Dossier (`/technical`). Zero claims may exist without empirical grounding.
+
+#### Master Claim-to-Proof Verification Matrix
+
+Every audit deliverable must satisfy this cross-tier mapping before client delivery:
+
+| # | Tier 1 Client Deck Claim Category | Client Slide Example | Tier 2 Empirical Proof & Attachment Standard | Required Technical Dossier Evidence |
+| :---: | :--- | :--- | :--- | :--- |
+| **01** | **Sample Size Cardinality ($N$)** | Cover / Slide 5: *"N = 8 × 7 × E answers"* | Matrix cardinality breakdown ($M \times Q \times E$), authenticated API list, and live query execution timestamps. | `2.0 Problem Formulation`: Formal parameter table with exact $M$, $Q$, $E$, and $N$. |
+| **02** | **Share of Model Voice ($\widehat{\text{SoMV}}$)** | Slide 3 & 6: *"Client captured X% of answers"* | Exact mathematical derivation, mention indicator sum, and asymmetric Wilson Score 95% Confidence Interval bounds ($[w^-, w^+]$). | `3.0 / 5.0 Share of Model Voice`: Formula + derivation table with $p$-values and Wilson CIs. |
+| **03** | **Rank Decay Prominence ($\text{WVI}$)** | Slide 3 & 11: *"Client visibility index is 0.013 vs 0.518"* | Discounted Cumulative Gain formulation, ordinal position decay weights ($1/\log_2(r+1)$), and stance polarity coefficients ($S \in \{+1.0, +0.5, -0.5\}$). | `4.0 / 6.0 Weighted Visibility Index`: DCG decay table + competitor score benchmark. |
+| **04** | **Power-Law Leaderboard & Moats** | Slide 11: *"Megaphone & Sparro capture 60%–70% of mentions"* | Empirical frequency counts across all $N$ cells, competitor rank distributions, and Pareto concentration curves. | `8.0 National Leaderboard`: Full cohort rank, mention count, SoMV, WVI, and moat analysis. |
+| **05** | **Interstate Zero & Local Strongholds** | Slide 6 & 20: *"Client scores 0.0% in interstate capital cities"* | 8-Market Scorecard table showing $n/M_d$ counts, $p$-values, and non-overlapping regional confidence bounds. | `9.0 Geographic Scorecard`: Complete market-by-market scorecard table. |
+| **06** | **Engine Retrieval Disconnect** | Slide 14: *"Google AI Mode cites client; Claude & ChatGPT omit"* | Platform retrieval bias matrix comparing grounded RAG engines vs directory-dependent parametric LLMs. | `11.0 Engine Retrieval Bias`: Architecture comparison + citation source decomposition. |
+| **07** | **Workstream 01: Directory Citation Moat** | Slide 22 & 23: *"Verified B2B portals drive 74%–78% of citations"* | Upstream Citation Topology table detailing total source distribution across B2B Portals, Google Maps, Partner Ecosystems, and Media. | `8.0 / 15.0 Upstream Citation Ledger`: Numerical citation counts and percentage share proving 74%–78%. |
+| **08** | **Workstream 02: Review Count & Map Pack Deficit** | Slide 22 & 24: *"Client has 12/18 reviews vs Megaphone 184; Maps OR = 4.89×–5.21×"* | Google Places API review & rating audit table plus Multivariate Logit Regression parameter estimates and Odds Ratios ($e^{\beta}$). | `13.0 Regression Results & Review Audit`: Review benchmark table (Client vs Leaders) + logit $\beta$ & $OR$. |
+| **09** | **Workstream 03: Crawl Ingestion Bottleneck** | Slide 22 & 25: *"Client site was crawled, but lacks structured outcome figures"* | Live Search Grounding Telemetry Log citing exact query strings, response latency (ms), Vertex AI / SERP URLs, and extraction failure root cause. | `6.0 Empirical Grounding & Web Crawl Log`: Table of exact crawl events with queries, latencies, and root cause. |
+| **10** | **Workstream 04: Schema & Entity Graph Gaps** | Slide 22 & 26: *"Founder authority detached; client success pages lack CaseStudy schema"* | Live On-Page JSON-LD Schema Extraction snippet, missing RDF triple audit, and target production Schema.org specification. | `7.0 / 16.0 Knowledge Graph & Schema Audit`: Discovered schema code + missing triple defect table. |
+| **11** | **Workstream 05: Longitudinal Drift & Re-Audit** | Slide 22 & 27: *"Bi-weekly algorithmic drift; monthly automated testing panel"* | PostgreSQL / DuckDB DDL schema, multi-epoch cron resampling protocol, and Wilcoxon Signed-Rank hypothesis test ($p < 0.05$). | `9.0 / 21.0 Longitudinal Telemetry & DDL`: DDL tables + Wilcoxon signed-rank formula & cron protocol. |
+| **12** | **12-Month Commercial Projections** | Slide 28: *"Path from baseline to 85% #1 recommended agency"* | 12-month econometric transition model, milestone bounds, and required covariate deltas ($\Delta X$). | `20.0 Predictive Trajectory Modeling`: Milestone table with SoMV targets and covariate transition roadmap. |
+
 ---
 
 ## 4. Keyed Access & Security Gateway
@@ -246,6 +270,7 @@ Before sending any deliverable to an executive or client prospect, verify every 
 - [ ] **Zero API Keys in Git:** All secrets stored in `.env`; `.gitignore` includes `.env`, `test_*.js`, and `*.log`.
 - [ ] **Zero Hallucination:** Dataset contains only live authenticated queries; no fake/simulated proxy rows.
 - [ ] **Dynamic Denominators:** Sample size formula $N = M \times Q \times E$ matches actual ingested records.
+- [ ] **1:1 Claim-to-Proof Standard (MANDATORY):** Every factual claim in Tier 1 (reviews, citations %, crawl telemetry, schema deficits, logit odds, 12-month projections) has an attached empirical table, derivation, or extract in Tier 2 (`/technical`).
 - [ ] **Slide 23 Strategic Restraint:** No specific directory checklists on Slide 23; categorized into authority tiers.
 - [ ] **No Public Dossier Link:** Client HTML has zero anchor tags linking to `technical.html`.
 - [ ] **Clean White Gatekeeper:** Gatekeeper uses pure white minimalist UI matching agency confidential standard.
