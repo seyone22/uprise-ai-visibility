@@ -4,7 +4,7 @@
   --dark-bg: #0B0F19; --dark-card: #141B2D; --dark-card-2: #1E2742; --dark-border: #2D3748;
   --paper: #F8FAFC; --paper-card: #F1F5F9; --white: #FFFFFF; --ink: #0F172A; --slate: #64748B; --line: #E2E8F0;
   --comp: #CBD5E1; --leader: #0F172A; --on-dark: #F1F5F9; --on-dark-2: #94A3B8; --surround: #060911;
-  --f-sans: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --f-sans: 'Clash Grotesk', 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --f-mono: 'JetBrains Mono', 'Overpass Mono', ui-monospace, Menlo, Consolas, monospace;
   color-scheme: dark;
 }

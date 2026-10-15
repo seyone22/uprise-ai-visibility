@@ -847,6 +847,7 @@ const html = `<!DOCTYPE html>
 <title>Uprise Digital · AI Visibility & GEO Report (Oct 2026)</title>
 <meta name="description" content="Empirical study of where AI assistants recommend Uprise Digital against competing growth agencies, and the 5-pillar GEO plan to become #1.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@700,600,500&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap">
 <style>${CSS}</style>
 </head>
