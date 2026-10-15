@@ -1,8 +1,8 @@
-// Builds the Uprise Digital AI Visibility Deck (single HTML file) from collected empirical data.
 import fs from 'fs';
 import path from 'path';
+import { fileURLToPath } from 'url';
 
-const pipelineDir = path.resolve('uprise-ai-visibility/pipeline');
+const pipelineDir = path.dirname(fileURLToPath(import.meta.url));
 const M = JSON.parse(fs.readFileSync(path.join(pipelineDir, 'metrics.json'), 'utf8'));
 const H = JSON.parse(fs.readFileSync(path.join(pipelineDir, 'hist.json'), 'utf8'));
 const MAP = JSON.parse(fs.readFileSync(path.join(pipelineDir, 'map.json'), 'utf8'));
@@ -554,34 +554,48 @@ const html = `<!DOCTYPE html>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Uprise Digital — AI Visibility & GEO Audit (October 2026)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap">
 <link rel="stylesheet" href="deck.css"/>
 <style>
   :root {
-    --accent: #A998FF;
-    --accent-dark: #6D28D9;
     --pulp: #A998FF;
     --pulp-dark: #6D28D9;
-    --brand-bg: #0B0F19;
+    --pulp-400: #C4B5FD;
+    --pulp-300: #DDD6FE;
+    --pulp-100: #EDE9FE;
+    --pulp-50: #F5F3FF;
+    --dark-bg: #0B0F19;
+    --accent: #A998FF;
   }
-  .is-pulp, .pulp-t { color: #6D28D9 !important; font-weight: 700; }
+  .is-pulp, .pulp-t { color: #A998FF !important; font-weight: 700; }
   .hb-row.is-pulp .hb-fill { background: #A998FF !important; }
   .hb-row.is-pulp .hb-name { font-weight: 700; color: #1E1B4B !important; }
+  .slide.dark .is-pulp, .slide.dark .pulp-t { color: #A998FF !important; }
+  .slide.dark .hb-row.is-pulp .hb-name { color: #EDE9FE !important; }
 </style>
 </head>
 <body>
-<div id="deck" class="deck">
-  ${slides.map((s, idx) => `
-    <section id="${s.id}" class="slide theme-${s.theme}" data-slide-index="${idx}">
-      <div class="stage">
+<div class="deck" id="deck">
+  <div class="stage" id="stage">
+    ${slides.map((s, idx) => `
+      <section id="${s.id}" class="slide ${s.theme}" data-title="${esc(s.id)}">
         ${s.inner}
-      </div>
-      <div class="slide-footer">
-        <span class="foot-brand">Uprise Digital · Confidential</span>
-        <span class="foot-page">${idx + 1} / ${slides.length}</span>
-      </div>
-    </section>
-  `).join('')}
+        <footer class="foot${s.theme === 'dark' ? ' on-dark' : ''}">
+          <span class="foot-logo">${logo()}</span>
+          <span>AI Visibility & GEO Report · October 2026</span>
+        </footer>
+      </section>
+    `).join('\n')}
+    <div class="progress" aria-hidden="true"><i id="bar"></i></div>
+  </div>
 </div>
+<nav class="controls" id="controls" aria-label="Slide controls">
+  <button id="prev" type="button" aria-label="Previous slide"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4"/></svg></button>
+  <span id="count" class="ctr">1 / ${slides.length}</span>
+  <button id="next" type="button" aria-label="Next slide"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4"/></svg></button>
+  <button id="fs" type="button" aria-label="Full screen"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none" stroke="currentColor" stroke-width="2.2"/></svg></button>
+</nav>
 <script src="deck.js"></script>
 </body>
 </html>`;

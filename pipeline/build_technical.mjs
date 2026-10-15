@@ -1,10 +1,8 @@
-// Comprehensive Internal Technical Data Science Slide Deck Generator (technical.html)
-// Mathematical, Econometric, Statistical, and Empirical Deep Dive for Uprise Digital GEO/AEO Analysis.
-
 import fs from 'fs';
 import path from 'path';
+import { fileURLToPath } from 'url';
 
-const pipelineDir = path.resolve('uprise-ai-visibility/pipeline');
+const pipelineDir = path.dirname(fileURLToPath(import.meta.url));
 const M = JSON.parse(fs.readFileSync(path.join(pipelineDir, 'metrics.json'), 'utf8'));
 const H = JSON.parse(fs.readFileSync(path.join(pipelineDir, 'hist.json'), 'utf8'));
 const LOGO_SRC = fs.readFileSync(path.join(pipelineDir, 'logo.svg'), 'utf8')
@@ -404,20 +402,38 @@ const html = `<!DOCTYPE html>
 </style>
 </head>
 <body>
-<div id="deck" class="deck">
-  ${slides.map((s, idx) => `
-    <section id="${s.id}" class="slide theme-${s.theme}" data-slide-index="${idx}">
-      <div class="stage">
+<div class="deck" id="deck">
+  <div class="stage" id="stage">
+    ${slides.map((s, idx) => `
+      <section id="${s.id}" class="slide ${s.theme}" data-title="${s.id}">
         ${s.html}
-      </div>
-      <div class="slide-footer">
-        <span class="foot-brand">Uprise Digital Internal Dossier · Confidential</span>
-        <span class="foot-page">${idx + 1} / ${slides.length}</span>
-      </div>
-    </section>
-  `).join('')}
+      </section>
+    `).join('\n')}
+    <div class="progress" aria-hidden="true"><i id="bar"></i></div>
+  </div>
 </div>
+
+<nav class="controls" id="controls" aria-label="Slide controls">
+  <button id="prev" type="button" aria-label="Previous slide"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4"/></svg></button>
+  <span id="count" class="ctr">1 / ${slides.length}</span>
+  <button id="next" type="button" aria-label="Next slide"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4"/></svg></button>
+  <button id="fs" type="button" aria-label="Full screen"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none" stroke="currentColor" stroke-width="2.2"/></svg></button>
+</nav>
+
 <script src="deck.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  if (typeof renderMathInElement === 'function') {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: '$$', right: '$$', display: true},
+        {left: '$', right: '$', display: false}
+      ],
+      throwOnError: false
+    });
+  }
+});
+</script>
 </body>
 </html>`;
 

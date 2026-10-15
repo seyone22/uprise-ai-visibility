@@ -4,25 +4,32 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Uprise Digital — AI Visibility & GEO Audit (October 2026)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap">
 <link rel="stylesheet" href="deck.css"/>
 <style>
   :root {
-    --accent: #A998FF;
-    --accent-dark: #6D28D9;
     --pulp: #A998FF;
     --pulp-dark: #6D28D9;
-    --brand-bg: #0B0F19;
+    --pulp-400: #C4B5FD;
+    --pulp-300: #DDD6FE;
+    --pulp-100: #EDE9FE;
+    --pulp-50: #F5F3FF;
+    --dark-bg: #0B0F19;
+    --accent: #A998FF;
   }
-  .is-pulp, .pulp-t { color: #6D28D9 !important; font-weight: 700; }
+  .is-pulp, .pulp-t { color: #A998FF !important; font-weight: 700; }
   .hb-row.is-pulp .hb-fill { background: #A998FF !important; }
   .hb-row.is-pulp .hb-name { font-weight: 700; color: #1E1B4B !important; }
+  .slide.dark .is-pulp, .slide.dark .pulp-t { color: #A998FF !important; }
+  .slide.dark .hb-row.is-pulp .hb-name { color: #EDE9FE !important; }
 </style>
 </head>
 <body>
-<div id="deck" class="deck">
-  
-    <section id="title" class="slide theme-dark" data-slide-index="0">
-      <div class="stage">
+<div class="deck" id="deck">
+  <div class="stage" id="stage">
+    
+      <section id="title" class="slide dark" data-title="title">
         
   <div class="title-slide">
     <div class="t-brand rise" style="--d:100ms"><svg class="logo" aria-label="Uprise Digital" role="img" viewBox="0 0 260 44" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -50,15 +57,27 @@
       <div><b class="num">2</b><span>Queries naming Uprise Digital</span></div>
     </div>
   </div>
-      </div>
-      <div class="slide-footer">
-        <span class="foot-brand">Uprise Digital · Confidential</span>
-        <span class="foot-page">1 / 16</span>
-      </div>
-    </section>
-  
-    <section id="shift" class="slide theme-light" data-slide-index="1">
-      <div class="stage">
+        <footer class="foot on-dark">
+          <span class="foot-logo"><svg class="logo" aria-label="Uprise Digital" role="img" viewBox="0 0 260 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g fill="currentColor">
+    <!-- Stylized Uprise Geometric Upward Arrow / Diamond Emblem -->
+    <path d="M14 6L24 16L19 16L19 32L9 32L9 16L4 16L14 6Z" fill="#A998FF"/>
+    <path d="M14 18L20 24L17 24L17 32L11 32L11 24L8 24L14 18Z" fill="#FFFFFF" fill-opacity="0.3"/>
+    
+    <!-- "UPRISE" modern bold tracked lettering -->
+    <text x="36" y="27" font-family="'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="20" font-weight="800" letter-spacing="2.5" fill="currentColor">UPRISE</text>
+    
+    <!-- "DIGITAL" lightweight modern accent -->
+    <text x="146" y="27" font-family="'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="14" font-weight="600" letter-spacing="4.5" fill="#A998FF">DIGITAL</text>
+  </g>
+</svg>
+</span>
+          <span>AI Visibility & GEO Report · October 2026</span>
+        </footer>
+      </section>
+    
+
+      <section id="shift" class="slide light" data-title="shift">
         
   <header class="hd"><p class="eyebrow">The Macro Shift</p><h2 class="h1">High-value commercial clients are no longer scrolling ten blue links</h2></header>
   <div class="cols-3">
@@ -79,15 +98,27 @@
     </div>
   </div>
   <p class="src-foot">Search Engine Land, Gartner AI Search Study, and live empirical evaluation across 8 Australian markets, October 2026.</p>
-      </div>
-      <div class="slide-footer">
-        <span class="foot-brand">Uprise Digital · Confidential</span>
-        <span class="foot-page">2 / 16</span>
-      </div>
-    </section>
-  
-    <section id="scorecard" class="slide theme-white" data-slide-index="2">
-      <div class="stage">
+        <footer class="foot">
+          <span class="foot-logo"><svg class="logo" aria-label="Uprise Digital" role="img" viewBox="0 0 260 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g fill="currentColor">
+    <!-- Stylized Uprise Geometric Upward Arrow / Diamond Emblem -->
+    <path d="M14 6L24 16L19 16L19 32L9 32L9 16L4 16L14 6Z" fill="#A998FF"/>
+    <path d="M14 18L20 24L17 24L17 32L11 32L11 24L8 24L14 18Z" fill="#FFFFFF" fill-opacity="0.3"/>
+    
+    <!-- "UPRISE" modern bold tracked lettering -->
+    <text x="36" y="27" font-family="'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="20" font-weight="800" letter-spacing="2.5" fill="currentColor">UPRISE</text>
+    
+    <!-- "DIGITAL" lightweight modern accent -->
+    <text x="146" y="27" font-family="'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="14" font-weight="600" letter-spacing="4.5" fill="#A998FF">DIGITAL</text>
+  </g>
+</svg>
+</span>
+          <span>AI Visibility & GEO Report · October 2026</span>
+        </footer>
+      </section>
+    
+
+      <section id="scorecard" class="slide white" data-title="scorecard">
         
   <header class="hd"><p class="eyebrow">Executive Summary</p><h2 class="h1">Uprise Digital AI Visibility Scorecard (October 2026)</h2></header>
   <div class="metrics-grid">
@@ -116,15 +147,27 @@
     <p><b>Core Strategic Insight:</b> Uprise Digital possesses proven delivery excellence and specialized positioning in GEO, law firm growth, and high-ticket service lead generation. However, because generative engines rely heavily on verified directory consensus and multi-location signals, Uprise is currently bypassed in favor of broad eCommerce agencies.</p>
   </div>
   <p class="src-foot">Empirical research across 168 live tests in 8 Australian markets on Gemini 3.8, Claude Sonnet 4.6, Google AI Mode, October 2026. Zero simulation.</p>
-      </div>
-      <div class="slide-footer">
-        <span class="foot-brand">Uprise Digital · Confidential</span>
-        <span class="foot-page">3 / 16</span>
-      </div>
-    </section>
-  
-    <section id="trend" class="slide theme-light" data-slide-index="3">
-      <div class="stage">
+        <footer class="foot">
+          <span class="foot-logo"><svg class="logo" aria-label="Uprise Digital" role="img" viewBox="0 0 260 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g fill="currentColor">
+    <!-- Stylized Uprise Geometric Upward Arrow / Diamond Emblem -->
+    <path d="M14 6L24 16L19 16L19 32L9 32L9 16L4 16L14 6Z" fill="#A998FF"/>
+    <path d="M14 18L20 24L17 24L17 32L11 32L11 24L8 24L14 18Z" fill="#FFFFFF" fill-opacity="0.3"/>
+    
+    <!-- "UPRISE" modern bold tracked lettering -->
+    <text x="36" y="27" font-family="'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="20" font-weight="800" letter-spacing="2.5" fill="currentColor">UPRISE</text>
+    
+    <!-- "DIGITAL" lightweight modern accent -->
+    <text x="146" y="27" font-family="'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="14" font-weight="600" letter-spacing="4.5" fill="#A998FF">DIGITAL</text>
+  </g>
+</svg>
+</span>
+          <span>AI Visibility & GEO Report · October 2026</span>
+        </footer>
+      </section>
+    
+
+      <section id="trend" class="slide light" data-title="trend">
         
     <header class="hd"><p class="eyebrow">Historical Trajectory</p><h2 class="h1">14-Month AI Recommendation Velocity (Mentions per Month)</h2></header>
     <div class="cols-60">
@@ -145,15 +188,27 @@
       </div>
     </div>
     <p class="src-foot">Historical longitudinal model data synthesized from recurring monthly evaluation benchmarks, Aug 2025 – Sep 2026.</p>
-      </div>
-      <div class="slide-footer">
-        <span class="foot-brand">Uprise Digital · Confidential</span>
-        <span class="foot-page">4 / 16</span>
-      </div>
-    </section>
-  
-    <section id="national" class="slide theme-white" data-slide-index="4">
-      <div class="stage">
+        <footer class="foot">
+          <span class="foot-logo"><svg class="logo" aria-label="Uprise Digital" role="img" viewBox="0 0 260 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g fill="currentColor">
+    <!-- Stylized Uprise Geometric Upward Arrow / Diamond Emblem -->
+    <path d="M14 6L24 16L19 16L19 32L9 32L9 16L4 16L14 6Z" fill="#A998FF"/>
+    <path d="M14 18L20 24L17 24L17 32L11 32L11 24L8 24L14 18Z" fill="#FFFFFF" fill-opacity="0.3"/>
+    
+    <!-- "UPRISE" modern bold tracked lettering -->
+    <text x="36" y="27" font-family="'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="20" font-weight="800" letter-spacing="2.5" fill="currentColor">UPRISE</text>
+    
+    <!-- "DIGITAL" lightweight modern accent -->
+    <text x="146" y="27" font-family="'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="14" font-weight="600" letter-spacing="4.5" fill="#A998FF">DIGITAL</text>
+  </g>
+</svg>
+</span>
+          <span>AI Visibility & GEO Report · October 2026</span>
+        </footer>
+      </section>
+    
+
+      <section id="national" class="slide white" data-title="national">
         
   <header class="hd"><p class="eyebrow">National Rankings</p><h2 class="h1">Top Recommended Performance & Growth Agencies in Australia</h2></header>
   <div class="cols-60">
@@ -231,15 +286,27 @@
     </div>
   </div>
   <p class="src-foot">Empirical research across 168 live tests in 8 Australian markets on Gemini 3.8, Claude Sonnet 4.6, Google AI Mode, October 2026. Zero simulation.</p>
-      </div>
-      <div class="slide-footer">
-        <span class="foot-brand">Uprise Digital · Confidential</span>
-        <span class="foot-page">5 / 16</span>
-      </div>
-    </section>
-  
-    <section id="map" class="slide theme-light" data-slide-index="5">
-      <div class="stage">
+        <footer class="foot">
+          <span class="foot-logo"><svg class="logo" aria-label="Uprise Digital" role="img" viewBox="0 0 260 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g fill="currentColor">
+    <!-- Stylized Uprise Geometric Upward Arrow / Diamond Emblem -->
+    <path d="M14 6L24 16L19 16L19 32L9 32L9 16L4 16L14 6Z" fill="#A998FF"/>
+    <path d="M14 18L20 24L17 24L17 32L11 32L11 24L8 24L14 18Z" fill="#FFFFFF" fill-opacity="0.3"/>
+    
+    <!-- "UPRISE" modern bold tracked lettering -->
+    <text x="36" y="27" font-family="'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="20" font-weight="800" letter-spacing="2.5" fill="currentColor">UPRISE</text>
+    
+    <!-- "DIGITAL" lightweight modern accent -->
+    <text x="146" y="27" font-family="'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="14" font-weight="600" letter-spacing="4.5" fill="#A998FF">DIGITAL</text>
+  </g>
+</svg>
+</span>
+          <span>AI Visibility & GEO Report · October 2026</span>
+        </footer>
+      </section>
+    
+
+      <section id="map" class="slide light" data-title="map">
         
     <header class="hd"><p class="eyebrow">Geographic Breakdown</p><h2 class="h1">AI Visibility across 8 Australian Capital Markets</h2></header>
     <div class="cols-60">
@@ -283,15 +350,27 @@
       </div>
     </div>
     <p class="src-foot">Empirical research across 168 live tests in 8 Australian markets on Gemini 3.8, Claude Sonnet 4.6, Google AI Mode, October 2026. Zero simulation.</p>
-      </div>
-      <div class="slide-footer">
-        <span class="foot-brand">Uprise Digital · Confidential</span>
-        <span class="foot-page">6 / 16</span>
-      </div>
-    </section>
-  
-    <section id="engines" class="slide theme-white" data-slide-index="6">
-      <div class="stage">
+        <footer class="foot">
+          <span class="foot-logo"><svg class="logo" aria-label="Uprise Digital" role="img" viewBox="0 0 260 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g fill="currentColor">
+    <!-- Stylized Uprise Geometric Upward Arrow / Diamond Emblem -->
+    <path d="M14 6L24 16L19 16L19 32L9 32L9 16L4 16L14 6Z" fill="#A998FF"/>
+    <path d="M14 18L20 24L17 24L17 32L11 32L11 24L8 24L14 18Z" fill="#FFFFFF" fill-opacity="0.3"/>
+    
+    <!-- "UPRISE" modern bold tracked lettering -->
+    <text x="36" y="27" font-family="'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="20" font-weight="800" letter-spacing="2.5" fill="currentColor">UPRISE</text>
+    
+    <!-- "DIGITAL" lightweight modern accent -->
+    <text x="146" y="27" font-family="'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="14" font-weight="600" letter-spacing="4.5" fill="#A998FF">DIGITAL</text>
+  </g>
+</svg>
+</span>
+          <span>AI Visibility & GEO Report · October 2026</span>
+        </footer>
+      </section>
+    
+
+      <section id="engines" class="slide white" data-title="engines">
         
   <header class="hd"><p class="eyebrow">Platform Mechanics</p><h2 class="h1">How each live AI answer engine treats Uprise Digital</h2></header>
   <div class="cols-3">
@@ -312,15 +391,27 @@
     </div>
   </div>
   <p class="src-foot">Empirical research across 168 live tests in 8 Australian markets on Gemini 3.8, Claude Sonnet 4.6, Google AI Mode, October 2026. Zero simulation.</p>
-      </div>
-      <div class="slide-footer">
-        <span class="foot-brand">Uprise Digital · Confidential</span>
-        <span class="foot-page">7 / 16</span>
-      </div>
-    </section>
-  
-    <section id="intents" class="slide theme-light" data-slide-index="7">
-      <div class="stage">
+        <footer class="foot">
+          <span class="foot-logo"><svg class="logo" aria-label="Uprise Digital" role="img" viewBox="0 0 260 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g fill="currentColor">
+    <!-- Stylized Uprise Geometric Upward Arrow / Diamond Emblem -->
+    <path d="M14 6L24 16L19 16L19 32L9 32L9 16L4 16L14 6Z" fill="#A998FF"/>
+    <path d="M14 18L20 24L17 24L17 32L11 32L11 24L8 24L14 18Z" fill="#FFFFFF" fill-opacity="0.3"/>
+    
+    <!-- "UPRISE" modern bold tracked lettering -->
+    <text x="36" y="27" font-family="'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="20" font-weight="800" letter-spacing="2.5" fill="currentColor">UPRISE</text>
+    
+    <!-- "DIGITAL" lightweight modern accent -->
+    <text x="146" y="27" font-family="'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="14" font-weight="600" letter-spacing="4.5" fill="#A998FF">DIGITAL</text>
+  </g>
+</svg>
+</span>
+          <span>AI Visibility & GEO Report · October 2026</span>
+        </footer>
+      </section>
+    
+
+      <section id="intents" class="slide light" data-title="intents">
         
   <header class="hd"><p class="eyebrow">Commercial Intent Battery</p><h2 class="h1">Performance across 7 Core Buying Intent Prompts</h2></header>
   <div class="cols-60">
@@ -380,15 +471,27 @@
     </div>
   </div>
   <p class="src-foot">Empirical research across 168 live tests in 8 Australian markets on Gemini 3.8, Claude Sonnet 4.6, Google AI Mode, October 2026. Zero simulation.</p>
-      </div>
-      <div class="slide-footer">
-        <span class="foot-brand">Uprise Digital · Confidential</span>
-        <span class="foot-page">8 / 16</span>
-      </div>
-    </section>
-  
-    <section id="melbourne" class="slide theme-white" data-slide-index="8">
-      <div class="stage">
+        <footer class="foot">
+          <span class="foot-logo"><svg class="logo" aria-label="Uprise Digital" role="img" viewBox="0 0 260 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g fill="currentColor">
+    <!-- Stylized Uprise Geometric Upward Arrow / Diamond Emblem -->
+    <path d="M14 6L24 16L19 16L19 32L9 32L9 16L4 16L14 6Z" fill="#A998FF"/>
+    <path d="M14 18L20 24L17 24L17 32L11 32L11 24L8 24L14 18Z" fill="#FFFFFF" fill-opacity="0.3"/>
+    
+    <!-- "UPRISE" modern bold tracked lettering -->
+    <text x="36" y="27" font-family="'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="20" font-weight="800" letter-spacing="2.5" fill="currentColor">UPRISE</text>
+    
+    <!-- "DIGITAL" lightweight modern accent -->
+    <text x="146" y="27" font-family="'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="14" font-weight="600" letter-spacing="4.5" fill="#A998FF">DIGITAL</text>
+  </g>
+</svg>
+</span>
+          <span>AI Visibility & GEO Report · October 2026</span>
+        </footer>
+      </section>
+    
+
+      <section id="melbourne" class="slide white" data-title="melbourne">
         
   <header class="hd"><p class="eyebrow">Home Market Audit</p><h2 class="h1">Melbourne: Uprise Digital's Core Geographic Stronghold</h2></header>
   <div class="cols-60">
@@ -454,15 +557,27 @@
     </div>
   </div>
   <p class="src-foot">Empirical research across 168 live tests in 8 Australian markets on Gemini 3.8, Claude Sonnet 4.6, Google AI Mode, October 2026. Zero simulation.</p>
-      </div>
-      <div class="slide-footer">
-        <span class="foot-brand">Uprise Digital · Confidential</span>
-        <span class="foot-page">9 / 16</span>
-      </div>
-    </section>
-  
-    <section id="ws-sources" class="slide theme-light" data-slide-index="9">
-      <div class="stage">
+        <footer class="foot">
+          <span class="foot-logo"><svg class="logo" aria-label="Uprise Digital" role="img" viewBox="0 0 260 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g fill="currentColor">
+    <!-- Stylized Uprise Geometric Upward Arrow / Diamond Emblem -->
+    <path d="M14 6L24 16L19 16L19 32L9 32L9 16L4 16L14 6Z" fill="#A998FF"/>
+    <path d="M14 18L20 24L17 24L17 32L11 32L11 24L8 24L14 18Z" fill="#FFFFFF" fill-opacity="0.3"/>
+    
+    <!-- "UPRISE" modern bold tracked lettering -->
+    <text x="36" y="27" font-family="'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="20" font-weight="800" letter-spacing="2.5" fill="currentColor">UPRISE</text>
+    
+    <!-- "DIGITAL" lightweight modern accent -->
+    <text x="146" y="27" font-family="'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="14" font-weight="600" letter-spacing="4.5" fill="#A998FF">DIGITAL</text>
+  </g>
+</svg>
+</span>
+          <span>AI Visibility & GEO Report · October 2026</span>
+        </footer>
+      </section>
+    
+
+      <section id="ws-sources" class="slide light" data-title="ws-sources">
         
     <header class="hd"><p class="eyebrow">Workstream 01</p><h2 class="h1">AI copies its shortlist from high-authority rankings guides and partner portals</h2></header>
     <div class="cols-60">
@@ -505,15 +620,27 @@
       </div>
     </div>
     <p class="src-foot">Empirical research across 168 live tests in 8 Australian markets on Gemini 3.8, Claude Sonnet 4.6, Google AI Mode, October 2026. Zero simulation.</p>
-      </div>
-      <div class="slide-footer">
-        <span class="foot-brand">Uprise Digital · Confidential</span>
-        <span class="foot-page">10 / 16</span>
-      </div>
-    </section>
-  
-    <section id="ws-maps" class="slide theme-white" data-slide-index="10">
-      <div class="stage">
+        <footer class="foot">
+          <span class="foot-logo"><svg class="logo" aria-label="Uprise Digital" role="img" viewBox="0 0 260 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g fill="currentColor">
+    <!-- Stylized Uprise Geometric Upward Arrow / Diamond Emblem -->
+    <path d="M14 6L24 16L19 16L19 32L9 32L9 16L4 16L14 6Z" fill="#A998FF"/>
+    <path d="M14 18L20 24L17 24L17 32L11 32L11 24L8 24L14 18Z" fill="#FFFFFF" fill-opacity="0.3"/>
+    
+    <!-- "UPRISE" modern bold tracked lettering -->
+    <text x="36" y="27" font-family="'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="20" font-weight="800" letter-spacing="2.5" fill="currentColor">UPRISE</text>
+    
+    <!-- "DIGITAL" lightweight modern accent -->
+    <text x="146" y="27" font-family="'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="14" font-weight="600" letter-spacing="4.5" fill="#A998FF">DIGITAL</text>
+  </g>
+</svg>
+</span>
+          <span>AI Visibility & GEO Report · October 2026</span>
+        </footer>
+      </section>
+    
+
+      <section id="ws-maps" class="slide white" data-title="ws-maps">
         
   <header class="hd"><p class="eyebrow">Workstream 02</p><h2 class="h1">Google Maps decides who Google's own AI names</h2></header>
   <div class="cols-60">
@@ -532,15 +659,27 @@
     </div>
   </div>
   <p class="src-foot">Google Map pack and GBP metrics evaluated across live SERP queries, October 2026.</p>
-      </div>
-      <div class="slide-footer">
-        <span class="foot-brand">Uprise Digital · Confidential</span>
-        <span class="foot-page">11 / 16</span>
-      </div>
-    </section>
-  
-    <section id="ws-pages" class="slide theme-light" data-slide-index="11">
-      <div class="stage">
+        <footer class="foot">
+          <span class="foot-logo"><svg class="logo" aria-label="Uprise Digital" role="img" viewBox="0 0 260 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g fill="currentColor">
+    <!-- Stylized Uprise Geometric Upward Arrow / Diamond Emblem -->
+    <path d="M14 6L24 16L19 16L19 32L9 32L9 16L4 16L14 6Z" fill="#A998FF"/>
+    <path d="M14 18L20 24L17 24L17 32L11 32L11 24L8 24L14 18Z" fill="#FFFFFF" fill-opacity="0.3"/>
+    
+    <!-- "UPRISE" modern bold tracked lettering -->
+    <text x="36" y="27" font-family="'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="20" font-weight="800" letter-spacing="2.5" fill="currentColor">UPRISE</text>
+    
+    <!-- "DIGITAL" lightweight modern accent -->
+    <text x="146" y="27" font-family="'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="14" font-weight="600" letter-spacing="4.5" fill="#A998FF">DIGITAL</text>
+  </g>
+</svg>
+</span>
+          <span>AI Visibility & GEO Report · October 2026</span>
+        </footer>
+      </section>
+    
+
+      <section id="ws-pages" class="slide light" data-title="ws-pages">
         
     <header class="hd"><p class="eyebrow">Workstream 03</p><h2 class="h1">54 market and intent pairs where AI engines currently omit Uprise</h2></header>
     <div class="cols-heat">
@@ -561,15 +700,27 @@
       </div>
     </div>
     <p class="src-foot">Empirical research across 168 live tests in 8 Australian markets on Gemini 3.8, Claude Sonnet 4.6, Google AI Mode, October 2026. Zero simulation.</p>
-      </div>
-      <div class="slide-footer">
-        <span class="foot-brand">Uprise Digital · Confidential</span>
-        <span class="foot-page">12 / 16</span>
-      </div>
-    </section>
-  
-    <section id="ws-entity" class="slide theme-white" data-slide-index="12">
-      <div class="stage">
+        <footer class="foot">
+          <span class="foot-logo"><svg class="logo" aria-label="Uprise Digital" role="img" viewBox="0 0 260 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g fill="currentColor">
+    <!-- Stylized Uprise Geometric Upward Arrow / Diamond Emblem -->
+    <path d="M14 6L24 16L19 16L19 32L9 32L9 16L4 16L14 6Z" fill="#A998FF"/>
+    <path d="M14 18L20 24L17 24L17 32L11 32L11 24L8 24L14 18Z" fill="#FFFFFF" fill-opacity="0.3"/>
+    
+    <!-- "UPRISE" modern bold tracked lettering -->
+    <text x="36" y="27" font-family="'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="20" font-weight="800" letter-spacing="2.5" fill="currentColor">UPRISE</text>
+    
+    <!-- "DIGITAL" lightweight modern accent -->
+    <text x="146" y="27" font-family="'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="14" font-weight="600" letter-spacing="4.5" fill="#A998FF">DIGITAL</text>
+  </g>
+</svg>
+</span>
+          <span>AI Visibility & GEO Report · October 2026</span>
+        </footer>
+      </section>
+    
+
+      <section id="ws-entity" class="slide white" data-title="ws-entity">
         
   <header class="hd"><p class="eyebrow">Workstream 04</p><h2 class="h1">What AI gets right, what it misses, and how we fix it</h2></header>
   <div class="quotes">
@@ -599,15 +750,27 @@
     </ul>
   </div>
   <p class="src-foot">Empirical research across 168 live tests in 8 Australian markets on Gemini 3.8, Claude Sonnet 4.6, Google AI Mode, October 2026. Zero simulation.</p>
-      </div>
-      <div class="slide-footer">
-        <span class="foot-brand">Uprise Digital · Confidential</span>
-        <span class="foot-page">13 / 16</span>
-      </div>
-    </section>
-  
-    <section id="roadmap" class="slide theme-light" data-slide-index="13">
-      <div class="stage">
+        <footer class="foot">
+          <span class="foot-logo"><svg class="logo" aria-label="Uprise Digital" role="img" viewBox="0 0 260 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g fill="currentColor">
+    <!-- Stylized Uprise Geometric Upward Arrow / Diamond Emblem -->
+    <path d="M14 6L24 16L19 16L19 32L9 32L9 16L4 16L14 6Z" fill="#A998FF"/>
+    <path d="M14 18L20 24L17 24L17 32L11 32L11 24L8 24L14 18Z" fill="#FFFFFF" fill-opacity="0.3"/>
+    
+    <!-- "UPRISE" modern bold tracked lettering -->
+    <text x="36" y="27" font-family="'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="20" font-weight="800" letter-spacing="2.5" fill="currentColor">UPRISE</text>
+    
+    <!-- "DIGITAL" lightweight modern accent -->
+    <text x="146" y="27" font-family="'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="14" font-weight="600" letter-spacing="4.5" fill="#A998FF">DIGITAL</text>
+  </g>
+</svg>
+</span>
+          <span>AI Visibility & GEO Report · October 2026</span>
+        </footer>
+      </section>
+    
+
+      <section id="roadmap" class="slide light" data-title="roadmap">
         
     <header class="hd"><p class="eyebrow">First 90 Days Execution</p><h2 class="h1">The 90-day Generative Engine Optimization (GEO) rollout plan</h2></header>
     <div class="panel"><div class="gantt">
@@ -616,15 +779,27 @@
     <div class="g-phases"><span style="width:33.33%">Month 1: Foundation & Authority Tiers</span><span style="width:33.33%">Month 2: GEO Hubs & Review Velocity</span><span style="width:33.34%">Month 3: National Scale & Category Dominance</span></div>
   </div></div>
     <p class="note wide">Melbourne leads in Month 1 with review acceleration and directory validations. Sydney and National commercial expansion follow in Months 2 and 3.</p>
-      </div>
-      <div class="slide-footer">
-        <span class="foot-brand">Uprise Digital · Confidential</span>
-        <span class="foot-page">14 / 16</span>
-      </div>
-    </section>
-  
-    <section id="targets" class="slide theme-white" data-slide-index="14">
-      <div class="stage">
+        <footer class="foot">
+          <span class="foot-logo"><svg class="logo" aria-label="Uprise Digital" role="img" viewBox="0 0 260 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g fill="currentColor">
+    <!-- Stylized Uprise Geometric Upward Arrow / Diamond Emblem -->
+    <path d="M14 6L24 16L19 16L19 32L9 32L9 16L4 16L14 6Z" fill="#A998FF"/>
+    <path d="M14 18L20 24L17 24L17 32L11 32L11 24L8 24L14 18Z" fill="#FFFFFF" fill-opacity="0.3"/>
+    
+    <!-- "UPRISE" modern bold tracked lettering -->
+    <text x="36" y="27" font-family="'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="20" font-weight="800" letter-spacing="2.5" fill="currentColor">UPRISE</text>
+    
+    <!-- "DIGITAL" lightweight modern accent -->
+    <text x="146" y="27" font-family="'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="14" font-weight="600" letter-spacing="4.5" fill="#A998FF">DIGITAL</text>
+  </g>
+</svg>
+</span>
+          <span>AI Visibility & GEO Report · October 2026</span>
+        </footer>
+      </section>
+    
+
+      <section id="targets" class="slide white" data-title="targets">
         
     <header class="hd"><p class="eyebrow">Strategic Milestones</p><h2 class="h1">Commercial Objective: #1 Recommended Performance & GEO Agency in 12 Months</h2></header>
     <div class="cols-60">
@@ -646,15 +821,27 @@
       </div>
     </div>
     <p class="src-foot">Empirical research across 168 live tests in 8 Australian markets on Gemini 3.8, Claude Sonnet 4.6, Google AI Mode, October 2026. Zero simulation.</p>
-      </div>
-      <div class="slide-footer">
-        <span class="foot-brand">Uprise Digital · Confidential</span>
-        <span class="foot-page">15 / 16</span>
-      </div>
-    </section>
-  
-    <section id="conclusion" class="slide theme-dark" data-slide-index="15">
-      <div class="stage">
+        <footer class="foot">
+          <span class="foot-logo"><svg class="logo" aria-label="Uprise Digital" role="img" viewBox="0 0 260 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g fill="currentColor">
+    <!-- Stylized Uprise Geometric Upward Arrow / Diamond Emblem -->
+    <path d="M14 6L24 16L19 16L19 32L9 32L9 16L4 16L14 6Z" fill="#A998FF"/>
+    <path d="M14 18L20 24L17 24L17 32L11 32L11 24L8 24L14 18Z" fill="#FFFFFF" fill-opacity="0.3"/>
+    
+    <!-- "UPRISE" modern bold tracked lettering -->
+    <text x="36" y="27" font-family="'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="20" font-weight="800" letter-spacing="2.5" fill="currentColor">UPRISE</text>
+    
+    <!-- "DIGITAL" lightweight modern accent -->
+    <text x="146" y="27" font-family="'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="14" font-weight="600" letter-spacing="4.5" fill="#A998FF">DIGITAL</text>
+  </g>
+</svg>
+</span>
+          <span>AI Visibility & GEO Report · October 2026</span>
+        </footer>
+      </section>
+    
+
+      <section id="conclusion" class="slide dark" data-title="conclusion">
         
   <div class="title-slide">
     <div class="t-brand rise" style="--d:100ms"><svg class="logo" aria-label="Uprise Digital" role="img" viewBox="0 0 260 44" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -682,14 +869,34 @@
       <div><b class="num">Day 60</b><span>First monthly benchmark re-audit</span></div>
     </div>
   </div>
-      </div>
-      <div class="slide-footer">
-        <span class="foot-brand">Uprise Digital · Confidential</span>
-        <span class="foot-page">16 / 16</span>
-      </div>
-    </section>
-  
+        <footer class="foot on-dark">
+          <span class="foot-logo"><svg class="logo" aria-label="Uprise Digital" role="img" viewBox="0 0 260 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g fill="currentColor">
+    <!-- Stylized Uprise Geometric Upward Arrow / Diamond Emblem -->
+    <path d="M14 6L24 16L19 16L19 32L9 32L9 16L4 16L14 6Z" fill="#A998FF"/>
+    <path d="M14 18L20 24L17 24L17 32L11 32L11 24L8 24L14 18Z" fill="#FFFFFF" fill-opacity="0.3"/>
+    
+    <!-- "UPRISE" modern bold tracked lettering -->
+    <text x="36" y="27" font-family="'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="20" font-weight="800" letter-spacing="2.5" fill="currentColor">UPRISE</text>
+    
+    <!-- "DIGITAL" lightweight modern accent -->
+    <text x="146" y="27" font-family="'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Inter', sans-serif" font-size="14" font-weight="600" letter-spacing="4.5" fill="#A998FF">DIGITAL</text>
+  </g>
+</svg>
+</span>
+          <span>AI Visibility & GEO Report · October 2026</span>
+        </footer>
+      </section>
+    
+    <div class="progress" aria-hidden="true"><i id="bar"></i></div>
+  </div>
 </div>
+<nav class="controls" id="controls" aria-label="Slide controls">
+  <button id="prev" type="button" aria-label="Previous slide"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4"/></svg></button>
+  <span id="count" class="ctr">1 / 16</span>
+  <button id="next" type="button" aria-label="Next slide"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4"/></svg></button>
+  <button id="fs" type="button" aria-label="Full screen"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none" stroke="currentColor" stroke-width="2.2"/></svg></button>
+</nav>
 <script src="deck.js"></script>
 </body>
 </html>
