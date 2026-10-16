@@ -1,1055 +1,892 @@
 {
   "cities": {
     "melbourne": {
-      "answers": 21,
-      "lhdMentions": 1,
-      "somv": 4.8,
+      "answers": 35,
+      "lhdMentions": 3,
+      "somv": 8.6,
       "ci95": [
-        0.9,
-        22.7
+        3,
+        22.4
       ],
-      "wvi": 0.0238,
-      "lhdRank": 12,
-      "firmsNamed": 15,
-      "totalMentions": 41,
+      "wvi": 0.0571,
+      "lhdRank": 13,
+      "firmsNamed": 30,
+      "totalMentions": 170,
       "top": [
         {
+          "name": "Salt & Fuessel",
+          "n": 23,
+          "rec": 23,
+          "avgPos": 3.7
+        },
+        {
+          "name": "Luminary",
+          "n": 19,
+          "rec": 19,
+          "avgPos": 2.4
+        },
+        {
+          "name": "Intesols",
+          "n": 19,
+          "rec": 19,
+          "avgPos": 3.4
+        },
+        {
+          "name": "StudioHawk",
+          "n": 18,
+          "rec": 18,
+          "avgPos": 1.8
+        },
+        {
           "name": "Impressive",
-          "n": 10,
-          "rec": 10,
-          "avgPos": 1.4
+          "n": 15,
+          "rec": 15,
+          "avgPos": 2.2
         },
         {
-          "name": "Megaphone Marketing",
-          "n": 8,
-          "rec": 8,
-          "avgPos": 1
-        },
-        {
-          "name": "Sparro",
-          "n": 8,
-          "rec": 8,
-          "avgPos": 2
-        },
-        {
-          "name": "Clearwater Agency",
-          "n": 4,
-          "rec": 4,
+          "name": "Optimising",
+          "n": 12,
+          "rec": 12,
           "avgPos": 1.3
         },
         {
-          "name": "Kill Boring Dead",
-          "n": 1,
-          "rec": 1,
-          "avgPos": 1
+          "name": "A.P. Web Solutions",
+          "n": 10,
+          "rec": 10,
+          "avgPos": 3.7
         },
         {
-          "name": "SIXGUN - SEO & Digital Marketing Agency",
-          "n": 1,
-          "rec": 1,
-          "avgPos": 1
+          "name": "SEO Melbourne",
+          "n": 5,
+          "rec": 5,
+          "avgPos": 3.6
         },
         {
-          "name": "farsiight",
-          "n": 1,
-          "rec": 1,
-          "avgPos": 2
+          "name": "Prosperity Media",
+          "n": 5,
+          "rec": 5,
+          "avgPos": 4.8
         },
         {
-          "name": "NuKind Digital - Digital Marketing Agency Melbourne, Australia",
-          "n": 1,
-          "rec": 1,
-          "avgPos": 2
+          "name": "Elephant in the Boardroom",
+          "n": 4,
+          "rec": 4,
+          "avgPos": 4.3
         },
         {
-          "name": "Rocket Agency",
-          "n": 1,
-          "rec": 1,
-          "avgPos": 2
+          "name": "Gravitate Digital",
+          "n": 4,
+          "rec": 4,
+          "avgPos": 5
         },
         {
-          "name": "Impressive - Digital Marketing & SEO Agency",
-          "n": 1,
-          "rec": 1,
+          "name": "Myoho Marketing",
+          "n": 3,
+          "rec": 3,
+          "avgPos": 1.7
+        }
+      ],
+      "lhd": {
+        "name": "Uprise Digital",
+        "n": 3,
+        "rec": 3,
+        "avgPos": 2.3
+      },
+      "byPlat": {
+        "aimode": {
+          "lhd": 1,
+          "n": 7,
+          "leader": "Impressive",
+          "leaderN": 4
+        },
+        "chatgpt": {
+          "lhd": 0,
+          "n": 7,
+          "leader": "Luminary",
+          "leaderN": 6
+        },
+        "perplexity": {
+          "lhd": 0,
+          "n": 7,
+          "leader": "StudioHawk",
+          "leaderN": 6
+        },
+        "gemini": {
+          "lhd": 0,
+          "n": 7,
+          "leader": "Salt & Fuessel",
+          "leaderN": 6
+        },
+        "claude": {
+          "lhd": 2,
+          "n": 7,
+          "leader": "Impressive",
+          "leaderN": 4
+        }
+      },
+      "byPrompt": {
+        "geo_agency": {
+          "lhd": 0,
+          "n": 5,
+          "leader": "Luminary",
+          "leaderN": 5
+        },
+        "ai_seo": {
+          "lhd": 0,
+          "n": 5,
+          "leader": "Salt & Fuessel",
+          "leaderN": 5
+        },
+        "chatgpt_visibility": {
+          "lhd": 0,
+          "n": 5,
+          "leader": "Impressive",
+          "leaderN": 4
+        },
+        "ai_overviews": {
+          "lhd": 0,
+          "n": 5,
+          "leader": "Optimising",
+          "leaderN": 3
+        },
+        "aeo_entity": {
+          "lhd": 2,
+          "n": 5,
+          "leader": "Intesols",
+          "leaderN": 5
+        },
+        "b2b_legal_ai": {
+          "lhd": 1,
+          "n": 5,
+          "leader": "StudioHawk",
+          "leaderN": 5
+        },
+        "ai_audit": {
+          "lhd": 0,
+          "n": 5,
+          "leader": "Salt & Fuessel",
+          "leaderN": 4
+        }
+      },
+      "matrix": {
+        "Salt & Fuessel": {
+          "aimode": 4,
+          "chatgpt": 5,
+          "perplexity": 5,
+          "gemini": 6,
+          "claude": 3
+        },
+        "Luminary": {
+          "aimode": 2,
+          "chatgpt": 6,
+          "perplexity": 4,
+          "gemini": 5,
+          "claude": 2
+        },
+        "Intesols": {
+          "aimode": 2,
+          "chatgpt": 6,
+          "perplexity": 4,
+          "gemini": 5,
+          "claude": 2
+        },
+        "StudioHawk": {
+          "aimode": 2,
+          "chatgpt": 3,
+          "perplexity": 6,
+          "gemini": 5,
+          "claude": 2
+        },
+        "Impressive": {
+          "aimode": 4,
+          "chatgpt": 5,
+          "perplexity": 2,
+          "gemini": 0,
+          "claude": 4
+        },
+        "Optimising": {
+          "aimode": 3,
+          "chatgpt": 4,
+          "perplexity": 2,
+          "gemini": 2,
+          "claude": 1
+        },
+        "Uprise Digital": {
+          "aimode": 1,
+          "chatgpt": 0,
+          "perplexity": 0,
+          "gemini": 0,
+          "claude": 2
+        }
+      },
+      "cited": 5,
+      "topSources": [
+        [
+          "saltandfuessel.com.au",
+          21
+        ],
+        [
+          "clutch.co",
+          20
+        ],
+        [
+          "intesols.com.au",
+          20
+        ],
+        [
+          "studiohawk.com.au",
+          18
+        ],
+        [
+          "impressive.com.au",
+          18
+        ],
+        [
+          "luminary.com",
+          17
+        ],
+        [
+          "thatware.co",
+          15
+        ],
+        [
+          "apwebsolutions.com.au",
+          11
+        ],
+        [
+          "semrush.com",
+          10
+        ],
+        [
+          "goodfirms.co",
+          7
+        ],
+        [
+          "gravitatedigital.com.au",
+          7
+        ],
+        [
+          "myohomarketing.com.au",
+          6
+        ]
+      ]
+    },
+    "sydney": {
+      "answers": 35,
+      "lhdMentions": 2,
+      "somv": 5.7,
+      "ci95": [
+        1.6,
+        18.6
+      ],
+      "wvi": 0.0429,
+      "lhdRank": 11,
+      "firmsNamed": 20,
+      "totalMentions": 86,
+      "top": [
+        {
+          "name": "Prosperity Media",
+          "n": 18,
+          "rec": 18,
+          "avgPos": 1.3
+        },
+        {
+          "name": "StudioHawk",
+          "n": 14,
+          "rec": 14,
+          "avgPos": 1.5
+        },
+        {
+          "name": "Luminary",
+          "n": 11,
+          "rec": 11,
+          "avgPos": 2.4
+        },
+        {
+          "name": "Optimising",
+          "n": 9,
+          "rec": 9,
           "avgPos": 2
         },
         {
           "name": "Online Marketing Gurus",
-          "n": 1,
-          "rec": 1,
+          "n": 5,
+          "rec": 5,
+          "avgPos": 1.8
+        },
+        {
+          "name": "Formulate Digital",
+          "n": 3,
+          "rec": 3,
+          "avgPos": 2
+        },
+        {
+          "name": "Impressive",
+          "n": 3,
+          "rec": 3,
+          "avgPos": 2
+        },
+        {
+          "name": "Digital Nomads HQ",
+          "n": 3,
+          "rec": 3,
           "avgPos": 3
         },
         {
+          "name": "Gravitate Digital",
+          "n": 3,
+          "rec": 3,
+          "avgPos": 3.3
+        },
+        {
+          "name": "Titan Blue",
+          "n": 2,
+          "rec": 2,
+          "avgPos": 1.5
+        },
+        {
           "name": "Uprise Digital",
-          "n": 1,
-          "rec": 1,
+          "n": 2,
+          "rec": 2,
+          "avgPos": 2
+        },
+        {
+          "name": "Rocket Agency",
+          "n": 2,
+          "rec": 2,
           "avgPos": 3
         }
       ],
       "lhd": {
         "name": "Uprise Digital",
-        "n": 1,
-        "rec": 1,
-        "avgPos": 3
+        "n": 2,
+        "rec": 2,
+        "avgPos": 2
       },
       "byPlat": {
-        "gemini": {
+        "aimode": {
           "lhd": 1,
           "n": 7,
-          "leader": "Impressive",
-          "leaderN": 6
-        },
-        "claude": {
-          "lhd": 0,
-          "n": 7,
-          "leader": "Clearwater Agency",
+          "leader": "Prosperity Media",
           "leaderN": 4
         },
-        "aimode": {
+        "chatgpt": {
           "lhd": 0,
           "n": 7,
-          "leader": "Megaphone Marketing",
+          "leader": "StudioHawk",
           "leaderN": 5
+        },
+        "perplexity": {
+          "lhd": 0,
+          "n": 7,
+          "leader": "Prosperity Media",
+          "leaderN": 5
+        },
+        "gemini": {
+          "lhd": 0,
+          "n": 7,
+          "leader": "Prosperity Media",
+          "leaderN": 4
+        },
+        "claude": {
+          "lhd": 1,
+          "n": 7,
+          "leader": "Prosperity Media",
+          "leaderN": 2
         }
       },
       "byPrompt": {
-        "general": {
+        "geo_agency": {
           "lhd": 0,
-          "n": 3,
-          "leader": "Impressive",
-          "leaderN": 2
-        },
-        "geo": {
-          "lhd": 0,
-          "n": 3,
-          "leader": "Megaphone Marketing",
+          "n": 5,
+          "leader": "Prosperity Media",
           "leaderN": 3
         },
-        "google": {
+        "ai_seo": {
           "lhd": 0,
-          "n": 3,
-          "leader": "Impressive",
+          "n": 5,
+          "leader": "StudioHawk",
+          "leaderN": 5
+        },
+        "chatgpt_visibility": {
+          "lhd": 0,
+          "n": 5,
+          "leader": "Luminary",
+          "leaderN": 4
+        },
+        "ai_overviews": {
+          "lhd": 0,
+          "n": 5,
+          "leader": "StudioHawk",
           "leaderN": 2
         },
-        "meta": {
-          "lhd": 1,
-          "n": 3,
-          "leader": "Megaphone Marketing",
-          "leaderN": 2
-        },
-        "b2b_scaling": {
+        "aeo_entity": {
           "lhd": 0,
-          "n": 3,
-          "leader": "Impressive",
-          "leaderN": 1
+          "n": 5,
+          "leader": "Prosperity Media",
+          "leaderN": 3
         },
-        "cro": {
-          "lhd": 0,
-          "n": 3,
-          "leader": "Impressive",
-          "leaderN": 2
+        "b2b_legal_ai": {
+          "lhd": 2,
+          "n": 5,
+          "leader": "Prosperity Media",
+          "leaderN": 3
         },
-        "seo": {
+        "ai_audit": {
           "lhd": 0,
-          "n": 3,
-          "leader": "Impressive",
-          "leaderN": 2
+          "n": 5,
+          "leader": "Prosperity Media",
+          "leaderN": 3
         }
       },
       "matrix": {
-        "Impressive": {
-          "gemini": 6,
-          "claude": 3,
-          "aimode": 1
+        "Prosperity Media": {
+          "aimode": 4,
+          "chatgpt": 3,
+          "perplexity": 5,
+          "gemini": 4,
+          "claude": 2
         },
-        "Megaphone Marketing": {
-          "gemini": 1,
-          "claude": 2,
-          "aimode": 5
+        "StudioHawk": {
+          "aimode": 2,
+          "chatgpt": 5,
+          "perplexity": 4,
+          "gemini": 2,
+          "claude": 1
         },
-        "Sparro": {
-          "gemini": 1,
-          "claude": 2,
-          "aimode": 5
+        "Luminary": {
+          "aimode": 2,
+          "chatgpt": 2,
+          "perplexity": 3,
+          "gemini": 4,
+          "claude": 0
         },
-        "Clearwater Agency": {
+        "Optimising": {
+          "aimode": 3,
+          "chatgpt": 1,
+          "perplexity": 0,
+          "gemini": 3,
+          "claude": 2
+        },
+        "Online Marketing Gurus": {
+          "aimode": 0,
+          "chatgpt": 4,
+          "perplexity": 1,
           "gemini": 0,
-          "claude": 4,
-          "aimode": 0
+          "claude": 0
         },
-        "Kill Boring Dead": {
+        "Formulate Digital": {
+          "aimode": 0,
+          "chatgpt": 0,
+          "perplexity": 2,
           "gemini": 0,
-          "claude": 0,
-          "aimode": 1
-        },
-        "SIXGUN - SEO & Digital Marketing Agency": {
-          "gemini": 0,
-          "claude": 0,
-          "aimode": 1
+          "claude": 1
         },
         "Uprise Digital": {
-          "gemini": 1,
-          "claude": 0,
-          "aimode": 0
+          "aimode": 1,
+          "chatgpt": 0,
+          "perplexity": 0,
+          "gemini": 0,
+          "claude": 1
         }
       },
-      "cited": 0,
+      "cited": 3,
       "topSources": [
         [
-          "vertexaisearch.cloud.google.com",
+          "semrush.com",
+          21
+        ],
+        [
+          "clutch.co",
+          17
+        ],
+        [
+          "thatware.co",
+          15
+        ],
+        [
+          "luminary.com",
+          14
+        ],
+        [
+          "studiohawk.com.au",
+          14
+        ],
+        [
+          "prosperitymedia.com.au",
+          12
+        ],
+        [
+          "thedigitalhub.com.au",
+          11
+        ],
+        [
+          "dilate.com.au",
+          11
+        ],
+        [
+          "seonorthsydney.com.au",
+          9
+        ],
+        [
+          "earnedmedia.com.au",
+          9
+        ],
+        [
+          "digitalagencynetwork.com",
+          8
+        ],
+        [
+          "formulate.com.au",
           7
-        ],
-        [
-          "agencies.semrush.com",
-          5
-        ],
-        [
-          "krowdbase.com",
-          3
-        ],
-        [
-          "itprofiles.com",
-          2
-        ],
-        [
-          "revenuebase.ai",
-          2
-        ],
-        [
-          "sentius.com.au",
-          2
-        ],
-        [
-          "seomelbourne.com",
-          2
-        ],
-        [
-          "ultragrowthmedia.com",
-          1
-        ],
-        [
-          "cytd.design-digital.com.au",
-          1
-        ],
-        [
-          "coherentlab.com",
-          1
-        ],
-        [
-          "millerleith.com.au",
-          1
-        ],
-        [
-          "goodfirms.co",
-          1
         ]
       ]
     },
-    "sydney": {
-      "answers": 21,
-      "lhdMentions": 0,
-      "somv": 0,
+    "brisbane": {
+      "answers": 35,
+      "lhdMentions": 7,
+      "somv": 20,
       "ci95": [
-        0,
-        15.5
+        10,
+        35.9
       ],
-      "wvi": 0,
-      "lhdRank": 14,
-      "firmsNamed": 13,
-      "totalMentions": 45,
+      "wvi": 0.1198,
+      "lhdRank": 6,
+      "firmsNamed": 20,
+      "totalMentions": 88,
       "top": [
         {
-          "name": "Sparro",
-          "n": 11,
-          "rec": 11,
-          "avgPos": 2.1
-        },
-        {
-          "name": "Megaphone Marketing",
-          "n": 10,
-          "rec": 10,
-          "avgPos": 1.2
+          "name": "StudioHawk",
+          "n": 14,
+          "rec": 14,
+          "avgPos": 1.7
         },
         {
           "name": "Impressive",
-          "n": 6,
-          "rec": 6,
+          "n": 9,
+          "rec": 9,
           "avgPos": 2.2
         },
         {
-          "name": "Rocket Agency",
+          "name": "Bambrick",
+          "n": 8,
+          "rec": 8,
+          "avgPos": 1.6
+        },
+        {
+          "name": "Titan Blue",
+          "n": 8,
+          "rec": 8,
+          "avgPos": 2.3
+        },
+        {
+          "name": "Luminary",
+          "n": 8,
+          "rec": 8,
+          "avgPos": 2.5
+        },
+        {
+          "name": "Uprise Digital",
+          "n": 7,
+          "rec": 7,
+          "avgPos": 2.4
+        },
+        {
+          "name": "Gravitate Digital",
+          "n": 6,
+          "rec": 6,
+          "avgPos": 2.5
+        },
+        {
+          "name": "Digital Surfer",
+          "n": 4,
+          "rec": 4,
+          "avgPos": 1.3
+        },
+        {
+          "name": "Digital Nomads HQ",
+          "n": 4,
+          "rec": 4,
+          "avgPos": 1.5
+        },
+        {
+          "name": "Optimising",
+          "n": 3,
+          "rec": 3,
+          "avgPos": 1.3
+        },
+        {
+          "name": "ROI Growth Agency",
+          "n": 3,
+          "rec": 3,
+          "avgPos": 2
+        },
+        {
+          "name": "Supple Digital",
+          "n": 3,
+          "rec": 3,
+          "avgPos": 3
+        }
+      ],
+      "lhd": {
+        "name": "Uprise Digital",
+        "n": 7,
+        "rec": 7,
+        "avgPos": 2.4
+      },
+      "byPlat": {
+        "aimode": {
+          "lhd": 3,
+          "n": 7,
+          "leader": "Uprise Digital",
+          "leaderN": 3
+        },
+        "chatgpt": {
+          "lhd": 0,
+          "n": 7,
+          "leader": "Impressive",
+          "leaderN": 7
+        },
+        "perplexity": {
+          "lhd": 0,
+          "n": 7,
+          "leader": "StudioHawk",
+          "leaderN": 4
+        },
+        "gemini": {
+          "lhd": 0,
+          "n": 7,
+          "leader": "StudioHawk",
+          "leaderN": 5
+        },
+        "claude": {
+          "lhd": 4,
+          "n": 7,
+          "leader": "Uprise Digital",
+          "leaderN": 4
+        }
+      },
+      "byPrompt": {
+        "geo_agency": {
+          "lhd": 0,
+          "n": 5,
+          "leader": "Titan Blue",
+          "leaderN": 5
+        },
+        "ai_seo": {
+          "lhd": 0,
+          "n": 5,
+          "leader": "StudioHawk",
+          "leaderN": 4
+        },
+        "chatgpt_visibility": {
+          "lhd": 1,
+          "n": 5,
+          "leader": "Bambrick",
+          "leaderN": 3
+        },
+        "ai_overviews": {
+          "lhd": 2,
+          "n": 5,
+          "leader": "StudioHawk",
+          "leaderN": 3
+        },
+        "aeo_entity": {
+          "lhd": 2,
+          "n": 5,
+          "leader": "Digital Nomads HQ",
+          "leaderN": 2
+        },
+        "b2b_legal_ai": {
+          "lhd": 2,
+          "n": 5,
+          "leader": "StudioHawk",
+          "leaderN": 3
+        },
+        "ai_audit": {
+          "lhd": 0,
+          "n": 5,
+          "leader": "StudioHawk",
+          "leaderN": 1
+        }
+      },
+      "matrix": {
+        "StudioHawk": {
+          "aimode": 2,
+          "chatgpt": 3,
+          "perplexity": 4,
+          "gemini": 5,
+          "claude": 0
+        },
+        "Impressive": {
+          "aimode": 0,
+          "chatgpt": 7,
+          "perplexity": 1,
+          "gemini": 1,
+          "claude": 0
+        },
+        "Bambrick": {
+          "aimode": 2,
+          "chatgpt": 2,
+          "perplexity": 2,
+          "gemini": 0,
+          "claude": 2
+        },
+        "Titan Blue": {
+          "aimode": 1,
+          "chatgpt": 3,
+          "perplexity": 1,
+          "gemini": 2,
+          "claude": 1
+        },
+        "Luminary": {
+          "aimode": 1,
+          "chatgpt": 3,
+          "perplexity": 2,
+          "gemini": 1,
+          "claude": 1
+        },
+        "Uprise Digital": {
+          "aimode": 3,
+          "chatgpt": 0,
+          "perplexity": 0,
+          "gemini": 0,
+          "claude": 4
+        }
+      },
+      "cited": 10,
+      "topSources": [
+        [
+          "semrush.com",
+          18
+        ],
+        [
+          "r6digital.com.au",
+          16
+        ],
+        [
+          "titanblue.com.au",
+          13
+        ],
+        [
+          "clutch.co",
+          13
+        ],
+        [
+          "luminary.com",
+          11
+        ],
+        [
+          "studiohawk.com.au",
+          11
+        ],
+        [
+          "uprisedigital.com.au",
+          10
+        ],
+        [
+          "gravitatedigital.com.au",
+          10
+        ],
+        [
+          "impressive.com.au",
+          10
+        ],
+        [
+          "digital-marketing-brisbane.com.au",
+          10
+        ],
+        [
+          "designrush.com",
+          9
+        ],
+        [
+          "digilari.com.au",
+          9
+        ]
+      ]
+    },
+    "perth": {
+      "answers": 35,
+      "lhdMentions": 5,
+      "somv": 14.3,
+      "ci95": [
+        6.3,
+        29.4
+      ],
+      "wvi": 0.1429,
+      "lhdRank": 6,
+      "firmsNamed": 14,
+      "totalMentions": 99,
+      "top": [
+        {
+          "name": "Distl",
+          "n": 24,
+          "rec": 24,
+          "avgPos": 2.2
+        },
+        {
+          "name": "Dilate Digital",
+          "n": 22,
+          "rec": 22,
+          "avgPos": 1.8
+        },
+        {
+          "name": "Juicebox",
+          "n": 22,
+          "rec": 22,
+          "avgPos": 2.2
+        },
+        {
+          "name": "Optimising",
+          "n": 6,
+          "rec": 6,
+          "avgPos": 1.8
+        },
+        {
+          "name": "StudioHawk",
+          "n": 6,
+          "rec": 6,
+          "avgPos": 2.8
+        },
+        {
+          "name": "Uprise Digital",
           "n": 5,
           "rec": 5,
           "avgPos": 1
         },
         {
-          "name": "Clearwater Agency",
-          "n": 3,
-          "rec": 3,
-          "avgPos": 1
-        },
-        {
-          "name": "farsiight",
+          "name": "Webtonic",
           "n": 3,
           "rec": 3,
           "avgPos": 2.3
         },
         {
-          "name": "Onmove Digital Agency",
-          "n": 1,
-          "rec": 1,
-          "avgPos": 1
-        },
-        {
-          "name": "King Kong",
-          "n": 1,
-          "rec": 1,
-          "avgPos": 1
-        },
-        {
-          "name": "Eloquent",
-          "n": 1,
-          "rec": 1,
-          "avgPos": 2
-        },
-        {
-          "name": "First Page",
-          "n": 1,
-          "rec": 1,
-          "avgPos": 2
-        },
-        {
-          "name": "Orange Line",
-          "n": 1,
-          "rec": 1,
-          "avgPos": 2
-        },
-        {
-          "name": "Scale Smart Marketing",
-          "n": 1,
-          "rec": 1,
-          "avgPos": 3
-        }
-      ],
-      "lhd": {
-        "name": "Uprise Digital",
-        "n": 0,
-        "rec": 0,
-        "avgPos": 0
-      },
-      "byPlat": {
-        "gemini": {
-          "lhd": 0,
-          "n": 7,
-          "leader": "Rocket Agency",
-          "leaderN": 4
-        },
-        "claude": {
-          "lhd": 0,
-          "n": 7,
-          "leader": "Impressive",
-          "leaderN": 4
-        },
-        "aimode": {
-          "lhd": 0,
-          "n": 7,
-          "leader": "Megaphone Marketing",
-          "leaderN": 5
-        }
-      },
-      "byPrompt": {
-        "general": {
-          "lhd": 0,
-          "n": 3,
-          "leader": "Impressive",
-          "leaderN": 2
-        },
-        "geo": {
-          "lhd": 0,
-          "n": 3,
-          "leader": "Megaphone Marketing",
-          "leaderN": 3
-        },
-        "google": {
-          "lhd": 0,
-          "n": 3,
-          "leader": "Sparro",
-          "leaderN": 2
-        },
-        "meta": {
-          "lhd": 0,
-          "n": 3,
-          "leader": "Megaphone Marketing",
-          "leaderN": 2
-        },
-        "b2b_scaling": {
-          "lhd": 0,
-          "n": 3,
-          "leader": "Megaphone Marketing",
-          "leaderN": 2
-        },
-        "cro": {
-          "lhd": 0,
-          "n": 3,
-          "leader": "Megaphone Marketing",
-          "leaderN": 1
-        },
-        "seo": {
-          "lhd": 0,
-          "n": 3,
-          "leader": "Impressive",
-          "leaderN": 1
-        }
-      },
-      "matrix": {
-        "Sparro": {
-          "gemini": 4,
-          "claude": 2,
-          "aimode": 5
-        },
-        "Megaphone Marketing": {
-          "gemini": 3,
-          "claude": 2,
-          "aimode": 5
-        },
-        "Impressive": {
-          "gemini": 1,
-          "claude": 4,
-          "aimode": 1
-        },
-        "Rocket Agency": {
-          "gemini": 4,
-          "claude": 0,
-          "aimode": 1
-        },
-        "Clearwater Agency": {
-          "gemini": 0,
-          "claude": 3,
-          "aimode": 0
-        },
-        "farsiight": {
-          "gemini": 3,
-          "claude": 0,
-          "aimode": 0
-        },
-        "Uprise Digital": {
-          "gemini": 0,
-          "claude": 0,
-          "aimode": 0
-        }
-      },
-      "cited": 0,
-      "topSources": [
-        [
-          "vertexaisearch.cloud.google.com",
-          7
-        ],
-        [
-          "revenuebase.ai",
-          2
-        ],
-        [
-          "agencies.semrush.com",
-          2
-        ],
-        [
-          "vtdigital.com.au",
-          1
-        ],
-        [
-          "salesforge.ai",
-          1
-        ],
-        [
-          "impressive.com.au",
-          1
-        ],
-        [
-          "efficientmedia.com.au",
-          1
-        ],
-        [
-          "builtinsydney.au",
-          1
-        ],
-        [
-          "hays.com.au",
-          1
-        ],
-        [
-          "s2m.com.au",
-          1
-        ],
-        [
-          "outsourceaccelerator.com",
-          1
-        ],
-        [
-          "clixpert.com.au",
-          1
-        ]
-      ]
-    },
-    "brisbane": {
-      "answers": 21,
-      "lhdMentions": 0,
-      "somv": 0,
-      "ci95": [
-        0,
-        15.5
-      ],
-      "wvi": 0,
-      "lhdRank": 18,
-      "firmsNamed": 17,
-      "totalMentions": 45,
-      "top": [
-        {
-          "name": "Megaphone Marketing",
-          "n": 11,
-          "rec": 11,
-          "avgPos": 1.2
-        },
-        {
-          "name": "Sparro",
-          "n": 10,
-          "rec": 10,
-          "avgPos": 2
-        },
-        {
-          "name": "BAMBRICK®️ - Brisbane SEO & Digital Marketing Agency",
-          "n": 4,
-          "rec": 4,
-          "avgPos": 2.3
-        },
-        {
-          "name": "farsiight",
+          "name": "Gravitate Digital",
           "n": 3,
           "rec": 3,
-          "avgPos": 1
+          "avgPos": 3.3
         },
         {
-          "name": "Impressive",
-          "n": 3,
-          "rec": 3,
-          "avgPos": 1.3
-        },
-        {
-          "name": "R6 Digital®️ - Brisbane Marketing & Creative Agency",
-          "n": 2,
-          "rec": 2,
-          "avgPos": 1
-        },
-        {
-          "name": "Resurge Digital",
-          "n": 2,
-          "rec": 2,
-          "avgPos": 2
-        },
-        {
-          "name": "Brisbane PPC & Google Ads Agency",
-          "n": 1,
-          "rec": 1,
-          "avgPos": 1
-        },
-        {
-          "name": "Clearwater Agency",
-          "n": 1,
-          "rec": 1,
-          "avgPos": 1
-        },
-        {
-          "name": "Yoghurt Digital",
-          "n": 1,
-          "rec": 1,
-          "avgPos": 2
-        },
-        {
-          "name": "Reputable",
-          "n": 1,
-          "rec": 1,
-          "avgPos": 2
-        },
-        {
-          "name": "Ape-X - Digital Marketing Agency",
-          "n": 1,
-          "rec": 1,
-          "avgPos": 2
-        }
-      ],
-      "lhd": {
-        "name": "Uprise Digital",
-        "n": 0,
-        "rec": 0,
-        "avgPos": 0
-      },
-      "byPlat": {
-        "gemini": {
-          "lhd": 0,
-          "n": 7,
-          "leader": "Megaphone Marketing",
-          "leaderN": 4
-        },
-        "claude": {
-          "lhd": 0,
-          "n": 7,
-          "leader": "Megaphone Marketing",
-          "leaderN": 5
-        },
-        "aimode": {
-          "lhd": 0,
-          "n": 7,
-          "leader": "BAMBRICK®️ - Brisbane SEO & Digital Marketing Agency",
-          "leaderN": 4
-        }
-      },
-      "byPrompt": {
-        "general": {
-          "lhd": 0,
-          "n": 3,
-          "leader": "farsiight",
-          "leaderN": 1
-        },
-        "geo": {
-          "lhd": 0,
-          "n": 3,
-          "leader": "Megaphone Marketing",
-          "leaderN": 2
-        },
-        "google": {
-          "lhd": 0,
-          "n": 3,
-          "leader": "Megaphone Marketing",
-          "leaderN": 2
-        },
-        "meta": {
-          "lhd": 0,
-          "n": 3,
-          "leader": "Megaphone Marketing",
-          "leaderN": 2
-        },
-        "b2b_scaling": {
-          "lhd": 0,
-          "n": 3,
-          "leader": "farsiight",
-          "leaderN": 1
-        },
-        "cro": {
-          "lhd": 0,
-          "n": 3,
-          "leader": "Megaphone Marketing",
-          "leaderN": 2
-        },
-        "seo": {
-          "lhd": 0,
-          "n": 3,
-          "leader": "Megaphone Marketing",
-          "leaderN": 1
-        }
-      },
-      "matrix": {
-        "Megaphone Marketing": {
-          "gemini": 4,
-          "claude": 5,
-          "aimode": 2
-        },
-        "Sparro": {
-          "gemini": 4,
-          "claude": 4,
-          "aimode": 2
-        },
-        "BAMBRICK®️ - Brisbane SEO & Digital Marketing Agency": {
-          "gemini": 0,
-          "claude": 0,
-          "aimode": 4
-        },
-        "farsiight": {
-          "gemini": 3,
-          "claude": 0,
-          "aimode": 0
-        },
-        "Impressive": {
-          "gemini": 0,
-          "claude": 3,
-          "aimode": 0
-        },
-        "R6 Digital®️ - Brisbane Marketing & Creative Agency": {
-          "gemini": 0,
-          "claude": 0,
-          "aimode": 2
-        },
-        "Uprise Digital": {
-          "gemini": 0,
-          "claude": 0,
-          "aimode": 0
-        }
-      },
-      "cited": 0,
-      "topSources": [
-        [
-          "vertexaisearch.cloud.google.com",
-          7
-        ],
-        [
-          "agencies.semrush.com",
-          6
-        ],
-        [
-          "revenuebase.ai",
-          5
-        ],
-        [
-          "rankingco.com.au",
-          1
-        ],
-        [
-          "saleshandy.com",
-          1
-        ],
-        [
-          "kaanturk.com",
-          1
-        ],
-        [
-          "nexit.com.au",
-          1
-        ],
-        [
-          "weframetech.com",
-          1
-        ],
-        [
-          "1stpage.com.au",
-          1
-        ],
-        [
-          "designrush.com",
-          1
-        ],
-        [
-          "nextweb.com.au",
-          1
-        ],
-        [
-          "cloudseomarketing.com",
-          1
-        ]
-      ]
-    },
-    "perth": {
-      "answers": 21,
-      "lhdMentions": 1,
-      "somv": 4.8,
-      "ci95": [
-        0.9,
-        22.7
-      ],
-      "wvi": 0.0476,
-      "lhdRank": 6,
-      "firmsNamed": 16,
-      "totalMentions": 44,
-      "top": [
-        {
-          "name": "Megaphone Marketing",
-          "n": 15,
-          "rec": 15,
-          "avgPos": 1
-        },
-        {
-          "name": "Sparro",
-          "n": 15,
-          "rec": 15,
-          "avgPos": 2
-        },
-        {
-          "name": "Social Force™",
-          "n": 1,
-          "rec": 1,
-          "avgPos": 1
-        },
-        {
-          "name": "Search Scope",
-          "n": 1,
-          "rec": 1,
-          "avgPos": 1
-        },
-        {
-          "name": "Perth PPC & Google Ads Agency",
-          "n": 1,
-          "rec": 1,
-          "avgPos": 1
-        },
-        {
-          "name": "Uprise Digital",
-          "n": 1,
-          "rec": 1,
-          "avgPos": 1
-        },
-        {
-          "name": "Interact & Co",
-          "n": 1,
-          "rec": 1,
-          "avgPos": 1
-        },
-        {
-          "name": "Impressive",
-          "n": 1,
-          "rec": 1,
-          "avgPos": 1
-        },
-        {
-          "name": "Perth Digital Agency",
-          "n": 1,
-          "rec": 1,
-          "avgPos": 2
-        },
-        {
-          "name": "Halo Digital",
-          "n": 1,
-          "rec": 1,
-          "avgPos": 2
-        },
-        {
-          "name": "Ad Hoc Digital",
-          "n": 1,
-          "rec": 1,
-          "avgPos": 2
-        },
-        {
-          "name": "Kick Marketing",
-          "n": 1,
-          "rec": 1,
-          "avgPos": 2
-        }
-      ],
-      "lhd": {
-        "name": "Uprise Digital",
-        "n": 1,
-        "rec": 1,
-        "avgPos": 1
-      },
-      "byPlat": {
-        "gemini": {
-          "lhd": 1,
-          "n": 7,
-          "leader": "Megaphone Marketing",
-          "leaderN": 6
-        },
-        "claude": {
-          "lhd": 0,
-          "n": 7,
-          "leader": "Megaphone Marketing",
-          "leaderN": 6
-        },
-        "aimode": {
-          "lhd": 0,
-          "n": 7,
-          "leader": "Megaphone Marketing",
-          "leaderN": 3
-        }
-      },
-      "byPrompt": {
-        "general": {
-          "lhd": 0,
-          "n": 3,
-          "leader": "Megaphone Marketing",
-          "leaderN": 2
-        },
-        "geo": {
-          "lhd": 0,
-          "n": 3,
-          "leader": "Megaphone Marketing",
-          "leaderN": 2
-        },
-        "google": {
-          "lhd": 0,
-          "n": 3,
-          "leader": "Megaphone Marketing",
-          "leaderN": 2
-        },
-        "meta": {
-          "lhd": 1,
-          "n": 3,
-          "leader": "Megaphone Marketing",
-          "leaderN": 2
-        },
-        "b2b_scaling": {
-          "lhd": 0,
-          "n": 3,
-          "leader": "Megaphone Marketing",
-          "leaderN": 2
-        },
-        "cro": {
-          "lhd": 0,
-          "n": 3,
-          "leader": "Megaphone Marketing",
-          "leaderN": 3
-        },
-        "seo": {
-          "lhd": 0,
-          "n": 3,
-          "leader": "Megaphone Marketing",
-          "leaderN": 2
-        }
-      },
-      "matrix": {
-        "Megaphone Marketing": {
-          "gemini": 6,
-          "claude": 6,
-          "aimode": 3
-        },
-        "Sparro": {
-          "gemini": 6,
-          "claude": 6,
-          "aimode": 3
-        },
-        "Social Force™": {
-          "gemini": 0,
-          "claude": 0,
-          "aimode": 1
-        },
-        "Search Scope": {
-          "gemini": 0,
-          "claude": 0,
-          "aimode": 1
-        },
-        "Perth PPC & Google Ads Agency": {
-          "gemini": 0,
-          "claude": 0,
-          "aimode": 1
-        },
-        "Uprise Digital": {
-          "gemini": 1,
-          "claude": 0,
-          "aimode": 0
-        }
-      },
-      "cited": 0,
-      "topSources": [
-        [
-          "vertexaisearch.cloud.google.com",
-          7
-        ],
-        [
-          "agencies.semrush.com",
-          4
-        ],
-        [
-          "revenuebase.ai",
-          3
-        ],
-        [
-          "asthatechnology.com",
-          2
-        ],
-        [
-          "avenueperth.com",
-          2
-        ],
-        [
-          "krowdbase.com",
-          2
-        ],
-        [
-          "techbehemoths.com",
-          1
-        ],
-        [
-          "bluelinks.agency",
-          1
-        ],
-        [
-          "aerobusinesssolutions.com",
-          1
-        ],
-        [
-          "innovination.com",
-          1
-        ],
-        [
-          "okmg.com",
-          1
-        ],
-        [
-          "businessfirms.co",
-          1
-        ]
-      ]
-    },
-    "adelaide": {
-      "answers": 21,
-      "lhdMentions": 0,
-      "somv": 0,
-      "ci95": [
-        0,
-        15.5
-      ],
-      "wvi": 0,
-      "lhdRank": 12,
-      "firmsNamed": 11,
-      "totalMentions": 45,
-      "top": [
-        {
-          "name": "Megaphone Marketing",
-          "n": 17,
-          "rec": 17,
-          "avgPos": 1
-        },
-        {
-          "name": "Sparro",
-          "n": 17,
-          "rec": 17,
-          "avgPos": 2
-        },
-        {
-          "name": "Periscope Media",
-          "n": 2,
-          "rec": 2,
-          "avgPos": 1
-        },
-        {
-          "name": "Loudachris Digital Marketing - Google Ads & Local SEO Agency in Adelaide",
+          "name": "Local Digital",
           "n": 2,
           "rec": 2,
           "avgPos": 1.5
         },
         {
-          "name": "Yoghurt Digital",
-          "n": 1,
-          "rec": 1,
-          "avgPos": 1
-        },
-        {
-          "name": "Online Marketing Gurus",
-          "n": 1,
-          "rec": 1,
-          "avgPos": 2
-        },
-        {
-          "name": "Online Path Digital Marketing",
-          "n": 1,
-          "rec": 1,
-          "avgPos": 2
-        },
-        {
-          "name": "Advantage Digital Marketing",
-          "n": 1,
-          "rec": 1,
-          "avgPos": 2
-        },
-        {
-          "name": "Bold",
-          "n": 1,
-          "rec": 1,
+          "name": "Kia Ora Digital",
+          "n": 2,
+          "rec": 2,
           "avgPos": 3
         },
         {
-          "name": "Digital Marketing Adelaide",
+          "name": "ROI Growth Agency",
           "n": 1,
           "rec": 1,
-          "avgPos": 3
+          "avgPos": 2
         },
         {
-          "name": "Bobo Digital",
+          "name": "Myoho Marketing",
           "n": 1,
           "rec": 1,
           "avgPos": 3
@@ -1057,719 +894,1065 @@
       ],
       "lhd": {
         "name": "Uprise Digital",
-        "n": 0,
-        "rec": 0,
-        "avgPos": 0
+        "n": 5,
+        "rec": 5,
+        "avgPos": 1
       },
       "byPlat": {
+        "aimode": {
+          "lhd": 2,
+          "n": 7,
+          "leader": "Dilate Digital",
+          "leaderN": 3
+        },
+        "chatgpt": {
+          "lhd": 0,
+          "n": 7,
+          "leader": "Distl",
+          "leaderN": 7
+        },
+        "perplexity": {
+          "lhd": 0,
+          "n": 7,
+          "leader": "Distl",
+          "leaderN": 6
+        },
         "gemini": {
           "lhd": 0,
           "n": 7,
-          "leader": "Megaphone Marketing",
+          "leader": "Juicebox",
           "leaderN": 7
         },
         "claude": {
-          "lhd": 0,
+          "lhd": 3,
           "n": 7,
-          "leader": "Megaphone Marketing",
-          "leaderN": 6
+          "leader": "Uprise Digital",
+          "leaderN": 3
+        }
+      },
+      "byPrompt": {
+        "geo_agency": {
+          "lhd": 0,
+          "n": 5,
+          "leader": "Distl",
+          "leaderN": 5
         },
+        "ai_seo": {
+          "lhd": 0,
+          "n": 5,
+          "leader": "Distl",
+          "leaderN": 4
+        },
+        "chatgpt_visibility": {
+          "lhd": 0,
+          "n": 5,
+          "leader": "Distl",
+          "leaderN": 4
+        },
+        "ai_overviews": {
+          "lhd": 2,
+          "n": 5,
+          "leader": "Optimising",
+          "leaderN": 3
+        },
+        "aeo_entity": {
+          "lhd": 2,
+          "n": 5,
+          "leader": "Distl",
+          "leaderN": 3
+        },
+        "b2b_legal_ai": {
+          "lhd": 1,
+          "n": 5,
+          "leader": "Dilate Digital",
+          "leaderN": 5
+        },
+        "ai_audit": {
+          "lhd": 0,
+          "n": 5,
+          "leader": "Juicebox",
+          "leaderN": 3
+        }
+      },
+      "matrix": {
+        "Distl": {
+          "aimode": 3,
+          "chatgpt": 7,
+          "perplexity": 6,
+          "gemini": 6,
+          "claude": 2
+        },
+        "Dilate Digital": {
+          "aimode": 3,
+          "chatgpt": 6,
+          "perplexity": 5,
+          "gemini": 6,
+          "claude": 2
+        },
+        "Juicebox": {
+          "aimode": 2,
+          "chatgpt": 6,
+          "perplexity": 6,
+          "gemini": 7,
+          "claude": 1
+        },
+        "Optimising": {
+          "aimode": 1,
+          "chatgpt": 2,
+          "perplexity": 0,
+          "gemini": 1,
+          "claude": 2
+        },
+        "StudioHawk": {
+          "aimode": 1,
+          "chatgpt": 2,
+          "perplexity": 1,
+          "gemini": 2,
+          "claude": 0
+        },
+        "Uprise Digital": {
+          "aimode": 2,
+          "chatgpt": 0,
+          "perplexity": 0,
+          "gemini": 0,
+          "claude": 3
+        }
+      },
+      "cited": 8,
+      "topSources": [
+        [
+          "distl.com.au",
+          25
+        ],
+        [
+          "dilate.com.au",
+          22
+        ],
+        [
+          "juicebox.com.au",
+          22
+        ],
+        [
+          "pwd.com.au",
+          22
+        ],
+        [
+          "semrush.com",
+          17
+        ],
+        [
+          "daisydigital.com.au",
+          13
+        ],
+        [
+          "seoroom.com.au",
+          11
+        ],
+        [
+          "seoperth.expert",
+          10
+        ],
+        [
+          "digitalhitmen.com.au",
+          10
+        ],
+        [
+          "webtonic.io",
+          8
+        ],
+        [
+          "uprisedigital.com.au",
+          8
+        ],
+        [
+          "ignitesearch.com.au",
+          7
+        ]
+      ]
+    },
+    "adelaide": {
+      "answers": 35,
+      "lhdMentions": 7,
+      "somv": 20,
+      "ci95": [
+        10,
+        35.9
+      ],
+      "wvi": 0.1752,
+      "lhdRank": 5,
+      "firmsNamed": 22,
+      "totalMentions": 84,
+      "top": [
+        {
+          "name": "StudioHawk",
+          "n": 15,
+          "rec": 15,
+          "avgPos": 1.5
+        },
+        {
+          "name": "Gravitate Digital",
+          "n": 11,
+          "rec": 11,
+          "avgPos": 2.4
+        },
+        {
+          "name": "Impressive",
+          "n": 8,
+          "rec": 8,
+          "avgPos": 2
+        },
+        {
+          "name": "Optimising",
+          "n": 7,
+          "rec": 7,
+          "avgPos": 1
+        },
+        {
+          "name": "Uprise Digital",
+          "n": 7,
+          "rec": 7,
+          "avgPos": 1.4
+        },
+        {
+          "name": "Kia Ora Digital",
+          "n": 7,
+          "rec": 7,
+          "avgPos": 2.1
+        },
+        {
+          "name": "Digital Nomads HQ",
+          "n": 5,
+          "rec": 5,
+          "avgPos": 3.2
+        },
+        {
+          "name": "Webtonic",
+          "n": 4,
+          "rec": 4,
+          "avgPos": 1.8
+        },
+        {
+          "name": "Myoho Marketing",
+          "n": 2,
+          "rec": 2,
+          "avgPos": 1.5
+        },
+        {
+          "name": "First Page",
+          "n": 2,
+          "rec": 2,
+          "avgPos": 1.5
+        },
+        {
+          "name": "Soup Agency",
+          "n": 2,
+          "rec": 2,
+          "avgPos": 1.5
+        },
+        {
+          "name": "Local Digital",
+          "n": 2,
+          "rec": 2,
+          "avgPos": 2
+        }
+      ],
+      "lhd": {
+        "name": "Uprise Digital",
+        "n": 7,
+        "rec": 7,
+        "avgPos": 1.4
+      },
+      "byPlat": {
         "aimode": {
+          "lhd": 3,
+          "n": 7,
+          "leader": "Uprise Digital",
+          "leaderN": 3
+        },
+        "chatgpt": {
           "lhd": 0,
           "n": 7,
-          "leader": "Megaphone Marketing",
+          "leader": "StudioHawk",
+          "leaderN": 4
+        },
+        "perplexity": {
+          "lhd": 0,
+          "n": 7,
+          "leader": "StudioHawk",
+          "leaderN": 5
+        },
+        "gemini": {
+          "lhd": 0,
+          "n": 7,
+          "leader": "StudioHawk",
+          "leaderN": 4
+        },
+        "claude": {
+          "lhd": 4,
+          "n": 7,
+          "leader": "Uprise Digital",
           "leaderN": 4
         }
       },
       "byPrompt": {
-        "general": {
+        "geo_agency": {
           "lhd": 0,
-          "n": 3,
-          "leader": "Megaphone Marketing",
-          "leaderN": 1
+          "n": 5,
+          "leader": "Gravitate Digital",
+          "leaderN": 4
         },
-        "geo": {
+        "ai_seo": {
           "lhd": 0,
-          "n": 3,
-          "leader": "Megaphone Marketing",
+          "n": 5,
+          "leader": "StudioHawk",
+          "leaderN": 5
+        },
+        "chatgpt_visibility": {
+          "lhd": 1,
+          "n": 5,
+          "leader": "First Page",
           "leaderN": 2
         },
-        "google": {
-          "lhd": 0,
-          "n": 3,
-          "leader": "Megaphone Marketing",
+        "ai_overviews": {
+          "lhd": 2,
+          "n": 5,
+          "leader": "Optimising",
           "leaderN": 3
         },
-        "meta": {
-          "lhd": 0,
-          "n": 3,
-          "leader": "Megaphone Marketing",
+        "aeo_entity": {
+          "lhd": 2,
+          "n": 5,
+          "leader": "Gravitate Digital",
           "leaderN": 3
         },
-        "b2b_scaling": {
-          "lhd": 0,
-          "n": 3,
-          "leader": "Megaphone Marketing",
+        "b2b_legal_ai": {
+          "lhd": 2,
+          "n": 5,
+          "leader": "Uprise Digital",
           "leaderN": 2
         },
-        "cro": {
+        "ai_audit": {
           "lhd": 0,
-          "n": 3,
-          "leader": "Megaphone Marketing",
-          "leaderN": 3
-        },
-        "seo": {
-          "lhd": 0,
-          "n": 3,
-          "leader": "Megaphone Marketing",
+          "n": 5,
+          "leader": "Optimising",
           "leaderN": 3
         }
       },
       "matrix": {
-        "Megaphone Marketing": {
-          "gemini": 7,
-          "claude": 6,
-          "aimode": 4
+        "StudioHawk": {
+          "aimode": 1,
+          "chatgpt": 4,
+          "perplexity": 5,
+          "gemini": 4,
+          "claude": 1
         },
-        "Sparro": {
-          "gemini": 7,
-          "claude": 6,
-          "aimode": 4
+        "Gravitate Digital": {
+          "aimode": 3,
+          "chatgpt": 1,
+          "perplexity": 4,
+          "gemini": 1,
+          "claude": 2
         },
-        "Periscope Media": {
+        "Impressive": {
+          "aimode": 2,
+          "chatgpt": 3,
+          "perplexity": 2,
           "gemini": 0,
-          "claude": 0,
-          "aimode": 2
+          "claude": 1
         },
-        "Loudachris Digital Marketing - Google Ads & Local SEO Agency in Adelaide": {
-          "gemini": 0,
-          "claude": 0,
-          "aimode": 2
-        },
-        "Yoghurt Digital": {
-          "gemini": 0,
-          "claude": 1,
-          "aimode": 0
-        },
-        "Online Marketing Gurus": {
-          "gemini": 0,
-          "claude": 1,
-          "aimode": 0
+        "Optimising": {
+          "aimode": 2,
+          "chatgpt": 2,
+          "perplexity": 1,
+          "gemini": 1,
+          "claude": 1
         },
         "Uprise Digital": {
+          "aimode": 3,
+          "chatgpt": 0,
+          "perplexity": 0,
           "gemini": 0,
-          "claude": 0,
-          "aimode": 0
+          "claude": 4
+        },
+        "Kia Ora Digital": {
+          "aimode": 0,
+          "chatgpt": 3,
+          "perplexity": 3,
+          "gemini": 1,
+          "claude": 0
         }
       },
-      "cited": 0,
+      "cited": 12,
       "topSources": [
         [
-          "vertexaisearch.cloud.google.com",
-          7
+          "semrush.com",
+          20
         ],
         [
-          "revenuebase.ai",
-          2
+          "digitalmarketingadelaide.com.au",
+          20
+        ],
+        [
+          "studiohawk.com.au",
+          15
+        ],
+        [
+          "clutch.co",
+          14
+        ],
+        [
+          "gravitatedigital.com.au",
+          13
+        ],
+        [
+          "webtonic.io",
+          13
+        ],
+        [
+          "uprisedigital.com.au",
+          12
         ],
         [
           "goodfirms.co",
-          2
+          11
         ],
         [
-          "betteragencies.com.au",
-          1
+          "aiseoadelaide.com.au",
+          10
         ],
         [
-          "businessfirms.co",
-          1
+          "thatware.co",
+          9
         ],
         [
-          "krowdbase.com",
-          1
+          "captovate.com.au",
+          8
         ],
         [
-          "aamax.co",
-          1
-        ],
-        [
-          "traffictail.com",
-          1
-        ],
-        [
-          "adelaideexaminer.com",
-          1
-        ],
-        [
-          "weframetech.com",
-          1
-        ],
-        [
-          "shirainfotech.com",
-          1
-        ],
-        [
-          "seotakeoff.com",
-          1
+          "impressive.com.au",
+          8
         ]
       ]
     },
     "goldcoast": {
-      "answers": 21,
-      "lhdMentions": 0,
-      "somv": 0,
+      "answers": 35,
+      "lhdMentions": 6,
+      "somv": 17.1,
       "ci95": [
-        0,
-        15.5
+        8.1,
+        32.7
       ],
-      "wvi": 0,
-      "lhdRank": 15,
-      "firmsNamed": 14,
-      "totalMentions": 42,
+      "wvi": 0.0875,
+      "lhdRank": 7,
+      "firmsNamed": 15,
+      "totalMentions": 134,
       "top": [
         {
-          "name": "Megaphone Marketing",
-          "n": 15,
-          "rec": 15,
-          "avgPos": 1
+          "name": "Titan Blue",
+          "n": 27,
+          "rec": 27,
+          "avgPos": 1.8
         },
         {
-          "name": "Sparro",
-          "n": 15,
-          "rec": 15,
-          "avgPos": 2
+          "name": "StudioHawk",
+          "n": 26,
+          "rec": 26,
+          "avgPos": 3.2
         },
         {
-          "name": "Yoghurt Digital",
-          "n": 1,
-          "rec": 1,
-          "avgPos": 1
+          "name": "Digital Nomads HQ",
+          "n": 21,
+          "rec": 21,
+          "avgPos": 2.5
         },
         {
-          "name": "Searchical SEO Gold Coast",
-          "n": 1,
-          "rec": 1,
-          "avgPos": 1
+          "name": "Optimising",
+          "n": 13,
+          "rec": 13,
+          "avgPos": 1.5
         },
         {
-          "name": "farsiight",
-          "n": 1,
-          "rec": 1,
-          "avgPos": 1
+          "name": "Thrive Digital",
+          "n": 9,
+          "rec": 9,
+          "avgPos": 2.1
         },
         {
-          "name": "The Social Cue",
-          "n": 1,
-          "rec": 1,
-          "avgPos": 1
+          "name": "Gravitate Digital",
+          "n": 9,
+          "rec": 9,
+          "avgPos": 2.7
         },
         {
-          "name": "Reform Digital",
-          "n": 1,
-          "rec": 1,
-          "avgPos": 1
-        },
-        {
-          "name": "King Kong",
-          "n": 1,
-          "rec": 1,
-          "avgPos": 1
-        },
-        {
-          "name": "Clearwater Agency",
-          "n": 1,
-          "rec": 1,
-          "avgPos": 2
-        },
-        {
-          "name": "Search Marketing Specialists",
-          "n": 1,
-          "rec": 1,
-          "avgPos": 2
-        },
-        {
-          "name": "Wexpert",
-          "n": 1,
-          "rec": 1,
-          "avgPos": 2
+          "name": "Uprise Digital",
+          "n": 6,
+          "rec": 6,
+          "avgPos": 2.8
         },
         {
           "name": "Impressive",
-          "n": 1,
-          "rec": 1,
+          "n": 6,
+          "rec": 6,
+          "avgPos": 4.7
+        },
+        {
+          "name": "Local Digital",
+          "n": 5,
+          "rec": 5,
+          "avgPos": 2.8
+        },
+        {
+          "name": "Digital Surfer",
+          "n": 3,
+          "rec": 3,
+          "avgPos": 2
+        },
+        {
+          "name": "Luminary",
+          "n": 3,
+          "rec": 3,
+          "avgPos": 4
+        },
+        {
+          "name": "Online Marketing Gurus",
+          "n": 2,
+          "rec": 2,
           "avgPos": 3
         }
       ],
       "lhd": {
         "name": "Uprise Digital",
-        "n": 0,
-        "rec": 0,
-        "avgPos": 0
+        "n": 6,
+        "rec": 6,
+        "avgPos": 2.8
       },
       "byPlat": {
+        "aimode": {
+          "lhd": 3,
+          "n": 7,
+          "leader": "Titan Blue",
+          "leaderN": 5
+        },
+        "chatgpt": {
+          "lhd": 0,
+          "n": 7,
+          "leader": "StudioHawk",
+          "leaderN": 7
+        },
+        "perplexity": {
+          "lhd": 0,
+          "n": 7,
+          "leader": "Digital Nomads HQ",
+          "leaderN": 7
+        },
         "gemini": {
           "lhd": 0,
           "n": 7,
-          "leader": "Megaphone Marketing",
-          "leaderN": 5
+          "leader": "Titan Blue",
+          "leaderN": 6
         },
         "claude": {
-          "lhd": 0,
+          "lhd": 3,
           "n": 7,
-          "leader": "Megaphone Marketing",
-          "leaderN": 5
-        },
-        "aimode": {
-          "lhd": 0,
-          "n": 7,
-          "leader": "Megaphone Marketing",
-          "leaderN": 5
+          "leader": "Titan Blue",
+          "leaderN": 6
         }
       },
       "byPrompt": {
-        "general": {
+        "geo_agency": {
           "lhd": 0,
-          "n": 3,
-          "leader": "Megaphone Marketing",
-          "leaderN": 2
+          "n": 5,
+          "leader": "Titan Blue",
+          "leaderN": 4
         },
-        "geo": {
+        "ai_seo": {
           "lhd": 0,
-          "n": 3,
-          "leader": "Megaphone Marketing",
-          "leaderN": 2
-        },
-        "google": {
-          "lhd": 0,
-          "n": 3,
-          "leader": "Megaphone Marketing",
+          "n": 5,
+          "leader": "Thrive Digital",
           "leaderN": 3
         },
-        "meta": {
+        "chatgpt_visibility": {
           "lhd": 0,
-          "n": 3,
-          "leader": "Megaphone Marketing",
+          "n": 5,
+          "leader": "Titan Blue",
+          "leaderN": 5
+        },
+        "ai_overviews": {
+          "lhd": 2,
+          "n": 5,
+          "leader": "StudioHawk",
+          "leaderN": 5
+        },
+        "aeo_entity": {
+          "lhd": 2,
+          "n": 5,
+          "leader": "Titan Blue",
+          "leaderN": 5
+        },
+        "b2b_legal_ai": {
+          "lhd": 2,
+          "n": 5,
+          "leader": "StudioHawk",
+          "leaderN": 5
+        },
+        "ai_audit": {
+          "lhd": 0,
+          "n": 5,
+          "leader": "Titan Blue",
           "leaderN": 3
-        },
-        "b2b_scaling": {
-          "lhd": 0,
-          "n": 3,
-          "leader": "farsiight",
-          "leaderN": 1
-        },
-        "cro": {
-          "lhd": 0,
-          "n": 3,
-          "leader": "Megaphone Marketing",
-          "leaderN": 2
-        },
-        "seo": {
-          "lhd": 0,
-          "n": 3,
-          "leader": "Megaphone Marketing",
-          "leaderN": 2
         }
       },
       "matrix": {
-        "Megaphone Marketing": {
-          "gemini": 5,
-          "claude": 5,
-          "aimode": 5
+        "Titan Blue": {
+          "aimode": 5,
+          "chatgpt": 5,
+          "perplexity": 5,
+          "gemini": 6,
+          "claude": 6
         },
-        "Sparro": {
-          "gemini": 5,
-          "claude": 5,
-          "aimode": 5
+        "StudioHawk": {
+          "aimode": 4,
+          "chatgpt": 7,
+          "perplexity": 6,
+          "gemini": 6,
+          "claude": 3
         },
-        "Yoghurt Digital": {
-          "gemini": 0,
-          "claude": 1,
-          "aimode": 0
+        "Digital Nomads HQ": {
+          "aimode": 3,
+          "chatgpt": 6,
+          "perplexity": 7,
+          "gemini": 3,
+          "claude": 2
         },
-        "Searchical SEO Gold Coast": {
-          "gemini": 0,
-          "claude": 0,
-          "aimode": 1
+        "Optimising": {
+          "aimode": 3,
+          "chatgpt": 4,
+          "perplexity": 1,
+          "gemini": 3,
+          "claude": 2
         },
-        "farsiight": {
-          "gemini": 1,
-          "claude": 0,
-          "aimode": 0
+        "Thrive Digital": {
+          "aimode": 1,
+          "chatgpt": 2,
+          "perplexity": 1,
+          "gemini": 4,
+          "claude": 1
         },
-        "The Social Cue": {
-          "gemini": 0,
-          "claude": 0,
-          "aimode": 1
+        "Gravitate Digital": {
+          "aimode": 1,
+          "chatgpt": 0,
+          "perplexity": 5,
+          "gemini": 2,
+          "claude": 1
         },
         "Uprise Digital": {
+          "aimode": 3,
+          "chatgpt": 0,
+          "perplexity": 0,
           "gemini": 0,
-          "claude": 0,
-          "aimode": 0
+          "claude": 3
         }
       },
-      "cited": 0,
+      "cited": 9,
       "topSources": [
         [
-          "vertexaisearch.cloud.google.com",
-          7
+          "titanblue.com.au",
+          31
         ],
         [
-          "revenuebase.ai",
-          5
+          "studiohawk.com.au",
+          25
         ],
         [
-          "krowdbase.com",
-          5
+          "semrush.com",
+          22
         ],
         [
-          "agencies.semrush.com",
-          2
+          "digitalnomadshq.com.au",
+          21
         ],
         [
-          "elinix.ai",
-          1
+          "gravitatedigital.com.au",
+          14
         ],
         [
-          "weframetech.com",
-          1
+          "goodfirms.co",
+          13
         ],
         [
-          "1stpage.com.au",
-          1
+          "thriveweb.com.au",
+          10
         ],
         [
-          "searchmaxxed.com",
-          1
+          "michaelsherry.com.au",
+          9
         ],
         [
-          "marginmedia.com.au",
-          1
+          "clutch.co",
+          9
         ],
         [
-          "10seos.com",
-          1
+          "uprisedigital.com.au",
+          9
         ],
         [
-          "goldcoast.webocreators.com",
-          1
+          "impressive.com.au",
+          8
         ],
         [
-          "wisernotify.com",
-          1
+          "pivotalagency.com.au",
+          8
         ]
       ]
     },
     "canberra": {
-      "answers": 21,
+      "answers": 35,
+      "lhdMentions": 8,
+      "somv": 22.9,
+      "ci95": [
+        12.1,
+        39
+      ],
+      "wvi": 0.1864,
+      "lhdRank": 6,
+      "firmsNamed": 25,
+      "totalMentions": 117,
+      "top": [
+        {
+          "name": "StudioHawk",
+          "n": 23,
+          "rec": 23,
+          "avgPos": 1.6
+        },
+        {
+          "name": "Kia Ora Digital",
+          "n": 15,
+          "rec": 15,
+          "avgPos": 2.5
+        },
+        {
+          "name": "Prosperity Media",
+          "n": 13,
+          "rec": 13,
+          "avgPos": 2.8
+        },
+        {
+          "name": "Gravitate Digital",
+          "n": 9,
+          "rec": 9,
+          "avgPos": 2.9
+        },
+        {
+          "name": "Digital Nomads HQ",
+          "n": 9,
+          "rec": 9,
+          "avgPos": 2.9
+        },
+        {
+          "name": "Uprise Digital",
+          "n": 8,
+          "rec": 8,
+          "avgPos": 1.5
+        },
+        {
+          "name": "Optimising",
+          "n": 7,
+          "rec": 7,
+          "avgPos": 1.1
+        },
+        {
+          "name": "Luminary",
+          "n": 6,
+          "rec": 6,
+          "avgPos": 2.7
+        },
+        {
+          "name": "First Page",
+          "n": 4,
+          "rec": 4,
+          "avgPos": 3.8
+        },
+        {
+          "name": "Safari Digital",
+          "n": 3,
+          "rec": 3,
+          "avgPos": 2
+        },
+        {
+          "name": "Impressive",
+          "n": 3,
+          "rec": 3,
+          "avgPos": 3.3
+        },
+        {
+          "name": "Webtonic",
+          "n": 2,
+          "rec": 2,
+          "avgPos": 2.5
+        }
+      ],
+      "lhd": {
+        "name": "Uprise Digital",
+        "n": 8,
+        "rec": 8,
+        "avgPos": 1.5
+      },
+      "byPlat": {
+        "aimode": {
+          "lhd": 4,
+          "n": 7,
+          "leader": "Uprise Digital",
+          "leaderN": 4
+        },
+        "chatgpt": {
+          "lhd": 0,
+          "n": 7,
+          "leader": "StudioHawk",
+          "leaderN": 7
+        },
+        "perplexity": {
+          "lhd": 0,
+          "n": 7,
+          "leader": "StudioHawk",
+          "leaderN": 4
+        },
+        "gemini": {
+          "lhd": 0,
+          "n": 7,
+          "leader": "StudioHawk",
+          "leaderN": 6
+        },
+        "claude": {
+          "lhd": 4,
+          "n": 7,
+          "leader": "Uprise Digital",
+          "leaderN": 4
+        }
+      },
+      "byPrompt": {
+        "geo_agency": {
+          "lhd": 0,
+          "n": 5,
+          "leader": "Gravitate Digital",
+          "leaderN": 5
+        },
+        "ai_seo": {
+          "lhd": 0,
+          "n": 5,
+          "leader": "StudioHawk",
+          "leaderN": 4
+        },
+        "chatgpt_visibility": {
+          "lhd": 2,
+          "n": 5,
+          "leader": "Kia Ora Digital",
+          "leaderN": 4
+        },
+        "ai_overviews": {
+          "lhd": 2,
+          "n": 5,
+          "leader": "Prosperity Media",
+          "leaderN": 4
+        },
+        "aeo_entity": {
+          "lhd": 2,
+          "n": 5,
+          "leader": "StudioHawk",
+          "leaderN": 4
+        },
+        "b2b_legal_ai": {
+          "lhd": 2,
+          "n": 5,
+          "leader": "StudioHawk",
+          "leaderN": 5
+        },
+        "ai_audit": {
+          "lhd": 0,
+          "n": 5,
+          "leader": "StudioHawk",
+          "leaderN": 3
+        }
+      },
+      "matrix": {
+        "StudioHawk": {
+          "aimode": 3,
+          "chatgpt": 7,
+          "perplexity": 4,
+          "gemini": 6,
+          "claude": 3
+        },
+        "Kia Ora Digital": {
+          "aimode": 2,
+          "chatgpt": 2,
+          "perplexity": 4,
+          "gemini": 5,
+          "claude": 2
+        },
+        "Prosperity Media": {
+          "aimode": 1,
+          "chatgpt": 4,
+          "perplexity": 2,
+          "gemini": 5,
+          "claude": 1
+        },
+        "Gravitate Digital": {
+          "aimode": 2,
+          "chatgpt": 1,
+          "perplexity": 3,
+          "gemini": 1,
+          "claude": 2
+        },
+        "Digital Nomads HQ": {
+          "aimode": 1,
+          "chatgpt": 4,
+          "perplexity": 2,
+          "gemini": 2,
+          "claude": 0
+        },
+        "Uprise Digital": {
+          "aimode": 4,
+          "chatgpt": 0,
+          "perplexity": 0,
+          "gemini": 0,
+          "claude": 4
+        }
+      },
+      "cited": 11,
+      "topSources": [
+        [
+          "studiohawk.com.au",
+          23
+        ],
+        [
+          "semrush.com",
+          17
+        ],
+        [
+          "kiaoradigital.com.au",
+          16
+        ],
+        [
+          "digitalnomadshq.com.au",
+          12
+        ],
+        [
+          "prosperitymedia.com.au",
+          12
+        ],
+        [
+          "clutch.co",
+          11
+        ],
+        [
+          "uprisedigital.com.au",
+          11
+        ],
+        [
+          "webtonic.io",
+          10
+        ],
+        [
+          "gravitatedigital.com.au",
+          9
+        ],
+        [
+          "captovate.com.au",
+          9
+        ],
+        [
+          "eoantechnologies.com.au",
+          8
+        ],
+        [
+          "thatware.co",
+          7
+        ]
+      ]
+    },
+    "national": {
+      "answers": 35,
       "lhdMentions": 0,
       "somv": 0,
       "ci95": [
         0,
-        15.5
+        9.9
       ],
       "wvi": 0,
-      "lhdRank": 12,
-      "firmsNamed": 11,
-      "totalMentions": 44,
+      "lhdRank": 33,
+      "firmsNamed": 32,
+      "totalMentions": 155,
       "top": [
         {
-          "name": "Megaphone Marketing",
+          "name": "Luminary",
+          "n": 26,
+          "rec": 26,
+          "avgPos": 2.1
+        },
+        {
+          "name": "StudioHawk",
+          "n": 18,
+          "rec": 18,
+          "avgPos": 1.7
+        },
+        {
+          "name": "Intesols",
           "n": 16,
           "rec": 16,
-          "avgPos": 1
+          "avgPos": 3.4
         },
         {
-          "name": "Sparro",
-          "n": 15,
-          "rec": 15,
-          "avgPos": 2
+          "name": "Prosperity Media",
+          "n": 14,
+          "rec": 14,
+          "avgPos": 2.3
         },
         {
-          "name": "Planet Media",
+          "name": "Salt & Fuessel",
+          "n": 11,
+          "rec": 11,
+          "avgPos": 4
+        },
+        {
+          "name": "Optimising",
+          "n": 9,
+          "rec": 9,
+          "avgPos": 1.3
+        },
+        {
+          "name": "Juicebox",
+          "n": 7,
+          "rec": 7,
+          "avgPos": 4.1
+        },
+        {
+          "name": "Dilate Digital",
+          "n": 7,
+          "rec": 7,
+          "avgPos": 4.4
+        },
+        {
+          "name": "Digital Nomads HQ",
+          "n": 6,
+          "rec": 6,
+          "avgPos": 3.2
+        },
+        {
+          "name": "Gravitate Digital",
+          "n": 5,
+          "rec": 5,
+          "avgPos": 4.8
+        },
+        {
+          "name": "Impressive",
           "n": 3,
           "rec": 3,
           "avgPos": 2.7
         },
         {
-          "name": "one x - Marketing Agency Canberra",
-          "n": 2,
-          "rec": 2,
-          "avgPos": 1.5
-        },
-        {
-          "name": "SEO Canberra",
-          "n": 2,
-          "rec": 2,
-          "avgPos": 2
-        },
-        {
-          "name": "Small Business Digital",
-          "n": 1,
-          "rec": 1,
-          "avgPos": 1
-        },
-        {
-          "name": "SEO Company Canberra",
-          "n": 1,
-          "rec": 1,
-          "avgPos": 1
-        },
-        {
-          "name": "Online Marketing Gurus",
-          "n": 1,
-          "rec": 1,
-          "avgPos": 1
-        },
-        {
-          "name": "JSLmedia",
-          "n": 1,
-          "rec": 1,
-          "avgPos": 1
-        },
-        {
-          "name": "DigiSiam",
-          "n": 1,
-          "rec": 1,
-          "avgPos": 3
-        },
-        {
-          "name": "Canberra PPC & Google Ads Agency",
-          "n": 1,
-          "rec": 1,
-          "avgPos": 3
-        }
-      ],
-      "lhd": {
-        "name": "Uprise Digital",
-        "n": 0,
-        "rec": 0,
-        "avgPos": 0
-      },
-      "byPlat": {
-        "gemini": {
-          "lhd": 0,
-          "n": 7,
-          "leader": "Megaphone Marketing",
-          "leaderN": 6
-        },
-        "claude": {
-          "lhd": 0,
-          "n": 7,
-          "leader": "Megaphone Marketing",
-          "leaderN": 7
-        },
-        "aimode": {
-          "lhd": 0,
-          "n": 7,
-          "leader": "Megaphone Marketing",
-          "leaderN": 3
-        }
-      },
-      "byPrompt": {
-        "general": {
-          "lhd": 0,
-          "n": 3,
-          "leader": "Megaphone Marketing",
-          "leaderN": 2
-        },
-        "geo": {
-          "lhd": 0,
-          "n": 3,
-          "leader": "Megaphone Marketing",
-          "leaderN": 2
-        },
-        "google": {
-          "lhd": 0,
-          "n": 3,
-          "leader": "Megaphone Marketing",
-          "leaderN": 2
-        },
-        "meta": {
-          "lhd": 0,
-          "n": 3,
-          "leader": "Megaphone Marketing",
-          "leaderN": 3
-        },
-        "b2b_scaling": {
-          "lhd": 0,
-          "n": 3,
-          "leader": "Megaphone Marketing",
-          "leaderN": 2
-        },
-        "cro": {
-          "lhd": 0,
-          "n": 3,
-          "leader": "Megaphone Marketing",
-          "leaderN": 3
-        },
-        "seo": {
-          "lhd": 0,
-          "n": 3,
-          "leader": "Megaphone Marketing",
-          "leaderN": 2
-        }
-      },
-      "matrix": {
-        "Megaphone Marketing": {
-          "gemini": 6,
-          "claude": 7,
-          "aimode": 3
-        },
-        "Sparro": {
-          "gemini": 5,
-          "claude": 7,
-          "aimode": 3
-        },
-        "Planet Media": {
-          "gemini": 0,
-          "claude": 0,
-          "aimode": 3
-        },
-        "one x - Marketing Agency Canberra": {
-          "gemini": 0,
-          "claude": 0,
-          "aimode": 2
-        },
-        "SEO Canberra": {
-          "gemini": 0,
-          "claude": 0,
-          "aimode": 2
-        },
-        "Small Business Digital": {
-          "gemini": 0,
-          "claude": 0,
-          "aimode": 1
-        },
-        "Uprise Digital": {
-          "gemini": 0,
-          "claude": 0,
-          "aimode": 0
-        }
-      },
-      "cited": 0,
-      "topSources": [
-        [
-          "vertexaisearch.cloud.google.com",
-          7
-        ],
-        [
-          "krowdbase.com",
-          4
-        ],
-        [
-          "betteragencies.com.au",
-          2
-        ],
-        [
-          "sortlist.com",
-          2
-        ],
-        [
-          "goodfirms.co",
-          2
-        ],
-        [
-          "themanifest.com",
-          2
-        ],
-        [
-          "agencies.semrush.com",
-          2
-        ],
-        [
-          "aamax.co",
-          1
-        ],
-        [
-          "quinnmarketing.com.au",
-          1
-        ],
-        [
-          "arihantwebtech.com",
-          1
-        ],
-        [
-          "searchmaxxed.com",
-          1
-        ],
-        [
-          "growthpartnersgpx.com",
-          1
-        ]
-      ]
-    },
-    "national": {
-      "answers": 21,
-      "lhdMentions": 0,
-      "somv": 0,
-      "ci95": [
-        0,
-        15.5
-      ],
-      "wvi": 0,
-      "lhdRank": 11,
-      "firmsNamed": 10,
-      "totalMentions": 43,
-      "top": [
-        {
-          "name": "Megaphone Marketing",
-          "n": 9,
-          "rec": 9,
-          "avgPos": 1
-        },
-        {
-          "name": "Sparro",
-          "n": 9,
-          "rec": 9,
-          "avgPos": 2
-        },
-        {
-          "name": "Impressive",
-          "n": 7,
-          "rec": 7,
-          "avgPos": 1.9
-        },
-        {
-          "name": "Rocket Agency",
-          "n": 4,
-          "rec": 4,
-          "avgPos": 1
-        },
-        {
-          "name": "Clearwater Agency",
-          "n": 4,
-          "rec": 4,
-          "avgPos": 1.3
-        },
-        {
-          "name": "King Kong",
-          "n": 4,
-          "rec": 4,
-          "avgPos": 2.5
-        },
-        {
-          "name": "farsiight",
+          "name": "Shout Digital",
           "n": 3,
           "rec": 3,
-          "avgPos": 1.7
-        },
-        {
-          "name": "Yoghurt Digital",
-          "n": 1,
-          "rec": 1,
-          "avgPos": 1
-        },
-        {
-          "name": "First Page",
-          "n": 1,
-          "rec": 1,
-          "avgPos": 2
-        },
-        {
-          "name": "Soup Agency",
-          "n": 1,
-          "rec": 1,
-          "avgPos": 3
+          "avgPos": 3.7
         }
       ],
       "lhd": {
@@ -1779,649 +1962,751 @@
         "avgPos": 0
       },
       "byPlat": {
+        "aimode": {
+          "lhd": 0,
+          "n": 7,
+          "leader": "Optimising",
+          "leaderN": 3
+        },
+        "chatgpt": {
+          "lhd": 0,
+          "n": 7,
+          "leader": "StudioHawk",
+          "leaderN": 6
+        },
+        "perplexity": {
+          "lhd": 0,
+          "n": 7,
+          "leader": "Luminary",
+          "leaderN": 6
+        },
         "gemini": {
           "lhd": 0,
           "n": 7,
-          "leader": "Rocket Agency",
-          "leaderN": 4
+          "leader": "Luminary",
+          "leaderN": 7
         },
         "claude": {
           "lhd": 0,
           "n": 7,
-          "leader": "Impressive",
-          "leaderN": 5
-        },
-        "aimode": {
-          "lhd": 0,
-          "n": 7,
-          "leader": "Megaphone Marketing",
+          "leader": "Luminary",
           "leaderN": 7
         }
       },
       "byPrompt": {
-        "general": {
+        "geo_agency": {
           "lhd": 0,
-          "n": 3,
-          "leader": "Impressive",
-          "leaderN": 2
+          "n": 5,
+          "leader": "Luminary",
+          "leaderN": 5
         },
-        "geo": {
+        "ai_seo": {
           "lhd": 0,
-          "n": 3,
-          "leader": "Megaphone Marketing",
-          "leaderN": 2
+          "n": 5,
+          "leader": "StudioHawk",
+          "leaderN": 4
         },
-        "google": {
+        "chatgpt_visibility": {
           "lhd": 0,
-          "n": 3,
-          "leader": "Rocket Agency",
-          "leaderN": 1
+          "n": 5,
+          "leader": "Luminary",
+          "leaderN": 4
         },
-        "meta": {
+        "ai_overviews": {
           "lhd": 0,
-          "n": 3,
-          "leader": "farsiight",
-          "leaderN": 1
+          "n": 5,
+          "leader": "Luminary",
+          "leaderN": 4
         },
-        "b2b_scaling": {
+        "aeo_entity": {
           "lhd": 0,
-          "n": 3,
-          "leader": "Rocket Agency",
-          "leaderN": 1
+          "n": 5,
+          "leader": "Luminary",
+          "leaderN": 4
         },
-        "cro": {
+        "b2b_legal_ai": {
           "lhd": 0,
-          "n": 3,
-          "leader": "Rocket Agency",
-          "leaderN": 1
+          "n": 5,
+          "leader": "StudioHawk",
+          "leaderN": 3
         },
-        "seo": {
+        "ai_audit": {
           "lhd": 0,
-          "n": 3,
-          "leader": "Megaphone Marketing",
-          "leaderN": 2
+          "n": 5,
+          "leader": "Luminary",
+          "leaderN": 4
         }
       },
       "matrix": {
-        "Megaphone Marketing": {
-          "gemini": 2,
-          "claude": 0,
-          "aimode": 7
+        "Luminary": {
+          "aimode": 1,
+          "chatgpt": 5,
+          "perplexity": 6,
+          "gemini": 7,
+          "claude": 7
         },
-        "Sparro": {
-          "gemini": 2,
-          "claude": 0,
-          "aimode": 7
+        "StudioHawk": {
+          "aimode": 1,
+          "chatgpt": 6,
+          "perplexity": 3,
+          "gemini": 5,
+          "claude": 3
         },
-        "Impressive": {
-          "gemini": 2,
-          "claude": 5,
-          "aimode": 0
+        "Intesols": {
+          "aimode": 1,
+          "chatgpt": 5,
+          "perplexity": 4,
+          "gemini": 1,
+          "claude": 5
         },
-        "Rocket Agency": {
+        "Prosperity Media": {
+          "aimode": 3,
+          "chatgpt": 5,
+          "perplexity": 2,
+          "gemini": 1,
+          "claude": 3
+        },
+        "Salt & Fuessel": {
+          "aimode": 1,
+          "chatgpt": 1,
+          "perplexity": 2,
           "gemini": 4,
-          "claude": 0,
-          "aimode": 0
+          "claude": 3
         },
-        "Clearwater Agency": {
-          "gemini": 0,
-          "claude": 4,
-          "aimode": 0
-        },
-        "King Kong": {
-          "gemini": 3,
-          "claude": 1,
-          "aimode": 0
+        "Optimising": {
+          "aimode": 3,
+          "chatgpt": 1,
+          "perplexity": 1,
+          "gemini": 2,
+          "claude": 2
         },
         "Uprise Digital": {
+          "aimode": 0,
+          "chatgpt": 0,
+          "perplexity": 0,
           "gemini": 0,
-          "claude": 0,
-          "aimode": 0
+          "claude": 0
         }
       },
-      "cited": 0,
+      "cited": 3,
       "topSources": [
         [
-          "vertexaisearch.cloud.google.com",
+          "thatware.co",
+          20
+        ],
+        [
+          "luminary.com",
+          19
+        ],
+        [
+          "clutch.co",
+          15
+        ],
+        [
+          "gravitatedigital.com.au",
+          14
+        ],
+        [
+          "studiohawk.com.au",
+          14
+        ],
+        [
+          "intesols.com.au",
+          12
+        ],
+        [
+          "semrush.com",
+          12
+        ],
+        [
+          "saltandfuessel.com.au",
+          10
+        ],
+        [
+          "roi.com.au",
+          10
+        ],
+        [
+          "dilate.com.au",
+          8
+        ],
+        [
+          "digitalnomadshq.com.au",
+          8
+        ],
+        [
+          "titanblue.com.au",
           7
-        ],
-        [
-          "agencies.semrush.com",
-          3
-        ],
-        [
-          "revenuebase.ai",
-          2
-        ],
-        [
-          "j2group.com.au",
-          1
-        ],
-        [
-          "salesforge.ai",
-          1
-        ],
-        [
-          "soupagency.com.au",
-          1
-        ],
-        [
-          "leadagency.com.au",
-          1
-        ],
-        [
-          "hays.com.au",
-          1
-        ],
-        [
-          "linkedin.com",
-          1
-        ],
-        [
-          "sonder-digital.com",
-          1
-        ],
-        [
-          "weframetech.com",
-          1
-        ],
-        [
-          "searchmaxxed.com",
-          1
         ]
       ]
     }
   },
   "national": {
-    "answers": 168,
+    "answers": 280,
     "top": [
       {
-        "name": "Megaphone Marketing",
-        "n": 101,
-        "rec": 101,
-        "avgPos": 1
-      },
-      {
-        "name": "Sparro",
-        "n": 100,
-        "rec": 100,
+        "name": "StudioHawk",
+        "n": 134,
+        "rec": 134,
         "avgPos": 2
       },
       {
-        "name": "Impressive",
-        "n": 28,
-        "rec": 28,
-        "avgPos": 1.7
+        "name": "Luminary",
+        "n": 76,
+        "rec": 76,
+        "avgPos": 2.4
       },
       {
-        "name": "Clearwater Agency",
-        "n": 13,
-        "rec": 13,
-        "avgPos": 1.2
+        "name": "Optimising",
+        "n": 66,
+        "rec": 66,
+        "avgPos": 1.4
       },
       {
-        "name": "farsiight",
-        "n": 11,
-        "rec": 11,
-        "avgPos": 1.6
+        "name": "Prosperity Media",
+        "n": 53,
+        "rec": 53,
+        "avgPos": 2.4
       },
       {
-        "name": "Rocket Agency",
-        "n": 10,
-        "rec": 10,
-        "avgPos": 1.1
+        "name": "Gravitate Digital",
+        "n": 50,
+        "rec": 50,
+        "avgPos": 3.1
       },
       {
-        "name": "King Kong",
-        "n": 6,
-        "rec": 6,
-        "avgPos": 2
-      },
-      {
-        "name": "Online Marketing Gurus",
-        "n": 5,
-        "rec": 5,
-        "avgPos": 2.6
-      },
-      {
-        "name": "Yoghurt Digital",
-        "n": 4,
-        "rec": 4,
-        "avgPos": 1.3
-      },
-      {
-        "name": "BAMBRICK®️ - Brisbane SEO & Digital Marketing Agency",
-        "n": 4,
-        "rec": 4,
-        "avgPos": 2.3
-      },
-      {
-        "name": "Planet Media",
-        "n": 3,
-        "rec": 3,
+        "name": "Digital Nomads HQ",
+        "n": 49,
+        "rec": 49,
         "avgPos": 2.7
       },
       {
-        "name": "R6 Digital®️ - Brisbane Marketing & Creative Agency",
-        "n": 2,
-        "rec": 2,
-        "avgPos": 1
+        "name": "Impressive",
+        "n": 47,
+        "rec": 47,
+        "avgPos": 2.6
       },
       {
-        "name": "Periscope Media",
-        "n": 2,
-        "rec": 2,
-        "avgPos": 1
+        "name": "Titan Blue",
+        "n": 39,
+        "rec": 39,
+        "avgPos": 2
       },
       {
-        "name": "Loudachris Digital Marketing - Google Ads & Local SEO Agency in Adelaide",
-        "n": 2,
-        "rec": 2,
-        "avgPos": 1.5
+        "name": "Intesols",
+        "n": 39,
+        "rec": 39,
+        "avgPos": 3.3
       },
       {
-        "name": "one x - Marketing Agency Canberra",
-        "n": 2,
-        "rec": 2,
-        "avgPos": 1.5
+        "name": "Uprise Digital",
+        "n": 38,
+        "rec": 38,
+        "avgPos": 1.9
+      },
+      {
+        "name": "Salt & Fuessel",
+        "n": 35,
+        "rec": 35,
+        "avgPos": 3.8
+      },
+      {
+        "name": "Dilate Digital",
+        "n": 34,
+        "rec": 34,
+        "avgPos": 2.6
+      },
+      {
+        "name": "Juicebox",
+        "n": 29,
+        "rec": 29,
+        "avgPos": 2.7
+      },
+      {
+        "name": "Kia Ora Digital",
+        "n": 27,
+        "rec": 27,
+        "avgPos": 2.6
+      },
+      {
+        "name": "Distl",
+        "n": 25,
+        "rec": 25,
+        "avgPos": 2.2
       }
     ],
-    "lhdMentions": 2,
-    "somv": 1.2,
+    "lhdMentions": 38,
+    "somv": 13.6,
     "ci95": [
-      0.3,
-      4.2
+      10.1,
+      18.1
     ],
-    "wvi": 0.0089,
-    "cited": 0,
+    "wvi": 0.1015,
+    "cited": 61,
     "byPlat": {
-      "gemini": {
-        "lhd": 2,
+      "aimode": {
+        "lhd": 17,
         "n": 56,
-        "somv": 3.6,
+        "somv": 30.4,
         "top": [
           {
-            "name": "Megaphone Marketing",
-            "n": 34,
-            "rec": 34,
-            "avgPos": 1.1
-          },
-          {
-            "name": "Sparro",
-            "n": 34,
-            "rec": 34,
+            "name": "Uprise Digital",
+            "n": 17,
+            "rec": 17,
             "avgPos": 2
           },
           {
-            "name": "farsiight",
-            "n": 11,
-            "rec": 11,
-            "avgPos": 1.6
+            "name": "Optimising",
+            "n": 16,
+            "rec": 16,
+            "avgPos": 1.4
           },
           {
-            "name": "Rocket Agency",
-            "n": 9,
-            "rec": 9,
-            "avgPos": 1.1
+            "name": "StudioHawk",
+            "n": 16,
+            "rec": 16,
+            "avgPos": 1.8
+          },
+          {
+            "name": "Gravitate Digital",
+            "n": 13,
+            "rec": 13,
+            "avgPos": 2.8
+          },
+          {
+            "name": "Digital Nomads HQ",
+            "n": 11,
+            "rec": 11,
+            "avgPos": 2
+          }
+        ]
+      },
+      "chatgpt": {
+        "lhd": 0,
+        "n": 56,
+        "somv": 0,
+        "top": [
+          {
+            "name": "StudioHawk",
+            "n": 37,
+            "rec": 37,
+            "avgPos": 2.2
           },
           {
             "name": "Impressive",
-            "n": 9,
-            "rec": 9,
-            "avgPos": 1.4
+            "n": 21,
+            "rec": 21,
+            "avgPos": 2.8
+          },
+          {
+            "name": "Optimising",
+            "n": 18,
+            "rec": 18,
+            "avgPos": 1.3
+          },
+          {
+            "name": "Luminary",
+            "n": 18,
+            "rec": 18,
+            "avgPos": 2.3
+          },
+          {
+            "name": "Prosperity Media",
+            "n": 16,
+            "rec": 16,
+            "avgPos": 2.8
+          }
+        ]
+      },
+      "perplexity": {
+        "lhd": 0,
+        "n": 56,
+        "somv": 0,
+        "top": [
+          {
+            "name": "StudioHawk",
+            "n": 33,
+            "rec": 33,
+            "avgPos": 2.2
+          },
+          {
+            "name": "Gravitate Digital",
+            "n": 19,
+            "rec": 19,
+            "avgPos": 3.2
+          },
+          {
+            "name": "Luminary",
+            "n": 16,
+            "rec": 16,
+            "avgPos": 2.8
+          },
+          {
+            "name": "Digital Nomads HQ",
+            "n": 13,
+            "rec": 13,
+            "avgPos": 2.5
+          },
+          {
+            "name": "Impressive",
+            "n": 12,
+            "rec": 12,
+            "avgPos": 2.3
+          }
+        ]
+      },
+      "gemini": {
+        "lhd": 0,
+        "n": 56,
+        "somv": 0,
+        "top": [
+          {
+            "name": "StudioHawk",
+            "n": 35,
+            "rec": 35,
+            "avgPos": 1.8
+          },
+          {
+            "name": "Luminary",
+            "n": 19,
+            "rec": 19,
+            "avgPos": 1.9
+          },
+          {
+            "name": "Optimising",
+            "n": 16,
+            "rec": 16,
+            "avgPos": 1.3
+          },
+          {
+            "name": "Prosperity Media",
+            "n": 12,
+            "rec": 12,
+            "avgPos": 2.7
+          },
+          {
+            "name": "Salt & Fuessel",
+            "n": 10,
+            "rec": 10,
+            "avgPos": 3.3
           }
         ]
       },
       "claude": {
-        "lhd": 0,
+        "lhd": 21,
         "n": 56,
-        "somv": 0,
+        "somv": 37.5,
         "top": [
           {
-            "name": "Megaphone Marketing",
-            "n": 33,
-            "rec": 33,
-            "avgPos": 1.1
+            "name": "Uprise Digital",
+            "n": 21,
+            "rec": 21,
+            "avgPos": 1.8
           },
           {
-            "name": "Sparro",
-            "n": 32,
-            "rec": 32,
-            "avgPos": 2
+            "name": "Luminary",
+            "n": 14,
+            "rec": 14,
+            "avgPos": 2.6
           },
           {
-            "name": "Impressive",
-            "n": 17,
-            "rec": 17,
+            "name": "StudioHawk",
+            "n": 13,
+            "rec": 13,
+            "avgPos": 1.8
+          },
+          {
+            "name": "Optimising",
+            "n": 10,
+            "rec": 10,
             "avgPos": 1.6
           },
           {
-            "name": "Clearwater Agency",
-            "n": 13,
-            "rec": 13,
-            "avgPos": 1.2
-          },
-          {
-            "name": "Yoghurt Digital",
-            "n": 4,
-            "rec": 4,
-            "avgPos": 1.3
-          }
-        ]
-      },
-      "aimode": {
-        "lhd": 0,
-        "n": 56,
-        "somv": 0,
-        "top": [
-          {
-            "name": "Megaphone Marketing",
-            "n": 34,
-            "rec": 34,
-            "avgPos": 1
-          },
-          {
-            "name": "Sparro",
-            "n": 34,
-            "rec": 34,
-            "avgPos": 2
-          },
-          {
-            "name": "BAMBRICK®️ - Brisbane SEO & Digital Marketing Agency",
-            "n": 4,
-            "rec": 4,
-            "avgPos": 2.3
-          },
-          {
-            "name": "Planet Media",
-            "n": 3,
-            "rec": 3,
-            "avgPos": 2.7
-          },
-          {
-            "name": "R6 Digital®️ - Brisbane Marketing & Creative Agency",
-            "n": 2,
-            "rec": 2,
-            "avgPos": 1
+            "name": "Gravitate Digital",
+            "n": 10,
+            "rec": 10,
+            "avgPos": 3.1
           }
         ]
       }
     },
     "byPrompt": {
-      "general": {
+      "geo_agency": {
         "lhd": 0,
-        "n": 24,
+        "n": 40,
         "somv": 0,
         "top": [
           {
-            "name": "Megaphone Marketing",
-            "n": 10,
-            "rec": 10,
-            "avgPos": 1.2
+            "name": "Luminary",
+            "n": 25,
+            "rec": 25,
+            "avgPos": 2.4
           },
           {
-            "name": "Sparro",
+            "name": "Gravitate Digital",
+            "n": 21,
+            "rec": 21,
+            "avgPos": 2.9
+          },
+          {
+            "name": "StudioHawk",
+            "n": 18,
+            "rec": 18,
+            "avgPos": 2.9
+          },
+          {
+            "name": "Optimising",
+            "n": 13,
+            "rec": 13,
+            "avgPos": 1.5
+          },
+          {
+            "name": "Titan Blue",
             "n": 10,
             "rec": 10,
             "avgPos": 2.1
+          }
+        ]
+      },
+      "ai_seo": {
+        "lhd": 0,
+        "n": 40,
+        "somv": 0,
+        "top": [
+          {
+            "name": "StudioHawk",
+            "n": 32,
+            "rec": 32,
+            "avgPos": 1.9
+          },
+          {
+            "name": "Optimising",
+            "n": 11,
+            "rec": 11,
+            "avgPos": 1.7
+          },
+          {
+            "name": "Impressive",
+            "n": 11,
+            "rec": 11,
+            "avgPos": 2.3
+          },
+          {
+            "name": "Kia Ora Digital",
+            "n": 9,
+            "rec": 9,
+            "avgPos": 2
+          },
+          {
+            "name": "Salt & Fuessel",
+            "n": 7,
+            "rec": 7,
+            "avgPos": 3.4
+          }
+        ]
+      },
+      "chatgpt_visibility": {
+        "lhd": 4,
+        "n": 40,
+        "somv": 10,
+        "top": [
+          {
+            "name": "StudioHawk",
+            "n": 15,
+            "rec": 15,
+            "avgPos": 2.1
+          },
+          {
+            "name": "Luminary",
+            "n": 14,
+            "rec": 14,
+            "avgPos": 2.5
+          },
+          {
+            "name": "Impressive",
+            "n": 9,
+            "rec": 9,
+            "avgPos": 2.3
+          },
+          {
+            "name": "Optimising",
+            "n": 8,
+            "rec": 8,
+            "avgPos": 1.8
+          },
+          {
+            "name": "Titan Blue",
+            "n": 6,
+            "rec": 6,
+            "avgPos": 1.7
+          }
+        ]
+      },
+      "ai_overviews": {
+        "lhd": 10,
+        "n": 40,
+        "somv": 25,
+        "top": [
+          {
+            "name": "StudioHawk",
+            "n": 21,
+            "rec": 21,
+            "avgPos": 2.4
+          },
+          {
+            "name": "Optimising",
+            "n": 20,
+            "rec": 20,
+            "avgPos": 1.3
+          },
+          {
+            "name": "Prosperity Media",
+            "n": 12,
+            "rec": 12,
+            "avgPos": 3.2
+          },
+          {
+            "name": "Uprise Digital",
+            "n": 10,
+            "rec": 10,
+            "avgPos": 1.4
+          },
+          {
+            "name": "Luminary",
+            "n": 7,
+            "rec": 7,
+            "avgPos": 3
+          }
+        ]
+      },
+      "aeo_entity": {
+        "lhd": 12,
+        "n": 40,
+        "somv": 30,
+        "top": [
+          {
+            "name": "Digital Nomads HQ",
+            "n": 13,
+            "rec": 13,
+            "avgPos": 2.6
+          },
+          {
+            "name": "Uprise Digital",
+            "n": 12,
+            "rec": 12,
+            "avgPos": 1.7
+          },
+          {
+            "name": "StudioHawk",
+            "n": 12,
+            "rec": 12,
+            "avgPos": 1.9
+          },
+          {
+            "name": "Gravitate Digital",
+            "n": 10,
+            "rec": 10,
+            "avgPos": 3.3
+          },
+          {
+            "name": "Luminary",
+            "n": 9,
+            "rec": 9,
+            "avgPos": 2.1
+          }
+        ]
+      },
+      "b2b_legal_ai": {
+        "lhd": 12,
+        "n": 40,
+        "somv": 30,
+        "top": [
+          {
+            "name": "StudioHawk",
+            "n": 24,
+            "rec": 24,
+            "avgPos": 1.1
+          },
+          {
+            "name": "Digital Nomads HQ",
+            "n": 15,
+            "rec": 15,
+            "avgPos": 2.4
+          },
+          {
+            "name": "Uprise Digital",
+            "n": 12,
+            "rec": 12,
+            "avgPos": 2.5
+          },
+          {
+            "name": "Dilate Digital",
+            "n": 9,
+            "rec": 9,
+            "avgPos": 2.2
+          },
+          {
+            "name": "Prosperity Media",
+            "n": 9,
+            "rec": 9,
+            "avgPos": 2.2
+          }
+        ]
+      },
+      "ai_audit": {
+        "lhd": 0,
+        "n": 40,
+        "somv": 0,
+        "top": [
+          {
+            "name": "StudioHawk",
+            "n": 12,
+            "rec": 12,
+            "avgPos": 2
+          },
+          {
+            "name": "Luminary",
+            "n": 11,
+            "rec": 11,
+            "avgPos": 1.7
+          },
+          {
+            "name": "Optimising",
+            "n": 10,
+            "rec": 10,
+            "avgPos": 1.1
+          },
+          {
+            "name": "Prosperity Media",
+            "n": 10,
+            "rec": 10,
+            "avgPos": 2.3
           },
           {
             "name": "Impressive",
             "n": 8,
             "rec": 8,
-            "avgPos": 2.1
-          },
-          {
-            "name": "Clearwater Agency",
-            "n": 4,
-            "rec": 4,
-            "avgPos": 1.5
-          },
-          {
-            "name": "Yoghurt Digital",
-            "n": 3,
-            "rec": 3,
-            "avgPos": 1.3
-          }
-        ]
-      },
-      "geo": {
-        "lhd": 0,
-        "n": 24,
-        "somv": 0,
-        "top": [
-          {
-            "name": "Megaphone Marketing",
-            "n": 18,
-            "rec": 18,
-            "avgPos": 1
-          },
-          {
-            "name": "Sparro",
-            "n": 18,
-            "rec": 18,
-            "avgPos": 2
-          },
-          {
-            "name": "Resurge Digital",
-            "n": 1,
-            "rec": 1,
-            "avgPos": 1
-          },
-          {
-            "name": "Search Scope",
-            "n": 1,
-            "rec": 1,
-            "avgPos": 1
-          },
-          {
-            "name": "Loudachris Digital Marketing - Google Ads & Local SEO Agency in Adelaide",
-            "n": 1,
-            "rec": 1,
-            "avgPos": 1
-          }
-        ]
-      },
-      "google": {
-        "lhd": 0,
-        "n": 24,
-        "somv": 0,
-        "top": [
-          {
-            "name": "Sparro",
-            "n": 16,
-            "rec": 16,
-            "avgPos": 2
-          },
-          {
-            "name": "Megaphone Marketing",
-            "n": 15,
-            "rec": 15,
-            "avgPos": 1
-          },
-          {
-            "name": "Impressive",
-            "n": 4,
-            "rec": 4,
-            "avgPos": 2.3
-          },
-          {
-            "name": "Clearwater Agency",
-            "n": 3,
-            "rec": 3,
-            "avgPos": 1
-          },
-          {
-            "name": "Rocket Agency",
-            "n": 2,
-            "rec": 2,
-            "avgPos": 1
-          }
-        ]
-      },
-      "meta": {
-        "lhd": 2,
-        "n": 24,
-        "somv": 8.3,
-        "top": [
-          {
-            "name": "Megaphone Marketing",
-            "n": 18,
-            "rec": 18,
-            "avgPos": 1.1
-          },
-          {
-            "name": "Sparro",
-            "n": 16,
-            "rec": 16,
-            "avgPos": 2
-          },
-          {
-            "name": "farsiight",
-            "n": 4,
-            "rec": 4,
-            "avgPos": 1.5
-          },
-          {
-            "name": "Impressive",
-            "n": 2,
-            "rec": 2,
-            "avgPos": 1
-          },
-          {
-            "name": "Uprise Digital",
-            "n": 2,
-            "rec": 2,
-            "avgPos": 2
-          }
-        ]
-      },
-      "b2b_scaling": {
-        "lhd": 0,
-        "n": 24,
-        "somv": 0,
-        "top": [
-          {
-            "name": "Megaphone Marketing",
-            "n": 11,
-            "rec": 11,
-            "avgPos": 1
-          },
-          {
-            "name": "Sparro",
-            "n": 11,
-            "rec": 11,
-            "avgPos": 2
-          },
-          {
-            "name": "farsiight",
-            "n": 3,
-            "rec": 3,
-            "avgPos": 1.7
-          },
-          {
-            "name": "Impressive",
-            "n": 2,
-            "rec": 2,
-            "avgPos": 1
-          },
-          {
-            "name": "Rocket Agency",
-            "n": 2,
-            "rec": 2,
-            "avgPos": 1
-          }
-        ]
-      },
-      "cro": {
-        "lhd": 0,
-        "n": 24,
-        "somv": 0,
-        "top": [
-          {
-            "name": "Megaphone Marketing",
-            "n": 16,
-            "rec": 16,
-            "avgPos": 1
-          },
-          {
-            "name": "Sparro",
-            "n": 16,
-            "rec": 16,
-            "avgPos": 2
-          },
-          {
-            "name": "Impressive",
-            "n": 5,
-            "rec": 5,
-            "avgPos": 1.2
-          },
-          {
-            "name": "Rocket Agency",
-            "n": 2,
-            "rec": 2,
-            "avgPos": 1
-          },
-          {
-            "name": "King Kong",
-            "n": 2,
-            "rec": 2,
-            "avgPos": 1.5
-          }
-        ]
-      },
-      "seo": {
-        "lhd": 0,
-        "n": 24,
-        "somv": 0,
-        "top": [
-          {
-            "name": "Megaphone Marketing",
-            "n": 13,
-            "rec": 13,
-            "avgPos": 1
-          },
-          {
-            "name": "Sparro",
-            "n": 13,
-            "rec": 13,
-            "avgPos": 2
-          },
-          {
-            "name": "Impressive",
-            "n": 6,
-            "rec": 6,
-            "avgPos": 1.8
-          },
-          {
-            "name": "Clearwater Agency",
-            "n": 4,
-            "rec": 4,
-            "avgPos": 1
-          },
-          {
-            "name": "SIXGUN - SEO & Digital Marketing Agency",
-            "n": 1,
-            "rec": 1,
-            "avgPos": 1
+            "avgPos": 2.4
           }
         ]
       }
     }
   },
   "platforms": [
+    "aimode",
+    "chatgpt",
+    "perplexity",
     "gemini",
-    "claude",
-    "aimode"
+    "claude"
   ],
   "prompts": [
-    "general",
-    "geo",
-    "google",
-    "meta",
-    "b2b_scaling",
-    "cro",
-    "seo"
+    "geo_agency",
+    "ai_seo",
+    "chatgpt_visibility",
+    "ai_overviews",
+    "aeo_entity",
+    "b2b_legal_ai",
+    "ai_audit"
   ],
-  "totalSample": 168
+  "totalSample": 280
 }

@@ -110,14 +110,15 @@ Every client engagement is compiled into a synchronized two-tiered architecture:
 └──────────────────────────────────┴─────────────────────────────────────┘
 ```
 
-### 3.1 The Ned Presentation Standard (Strategic Restraint)
-For client-facing pitch decks (Tier 1):
-1. **Never Give Away the Execution Blueprint:** Do not hand prospects a directory checklist or granular code tutorial.
-2. **Slide 23 (Workstream 01) Grouping:** Replace specific third-party domain names (`clutch.co`, `shopify.com`, `goodfirms.co`) with high-level strategic authority tiers:
-   - *Verified Agency Directories & Industry Portals*
-   - *Official Platform Partner Ecosystems*
-   - *Digital Trade Press & Agency Award Databases*
-   - *Independent Peer Review & Rating Aggregators*
+### 3.1 The Ned Presentation Standard (Forensic Specificity vs. Prospect Redaction)
+In Ned Mehic's benchmark deck (`lhd-ai-visibility`, Pages 21–28), authority comes from **hyper-specific empirical evidence**, not vague generalizations:
+1. **Default Standard (Full Forensic Specificity — Internal & Standard Benchmarks):**
+   - **Slide 23 (`ws-sources`):** Name the **exact third-party domains and citation counts** computed from the 280 answers (e.g., `doylesguide.com` [39], `lawconnect.com` [38], or for agencies: `clutch.co`, `goodfirms.co`, `semrush.com`, `designrush.com`, `mumbrella.com.au`), paired with exact submission actions and current tier standing.
+   - **Slide 24 (`ws-maps`):** Show the exact map pack count (`X/7`) and exact verified Google review count per market, naming the specific competitor dominating the map pack (e.g., *"Google AI Mode named Garling & Co in 6 of 7 Sydney answers. Garling appears in 5 of 7 Sydney map packs"*).
+   - **Slide 25 (`ws-pages`):** Show the exact $8 \times 7$ city-by-intent zero-cell matrix (`cp` grid), explicitly naming which existing URLs on the client's site score `0/5` vs. which city/intent pages do not exist yet.
+   - **Slide 26 (`ws-entity`):** Show **3 real, verbatim quotes** from `answers.json` / `ans_full.json` paired with **actual verified discrepancies on the client's live website** (e.g., conflicting metrics between subpages and homepage, misnamed acronyms, or unlinked acquisitions/founders). Never hand-type synthetic quotes.
+2. **Optional Prospect Redaction Mode (Pulp-Style Safeguard Only):**
+   - *Only* when explicitly instructed by leadership to withhold the self-execution checklist from a prospect who might DIY it (as was done solely for Pulp Digital), group Slide 23 domains into high-level authority buckets (*Verified Agency Directories*, *Official Partner Ecosystems*, etc.). Never apply this redaction to internal Uprise blueprints or standard Ned-style forensic audits.
 3. **Action Headers:** Standardize execution bullet points under clean consultative headers: `"What we will do"`.
 4. **Link Isolation:** Never embed public buttons or hyperlinks to `technical.html` on the client deck.
 
@@ -130,20 +131,106 @@ For client-facing pitch decks (Tier 1):
 
 Every audit deliverable must satisfy this cross-tier mapping before client delivery:
 
-| # | Tier 1 Client Deck Claim Category | Client Slide Example | Tier 2 Empirical Proof & Attachment Standard | Required Technical Dossier Evidence |
+| # | Tier 1 Client Deck Claim Category | Client Slide Example (30-Slide / 24-Slide) | Tier 2 Empirical Proof & Attachment Standard | Required Technical Dossier Evidence |
 | :---: | :--- | :--- | :--- | :--- |
-| **01** | **Sample Size Cardinality ($N$)** | Cover / Slide 5: *"N = 8 × 7 × E answers"* | Matrix cardinality breakdown ($M \times Q \times E$), authenticated API list, and live query execution timestamps. | `2.0 Problem Formulation`: Formal parameter table with exact $M$, $Q$, $E$, and $N$. |
-| **02** | **Share of Model Voice ($\widehat{\text{SoMV}}$)** | Slide 3 & 6: *"Client captured X% of answers"* | Exact mathematical derivation, mention indicator sum, and asymmetric Wilson Score 95% Confidence Interval bounds ($[w^-, w^+]$). | `3.0 / 5.0 Share of Model Voice`: Formula + derivation table with $p$-values and Wilson CIs. |
-| **03** | **Rank Decay Prominence ($\text{WVI}$)** | Slide 3 & 11: *"Client visibility index is 0.013 vs 0.518"* | Discounted Cumulative Gain formulation, ordinal position decay weights ($1/\log_2(r+1)$), and stance polarity coefficients ($S \in \{+1.0, +0.5, -0.5\}$). | `4.0 / 6.0 Weighted Visibility Index`: DCG decay table + competitor score benchmark. |
-| **04** | **Power-Law Leaderboard & Moats** | Slide 11: *"Megaphone & Sparro capture 60%–70% of mentions"* | Empirical frequency counts across all $N$ cells, competitor rank distributions, and Pareto concentration curves. | `8.0 National Leaderboard`: Full cohort rank, mention count, SoMV, WVI, and moat analysis. |
-| **05** | **Interstate Zero & Local Strongholds** | Slide 6 & 20: *"Client scores 0.0% in interstate capital cities"* | 8-Market Scorecard table showing $n/M_d$ counts, $p$-values, and non-overlapping regional confidence bounds. | `9.0 Geographic Scorecard`: Complete market-by-market scorecard table. |
-| **06** | **Engine Retrieval Disconnect** | Slide 14: *"Google AI Mode cites client; Claude & ChatGPT omit"* | Platform retrieval bias matrix comparing grounded RAG engines vs directory-dependent parametric LLMs. | `11.0 Engine Retrieval Bias`: Architecture comparison + citation source decomposition. |
-| **07** | **Workstream 01: Directory Citation Moat** | Slide 22 & 23: *"Verified B2B portals drive 74%–78% of citations"* | Upstream Citation Topology table detailing total source distribution across B2B Portals, Google Maps, Partner Ecosystems, and Media. | `8.0 / 15.0 Upstream Citation Ledger`: Numerical citation counts and percentage share proving 74%–78%. |
-| **08** | **Workstream 02: Review Count & Map Pack Deficit** | Slide 22 & 24: *"Client has 12/18 reviews vs Megaphone 184; Maps OR = 4.89×–5.21×"* | Google Places API review & rating audit table plus Multivariate Logit Regression parameter estimates and Odds Ratios ($e^{\beta}$). | `13.0 Regression Results & Review Audit`: Review benchmark table (Client vs Leaders) + logit $\beta$ & $OR$. |
-| **09** | **Workstream 03: Crawl Ingestion Bottleneck** | Slide 22 & 25: *"Client site was crawled, but lacks structured outcome figures"* | Live Search Grounding Telemetry Log citing exact query strings, response latency (ms), Vertex AI / SERP URLs, and extraction failure root cause. | `6.0 Empirical Grounding & Web Crawl Log`: Table of exact crawl events with queries, latencies, and root cause. |
-| **10** | **Workstream 04: Schema & Entity Graph Gaps** | Slide 22 & 26: *"Founder authority detached; client success pages lack CaseStudy schema"* | Live On-Page JSON-LD Schema Extraction snippet, missing RDF triple audit, and target production Schema.org specification. | `7.0 / 16.0 Knowledge Graph & Schema Audit`: Discovered schema code + missing triple defect table. |
-| **11** | **Workstream 05: Longitudinal Drift & Re-Audit** | Slide 22 & 27: *"Bi-weekly algorithmic drift; monthly automated testing panel"* | PostgreSQL / DuckDB DDL schema, multi-epoch cron resampling protocol, and Wilcoxon Signed-Rank hypothesis test ($p < 0.05$). | `9.0 / 21.0 Longitudinal Telemetry & DDL`: DDL tables + Wilcoxon signed-rank formula & cron protocol. |
-| **12** | **12-Month Commercial Projections** | Slide 28: *"Path from baseline to 85% #1 recommended agency"* | 12-month econometric transition model, milestone bounds, and required covariate deltas ($\Delta X$). | `20.0 Predictive Trajectory Modeling`: Milestone table with SoMV targets and covariate transition roadmap. |
+| **01** | **Sample Size Cardinality ($N$)** | Cover / Slide 3: *"N = 8 × 7 × E answers"* | Matrix cardinality breakdown ($M \times Q \times E$), authenticated API list, and live query execution timestamps. | `2.0 Problem Formulation`: Formal parameter table with exact $M$, $Q$, $E$, and $N$. |
+| **02** | **Share of Model Voice ($\widehat{\text{SoMV}}$)** | Slide 4 & 5: *"Client captured X% of answers"* | Exact mathematical derivation, mention indicator sum, and asymmetric Wilson Score 95% Confidence Interval bounds ($[w^-, w^+]$). | `3.0 / 5.0 Share of Model Voice`: Formula + derivation table with $p$-values and Wilson CIs. |
+| **03** | **Rank Decay Prominence ($\text{WVI}$)** | Slide 4 & 7: *"Client visibility index is 0.013 vs 0.518"* | Discounted Cumulative Gain formulation, ordinal position decay weights ($1/\log_2(r+1)$), and stance polarity coefficients ($S \in \{+1.0, +0.5, -0.5\}$). | `4.0 / 6.0 Weighted Visibility Index`: DCG decay table + competitor score benchmark. |
+| **04** | **Power-Law Leaderboard & Moats** | Slide 7: *"Top competitors capture 60%–70% of mentions"* | Empirical frequency counts across all $N$ cells, competitor rank distributions, and Pareto concentration curves. | `8.0 National Leaderboard`: Full cohort rank, mention count, SoMV, WVI, and moat analysis. |
+| **05** | **Interstate Zero & Local Strongholds** | Slide 5 & 20: *"Client scores 0.0% in interstate capital cities"* | 8-Market Scorecard table showing $n/M_d$ counts, $p$-values, and non-overlapping regional confidence bounds. | `9.0 Geographic Scorecard`: Complete market-by-market scorecard table. |
+| **06** | **Engine Retrieval Disconnect** | Slide 8: *"Google AI Mode cites client; Claude & ChatGPT omit"* | Platform retrieval bias matrix comparing grounded RAG engines vs directory-dependent parametric LLMs. | `11.0 Engine Retrieval Bias`: Architecture comparison + citation source decomposition. |
+| **07** | **Workstream 01: Directory Citation Moat** | Slide 22 & 23 (or 16 & 17): *"Top directories cited in 26 to 39 answers each"* | Upstream Citation Topology table detailing exact domain citation counts across the $N$ answers. | `8.0 / 15.0 Upstream Citation Ledger`: Exact domain citation counts and percentage share. |
+| **08** | **Workstream 02: Review Count & Map Pack Deficit** | Slide 10 & 24 (or 14 & 18): *"Client in X of 7 map packs; verified Google reviews"* | Google Places API / GBP CID-pinned review & rating audit table plus Multivariate Logit Regression Odds Ratios ($e^{\beta}$). | `13.0 Regression Results & Review Audit`: Review benchmark table (Client vs Leaders) + logit $\beta$ & $OR$. |
+| **09** | **Workstream 03: Crawl Ingestion & Page Gaps** | Slide 22 & 25 (or 16 & 19): *"X market × intent pairs where 0 of 5 engines name Client"* | Live Search Grounding Telemetry Log + URL-level audit of existing vs missing service/location pages. | `6.0 Empirical Grounding & Web Crawl Log`: Table of exact crawl events, URLs, and missing page inventory. |
+| **10** | **Workstream 04: Entity & Fact Discrepancies** | Slide 22 & 26 (or 16 & 20): *"AI gets some facts about [Client] wrong"* | Verbatim quotes from `ans_full.json` cross-referenced against live HTML/meta/JSON-LD extraction on the client domain. | `7.0 / 16.0 Knowledge Graph & Schema Audit`: Discovered schema code + live site discrepancy table. |
+| **11** | **Workstream 05: Longitudinal Drift & Re-Audit** | Slide 22 & 27 (or 16 & 21): *"The first 90 days, week by week"* | PostgreSQL / DuckDB DDL schema, multi-epoch cron resampling protocol, and Wilcoxon Signed-Rank hypothesis test ($p < 0.05$). | `9.0 / 21.0 Longitudinal Telemetry & DDL`: DDL tables + Wilcoxon signed-rank formula & cron protocol. |
+| **12** | **12-Month Commercial Projections** | Slide 28 (or 22): *"The goal: overtake [Mid-Table Competitor] in [Home Market] within 12 months"* | 12-month econometric transition model, sequenced milestone bounds, and required covariate deltas ($\Delta X$). | `20.0 Predictive Trajectory Modeling`: Milestone table with conservative SoMV targets and covariate transition roadmap. |
+
+### 3.3 Target Setting & Strategic Restraint Law (Ned's Formula)
+
+> [!IMPORTANT]
+> **Ned Mehic's Law of Strategic Restraint:** AI visibility audits must read like forensic engineering diagnostics, NEVER agency sales hype. We do not promise blanket "#1 in the state/country" dominance from a low or zero baseline.
+
+1. **Never Promise #1 Overall:**  
+   Never frame client targets as *"Become the #1 Recommended Provider in Victoria / Australia"*. Blanket monopoly claims destroy executive credibility and invite skepticism from sophisticated buyers.
+2. **Anchor to a Specific Named Mid-Table Rival:**  
+   Always frame the 12-month milestone around knocking off a realistic, identifiable mid-table competitor in their primary home market:
+   - *LHD Template:* `"The goal: overtake Law Partners in Sydney within 12 months"`
+   - *Rayamp Solar:* `"The goal: overtake Green Line Solar in Melbourne East within 12 months"`
+   - *Uprise Digital:* `"The goal: overtake Clearwater Agency in Melbourne within 12 months"`
+3. **Sequenced, Realistic Milestones:**  
+   Trajectory projections must be step-by-step and mathematically defendable based on baseline rank:
+   - **Starting from 0%–5% / Low Baseline:**  
+     - **90 Days (Month 3):** 15%–25% · Break into Top 5–10  
+     - **6 Months (Month 6):** 30%–45% · Contend for Top 3–5  
+     - **12 Months (Month 12):** 45%–60% · Overtake targeted mid-table rival  
+   - **Starting from Established Baseline (20%–30%):**  
+     - **90 Days:** 40%–45% · Solidify Top 5  
+     - **6 Months:** 55%–65% · Contend for Top 3  
+     - **12 Months:** 75%–80% · Overtake #2 / challenge category leader
+4. **Geographic Sequencing:**  
+   Always lead with the client's home market first (e.g., Sydney for LHD, Melbourne for Uprise Digital, Melbourne East for Rayamp Solar). Regional and interstate expansion follows in Months 2 and 3, using the home hub as the operating template.
+5. **Entity Disambiguation & Review Audit Integrity (No Hardcoding):**  
+   When auditing Google Business Profiles or third-party reviews, NEVER hardcode unverified review counts in `build.mjs` and NEVER rely on unpinned text queries (e.g. `"Brand Name reviews"`), which trigger homonymous brand collisions with international namesakes (such as Uprise Digital UK's 18 reviews vs. Uprise Digital Cremorne's 47 reviews). Always pin queries strictly to the unique Google Place ID, Google `CID`, and verified street address.
+
+### 3.4 Forensic Copywriting & Canonical 30-Slide Deck Architecture (Ned's Benchmark)
+
+> [!IMPORTANT]
+> **The Forensic Authority Standard:** Clients hire us because the deck reads like an unassailable engineering audit, not an agency sales pitch. Every slide title must be active, understated, and factual.
+
+#### 1. Banned Jargon vs. Ned's Forensic Phrasing (Mapped to Canonical 30-Slide Benchmark)
+| Slide # (30-Slide / 24-Slide) | ❌ Banned Agency Jargon | ✅ Required Ned Forensic Phrasing |
+| :--- | :--- | :--- |
+| **Slide 2 (`shift`)** | *"Buyers no longer click 10 Google links..."* | *"More Australians are asking AI which [category provider] to choose"* |
+| **Slide 4 (`national`)** | *"[Competitors] dominate AI recommendations across Australia"* | *"Across all 280 answers, [Client] is #[Rank] — behind [Competitor A] and [Competitor B]"* |
+| **Slide 10 (`[home]-why`)** | *"Why Competitors Win: Multi-Channel Synergy"* | *"[Home City]'s AI favourites lead on rankings, reviews and Google Maps"* |
+| **Slide 20 (`gap`)** | *"The Regional Blind Spot: Millions in revenue flowing..."* | *"[Client] trails the most-named firm in [X] of 8 markets"* |
+| **Slide 21 / 15 (`plan-intro`)**| *"The 5-Pillar GEO Roadmap to Make [Client] #1"* | *"How [Client] gets on every shortlist"* |
+| **Slide 22 / 16 (`plan`)** | *"Five synchronized workstreams addressing each empirical gap"* | *"Five workstreams, each answering a gap in the data"* |
+| **Slide 23 / 17 (`ws-sources`)**| *"AI copies its shortlist from authoritative industry ecosystems"* | *"AI copies its shortlist from rankings guides and directories"* |
+| **Slide 24 / 18 (`ws-maps`)** | *"Local Signals & Map Pack Optimization"* | *"Google Maps decides who Google's own AI names"* |
+| **Slide 25 / 19 (`ws-pages`)** | *"Dedicated solution architecture for high-value intents"* | *"[X] market and question pairs where no assistant names [Client]"* |
+| **Slide 26 / 20 (`ws-entity`)** | *"What AI gets right, what it misses, and how we fix it"* | *"AI gets some facts about [Client] wrong"* |
+| **Slide 27 / 21 (`roadmap`)** | *"The 90-day Generative Engine Optimization (GEO) rollout plan"* | *"The first 90 days, week by week"* |
+| **Slide 27 Phases** | *"Month 1: Foundation... Month 3: National Domination"* | *"Month 1: fix foundations · Month 2: build pages & profiles · Month 3: scale to every city"* |
+| **Slide 28 / 22 (`targets`)** | *"The Goal: Become the #1 Recommended Provider in 12 Months"* | *"The goal: overtake [Mid-Table Competitor] in [Home Market] within 12 months"* |
+| **Slide 29 / 23 (`close`)** | *"Start with [City]. Infiltrate the shortlists. Dominate recall."* | *"Start with [Home Market]. Measure every month."* |
+| **Slide 30 / 24 (`appendix`)** | *(Omitted or placed before Close)* | *"Method and definitions"* (Always the final slide, after `close`) |
+
+#### 2. The Verbatim AI Hallucination & Error Quoting Mandate (Slide 26 / `ws-entity`)
+Slide 26 (`ws-entity`) must **never** feature polite, flattering, or hand-typed synthetic quotes. Every quote must be extracted verbatim from `ans_full.json` / `answers.json` and paired with a verified site/profile audit finding:
+* **Invented / Conflated Entities:** Models inventing company names, confusing UK/US namesakes, or recommending directories/brokers as competitors.
+* **Outdated or Contradictory Numbers:** Models quoting outdated figures or claims because legacy subpages or meta descriptions contradict the homepage (e.g., LHD's Sydney page saying `"Over $220M"` while the homepage says `"$260 million"`).
+* **Uncorroborated Primary Claims / Omissions:** Models crediting competitors for the exact specialty the client claims to own (e.g., Uprise Digital specializing in GEO/AI Search while AI engines name Megaphone or First Page instead).
+
+#### 3. Canonical 30-Slide Master Deck Anatomy (Ned's `lhd-template-repo` Benchmark)
+Every full multi-market audit follows Ned Mehic's exact **30-slide sequence** (where **Pages 21–28** form the core operational plan benchmark, **Page 29** is `close`, and **Page 30** is `appendix`):
+1. `cover`: Clean cover (`When Australians ask AI for [Service], who gets recommended?`)
+2. `shift`: The market shift (`More Australians are asking AI which [provider] to choose`)
+3. `method`: Cardinality equation ($8 \text{ markets} \times 7 \text{ questions} \times 5 \text{ assistants} = 280 \text{ answers}$)
+4. `national`: Overall standings across all 280 answers + by-assistant strip
+5. `map`: Geographic map of Australia with market bubbles (`rate% · #rank`)
+6. `[home]-intro`: Accent divider slide for the primary home market (e.g., `01 · Sydney` or `01 · Melbourne`)
+7. `[home]-board`: Home market top 10 horizontal bars + KPI callouts
+8. `[home]-heat`: Home market agency $\times$ assistant heatmap (`out of 7 per assistant`)
+9. `[home]-practice`: Home market commercial intent / practice breakdown (`dots out of 5 engines` + category leader)
+10. `[home]-why`: Why leaders win table (`AI Mentions | Directory Tier | Google Rating (Reviews) | Map Packs`)
+11–17. `city-2` through `city-8`: 7 individual market slides generated via `citySlide(c, i + 2)` (`3-column layout: Top 7 bars | KPI + By Assistant + By Intent strips | 3 forensic findings`)
+18. `pattern`: Authority footprint vs. AI answer share scatter plot
+19. `trend`: 14-month historical LLM citation trend + Share of Model Voice mini-chart
+20. `gap`: Dumbbell chart (`Client vs. most-named competitor in each market`)
+21. `plan-intro`: Accent divider (`The plan: How [Client] gets on every shortlist`)
+22. `plan`: The 5 workstreams table (`Workstream | What the data shows | What we will do`)
+23. `ws-sources`: Workstream 01 — Exact third-party domains cited in the 280 answers + submission plan
+24. `ws-maps`: Workstream 02 — Google Maps pack presence (`X/7`) & verified review counts by market
+25. `ws-pages`: Workstream 03 — $8 \times 7$ market-by-intent heatmap highlighting `0/5` zero cells + page build/rewrite list
+26. `ws-entity`: Workstream 04 — `AI gets some facts about [Client] wrong` (3 verbatim quotes + live site discrepancies)
+27. `roadmap`: 12-week Gantt chart (`The first 90 days, week by week`)
+28. `targets`: 12-month trajectory chart + 8-market target table (`The goal: overtake [Mid-Table Competitor] in [Home Market] within 12 months`)
+29. `close`: Dark action close (`Start with [Home Market]. Measure every month.` + 3 numbered steps)
+30. `appendix`: 2-column methodology appendix (`Method and definitions: How answers were collected | How answers were scored`)
+
+*(Note: For single-state/regional contractor audits like `rayamp-ai-visibility` where 5 regional corridors are consolidated into a single summary slide instead of 7 separate city slides, the deck compacts to a 24-slide variant where Slides 15–22 correspond to Slides 21–28 above, Slide 23 is `close`, and Slide 24 is `appendix`.)*
 
 ---
 
@@ -334,7 +421,8 @@ Before sending any deliverable to an executive or client prospect, verify every 
 - [ ] **Zero Hallucination:** Dataset contains only live authenticated queries; no fake/simulated proxy rows.
 - [ ] **Dynamic Denominators:** Sample size formula $N = M \times Q \times E$ matches actual ingested records.
 - [ ] **1:1 Claim-to-Proof Standard (MANDATORY):** Every factual claim in Tier 1 (reviews, citations %, crawl telemetry, schema deficits, logit odds, 12-month projections) has an attached empirical table, derivation, or extract in Tier 2 (`/technical`).
-- [ ] **Slide 23 Strategic Restraint:** No specific directory checklists on Slide 23; categorized into authority tiers.
+- [ ] **Pages 21–28 Forensic Specificity (Ned's Benchmark):** Exact citation counts by domain (`ws-sources`), CID-pinned review counts (`ws-maps`), $8 \times 7$ zero-cell matrix + URL-level gaps (`ws-pages`), and 100% real verbatim quotes + live site discrepancies (`ws-entity`) — unless Prospect Redaction Mode is explicitly requested.
+- [ ] **Sequenced Mid-Table Target & Slide Order:** Targets slide anchors to overtaking a specific named mid-table rival in 12 months (never promising blanket #1), and `close` (Slide 29/23) precedes `appendix` (Slide 30/24).
 - [ ] **No Public Dossier Link:** Client HTML has zero anchor tags linking to `technical.html`.
 - [ ] **Clean White Gatekeeper:** Gatekeeper uses pure white minimalist UI matching agency confidential standard.
 - [ ] **Separate PIN Verification:** Client PIN cannot access `/technical`; Internal PIN unlocks both views.

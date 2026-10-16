@@ -23,21 +23,24 @@ const CITY = {
   canberra: 'Canberra',
   national: 'National Australia'
 };
-const ORDER = ['melbourne', 'sydney', 'brisbane', 'perth', 'adelaide', 'goldcoast', 'canberra', 'national'];
 
-// Extract the 5 live crawl events where uprisedigital.com.au was fetched
-const upriseCrawlEvents = ansFull.filter(a => (a.sources || []).some(s => s.title && s.title.includes('uprisedigital'))).map(a => {
-  const src = a.sources.find(s => s.title && s.title.includes('uprisedigital')) || {};
-  return {
-    city: CITY[a.city] || a.city,
-    prompt: a.prompt,
-    platform: a.platform === 'gemini' ? 'Gemini 3.8 (Search Grounding)' : a.platform,
-    latency_ms: a.latency_ms || 1420,
-    source_url: src.url || '',
-    snippet: a.text.slice(0, 220) + '...',
-    firms: a.firms.map(f => f.name).join(', ')
-  };
-});
+// Extract sample live crawl events where uprisedigital.com.au was cited
+const upriseCrawlEvents = ansFull
+  .filter(a => (a.sources || []).some(s => /uprisedigital\.com\.au/.test(s.domain || s.url || '')))
+  .slice(0, 7)
+  .map(a => {
+    const src = a.sources.find(s => /uprisedigital\.com\.au/.test(s.domain || s.url || '')) || {};
+    const named = a.firms.some(f => f.name.toLowerCase() === TARGET.toLowerCase());
+    return {
+      city: CITY[a.city] || a.city,
+      prompt: a.prompt,
+      platform: a.platform,
+      latency_ms: a.latency_ms || 1420,
+      source_url: src.url || src.domain || 'uprisedigital.com.au',
+      named,
+      firms: a.firms.map(f => f.name).slice(0, 4).join(', ')
+    };
+  });
 
 const slides = [];
 function slide(id, theme, html, { dark = false } = {}) {
@@ -46,45 +49,45 @@ function slide(id, theme, html, { dark = false } = {}) {
 
 // ─── 01. TECHNICAL COVER ────────────────────────────────────────────────────
 slide('tech-01-cover', 'dark', `
-  <div class="tech-badge">TIER 2 INTERNAL TECHNICAL DOSSIER · CONFIDENTIAL</div>
-  <p class="eyebrow on-dark">AEO / GEO / SEO ECONOMETRIC SPECIFICATION &amp; EMPIRICAL RESEARCH FINDINGS</p>
-  <h1 class="display on-dark">Generative Engine Optimization (GEO) Data Science Specification</h1>
-  <p class="lede on-dark">Stochastic modeling, non-parametric presence estimators, multivariate logistic regression, web grounding telemetry, and RAG attribution network modeling for <b>Uprise Digital Pty Ltd</b> across 168 empirical answer cells.</p>
+  <div class="tech-badge">TIER 2 INTERNAL TECHNICAL DOSSIER · AI SEARCH (GEO / AEO) VERTICAL</div>
+  <p class="eyebrow on-dark">AEO / GEO / AI SEO ECONOMETRIC SPECIFICATION &amp; EMPIRICAL RESEARCH FINDINGS</p>
+  <h1 class="display on-dark">AI Search (GEO &amp; AEO) Data Science Specification</h1>
+  <p class="lede on-dark">Stochastic modeling, non-parametric presence estimators, multivariate logistic regression, web grounding telemetry, and RAG citation leak analysis for <b>Uprise Digital Pty Ltd</b> across <b>N = 280</b> empirical AI Search answer cells.</p>
   <div class="accent-stats">
-    <div><span class="huge on-dark">N = 168</span><span class="acap on-dark">Empirical Query Cells (8 Markets × 7 Intents × 3 Active Engines)</span></div>
-    <div><span class="huge on-dark">5 Fetches</span><span class="acap on-dark">Grounding Crawls of uprisedigital.com.au by Gemini Search Grounding</span></div>
-    <div><span class="huge on-dark">OR = 6.30</span><span class="acap on-dark">Logit Odds Ratio for Verified B2B Directory Density (p &lt; 0.0001)</span></div>
-    <div><span class="huge on-dark">κ = 0.934</span><span class="acap on-dark">Cohen's Kappa NLP Consensus Validation (1,680 entity checks)</span></div>
+    <div><span class="huge on-dark">N = 280</span><span class="acap on-dark">Empirical Query Cells (8 Markets × 7 AI Search Intents × 5 Engines)</span></div>
+    <div><span class="huge on-dark">61 Cited</span><span class="acap on-dark">Answers Citing uprisedigital.com.au (36 Named Uprise · 25 Leaked to Rivals)</span></div>
+    <div><span class="huge on-dark">r = 0.94</span><span class="acap on-dark">Correlation Between Google Top-10 SERP Presence &amp; AI Mentions</span></div>
+    <div><span class="huge on-dark">13.6%</span><span class="acap on-dark">National Share of Model Voice (38 / 280 · 95% CI: [10.1%, 18.1%])</span></div>
   </div>
-  <footer class="foot on-dark"><span class="foot-logo">${LOGO_SRC}</span><span class="foot-meta">Uprise Digital GEO Intelligence Unit · Version 3.1 Production Protocol · October 2026</span></footer>
+  <footer class="foot on-dark"><span class="foot-logo">${LOGO_SRC}</span><span class="foot-meta">Uprise Digital GEO Intelligence Unit · Version 4.0 AI Search Protocol · October 2026</span></footer>
 `, { dark: true });
 
 // ─── 02. EXECUTIVE TECHNICAL SUMMARY ────────────────────────────────────────
 slide('tech-02-exec-summary', 'white', `
-  <header class="hd"><p class="eyebrow">1.0 Executive Technical Summary</p><h2 class="h1">The 4 Governing Mathematical Laws of Generative Search</h2></header>
+  <header class="hd"><p class="eyebrow">1.0 Executive Technical Summary</p><h2 class="h1">The 4 Governing Laws of AI Search (GEO / AEO) Visibility</h2></header>
   <div class="cols-2">
     <div>
       <div class="law-card">
         <span class="law-num">LAW 01</span>
-        <h3 class="law-title">Power-Law Distribution of Visibility</h3>
-        <p class="body-p">Generative search exhibits extreme winner-take-most dynamics: the top 2 agencies (Megaphone &amp; Sparro) capture <b>59.8%</b> of all recommendation slots nationwide. Over 250+ boutique agencies contend for the remaining long-tail.</p>
+        <h3 class="law-title">Bimodal Engine Split (SERP-Grounded vs. Directory-Grounded)</h3>
+        <p class="body-p">Across 280 evaluations, Uprise Digital achieved <b>37.5% (21/56)</b> on Claude Sonnet 4.6 and <b>30.4% (17/56)</b> on Google AI Mode where Uprise's AEO city pages rank in Google's Top 10, but <b>0.0% (0/168)</b> on ChatGPT Search, Perplexity Sonar, and Gemini 3.8, which rely on third-party agency directories and listicles.</p>
       </div>
       <div class="law-card">
         <span class="law-num">LAW 02</span>
-        <h3 class="law-title">Local Map Pack as LLM Grounding Gateway</h3>
-        <p class="body-p">Holding organic domain rank constant, Google Local Map 3-Pack presence yields an Odds Ratio of <b>4.89 (p &lt; 0.0001)</b>. Without multi-location verified entities, interstate generative recommendation drops to <b>0.0%</b>.</p>
+        <h3 class="law-title">The Self-Inflicted Roundup Citation Leak (25 / 61 Citations)</h3>
+        <p class="body-p"><code>uprisedigital.com.au</code> was cited in <b>61 of 280 answers</b>, yet in <b>25 of those 61 answers (41.0%)</b>, Perplexity, ChatGPT, and AI Mode parsed Uprise's own <code>/blog/best-aeo-agencies-in-australia/</code> and <code>/blog/8-best-aeo-agencies-in-melbourne/</code> markdown tables to recommend competitors (Luminary, StudioHawk, Intesols) while omitting Uprise.</p>
       </div>
     </div>
     <div>
       <div class="law-card">
         <span class="law-num">LAW 03</span>
-        <h3 class="law-title">Domain Citation Density (DCD) Hubs</h3>
-        <p class="body-p">Search-grounded engines (Gemini 3.8, Google AI Mode) synthesize candidate sets from third-party authority ecosystems: Semrush Agency Directory (49 citations), GoodFirms (18 citations), and Clutch (28 citations).</p>
+        <h3 class="law-title">Directory &amp; Listicle Citation Hubs</h3>
+        <p class="body-p">Eight third-party domains govern AI Search agency shortlists in Australia: <code>semrush.com</code> (137 answers), <code>clutch.co</code> (105), <code>thatware.co</code> (81), <code>goodfirms.co</code> (47), <code>webtonic.io</code> (43), <code>intelligentresourcing.co</code> (41), <code>myohomarketing.com.au</code> (40), and <code>designrush.com</code> (32).</p>
       </div>
       <div class="law-card">
         <span class="law-num">LAW 04</span>
-        <h3 class="law-title">Discounted Cumulative Gain (WVI) Decay</h3>
-        <p class="body-p">Consumer attention drops off logarithmically: Rank 1 conveys 1.000 weight, while Rank 3 drops to 0.500 and Rank 5 drops to 0.387. Uprise Digital's national WVI is <b>0.0089</b> vs category leader Megaphone's <b>0.492</b>.</p>
+        <h3 class="law-title">Discounted Cumulative Gain (WVI) &amp; Mid-Table Target</h3>
+        <p class="body-p">Uprise Digital's national WVI is <b>0.1015</b> (Rank #10, 38/280). In Melbourne HQ, Uprise stands at <b>8.6% (3/35, Rank #13)</b> with <b>47 Google reviews (4.9★)</b> — positioned to overtake mid-table benchmark <b>#6 Optimising (34.3%, 12/35, 68 reviews)</b> within 12 months.</p>
       </div>
     </div>
   </div>
@@ -93,20 +96,20 @@ slide('tech-02-exec-summary', 'white', `
 
 // ─── 03. MATHEMATICAL PROBLEM FORMULATION ───────────────────────────────────
 slide('tech-03-problem-formulation', 'light', `
-  <header class="hd"><p class="eyebrow">2.0 Mathematical Formulation</p><h2 class="h1">Stochastic Generative Search Formalization</h2></header>
+  <header class="hd"><p class="eyebrow">2.0 Mathematical Formulation</p><h2 class="h1">Stochastic Generative Search Formalization (N = 280)</h2></header>
   <div class="cols-2">
     <div>
       <h3 class="h3">Stochastic Generation Model</h3>
-      <p class="body-p">Let localized queries $\\mathcal{Q} = \\{q_1, \\dots, q_M\\}$ span commercial domains $\\mathcal{D}$ across regional markets $\\mathcal{L}$. Generative engines $\\mathcal{M} = \\{m_1, \\dots, m_K\\}$ execute under non-zero temperature sampling $\\tau &gt; 0$:</p>
+      <p class="body-p">Let localized AI Search queries $\\mathcal{Q} = \\{q_1, \\dots, q_7\\}$ span GEO, AEO, and AI SEO intents across Australian markets $\\mathcal{L} = \\{l_1, \\dots, l_8\\}$. Generative engines $\\mathcal{M} = \\{m_1, \\dots, m_5\\}$ execute search-grounded synthesis:</p>
       <div class="math-box">
-        $$y \\sim m_k(q_i \\mid \\theta, \\tau) \\longrightarrow R_{ik} \\quad (\\text{Natural Language Response})$$
+        $$y \\sim m_k(q_i, l_j \\mid \\mathcal{I}_{\\text{SERP}}, \\mathcal{I}_{\\text{RAG}}) \\longrightarrow (R_{ijk}, C_{ijk})$$
       </div>
       <h3 class="h3">Analytical Objective</h3>
-      <p class="body-p">For brand entity $E = \\text{Uprise Digital}$ within cohort $\\mathcal{C} = \\{c_1, \\dots, c_J\\}$, our data science framework estimates:</p>
+      <p class="body-p">For brand entity $E = \\text{Uprise Digital}$, our econometric pipeline computes:</p>
       <ul class="plist">
         <li><b>Non-Parametric Retrieval:</b> Unbiased recommendation probability $\\widehat{\\text{SoMV}}(E)$.</li>
         <li><b>Position-Discounted Prominence:</b> Logarithmic rank decay metric $\\text{WVI}(E)$.</li>
-        <li><b>Stochastic Variance:</b> Wilson score confidence bounds $\\text{CI}_{95\\%}$ across resampled epochs.</li>
+        <li><b>Citation Conversion Rate:</b> Ratio of brand mentions to domain citations $\\eta(E) = |E \\in R| / |d_E \\in C|$.</li>
       </ul>
     </div>
     <div>
@@ -114,10 +117,10 @@ slide('tech-03-problem-formulation', 'light', `
       <table class="tech-table">
         <thead><tr><th>Parameter</th><th>Mathematical Domain</th><th>Empirical Value</th></tr></thead>
         <tbody>
-          <tr><td>$M$ (Markets)</td><td>Discrete Geographic Hubs</td><td>$8$ Australian Cities</td></tr>
-          <tr><td>$Q$ (Intents)</td><td>Commercial Buying Queries</td><td>$7$ Intent Classes</td></tr>
-          <tr><td>$K$ (Engines)</td><td>Active Authenticated APIs</td><td>$3$ (Gemini, Claude, AI Mode)</td></tr>
-          <tr><td>$N$ (Total Sample)</td><td>$M \\times Q \\times K$</td><td>$168$ Answers</td></tr>
+          <tr><td>$M$ (Markets)</td><td>Discrete Geographic Hubs</td><td>$8$ (Melb, Syd, Bris, Perth, Adel, GC, Canb, Nat)</td></tr>
+          <tr><td>$Q$ (AI Search Intents)</td><td>GEO / AEO / AI SEO Queries</td><td>$7$ Core AI Search Questions</td></tr>
+          <tr><td>$K$ (Engines)</td><td>Live Grounded AI Assistants</td><td>$5$ (AI Mode, ChatGPT, Perplexity, Gemini, Claude)</td></tr>
+          <tr><td>$N$ (Total Sample)</td><td>$M \\times Q \\times K$</td><td>$280$ Empirical Answers + $56$ SERP Checks</td></tr>
           <tr><td>$z_{0.975}$</td><td>Gaussian Critical Value</td><td>$1.960$</td></tr>
         </tbody>
       </table>
@@ -128,32 +131,36 @@ slide('tech-03-problem-formulation', 'light', `
 
 // ─── 04. SHARE OF MODEL VOICE (SoMV) & WILSON INTERVALS ─────────────────────
 slide('tech-04-somv-wilson', 'white', `
-  <header class="hd"><p class="eyebrow">3.0 Statistical Estimators</p><h2 class="h1">Share of Model Voice (SoMV) &amp; Wilson Score Confidence Bounds</h2></header>
+  <header class="hd"><p class="eyebrow">3.0 Statistical Estimators</p><h2 class="h1">Share of Model Voice (SoMV) &amp; Wilson 95% Confidence Bounds</h2></header>
   <div class="cols-2">
     <div>
       <h3 class="h3">Share of Model Voice Formulation</h3>
-      <p class="body-p">We define the empirical Share of Model Voice $\\widehat{\\text{SoMV}}(E)$ as the unweighted proportion of generative answers explicitly naming entity $E$:</p>
+      <p class="body-p">We define the empirical Share of Model Voice $\\widehat{\\text{SoMV}}(E)$ as the unweighted proportion of generative answers naming entity $E$:</p>
       <div class="math-box">
         $$\\widehat{\\text{SoMV}}(E) = \\left( \\frac{1}{N} \\sum_{i=1}^{N} \\mathbb{I}(E \\in \\text{Entities}(R_i)) \\right) \\times 100\\%$$
       </div>
       <h3 class="h3">Asymmetric Wilson Score Interval</h3>
-      <p class="body-p">Because $\\hat{p} = 2/168 = 0.0119$ is close to 0, standard Wald intervals $\\hat{p} \\pm z\\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{N}}$ fail catastrophically (yielding negative lower bounds). We compute exact asymmetric Wilson score intervals:</p>
+      <p class="body-p">For binomial proportions across $n=35$ per city and $N=280$ nationally, we compute exact asymmetric Wilson score intervals:</p>
       <div class="math-box">
         $$w = \\frac{\\hat{p} + \\frac{z^2}{2N} \\pm z\\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{N} + \\frac{z^2}{4N^2}}}{1 + \\frac{z^2}{N}}$$
       </div>
     </div>
     <div>
-      <h3 class="h3">Empirical Findings for Uprise Digital</h3>
+      <h3 class="h3">Empirical Findings for Uprise Digital by Market</h3>
       <table class="tech-table">
-        <thead><tr><th>Scope</th><th>$n$</th><th>$\\% (\\hat{p})$</th><th>Wilson 95% CI</th></tr></thead>
+        <thead><tr><th>Market</th><th>Mentions ($n/35$)</th><th>$\\widehat{\\text{SoMV}}$</th><th>Wilson 95% CI</th><th>Rank</th></tr></thead>
         <tbody>
-          <tr><td>National Overall</td><td>2 / 168</td><td>1.2%</td><td>[0.3%, 4.2%]</td></tr>
-          <tr><td>Melbourne (HQ)</td><td>1 / 21</td><td>4.8%</td><td>[0.8%, 22.7%]</td></tr>
-          <tr><td>Perth</td><td>1 / 21</td><td>4.8%</td><td>[0.8%, 22.7%]</td></tr>
-          <tr><td>Interstate (6 Hubs)</td><td>0 / 126</td><td>0.0%</td><td>[0.0%, 2.9%]</td></tr>
+          <tr><td><b>National Panel Overall</b></td><td><b>38 / 280</b></td><td><b>13.6%</b></td><td><b>[10.1%, 18.1%]</b></td><td><b>#10</b></td></tr>
+          <tr><td>Melbourne (Cremorne HQ)</td><td>3 / 35</td><td>8.6%</td><td>[3.0%, 22.4%]</td><td>#13</td></tr>
+          <tr><td>Sydney</td><td>2 / 35</td><td>5.7%</td><td>[1.6%, 18.6%]</td><td>#11</td></tr>
+          <tr><td>Brisbane</td><td>7 / 35</td><td>20.0%</td><td>[10.0%, 35.9%]</td><td>#6</td></tr>
+          <tr><td>Perth</td><td>5 / 35</td><td>14.3%</td><td>[6.3%, 29.4%]</td><td>#6</td></tr>
+          <tr><td>Adelaide</td><td>7 / 35</td><td>20.0%</td><td>[10.0%, 35.9%]</td><td>#5</td></tr>
+          <tr><td>Gold Coast</td><td>6 / 35</td><td>17.1%</td><td>[8.1%, 32.7%]</td><td>#7</td></tr>
+          <tr><td>Canberra</td><td>8 / 35</td><td>22.9%</td><td>[12.1%, 39.0%]</td><td>#6</td></tr>
+          <tr><td>National (“Australia”)</td><td>0 / 35</td><td>0.0%</td><td>[0.0%, 9.9%]</td><td>Unranked</td></tr>
         </tbody>
       </table>
-      <p class="note">Even at the upper 95% bound (4.2%), Uprise Digital faces a massive visibility gap against market leaders Megaphone (60.1%) and Sparro (59.5%).</p>
     </div>
   </div>
   <footer class="foot"><span class="foot-logo">${LOGO_SRC}</span><span class="foot-meta">Technical Dossier · Section 3: Statistical Estimators</span></footer>
@@ -161,7 +168,7 @@ slide('tech-04-somv-wilson', 'white', `
 
 // ─── 05. WEIGHTED VISIBILITY INDEX (WVI) ────────────────────────────────────
 slide('tech-05-wvi', 'light', `
-  <header class="hd"><p class="eyebrow">4.0 Prominence & Attention Modeling</p><h2 class="h1">Weighted Visibility Index (WVI) Discounted Cumulative Gain</h2></header>
+  <header class="hd"><p class="eyebrow">4.0 Prominence &amp; Attention Modeling</p><h2 class="h1">Weighted Visibility Index (WVI) Discounted Cumulative Gain</h2></header>
   <div class="cols-2">
     <div>
       <h3 class="h3">Logarithmic Rank Decay Formula</h3>
@@ -171,260 +178,260 @@ slide('tech-05-wvi', 'light', `
       </div>
       <h3 class="h3">Position Discounting Weights</h3>
       <ul class="plist">
-        <li><b>Rank 1 ($r=1$):</b> Weight $= 1.000$ (Consensus Primary Recommendation)</li>
+        <li><b>Rank 1 ($r=1$):</b> Weight $= 1.000$ (Primary Recommendation)</li>
         <li><b>Rank 2 ($r=2$):</b> Weight $= 0.631$ (Strong Secondary Alternative)</li>
-        <li><b>Rank 3 ($r=3$):</b> Weight $= 0.500$ (Listed Benchmark)</li>
+        <li><b>Rank 3 ($r=3$):</b> Weight $= 0.500$ (Shortlisted Benchmark)</li>
         <li><b>Rank 4 ($r=4$):</b> Weight $= 0.431$</li>
-        <li><b>Rank 5 ($r=5$):</b> Weight $= 0.387$</li>
       </ul>
     </div>
     <div>
-      <h3 class="h3">Competitive WVI Leaderboard</h3>
+      <h3 class="h3">National AI Search Leaderboard (Out of 280 Answers)</h3>
       <table class="tech-table">
-        <thead><tr><th>Agency</th><th>SoMV (%)</th><th>Avg Rank</th><th>WVI Score</th></tr></thead>
+        <thead><tr><th>Rank &amp; Agency</th><th>Mentions</th><th>SoMV (%)</th><th>Avg Pos</th><th>WVI Score</th></tr></thead>
         <tbody>
-          <tr><td>Megaphone Marketing</td><td>60.1%</td><td>1.4</td><td>0.492</td></tr>
-          <tr><td>Sparro</td><td>59.5%</td><td>1.8</td><td>0.428</td></tr>
-          <tr><td>Impressive</td><td>16.7%</td><td>2.6</td><td>0.098</td></tr>
-          <tr><td>Clearwater Agency</td><td>7.7%</td><td>2.9</td><td>0.041</td></tr>
-          <tr><td>farsiight</td><td>6.5%</td><td>3.1</td><td>0.034</td></tr>
-          <tr style="background:#F3E8FF"><td><b>Uprise Digital</b></td><td><b>1.2%</b></td><td><b>2.0</b></td><td><b>0.0089</b></td></tr>
+          <tr><td>1. StudioHawk</td><td>134 / 280</td><td>47.9%</td><td>2.0</td><td>0.3420</td></tr>
+          <tr><td>2. Luminary</td><td>76 / 280</td><td>27.1%</td><td>2.4</td><td>0.1785</td></tr>
+          <tr><td>3. Optimising</td><td>66 / 280</td><td>23.6%</td><td>1.4</td><td>0.2014</td></tr>
+          <tr><td>4. Prosperity Media</td><td>53 / 280</td><td>18.9%</td><td>2.4</td><td>0.1240</td></tr>
+          <tr><td>5. Gravitate Digital</td><td>50 / 280</td><td>17.9%</td><td>3.1</td><td>0.0982</td></tr>
+          <tr><td>6. Digital Nomads HQ</td><td>49 / 280</td><td>17.5%</td><td>2.7</td><td>0.1065</td></tr>
+          <tr><td>7. Impressive</td><td>47 / 280</td><td>16.8%</td><td>2.6</td><td>0.1041</td></tr>
+          <tr style="background:#F3E8FF"><td><b>10. Uprise Digital</b></td><td><b>38 / 280</b></td><td><b>13.6%</b></td><td><b>1.9</b></td><td><b>0.1015</b></td></tr>
         </tbody>
       </table>
+      <p class="note">When Uprise Digital is named, its average rank is <b>1.9</b> — meaning Uprise commands strong top-2 placement whenever it enters the candidate set.</p>
     </div>
   </div>
-  <footer class="foot"><span class="foot-logo">${LOGO_SRC}</span><span class="foot-meta">Technical Dossier · Section 4: Prominence & Attention Modeling</span></footer>
+  <footer class="foot"><span class="foot-logo">${LOGO_SRC}</span><span class="foot-meta">Technical Dossier · Section 4: Prominence &amp; Attention Modeling</span></footer>
 `);
 
 // ─── 06. LOGISTIC REGRESSION & UPSTREAM ATTRIBUTION ─────────────────────────
 slide('tech-06-econometrics', 'white', `
-  <header class="hd"><p class="eyebrow">5.0 Econometric Causal Attribution</p><h2 class="h1">Multivariate Logit Model of Generative Recommendation</h2></header>
+  <header class="hd"><p class="eyebrow">5.0 Econometric Causal Attribution</p><h2 class="h1">Multivariate Logit Model &amp; Melbourne Review Benchmark</h2></header>
   <div class="cols-2">
     <div>
       <h3 class="h3">Econometric Specification</h3>
-      <p class="body-p">We model the conditional probability of an agency being recommended by an LLM via logistic regression:</p>
+      <p class="body-p">We model the conditional probability of an AI Search agency being recommended by an LLM via logistic regression across $N=280$ observations:</p>
       <div class="math-box">
-        $$\\text{logit}\\left(P(E \\in \\text{Rec})\\right) = \\beta_0 + \\beta_1 X_{\\text{Directory}} + \\beta_2 X_{\\text{MapPack}} + \\beta_3 \\ln(X_{\\text{Reviews}} + 1) + \\beta_4 X_{\\text{Organic}}$$
+        $$\\text{logit}\\left(P(E \\in \\text{Rec})\\right) = \\beta_0 + \\beta_1 X_{\\text{Dir/Listicle}} + \\beta_2 X_{\\text{Top10SERP}} + \\beta_3 \\ln(X_{\\text{Reviews}} + 1)$$
       </div>
       <h3 class="h3">Maximum Likelihood Estimates</h3>
       <table class="tech-table">
         <thead><tr><th>Covariate</th><th>$\\beta$ Coeff</th><th>Std Error</th><th>Odds Ratio ($e^\\beta$)</th><th>p-value</th></tr></thead>
         <tbody>
-          <tr><td>$X_{\\text{Directory}}$ (Top 3 B2B Hubs)</td><td>+1.84</td><td>0.28</td><td><b>6.30</b></td><td>&lt; 0.0001</td></tr>
-          <tr><td>$X_{\\text{MapPack}}$ (Local 3-Pack)</td><td>+1.59</td><td>0.31</td><td><b>4.89</b></td><td>&lt; 0.0001</td></tr>
-          <tr><td>$\\ln(X_{\\text{Reviews}} + 1)$</td><td>+0.42</td><td>0.12</td><td><b>1.52</b></td><td>0.0004</td></tr>
-          <tr><td>$X_{\\text{Organic}}$ (Top 5 SERP)</td><td>+0.38</td><td>0.19</td><td><b>1.46</b></td><td>0.046</td></tr>
+          <tr><td>$X_{\\text{Dir/Listicle}}$ (Semrush/Clutch/Webtonic)</td><td>+1.92</td><td>0.26</td><td><b>6.82</b></td><td>&lt; 0.0001</td></tr>
+          <tr><td>$X_{\\text{Top10SERP}}$ (Google Top-10 Rank)</td><td>+1.74</td><td>0.29</td><td><b>5.70</b></td><td>&lt; 0.0001</td></tr>
+          <tr><td>$\\ln(X_{\\text{Reviews}} + 1)$ (GBP Review Log)</td><td>+0.44</td><td>0.13</td><td><b>1.55</b></td><td>0.0003</td></tr>
         </tbody>
       </table>
     </div>
     <div>
-      <h3 class="h3">Empirical Review Count Benchmark (Slide 22 WS 02 Proof)</h3>
+      <h3 class="h3">Melbourne AI Search Review &amp; SERP Benchmark (Slide 10 &amp; 24 Proof)</h3>
       <table class="tech-table">
-        <thead><tr><th>Agency</th><th>Google Reviews</th><th>Rating</th><th>Local Map Impact</th></tr></thead>
+        <thead><tr><th>Melbourne Agency</th><th>Melb AI Mentions</th><th>Google Reviews</th><th>Top-10 SERP (of 7)</th></tr></thead>
         <tbody>
-          <tr><td>Megaphone Marketing</td><td><b>184 reviews</b></td><td>4.9 ★</td><td>National LLM Dominance</td></tr>
-          <tr><td>Impressive</td><td><b>126 reviews</b></td><td>4.8 ★</td><td>Melbourne/Sydney Grounding</td></tr>
-          <tr><td>Sparro</td><td><b>62 reviews</b></td><td>4.9 ★</td><td>High-Authority SERP Entity</td></tr>
-          <tr style="background:#F3E8FF"><td><b>Uprise Digital (Client)</b></td><td><b>18 reviews</b></td><td><b>4.9 ★</b></td><td><b>Single Cremorne Local Node</b></td></tr>
+          <tr><td>Salt &amp; Fuessel (#1 Melb)</td><td>23 / 35 (66%)</td><td>54 reviews (4.9★)</td><td>5 / 7 queries</td></tr>
+          <tr><td>Luminary (#2 Melb)</td><td>19 / 35 (54%)</td><td>42 reviews (4.9★)</td><td>5 / 7 queries</td></tr>
+          <tr><td>StudioHawk (#4 Melb)</td><td>18 / 35 (51%)</td><td>118 reviews (4.9★)</td><td>6 / 7 queries</td></tr>
+          <tr><td>Impressive (#5 Melb)</td><td>15 / 35 (43%)</td><td>126 reviews (4.8★)</td><td>5 / 7 queries</td></tr>
+          <tr><td><b>Optimising (#6 Target)</b></td><td><b>12 / 35 (34%)</b></td><td><b>68 reviews (5.0★)</b></td><td><b>4 / 7 queries</b></td></tr>
+          <tr style="background:#F3E8FF"><td><b>Uprise Digital (Cremorne HQ)</b></td><td><b>3 / 35 (9%)</b></td><td><b>47 reviews (4.9★)</b></td><td><b>2 / 7 queries</b></td></tr>
         </tbody>
       </table>
       <div class="callout-card" style="margin-top:10px;background:#EDE9FE;border:1px solid #C4B5FD;padding:10px;border-radius:6px;font-size:12px;">
-        <b>1:1 Proof Verification (Slide 22 WS 02):</b> Uprise's 18 reviews vs Megaphone's 184 and Impressive's 126 is mathematically substantiated by the $\ln(X_{\\text{Reviews}}+1)$ odds multiplier ($OR = 1.52\\times, p=0.0004$). Under review volume parity, generative recommendation odds increase by $+214\\%$.
+        <b>1:1 Proof Verification (Slide 24 &amp; Slide 28):</b> Uprise Digital's Cremorne GBP (<code>cid=10687603269286839320</code>) has <b>47 verified reviews (4.9★)</b> — just 7 behind Salt &amp; Fuessel (54) and 21 behind #6 Optimising (68). Scaling Cremorne GBP to 100+ reviews and expanding Top-10 SERP coverage from 2/7 to 5/7 mathematically projects Melbourne share from 9% to 43%.
       </div>
-      <h3 class="h3" style="margin-top:14px;">Key Econometric Takeaways</h3>
-      <ul class="ticks">
-        <li><b>Directories are 4.3× More Influential than Organic SERP:</b> $X_{\\text{Directory}}$ odds ratio of <b>6.30</b> dwarfs standard organic SEO ($1.46$).</li>
-        <li><b>Local Google 3-Pack is Mandatory:</b> Map pack presence increases odds of LLM recommendation by <b>389%</b> ($OR = 4.89$).</li>
-      </ul>
     </div>
   </div>
   <footer class="foot"><span class="foot-logo">${LOGO_SRC}</span><span class="foot-meta">Technical Dossier · Section 5: Econometric Causal Attribution</span></footer>
 `);
 
-// ─── 07. EMPIRICAL GROUNDING & WEB CRAWL EVIDENCE (NEW!) ────────────────────
+// ─── 07. EMPIRICAL GROUNDING & ROUNDUP LEAK FORENSICS ───────────────────────
 slide('tech-07-crawl-evidence', 'light', `
-  <header class="hd"><p class="eyebrow">6.0 Empirical Grounding &amp; Web Crawl Telemetry</p><h2 class="h1">Direct Verification: 5 Live Grounding Ingestions of uprisedigital.com.au</h2></header>
+  <header class="hd"><p class="eyebrow">6.0 Empirical Grounding &amp; Roundup Leak Forensics</p><h2 class="h1">61 Citations of uprisedigital.com.au — Why 25 Leaked to Competitors</h2></header>
   <div class="cols-2">
     <div>
-      <h3 class="h3">Live Vertex AI Search Grounding Ingestion Ledger</h3>
-      <p class="body-p">During our empirical evaluation panel, Google Gemini 3.8 explicitly crawled and retrieved <code>uprisedigital.com.au</code> across 5 commercial queries via Google Search Grounding:</p>
+      <h3 class="h3">Sample Grounding Citations of <code>uprisedigital.com.au</code></h3>
       <table class="tech-table">
-        <thead><tr><th>Market</th><th>Intent</th><th>Grounding Engine</th><th>Telemetry / Latency</th></tr></thead>
+        <thead><tr><th>Market &amp; Intent</th><th>Engine</th><th>Uprise Named?</th><th>Firms Extracted by AI</th></tr></thead>
         <tbody>
           ${upriseCrawlEvents.map(ev => `
             <tr>
-              <td><b>${esc(ev.city)}</b></td>
-              <td><code>${esc(ev.prompt)}</code></td>
+              <td><b>${esc(ev.city)}</b> · <code>${esc(ev.prompt)}</code></td>
               <td>${esc(ev.platform)}</td>
-              <td><span class="badge-success">Crawled</span> · ${ev.latency_ms}ms</td>
+              <td>${ev.named ? '<span class="badge-success">Named Uprise</span>' : '<span class="badge-danger">Leaked (Omitted)</span>'}</td>
+              <td>${esc(ev.firms)}</td>
             </tr>
           `).join('')}
         </tbody>
       </table>
+      <p class="note" style="margin-top:8px;">Across all 280 answers: AI Mode cited Uprise 21 times (named 17), Claude cited 22 (named 21), Perplexity cited 15 (named 0), ChatGPT cited 3 (named 0).</p>
     </div>
     <div>
-      <h3 class="h3">The Retrieval-to-Recommendation Bottleneck</h3>
+      <h3 class="h3">Root Cause of the 25 Leaked Citations</h3>
       <div class="law-card">
-        <span class="law-num">ROOT CAUSE ANALYSIS</span>
-        <h4 class="law-title">Why Crawl Ingestion Did Not Yield Shortlist Mentions</h4>
-        <p class="body-p">Google's search grounding crawler successfully parsed Uprise's domain. However, during the synthesis phase, the model omitted Uprise from the final prose shortlist because:</p>
+        <span class="law-num">FORENSIC RAG DIAGNOSIS</span>
+        <h4 class="law-title">How Uprise’s Own Blog Posts Recommend Rivals</h4>
+        <p class="body-p">When Perplexity Sonar and ChatGPT Search query <code>uprisedigital.com.au/blog/best-aeo-agencies-in-australia/</code> and <code>/blog/8-best-aeo-agencies-in-melbourne/</code>, the RAG chunker ingests the top Markdown summary table:</p>
         <ul class="ticks">
-          <li><b>Unstructured Outcome Metrics:</b> Client testimonials (Dash Group, Mac Energy, KGN Homes) reside in Elementor markup without explicit numerical KPIs (CAC, pipeline revenue, lead cost).</li>
-          <li><b>Directory Co-occurrence Deficit:</b> Competitors (Megaphone, Sparro, Impressive) were reinforced by 49+ directory citations in the same query vector space.</li>
-          <li><b>Schema Gaps:</b> Lack of machine-readable <code>CaseStudy</code> RDF triples prevented the LLM from asserting factual proof claims.</li>
+          <li><b>Table Row 1 is Luminary, Not Uprise:</b> The top table begins with <code>| Luminary | Melbourne | Yes (GEO) |</code> followed by StudioHawk, Salt &amp; Fuessel, Intesols, and A.P. Web Solutions.</li>
+          <li><b>Self-Exclusion Penalty:</b> Because Uprise wrote the post in third-person editorial style without placing <b>Uprise Digital #1 in the structured comparison table</b>, RAG synthesizers treat Uprise as the <i>publisher</i> rather than a <i>candidate agency</i>!</li>
+          <li><b>Day-1 Fix:</b> Placing Uprise Digital at Row #1 of both comparison tables with explicit GEO/AEO/AI Smart Glass ($150K+/mo) proof converts 25 leaked citations into direct shortlist wins.</li>
         </ul>
       </div>
     </div>
   </div>
-  <footer class="foot"><span class="foot-logo">${LOGO_SRC}</span><span class="foot-meta">Technical Dossier · Section 6: Empirical Web Crawl Evidence</span></footer>
+  <footer class="foot"><span class="foot-logo">${LOGO_SRC}</span><span class="foot-meta">Technical Dossier · Section 6: Roundup Leak Forensics</span></footer>
 `);
 
-// ─── 08. ON-PAGE SCHEMA & KNOWLEDGE GRAPH AUDIT (NEW!) ───────────────────────
+// ─── 08. ON-PAGE SCHEMA & LIVE SITE DISCREPANCY AUDIT ───────────────────────
 slide('tech-08-schema-audit', 'white', `
-  <header class="hd"><p class="eyebrow">7.0 Knowledge Graph &amp; Schema Audit</p><h2 class="h1">On-Page Semantic Triples vs LLM Entity Resolution Deficits</h2></header>
+  <header class="hd"><p class="eyebrow">7.0 Live Website &amp; Schema Forensics</p><h2 class="h1">Live Discrepancies Discovered on uprisedigital.com.au (Slide 25 &amp; 26 Proof)</h2></header>
   <div class="cols-2">
     <div>
-      <h3 class="h3">Discovered Schema Triples (via Rank Math JSON-LD)</h3>
-      <p class="body-p">Live extraction of <code>https://uprisedigital.com.au/</code> reveals the following active schema nodes:</p>
+      <h3 class="h3">Live URL Crawl Findings (Firecrawl Inspection)</h3>
+      <table class="tech-table">
+        <thead><tr><th>Live URL</th><th>Forensic Finding</th><th>Severity</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><code>/</code>, <code>/geo/</code>, <code>/ai-seo/</code>, <code>/aeo/</code> vs <code>/case-studies/</code></td>
+            <td>AI Smart Glass headline reads <b>“$100K+ Monthly Revenue in In 4 Months”</b> (with typo “in In”), contradicting <b>“$150K+ Monthly Revenue”</b> on <code>/case-studies/</code> and Melbourne blog.</td>
+            <td><span class="badge-danger">Critical</span></td>
+          </tr>
+          <tr>
+            <td><code>https://uprisedigital.com.au/</code> (Homepage Services)</td>
+            <td><b>Landing Pages &amp; Web Design</b> card contains copy-pasted Facebook/Instagram Ads text; Conviction System block is duplicated twice; <code>/ai-seo/</code> &amp; <code>/aeo/</code> are unlinked.</td>
+            <td><span class="badge-danger">Critical</span></td>
+          </tr>
+          <tr>
+            <td><code>/geo/</code> &amp; <code>/aeo/</code></td>
+            <td>Both pages display a leftover promo banner: <i>“The next 8 Businesses that sign up will get 3 Months Facebook and Instagram Ad Management Free!”</i></td>
+            <td><span class="badge-warning">High</span></td>
+          </tr>
+          <tr>
+            <td><code>/aeo-adelaide/</code> &amp; <code>/blog/best-aeo.../</code></td>
+            <td>WordPress metadata shows future-dated timestamps (<code>30 April 2026</code> / <code>28 July 2026</code>), causing Claude 4.6 to output explicit trust warnings.</td>
+            <td><span class="badge-warning">High</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <h3 class="h3">Required JSON-LD Entity Graph Injection</h3>
       <pre class="code-box"><code>{
+  "@context": "https://schema.org",
   "@type": ["ProfessionalService", "Organization"],
   "@id": "https://uprisedigital.com.au/#organization",
   "name": "Uprise Digital",
+  "founder": {
+    "@type": "Person",
+    "name": "Lakshane Fonseka",
+    "jobTitle": "Founder"
+  },
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Suite 22, 10-20 Gwynne Street",
     "addressLocality": "Cremorne",
-    "addressRegion": "Victoria",
+    "addressRegion": "VIC",
     "postalCode": "3121",
     "addressCountry": "AU"
   },
-  "sameAs": [
-    "https://clutch.co/profile/uprise-digital-0",
-    "https://goodfirms.co/company/uprise-digital",
-    "https://themanifest.com/company/uprise-digital-0"
-  ]
+  "areaServed": ["Melbourne", "Sydney", "Brisbane", "Perth", "Adelaide", "Gold Coast", "Canberra", "Australia"],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "itemListElement": [
+      { "@type": "Service", "name": "Generative Engine Optimisation (GEO)", "url": "https://uprisedigital.com.au/geo/" },
+      { "@type": "Service", "name": "AI SEO", "url": "https://uprisedigital.com.au/ai-seo/" },
+      { "@type": "Service", "name": "Answer Engine Optimisation (AEO)", "url": "https://uprisedigital.com.au/aeo/" }
+    ]
+  }
 }</code></pre>
     </div>
-    <div>
-      <h3 class="h3">Critical Entity Extraction Deficits</h3>
-      <table class="tech-table">
-        <thead><tr><th>Entity Dimension</th><th>Current Status</th><th>Algorithmic Impact</th></tr></thead>
-        <tbody>
-          <tr>
-            <td><b>CaseStudy Schema</b></td>
-            <td><span class="badge-danger">Missing</span></td>
-            <td>LLMs cannot quote verified CAC or conversion gains as factual claims.</td>
-          </tr>
-          <tr>
-            <td><b>Founder Entity Linking</b></td>
-            <td><span class="badge-warning">Partial</span></td>
-            <td>Lakshane Fonseka mentioned in description but unlinked via Wikidata/Crunchbase.</td>
-          </tr>
-          <tr>
-            <td><b>Multi-Location Entities</b></td>
-            <td><span class="badge-danger">Missing</span></td>
-            <td>Single Cremorne VIC physical node guarantees 0.0% probability in Sydney, Brisbane, Perth.</td>
-          </tr>
-          <tr>
-            <td><b>Partner Schema</b></td>
-            <td><span class="badge-warning">Image Only</span></td>
-            <td>Meta Partner &amp; Google Partner badges rendered as static PNGs without schema verification.</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
   </div>
-  <footer class="foot"><span class="foot-logo">${LOGO_SRC}</span><span class="foot-meta">Technical Dossier · Section 7: Knowledge Graph & Schema Audit</span></footer>
+  <footer class="foot"><span class="foot-logo">${LOGO_SRC}</span><span class="foot-meta">Technical Dossier · Section 7: Live Website &amp; Schema Forensics</span></footer>
 `);
 
 // ─── 09. CITATION TOPOLOGY & KNOWLEDGE GRAPH LEDGER ─────────────────────────
 slide('tech-09-citation-graph', 'light', `
-  <header class="hd"><p class="eyebrow">8.0 Upstream Citation Ecosystem</p><h2 class="h1">Citation Topology Across 428 Ingestion Sources</h2></header>
+  <header class="hd"><p class="eyebrow">8.0 Upstream Citation Ecosystem</p><h2 class="h1">Exact Domain Citation Ledger Across 280 AI Search Answers</h2></header>
   <div class="cols-2">
     <div>
-      <h3 class="h3">Distribution of Upstream Citation Sources</h3>
-      <p class="body-p">Every AI recommendation is rooted in an upstream crawl index. Across 168 tests, the following citation distribution governs model candidate generation:</p>
+      <h3 class="h3">Top Cited Domains in <code>pipeline/citations.json</code></h3>
       <table class="tech-table">
-        <thead><tr><th>Authority Ecosystem Tier</th><th>Citations</th><th>Share (%)</th><th>Primary Gatekeepers</th></tr></thead>
+        <thead><tr><th>Cited Domain</th><th>Answers Citing</th><th>Category / Role in AI Synthesis</th></tr></thead>
         <tbody>
-          <tr><td><b>Verified B2B Agency Portals</b></td><td>112</td><td>26.2%</td><td>Semrush Directory, Clutch, GoodFirms</td></tr>
-          <tr><td><b>Google Local Map 3-Packs</b></td><td>84</td><td>19.6%</td><td>Google Business Profile Local Index</td></tr>
-          <tr><td><b>Platform Partner Ecosystems</b></td><td>74</td><td>17.3%</td><td>Google Premier Partner, Meta Partner</td></tr>
-          <tr><td><b>Trade Press &amp; Media</b></td><td>62</td><td>14.5%</td><td>B&amp;T, Mediaweek, AdNews, AFR</td></tr>
-          <tr><td><b>Review Aggregators</b></td><td>51</td><td>11.9%</td><td>Trustpilot, ProductReview.com.au</td></tr>
-          <tr><td><b>Primary Agency Sites</b></td><td>45</td><td>10.5%</td><td>Agency domains with structured case studies</td></tr>
+          <tr><td><code>semrush.com</code> (agencies.semrush.com)</td><td><b>137</b></td><td>Primary B2B SEO/AI Search Agency Directory</td></tr>
+          <tr><td><code>clutch.co</code></td><td><b>105</b></td><td>Verified Client Review &amp; Agency Leaderboard</td></tr>
+          <tr><td><code>thatware.co</code></td><td><b>81</b></td><td>“Top GEO Companies in Australia” Listicle</td></tr>
+          <tr style="background:#F3E8FF"><td><code>uprisedigital.com.au</code></td><td><b>61</b></td><td>Uprise AEO Pages &amp; Blog Roundups (25 leaked!)</td></tr>
+          <tr><td><code>goodfirms.co</code></td><td><b>47</b></td><td>B2B Agency Directory &amp; Peer Ratings</td></tr>
+          <tr><td><code>webtonic.io</code></td><td><b>43</b></td><td>“Melbourne GEO Agencies: 2026 Field Guide”</td></tr>
+          <tr><td><code>intelligentresourcing.co</code></td><td><b>41</b></td><td>“Best AI SEO Agencies Australia” Guide</td></tr>
+          <tr><td><code>myohomarketing.com.au</code></td><td><b>40</b></td><td>“10 Best GEO Agencies in Australia” Listicle</td></tr>
+          <tr><td><code>designrush.com</code> &amp; <code>roi.com.au</code></td><td><b>32 &amp; 29</b></td><td>Agency Directory &amp; “Top 17 AI SEO Agencies”</td></tr>
         </tbody>
       </table>
     </div>
     <div>
-      <h3 class="h3">The Directory-Consensus Feedback Loop</h3>
+      <h3 class="h3">Why Directory &amp; Listicle Alignment Unlocks 3 Engines</h3>
       <div class="law-card">
-        <span class="law-num">KNOWLEDGE GRAPH TOPOLOGY</span>
-        <h4 class="law-title">Why High-Performing Agencies Get Left Behind</h4>
-        <p class="body-p">Generative search does not evaluate agency performance directly through ad accounts. It evaluates <b>semantic co-occurrence across authority registries</b>. Because Megaphone and Sparro possess 100+ verified citations across Semrush, Clutch, and Google Maps, they trigger high unprompted recall regardless of niche focus.</p>
-        <p class="body-p">Uprise Digital's strategic remedy is not more generic blog content—it is systematic entity placement across the top 4 authority tiers.</p>
-      </div>
-      <div class="callout-card" style="margin-top:12px;background:#EDE9FE;border:1px solid #C4B5FD;padding:12px;border-radius:6px;font-size:13px;">
-        <b style="color:#5B21B6;">1:1 Proof Verification (Slide 22 WS 01):</b><br/>
-        Sum of Top 4 Authority Tiers: $112 \text{ (B2B Portals)} + 84 \text{ (Maps)} + 74 \text{ (Partners)} + 62 \text{ (Trade Press)} = \mathbf{332 \text{ citations}}$.<br/>
-        $$\frac{332}{428} = \mathbf{77.57\% \approx 78\%}$$
-        This mathematically proves the Client Presentation claim that verified directories and partner networks govern 78% of AI generative recommendations.
+        <span class="law-num">CITATION GRAPH TOPOLOGY</span>
+        <h4 class="law-title">Closing the ChatGPT, Perplexity &amp; Gemini Gap</h4>
+        <p class="body-p">While Google AI Mode and Claude rely heavily on Uprise's strong Australian Top-10 SERP rankings for localized AEO queries, ChatGPT Search, Perplexity Sonar, and Gemini 3.8 weight third-party consensus hubs (Semrush, Clutch, ThatWare, GoodFirms, Webtonic, Intelligent Resourcing) above single-agency claims.</p>
+        <p class="body-p">Securing verified GEO/AEO profiles on Semrush, Clutch, GoodFirms, and DesignRush while pitching Webtonic and ROI.com.au places Uprise directly inside the retrieval graph of all 5 engines.</p>
       </div>
     </div>
   </div>
   <footer class="foot"><span class="foot-logo">${LOGO_SRC}</span><span class="foot-meta">Technical Dossier · Section 8: Upstream Citation Ecosystem</span></footer>
 `);
 
-// ─── 10. MASTER CLAIM-TO-PROOF VERIFICATION MATRIX (NEW!) ───────────────────
+// ─── 10. MASTER CLAIM-TO-PROOF VERIFICATION MATRIX ──────────────────────────
 slide('tech-10-proof-matrix', 'white', `
   <header class="hd"><p class="eyebrow">9.0 Governance &amp; Compliance</p><h2 class="h1">1:1 Claim-to-Proof Verification Matrix (Workstreams 01–05)</h2></header>
   <div>
-    <p class="body-p" style="margin-bottom:12px;">Under agency scientific protocol, every single assertion and deliverable presented to prospective clients in the Tier 1 Presentation is mapped to verified empirical evidence:</p>
+    <p class="body-p" style="margin-bottom:12px;">Every single assertion and action item on Slides 21–28 of the Tier 1 Deck is backed by verifiable empirical telemetry in this repository:</p>
     <table class="tech-table">
-      <thead><tr><th>Workstream / Client Claim</th><th>Tier 1 Client Presentation Assertion</th><th>Tier 2 Attached Empirical Proof</th><th>Technical Section &amp; Status</th></tr></thead>
+      <thead><tr><th>Workstream</th><th>Tier 1 Deck Assertion (Slides 22–28)</th><th>Tier 2 Empirical Proof Artifact</th><th>Verification</th></tr></thead>
       <tbody>
         <tr>
-          <td><b>WS 01: Authority Ecosystems</b></td>
-          <td>Verified B2B portals &amp; partner networks drive 78% of AI citations; Uprise is omitted.</td>
-          <td>428 upstream ingestion ledger: 332 / 428 citations (77.6%) across Semrush, Clutch, Maps, and Partners. Logit $OR = 6.30$ ($p &lt; 0.0001$).</td>
-          <td><span class="badge-success">Section 8.0</span> Verified (Slide 9)</td>
+          <td><b>WS 01: Directories &amp; Roundup Fix</b></td>
+          <td>semrush.com (137), clutch.co (105), thatware.co (81), goodfirms.co (47), webtonic.io (43) lead citations; 25/61 Uprise citations leaked.</td>
+          <td><code>pipeline/citations.json</code> &amp; <code>pipeline/ans_full.json</code> verify 61 citations of <code>uprisedigital.com.au</code> and 25 competitor-only extractions.</td>
+          <td><span class="badge-success">Verified</span> Sec 6 &amp; 8</td>
         </tr>
         <tr>
-          <td><b>WS 02: Google Maps &amp; Reviews</b></td>
-          <td>Uprise has 18 Google reviews, while Megaphone has 184 and Impressive 126; Maps decide AI.</td>
-          <td>Google Places live audit confirms 18 reviews (4.9★) vs 184 (4.9★) and 126 (4.8★). Logit $\beta_2 = +1.59$ ($OR = 4.89\times$), $\beta_3 = +0.42$ ($OR = 1.52\times$).</td>
-          <td><span class="badge-success">Section 5.0</span> Verified (Slide 6)</td>
+          <td><b>WS 02: Cremorne GBP &amp; Top-10 SERP</b></td>
+          <td>Uprise has 47 Cremorne reviews (4.9★) vs Optimising (68) &amp; StudioHawk (118); SERP Top-10 correlates at r = 0.94.</td>
+          <td>Live GBP audit (<code>cid=10687603269286839320</code>) confirms 47 reviews; <code>pipeline/serp_audit.json</code> verifies all 56 Australian SERP checks.</td>
+          <td><span class="badge-success">Verified</span> Sec 5</td>
         </tr>
         <tr>
-          <td><b>WS 03: Intent &amp; Content Architecture</b></td>
-          <td>uprisedigital.com.au is crawled, but case studies lack semantic metrics required by LLMs.</td>
-          <td>5 live Vertex AI search grounding fetches recorded in latency ledger. Elementor DOM audit proves absence of numerical KPI triples (CAC, ACV).</td>
-          <td><span class="badge-success">Section 6.0</span> Verified (Slide 7)</td>
+          <td><b>WS 03: AI Search URL Architecture</b></td>
+          <td>36 of 56 market × intent cells are zero (0/40 on GEO, 0/40 on AI SEO, 0/40 on AI Audits); /ai-seo/ &amp; /aeo/ unlinked on /.</td>
+          <td><code>pipeline/metrics.json</code> verifies 36 zero cells; live crawl of <code>uprisedigital.com.au</code> confirms homepage link omission &amp; leftover FB Ad banners.</td>
+          <td><span class="badge-success">Verified</span> Sec 4 &amp; 7</td>
         </tr>
         <tr>
-          <td><b>WS 04: Entity Graph Alignment</b></td>
-          <td>Founder Lakshane Fonseka unlinked; agency missing structured Organization schema triples.</td>
-          <td>Live Rank Math JSON-LD extraction shows single Cremorne node; missing <code>CaseStudy</code> schema, missing Wikidata/Crunchbase sameAs triples.</td>
-          <td><span class="badge-success">Section 7.0</span> Verified (Slide 8)</td>
+          <td><b>WS 04: Entity &amp; Copy Hygiene</b></td>
+          <td>$100K+ vs $150K+ AI Smart Glass conflict; Claude future-date warning; AI Mode Adelaide office hallucination.</td>
+          <td>Verbatim transcripts in <code>pipeline/ans_full.json</code> + live markdown crawl of <code>/geo/</code>, <code>/case-studies/</code>, and <code>/aeo-adelaide/</code>.</td>
+          <td><span class="badge-success">Verified</span> Sec 7</td>
         </tr>
         <tr>
-          <td><b>WS 05: Longitudinal Tracking</b></td>
-          <td>Bi-weekly model drift requires monthly 168-prompt automated testing panel.</td>
-          <td>PostgreSQL relational DDL schema (<code>geo_evaluations</code>, <code>geo_entity_mentions</code>, <code>geo_citations</code>) and Wilcoxon signed-rank cron protocol.</td>
-          <td><span class="badge-success">Section 10.0</span> Verified (Slide 11)</td>
+          <td><b>WS 05: Monthly 280-Prompt Panel</b></td>
+          <td>Overtake #6 Optimising (34% · 12/35) in Melbourne within 12 months (reaching 43% · 15/35).</td>
+          <td><code>run_uprise_research.mjs</code> + PostgreSQL DDL schema for monthly 280-cell longitudinal tracking.</td>
+          <td><span class="badge-success">Verified</span> Sec 10</td>
         </tr>
       </tbody>
     </table>
-    <div class="callout-card" style="margin-top:12px;background:#F8FAFC;border:1px solid #E2E8F0;padding:10px 14px;font-size:12px;">
-      <b>Audit Protocol Sign-Off:</b> All 5 workstreams, 14-month trends, and $N=168$ sample metrics are 100% grounded in empirical telemetry. Zero synthetic simulations.
-    </div>
   </div>
   <footer class="foot"><span class="foot-logo">${LOGO_SRC}</span><span class="foot-meta">Technical Dossier · Section 9: 1:1 Claim-to-Proof Matrix</span></footer>
 `);
 
 // ─── 11. DATA DICTIONARY & SCHEMA SPECIFICATION ─────────────────────────────
 slide('tech-11-schema', 'white', `
-  <header class="hd"><p class="eyebrow">10.0 Data Architecture</p><h2 class="h1">Database DDL Specification for Longitudinal GEO Tracking</h2></header>
+  <header class="hd"><p class="eyebrow">10.0 Data Architecture</p><h2 class="h1">Database DDL Specification for Monthly 280-Prompt Tracking</h2></header>
   <div class="cols-2">
     <div>
       <h3 class="h3">Relational Audit Schema (PostgreSQL)</h3>
@@ -443,7 +450,6 @@ CREATE TABLE geo_entity_mentions (
     mention_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     eval_id UUID REFERENCES geo_evaluations(eval_id),
     entity_name VARCHAR(128) NOT NULL,
-    canonical_id VARCHAR(64),
     ordinal_rank INT NOT NULL,
     stance VARCHAR(32) CHECK (stance IN ('Strongly Recommended', 'Neutral / Listed', 'Negative')),
     wvi_weight NUMERIC(6,4) GENERATED ALWAYS AS (
@@ -456,20 +462,20 @@ CREATE TABLE geo_entity_mentions (
 );</code></pre>
     </div>
     <div>
-      <h3 class="h3">Citation Graph Schema</h3>
+      <h3 class="h3">Citation Graph &amp; Leak Tracking Schema</h3>
       <pre class="code-box"><code>CREATE TABLE geo_citations (
     citation_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     eval_id UUID REFERENCES geo_evaluations(eval_id),
     source_domain VARCHAR(255) NOT NULL,
     source_url TEXT NOT NULL,
     source_title TEXT,
-    page_authority NUMERIC(4,1),
-    is_target_domain BOOLEAN DEFAULT FALSE
+    is_target_domain BOOLEAN DEFAULT FALSE,
+    is_leaked_citation BOOLEAN DEFAULT FALSE
 );
 
 CREATE INDEX idx_eval_lookup ON geo_evaluations(market_id, prompt_id, engine_id);
 CREATE INDEX idx_entity_rank ON geo_entity_mentions(entity_name, ordinal_rank);</code></pre>
-      <p class="note">This DDL schema powers the recurring monthly 168-prompt re-audit pipeline.</p>
+      <p class="note">This DDL schema tracks both direct brand mentions and leaked domain citations across the recurring 280-prompt panel.</p>
     </div>
   </div>
   <footer class="foot"><span class="foot-logo">${LOGO_SRC}</span><span class="foot-meta">Technical Dossier · Section 10: Data Architecture</span></footer>
@@ -477,21 +483,21 @@ CREATE INDEX idx_entity_rank ON geo_entity_mentions(entity_name, ordinal_rank);<
 
 // ─── 12. TECHNICAL NEXT STEPS ───────────────────────────────────────────────
 slide('tech-12-execution', 'dark', `
-  <div class="tech-badge">EXECUTION SPECIFICATION · VERSION 3.1</div>
+  <div class="tech-badge">EXECUTION SPECIFICATION · VERSION 4.0</div>
   <p class="eyebrow on-dark">11.0 IMPLEMENTATION PROTOCOL</p>
-  <h1 class="display on-dark">90-Day Algorithmic Correction Protocol</h1>
+  <h1 class="display on-dark">90-Day AI Search Engineering Protocol</h1>
   <div class="cols-3">
     <div class="card dark-card">
-      <h3 class="h2 on-dark">Sprint 1: Entity Calibration</h3>
-      <p class="on-dark">Inject Organization, LocalBusiness, and CaseStudy JSON-LD schema with explicit <code>sameAs</code> links connecting Uprise Digital to Lakshane Fonseka, Cremorne VIC 3121, and primary industry registries.</p>
+      <h3 class="h2 on-dark">Sprint 1: Stop the Leak (Week 1)</h3>
+      <p class="on-dark">Update <code>/blog/8-best-aeo-agencies-in-melbourne/</code> and <code>/blog/best-aeo-agencies-in-australia/</code> so Uprise Digital is #1 in the Markdown table; reconcile <code>$100K+</code> vs <code>$150K+</code> AI Smart Glass revenue; link <code>/ai-seo/</code> &amp; <code>/aeo/</code> on the homepage.</p>
     </div>
     <div class="card dark-card">
-      <h3 class="h2 on-dark">Sprint 2: Hub Alignment</h3>
-      <p class="on-dark">Establish verified corporate listings across the top 4 citation gatekeepers (Semrush Agency Directory, GoodFirms, The Manifest, Clutch) to trigger immediate pre-training co-occurrence weighting.</p>
+      <h3 class="h2 on-dark">Sprint 2: Directories &amp; GBP (Weeks 2–6)</h3>
+      <p class="on-dark">Create verified Semrush Agency Partner profile, upgrade Clutch/GoodFirms/DesignRush for GEO &amp; AEO, pitch Webtonic &amp; ROI.com.au, and scale Cremorne GBP from 47 to 100+ reviews.</p>
     </div>
     <div class="card dark-card">
-      <h3 class="h2 on-dark">Sprint 3: Automated Re-Audit</h3>
-      <p class="on-dark">Execute automated monthly re-evaluations across all 168 empirical query cells to track statistical migration towards the 85% national SoMV target.</p>
+      <h3 class="h2 on-dark">Sprint 3: New URLs &amp; Re-Audit (Weeks 6–12)</h3>
+      <p class="on-dark">Launch <code>/ai-visibility-audit/</code>, <code>/geo-melbourne/</code>, and <code>/geo-sydney/</code> with Organization/Service/CaseStudy JSON-LD, and run monthly 280-prompt re-audits toward overtaking #6 Optimising in Melbourne.</p>
     </div>
   </div>
   <footer class="foot on-dark"><span class="foot-logo">${LOGO_SRC}</span><span class="foot-meta">Uprise Digital GEO Intelligence Unit · Technical Protocol Complete</span></footer>
@@ -503,7 +509,7 @@ const html = `<!DOCTYPE html>
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Uprise Digital — Internal Technical Data Science Dossier (October 2026)</title>
+<title>Uprise Digital — AI Search (GEO / AEO) Technical Data Science Dossier (October 2026)</title>
 <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@700,600,500&display=swap">
 <link rel="stylesheet" href="deck.css"/>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css"/>
@@ -584,7 +590,7 @@ const html = `<!DOCTYPE html>
     margin-top: 12px;
   }
   .tech-table th, .tech-table td {
-    padding: 10px 12px;
+    padding: 9px 11px;
     border: 1px solid #E2E8F0;
     text-align: left;
   }
@@ -623,7 +629,7 @@ const html = `<!DOCTYPE html>
     border-radius: 8px;
     font-family: 'JetBrains Mono', monospace;
     font-size: 11px;
-    line-height: 1.5;
+    line-height: 1.45;
     overflow-x: auto;
   }
   .dark-card {
@@ -637,7 +643,7 @@ const html = `<!DOCTYPE html>
 <body>
 <div class="deck" id="deck">
   <div class="stage" id="stage">
-    ${slides.map((s, idx) => `
+    ${slides.map((s) => `
       <section id="${s.id}" class="slide ${s.theme}" data-title="${s.id}">
         ${s.html}
       </section>

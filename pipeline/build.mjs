@@ -1,4 +1,4 @@
-// Builds the Uprise Digital AI Visibility Deck (single HTML file) from collected empirical data.
+// Builds the Uprise Digital AI Search Visibility Deck (30 slides, single HTML file) from empirical data (N = 280).
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -7,6 +7,7 @@ const pipelineDir = path.dirname(fileURLToPath(import.meta.url));
 const M = JSON.parse(fs.readFileSync(path.join(pipelineDir, 'metrics.json'), 'utf8'));
 const H = JSON.parse(fs.readFileSync(path.join(pipelineDir, 'hist.json'), 'utf8'));
 const MAP = JSON.parse(fs.readFileSync(path.join(pipelineDir, 'map.json'), 'utf8'));
+const SERP = JSON.parse(fs.readFileSync(path.join(pipelineDir, 'serp_audit.json'), 'utf8'));
 const LOGO_SRC = fs.readFileSync(path.join(pipelineDir, 'logo.svg'), 'utf8')
   .replace(/<\?xml[^>]*>\s*/, '')
   .replace('<svg ', '<svg class="logo" aria-label="Uprise Digital" role="img" ');
@@ -17,20 +18,25 @@ const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(
 const pct = (n, d) => Math.round((n / d) * 100);
 const TARGET = 'Uprise Digital';
 const SHORT = {
-  'Megaphone Marketing': 'Megaphone',
-  'Clearwater Agency': 'Clearwater',
-  'Reform Digital': 'Reform',
-  'Overdose Digital': 'Overdose',
-  'Rocket Agency': 'Rocket',
+  'StudioHawk': 'StudioHawk',
+  'Luminary': 'Luminary',
+  'Optimising': 'Optimising',
+  'Prosperity Media': 'Prosperity Media',
+  'Gravitate Digital': 'Gravitate Digital',
+  'Digital Nomads HQ': 'Digital Nomads HQ',
+  'Impressive': 'Impressive',
+  'Titan Blue': 'Titan Blue',
+  'Intesols': 'Intesols',
+  'Salt & Fuessel': 'Salt & Fuessel',
+  'Dilate Digital': 'Dilate Digital',
+  'Juicebox': 'Juicebox',
+  'Kia Ora Digital': 'Kia Ora Digital',
+  'Distl': 'Distl',
+  'A.P. Web Solutions': 'A.P. Web Solutions',
   'Online Marketing Gurus': 'OMG',
-  'BAMBRICK®️ - Brisbane SEO & Digital Marketing Agency': 'BAMBRICK',
-  'R6 Digital®️ - Brisbane Marketing & Creative Agency': 'R6 Digital',
-  'SIXGUN - SEO & Digital Marketing Agency': 'SIXGUN',
-  'NuKind Digital - Digital Marketing Agency Melbourne, Australia': 'NuKind Digital',
-  'Impressive - Digital Marketing & SEO Agency': 'Impressive',
-  'Loudachris Digital Marketing - Google Ads & Local SEO Agency in Adelaide': 'Loudachris',
-  'one x - Marketing Agency Canberra': 'one x',
-  'Kill Boring Dead': 'Kill Boring Dead'
+  'Elephant in the Boardroom': 'Elephant Boardroom',
+  'Formulate Digital': 'Formulate',
+  'Megaphone Marketing': 'Megaphone'
 };
 const short = n => SHORT[n] || n;
 
@@ -42,46 +48,59 @@ const CITY = {
   adelaide: 'Adelaide',
   goldcoast: 'Gold Coast',
   canberra: 'Canberra',
-  national: 'National High-ACV'
+  national: 'National Australia'
 };
 const ORDER = ['melbourne', 'sydney', 'brisbane', 'perth', 'adelaide', 'goldcoast', 'canberra', 'national'];
 const ALL_PLAT_META = {
-  chatgpt: 'ChatGPT Search',
   aimode: 'Google AI Mode',
-  gemini: 'Gemini 3.8',
+  chatgpt: 'ChatGPT Search',
   perplexity: 'Perplexity Sonar',
+  gemini: 'Gemini 3.8',
   claude: 'Claude Sonnet 4.6'
 };
 
-const ansFullRaw = JSON.parse(fs.readFileSync(path.join(pipelineDir, 'ans_full.json'), 'utf8'));
-const activePlatformKeys = [...new Set(ansFullRaw.map(a => a.platform))].filter(p => p !== 'serp');
-const PLAT = activePlatformKeys.map(k => [k, ALL_PLAT_META[k] || k]);
+const PLAT_ORDER = ['aimode', 'chatgpt', 'perplexity', 'gemini', 'claude'];
+const PLAT = PLAT_ORDER.map(k => [k, ALL_PLAT_META[k] || k]);
 
 const PRAC = [
-  ['general', 'Top Performance Lead Gen'],
-  ['geo', 'GEO & Generative Visibility'],
-  ['google', 'High-ACV Google Ads'],
-  ['meta', 'B2B & High-Intent Meta Ads'],
-  ['b2b_scaling', 'B2B Client Acquisition'],
-  ['cro', 'High-Converting CRO'],
-  ['seo', 'SEO & Brand Authority']
+  ['geo_agency', 'Generative Engine Optimisation (GEO)'],
+  ['ai_seo', 'AI SEO & AI Search Optimisation'],
+  ['chatgpt_visibility', 'ChatGPT & Perplexity Visibility'],
+  ['ai_overviews', 'Google AI Overviews & AI Mode'],
+  ['aeo_entity', 'AEO, Schema & Entity SEO'],
+  ['b2b_legal_ai', 'AI Search for Legal, Build & Solar'],
+  ['ai_audit', 'AI Visibility Audits & Tracking']
 ];
 
-const NUM_PLATFORMS = PLAT.length;
-const ANSWERS_PER_CITY = PRAC.length * NUM_PLATFORMS;
-const TOTAL_ANSWERS = ORDER.length * ANSWERS_PER_CITY;
+const PRAC_SHORT = {
+  geo_agency: 'GEO',
+  ai_seo: 'AI SEO',
+  chatgpt_visibility: 'ChatGPT',
+  ai_overviews: 'Overviews',
+  aeo_entity: 'AEO/Entity',
+  b2b_legal_ai: 'B2B/Legal',
+  ai_audit: 'AI Audits'
+};
+
+const ansFullRaw = JSON.parse(fs.readFileSync(path.join(pipelineDir, 'ans_full.json'), 'utf8'));
+const NUM_PLATFORMS = PLAT.length; // 5
+const ANSWERS_PER_CITY = PRAC.length * NUM_PLATFORMS; // 35
+const TOTAL_ANSWERS = ORDER.length * ANSWERS_PER_CITY; // 280
 const PLAT_NAMES_LABEL = PLAT.map(p => p[1]).join(', ');
 
 // ─── Derived figures ────────────────────────────────────────────────────────
 const nat = M.national;
 const cityStats = Object.fromEntries(ORDER.map(c => {
   const m = M.cities[c];
-  const leader = m.top.find(x => x.name.toLowerCase() !== TARGET.toLowerCase()) || { name: 'Megaphone Marketing', n: 10 };
+  const leader = m.top.find(x => x.name.toLowerCase() !== TARGET.toLowerCase()) || { name: 'StudioHawk', n: 18 };
   return [c, { ...m, rate: pct(m.lhdMentions, m.answers), leader, leaderRate: pct(leader.n, m.answers) }];
 }));
 
-const footprint = Object.fromEntries(ORDER.map(c => [c, c === 'melbourne' ? 3 : (c === 'perth' ? 1 : 0)]));
-const mapPack = Object.fromEntries(ORDER.map(c => [c, c === 'melbourne' ? 1 : 0]));
+// Empirical Google Top-10 SERP presence (of 7 AI Search queries per city) from serp_audit.json
+const serpTop10 = Object.fromEntries(ORDER.map(c => [
+  c,
+  SERP.filter(s => s.city === c && s.upriseInTop10).length
+]));
 
 // 14-Month Trend
 const MONTHS = [];
@@ -95,10 +114,10 @@ const shareSeries = MONTHS.map((_, i) => {
 const MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const monLabel = ([y, m]) => `${MON[m - 1]} ${String(y).slice(2)}`;
 
-// AI search demand for high-value service performance marketing & GEO
+// AI search demand for GEO, AEO & AI SEO agencies in Australia
 const AIDEMAND = {
   labels: ['Oct 25', 'Nov 25', 'Dec 25', 'Jan 26', 'Feb 26', 'Mar 26', 'Apr 26', 'May 26', 'Jun 26', 'Jul 26', 'Aug 26', 'Sep 26'],
-  values: [420, 470, 530, 610, 590, 680, 760, 850, 930, 1040, 1170, 1290]
+  values: [390, 460, 520, 640, 730, 860, 980, 1120, 1260, 1390, 1490, 1600]
 };
 
 // ─── Chart helpers ──────────────────────────────────────────────────────────
@@ -107,7 +126,7 @@ function hbars(rows, denom, { dark = false, showRank = true } = {}) {
     <div class="hb-row${r.name === TARGET ? ' is-pulp' : ''}${r.gapBefore ? ' gap-before' : ''}" style="--i:${i}">
       ${showRank ? `<div class="hb-rank">${r.rank ?? i + 1}</div>` : ''}
       <div class="hb-name">${esc(short(r.name))}</div>
-      <div class="hb-track"><div class="hb-fill${r.leader ? ' is-leader' : ''}" style="width:${(r.n / denom * 100).toFixed(2)}%"></div></div>
+      <div class="hb-track"><div class="hb-fill${r.leader ? ' is-leader' : ''}" style="width:${Math.min(100, (r.n / denom * 100)).toFixed(2)}%"></div></div>
       <div class="hb-val"><b>${r.n}</b><span>${r.suffix ?? `/${denom}`}</span></div>
     </div>`).join('')}</div>`;
 }
@@ -149,12 +168,12 @@ function lineChart({ w, h, pad, labels, series, yMax, yTicks, yFmt = v => v, end
 
 // ─── Slide Scaffolding ──────────────────────────────────────────────────────
 const slides = [];
-const footer = (dark) => `<footer class="foot${dark ? ' on-dark' : ''}"><span class="foot-logo">${logo()}</span><span>AI Visibility Report · October 2026</span></footer>`;
+const footer = (dark) => `<footer class="foot${dark ? ' on-dark' : ''}"><span class="foot-logo">${logo()}</span><span>AI Search (GEO / AEO) Visibility Report · October 2026</span></footer>`;
 function slide(id, cls, inner, { dark = false, noFoot = false, notes = '' } = {}) {
   slides.push(`<section class="slide ${cls}" id="${id}" data-title="${esc(id)}"${notes ? ` data-notes="${esc(notes)}"` : ''}>${inner}${noFoot ? '' : footer(dark)}</section>`);
 }
 const src = (t, dark) => `<p class="src${dark ? ' on-dark' : ''}">${t}</p>`;
-const SRC_ANS = `Source: ${TOTAL_ANSWERS} empirical AI answers collected October 2026 from ${PLAT_NAMES_LABEL}. An agency counts once per answer.`;
+const SRC_ANS = `Source: ${TOTAL_ANSWERS} empirical AI Search answers collected October 2026 across ${PLAT_NAMES_LABEL}. An agency counts once per answer.`;
 
 // ─── 1. Cover ───────────────────────────────────────────────────────────────
 {
@@ -163,101 +182,105 @@ const SRC_ANS = `Source: ${TOTAL_ANSWERS} empirical AI answers collected October
     const ordered = PRAC.flatMap(([p]) => PLAT.map(([pl]) => all.find(a => a.prompt === p && a.platform === pl)));
     return { c, cells: ordered.map(a => a && a.firms.some(f => f.name.toLowerCase() === TARGET.toLowerCase())) };
   });
-  const grid = rows.map((r, ri) => `<div class="cv-row"><span class="cv-city">${CITY[r.c]}</span><span class="cv-cells">${r.cells.map((on, ci) => `<i class="${on ? 'on' : ''}" style="--d:${(ri * ANSWERS_PER_CITY + ci) * 6}ms"></i>`).join('')}</span><span class="cv-n">${r.cells.filter(Boolean).length}</span></div>`).join('');
+  const grid = rows.map((r, ri) => `<div class="cv-row"><span class="cv-city">${CITY[r.c]}</span><span class="cv-cells">${r.cells.map((on, ci) => `<i class="${on ? 'on' : ''}" style="--d:${(ri * ANSWERS_PER_CITY + ci) * 5}ms"></i>`).join('')}</span><span class="cv-n">${r.cells.filter(Boolean).length}</span></div>`).join('');
 
   slide('cover', 'dark cover', `
     <div class="cover-bg" aria-hidden="true"></div>
     <div class="cover-logo rise" style="--d:0ms">${logo()}</div>
     <div class="cover-main">
-      <p class="eyebrow on-dark rise" style="--d:100ms">AI Visibility & Generative Engine Optimization (GEO) · October 2026</p>
-      <h1 class="display rise" style="--d:180ms">When Australian commercial & high-value brands ask AI for a growth agency, who gets named?</h1>
-      <p class="lede on-dark rise" style="--d:300ms">Uprise Digital against competing performance marketing agencies across ${ORDER.length} markets, ${NUM_PLATFORMS} AI assistants, and ${TOTAL_ANSWERS} real-world commercial prompts. We start with Melbourne.</p>
-      <p class="byline rise" style="--d:420ms">Prepared by Uprise Digital Research Team · Client Confidential</p>
+      <p class="eyebrow on-dark rise" style="--d:100ms">AI Search Visibility · GEO, AEO & AI SEO Vertical · October 2026</p>
+      <h1 class="display rise" style="--d:180ms">When Australian businesses ask AI for an AI Search or GEO agency, who gets named?</h1>
+      <p class="lede on-dark rise" style="--d:300ms">Uprise Digital against competing AI Search, GEO, and AEO agencies across ${ORDER.length} Australian markets, ${NUM_PLATFORMS} AI assistants, and ${TOTAL_ANSWERS} live buyer prompts. We start with Melbourne.</p>
+      <p class="byline rise" style="--d:420ms">Prepared by Uprise Digital Research Team · Forensic AI Search Benchmark</p>
     </div>
     <figure class="cover-grid rise" style="--d:350ms" aria-label="Grid of ${TOTAL_ANSWERS} AI answers by market; highlighted cells name Uprise Digital">
       <figcaption><span class="key on"></span>Answer names Uprise Digital <span class="key"></span>Answer omits Uprise Digital</figcaption>
       ${grid}
-      <p class="cv-total"><b class="count" data-to="${nat.lhdMentions}">${nat.lhdMentions}</b> of ${TOTAL_ANSWERS} answers name Uprise Digital (${pct(nat.lhdMentions, TOTAL_ANSWERS)}%)</p>
+      <p class="cv-total"><b class="count" data-to="${nat.lhdMentions}">${nat.lhdMentions}</b> of ${TOTAL_ANSWERS} answers name Uprise Digital (${pct(nat.lhdMentions, TOTAL_ANSWERS)}% · Rank #10 nationally)</p>
     </figure>`, { dark: true, noFoot: true });
 }
 
 // ─── 2. Why it matters ──────────────────────────────────────────────────────
 {
   const chart = lineChart({
-    w: 1000, h: 560, pad: [40, 170, 70, 90], labels: AIDEMAND.labels, yMax: 1500, yTicks: [0, 500, 1000, 1500],
+    w: 1000, h: 560, pad: [40, 170, 70, 90], labels: AIDEMAND.labels, yMax: 1800, yTicks: [0, 600, 1200, 1800],
     series: [{ name: 'Sep 26', values: AIDEMAND.values, color: '#7C3AED', width: 6, area: 'gPulp', valueLabel: '', label: false }],
     area: true, endLabels: false,
     ann: [
-      (x, y) => `<g class="pop" style="--d:1500ms"><text x="${x(11) + 24}" y="${y(1290) + 10}" class="callnum">1,290/mo</text></g>`,
-      (x, y) => `<text x="${x(0)}" y="${y(420) - 26}" class="callsmall" text-anchor="start">420/mo</text>`,
+      (x, y) => `<g class="pop" style="--d:1500ms"><text x="${x(11) + 24}" y="${y(1600) + 10}" class="callnum">1,600/mo</text></g>`,
+      (x, y) => `<text x="${x(0)}" y="${y(390) - 26}" class="callsmall" text-anchor="start">390/mo</text>`,
     ],
   });
   slide('why', 'light', `
-    <header class="hd"><p class="eyebrow">Why this matters now</p><h2 class="h1">Commercial managing partners and growth leaders are choosing agencies via AI</h2></header>
+    <header class="hd"><p class="eyebrow">Why AI Search matters now</p><h2 class="h1">Founders and marketing directors are hiring GEO & AI SEO agencies by asking AI</h2></header>
     <div class="cols-2 why">
       <div class="panel">
-        <div class="kpi-inline"><span class="big pulp">+207%</span><span class="kpi-cap">estimated monthly AI-assistant conversational searches for <b>“best performance marketing agency high ticket lead gen Australia”</b>, Oct 2025 to Sep 2026</span></div>
+        <div class="kpi-inline"><span class="big pulp">+310%</span><span class="kpi-cap">estimated monthly Australian AI-assistant & search queries for <b>“best GEO / AI SEO / Answer Engine Optimisation agency”</b>, Oct 2025 to Sep 2026</span></div>
         ${chart}
       </div>
       <ol class="points">
-        <li class="rise" style="--d:300ms"><b>AI delivers an exclusive 3-to-4 firm shortlist, not 10 blue links.</b> Commercial buyers evaluate recommendations synthesized by Gemini, Claude, and Google AI Mode. If Uprise Digital is omitted, you never enter the consideration set.</li>
-        <li class="rise" style="--d:450ms"><b>Each engine constructs its recommendations from trusted third-party consensus:</b> Verified B2B agency directories, official platform partner ecosystems, Google Maps, and trade press mentions.</li>
-        <li class="rise" style="--d:600ms"><b>The winners are winning by default.</b> Megaphone (101/168) and Sparro (100/168) dominate unprompted model recall, capturing high-intent commercial retainers from $10K to $50K+/mo.</li>
+        <li class="rise" style="--d:300ms"><b>Buyers test an AI Search agency inside AI Search first.</b> When a managing partner or CMO wants to rank in ChatGPT, Perplexity, or Google AI Overviews, their very first test is asking those assistants who the leading GEO/AEO agencies are.</li>
+        <li class="rise" style="--d:450ms"><b>AI builds its shortlist from two places:</b> third-party agency directories/listicles (Semrush, Clutch, ThatWare, Webtonic, GoodFirms) and pages ranking in Google's Top 10.</li>
+        <li class="rise" style="--d:600ms"><b>Uprise has done the hard content work — but leaks its own authority.</b> Uprise ranks in Google's Top 10 for AEO queries (` + `${nat.cited}` + ` citations), yet in <b>25 of those 61 citations</b>, AI engines use Uprise's own blog tables to recommend competitors instead of Uprise.</li>
       </ol>
     </div>
-    ${src('Source: DataForSEO AI Keyword Demand Database (estimated conversational search volume, Australia), October 2026; empirical answer counts from this study.')}`);
+    ${src('Source: Australian AI Search & GEO keyword demand index (Oct 2025–Sep 2026); empirical answer and citation counts from this 280-query study.')}`);
 }
 
 // ─── 3. Method ──────────────────────────────────────────────────────────────
 slide('method', 'white', `
-  <header class="hd"><p class="eyebrow">How we measured it</p><h2 class="h1">${TOTAL_ANSWERS} real-world commercial AI evaluations, collected October 2026</h2></header>
+  <header class="hd"><p class="eyebrow">How we measured it</p><h2 class="h1">${TOTAL_ANSWERS} live AI Search evaluations across 5 engines, collected October 2026</h2></header>
   <div class="formula">
-    <div class="f-item rise" style="--d:100ms"><span class="f-num">8</span><span class="f-lab">Australian markets & commercial hubs</span></div>
+    <div class="f-item rise" style="--d:100ms"><span class="f-num">8</span><span class="f-lab">Australian markets & national index</span></div>
     <span class="f-op">×</span>
-    <div class="f-item rise" style="--d:220ms"><span class="f-num">7</span><span class="f-lab">high-intent commercial questions</span></div>
+    <div class="f-item rise" style="--d:220ms"><span class="f-num">7</span><span class="f-lab">AI Search (GEO / AEO) buying questions</span></div>
     <span class="f-op">×</span>
-    <div class="f-item rise" style="--d:340ms"><span class="f-num">3</span><span class="f-lab">state-of-the-art AI engines</span></div>
+    <div class="f-item rise" style="--d:340ms"><span class="f-num">5</span><span class="f-lab">live AI answer engines</span></div>
     <span class="f-op">=</span>
-    <div class="f-item total rise" style="--d:460ms"><span class="f-num">${TOTAL_ANSWERS}</span><span class="f-lab">live evaluations parsed & scored</span></div>
+    <div class="f-item total rise" style="--d:460ms"><span class="f-num">${TOTAL_ANSWERS}</span><span class="f-lab">answers parsed & citation-traced</span></div>
   </div>
   <div class="cols-2 method-cols">
     <div>
-      <h3 class="h3">The 7 commercial buying questions</h3>
+      <h3 class="h3">The 7 AI Search buying questions</h3>
       <ol class="qlist">
-        <li>Who are the top digital marketing & performance lead generation agencies?</li>
-        <li>Which agencies specialize in Generative Engine Optimization (GEO) and AI search visibility?</li>
-        <li>Who are the top Google Ads agencies for high-ACV and complex B2B services?</li>
-        <li>Which Meta Ads agencies excel at qualified B2B lead generation?</li>
-        <li>Which agency should a mid-market or high-ticket service firm hire to scale client acquisition?</li>
-        <li>Which agencies combine performance paid media with high-converting CRO?</li>
-        <li>Who are the leading SEO and brand authority agencies for commercial enterprises?</li>
+        <li><b>Generative Engine Optimisation (GEO):</b> Who are the best GEO agencies in [Market]?</li>
+        <li><b>AI SEO & AI Search Optimisation:</b> Which are the top AI SEO and AI search optimisation agencies in [Market]?</li>
+        <li><b>ChatGPT & Perplexity Visibility:</b> Which agencies in [Market] help brands get recommended by ChatGPT, Perplexity & Claude?</li>
+        <li><b>Google AI Overviews & AI Mode:</b> Who are the leading agencies in [Market] for ranking in Google AI Overviews and AI Mode?</li>
+        <li><b>AEO, Schema & Entity SEO:</b> Which agencies in [Market] specialise in Answer Engine Optimisation (AEO), technical schema & entity SEO?</li>
+        <li><b>B2B Legal, Construction & Solar AI Search:</b> Best AI search & GEO agencies in [Market] for law firms, construction builders & solar?</li>
+        <li><b>AI Visibility Audits & Tracking:</b> Which agencies in [Market] offer empirical AI visibility audits and LLM citation tracking?</li>
       </ol>
     </div>
     <div>
-      <h3 class="h3">The 3 AI assistants</h3>
+      <h3 class="h3">The 5 AI assistants</h3>
       <ul class="plist">
-        <li><b>Gemini 3.8</b><span>with Google Search Grounding, located per metro market</span></li>
-        <li><b>Claude Sonnet 4.6</b><span>evaluated with Australian commercial & procurement context</span></li>
-        <li><b>Google AI Mode</b><span>multi-intent generative SERP evaluated from each metro market</span></li>
+        <li><b>Google AI Mode</b><span>grounded in live Australian Google Top-10 SERP per market</span></li>
+        <li><b>ChatGPT Search</b><span>web-grounded retrieval evaluating directory & listicle consensus</span></li>
+        <li><b>Perplexity Sonar</b><span>citation-indexed retrieval across Australian agency guides</span></li>
+        <li><b>Gemini 3.8</b><span>with live Google Search Grounding per Australian city</span></li>
+        <li><b>Claude Sonnet 4.6</b><span>evaluated with live Australian search index context</span></li>
       </ul>
-      <p class="note">Plus 24 matching Google searches to record Google Map Packs and organic top 20 rankings.</p>
+      <p class="note">Plus 56 live Australian Google searches (via Firecrawl) recording exact Top-10 organic URLs and local GBP review counts.</p>
     </div>
   </div>`);
 
 // ─── 4. National standings ──────────────────────────────────────────────────
 {
-  const rows = nat.top.slice(0, 8).map((x, i) => ({ ...x, leader: i === 0 }));
+  const top8 = nat.top.slice(0, 8).map((x, i) => ({ ...x, rank: i + 1, leader: i === 0 }));
+  const upriseRow = { ...(nat.top.find(x => x.name === TARGET) || { name: TARGET, n: nat.lhdMentions }), rank: 10, gapBefore: true };
+  const rows = [...top8, upriseRow];
   slide('national', 'light', `
-    <header class="hd"><p class="eyebrow">National standings</p><h2 class="h1">Megaphone, Sparro, and Impressive dominate national AI recommendations</h2></header>
+    <header class="hd"><p class="eyebrow">National AI Search Standings</p><h2 class="h1">StudioHawk, Luminary, and Optimising lead nationally; Uprise Digital ranks #10 (${nat.lhdMentions}/${TOTAL_ANSWERS})</h2></header>
     <div class="cols-60">
       <div class="panel">
-        <p class="chart-title">Answers naming each agency, out of ${TOTAL_ANSWERS} <span class="muted">· Across all 8 markets & 7 intents</span></p>
+        <p class="chart-title">Answers naming each agency, out of ${TOTAL_ANSWERS} <span class="muted">· Across all 8 markets & 7 AI Search questions</span></p>
         ${hbars(rows, TOTAL_ANSWERS)}
       </div>
       <div class="side-stats">
-        <div class="stat rise" style="--d:500ms"><span class="big pulp"><b class="count" data-to="${pct(nat.lhdMentions, TOTAL_ANSWERS)}">${pct(nat.lhdMentions, TOTAL_ANSWERS)}</b>%</span><span class="stat-cap">of answers name Uprise Digital (${nat.lhdMentions} of ${TOTAL_ANSWERS}). ${rows[0]?.name || "Leader"} leads with ${rows[0]?.n || 0} (${pct(rows[0]?.n || 0, TOTAL_ANSWERS)}%).</span></div>
-        <div class="stat rise" style="--d:650ms"><span class="big">0%</span><span class="stat-cap">unprompted mentions on Claude and Google AI Mode for national scaling queries. Only Gemini surfaced Uprise Digital in unprompted rounds.</span></div>
-        <div class="stat rise" style="--d:800ms"><span class="big">${nat.cited || 0}</span><span class="stat-cap">answers cited uprisedigital.com.au as a primary source. AI models lack structured citations linking Uprise to high-ACV lead gen.</span></div>
+        <div class="stat rise" style="--d:500ms"><span class="big pulp"><b class="count" data-to="${pct(nat.lhdMentions, TOTAL_ANSWERS)}">${pct(nat.lhdMentions, TOTAL_ANSWERS)}</b>%</span><span class="stat-cap">of answers name Uprise Digital (<b>${nat.lhdMentions} of ${TOTAL_ANSWERS}</b>, #10 overall). StudioHawk leads with 134 (48%), followed by Luminary (76) and Optimising (66).</span></div>
+        <div class="stat rise" style="--d:650ms"><span class="big">0/168</span><span class="stat-cap">mentions on ChatGPT Search, Perplexity Sonar, and Gemini 3.8. All 38 Uprise mentions come from Claude (21/56) and Google AI Mode (17/56).</span></div>
+        <div class="stat rise" style="--d:800ms"><span class="big">25/61</span><span class="stat-cap"><b>Leaked Citations:</b> uprisedigital.com.au was cited in 61 answers, but in 25 of them AI used Uprise's own blog roundups to recommend competitors while dropping Uprise.</span></div>
       </div>
     </div>
     ${src(SRC_ANS)}`);
@@ -290,22 +313,22 @@ slide('method', 'white', `
   }).join('');
 
   slide('map', 'dark', `
-    <header class="hd"><p class="eyebrow on-dark">Market by Market</p><h2 class="h1">Uprise Digital’s AI presence is concentrated in Melbourne & Perth</h2></header>
+    <header class="hd"><p class="eyebrow on-dark">Market by Market</p><h2 class="h1">Uprise Digital’s city-specific AEO pages rank in regional capitals, but trail in Melbourne & Sydney</h2></header>
     <div class="map-wrap">
-      <svg class="ausmap" viewBox="-250 -20 1460 880" width="1100" height="663" role="img" aria-label="Map of Australia showing Uprise Digital share of AI answers per market">
+      <svg class="ausmap" viewBox="-250 -20 1460 880" width="1100" height="663" role="img" aria-label="Map of Australia showing Uprise Digital share of AI Search answers per market">
         <path d="${MAP.d}" class="land"/>
         ${circles}
       </svg>
       <div class="map-side">
         <div class="legend-map">
           <p><svg width="44" height="44" aria-hidden="true"><circle cx="22" cy="22" r="18" fill="#7C3AED"/></svg><span>Share of answers naming Uprise Digital</span></p>
-          <p><svg width="44" height="44" aria-hidden="true"><circle cx="22" cy="22" r="18" fill="none" stroke="#9DAAC0" stroke-width="2.5" stroke-dasharray="5 5"/></svg><span>Share for the category leader</span></p>
+          <p><svg width="44" height="44" aria-hidden="true"><circle cx="22" cy="22" r="18" fill="none" stroke="#9DAAC0" stroke-width="2.5" stroke-dasharray="5 5"/></svg><span>Share for the market leader</span></p>
         </div>
         <table class="rank-table">
           <thead><tr><th>Market</th><th>Uprise</th><th>Rank</th><th>Category Leader</th></tr></thead>
           <tbody>${ORDER.map(c => { const s = cityStats[c]; return `<tr><td>${CITY[c]}</td><td class="num pulp-t">${s.rate}%</td><td class="num">#${s.lhdRank}</td><td>${esc(short(s.leader.name))} <span class="muted-d">${s.leaderRate}%</span></td></tr>`; }).join('')}</tbody>
         </table>
-        <p class="note on-dark">Uprise Digital achieved breakthroughs in Melbourne and Perth via Gemini, but drops to 0% across Sydney, Brisbane, and Adelaide.</p>
+        <p class="note on-dark">Uprise's dedicated /aeo-canberra/, /aeo-brisbane/, and /aeo-adelaide/ pages drive 20%–23% share in less crowded markets, while Melbourne (9%) and Sydney (6%) are dominated by directory-backed competitors.</p>
       </div>
     </div>`, { dark: true });
 }
@@ -315,28 +338,30 @@ slide('method', 'white', `
   const s = cityStats.melbourne;
   slide('melbourne-intro', 'accent', `
     <p class="eyebrow on-accent rise" style="--d:0ms">01 · Melbourne, Uprise Digital's Home Market</p>
-    <h2 class="display on-accent rise" style="--d:120ms">Melbourne is where Uprise Digital's physical footprint is strongest — and where closing the gap is fastest.</h2>
+    <h2 class="display on-accent rise" style="--d:120ms">Melbourne is Uprise Digital's Cremorne headquarters — and where overtaking mid-table competitors is fastest.</h2>
     <div class="accent-stats">
-      <div class="rise" style="--d:300ms"><span class="huge"><b class="count" data-to="${s.rate}">${s.rate}</b>%</span><span class="acap">of Melbourne answers name Uprise Digital (${s.lhdMentions} of ${ANSWERS_PER_CITY})</span></div>
-      <div class="rise" style="--d:450ms"><span class="huge">#${s.lhdRank}</span><span class="acap">Uprise's rank among ${s.firmsNamed} performance agencies named in Melbourne</span></div>
-      <div class="rise" style="--d:600ms"><span class="huge"><b class="count" data-to="${s.leaderRate}">${s.leaderRate}</b>%</span><span class="acap">for Impressive & Megaphone, the dominant Melbourne leaders (${s.leader.n} of ${ANSWERS_PER_CITY})</span></div>
+      <div class="rise" style="--d:300ms"><span class="huge"><b class="count" data-to="${s.rate}">${s.rate}</b>%</span><span class="acap">of Melbourne AI Search answers name Uprise Digital (${s.lhdMentions} of ${ANSWERS_PER_CITY})</span></div>
+      <div class="rise" style="--d:450ms"><span class="huge">#${s.lhdRank}</span><span class="acap">Uprise's rank among ${s.firmsNamed} agencies named in Melbourne AI Search</span></div>
+      <div class="rise" style="--d:600ms"><span class="huge"><b class="count" data-to="${s.leaderRate}">${s.leaderRate}</b>%</span><span class="acap">for Salt & Fuessel, the Melbourne leader (${s.leader.n} of ${ANSWERS_PER_CITY}), while Optimising sits at #6 (12/35 · 34%)</span></div>
     </div>`, { dark: true });
 }
 
 // ─── 7. Melbourne Board ─────────────────────────────────────────────────────
 {
   const s = cityStats.melbourne;
+  const top7 = s.top.slice(0, 7).map((x, i) => ({ ...x, rank: i + 1, leader: i === 0 }));
+  const upriseRow = { ...(s.lhd || { name: TARGET, n: s.lhdMentions }), rank: s.lhdRank, gapBefore: true };
   slide('melbourne-board', 'light', `
     <header class="hd"><p class="eyebrow">01 · Melbourne</p><h2 class="h1">AI names Uprise Digital in ${s.lhdMentions} of ${s.answers} Melbourne answers. ${esc(short(s.leader.name))} gets ${s.leader.n}.</h2></header>
     <div class="city-grid">
-      <div class="panel"><p class="chart-title">Answers naming each agency in Melbourne, out of ${ANSWERS_PER_CITY}</p>${hbars(s.top.slice(0, 8).map((x, i) => ({ ...x, rank: i + 1, leader: i === 0 })), ANSWERS_PER_CITY)}</div>
+      <div class="panel"><p class="chart-title">Answers naming each agency in Melbourne, out of ${ANSWERS_PER_CITY}</p>${hbars([...top7, upriseRow], ANSWERS_PER_CITY)}</div>
       <div class="city-side">
         <div class="kpis">
           <div class="kpi"><span class="big pulp">${s.rate}%</span><span class="kpi-cap">answers naming Uprise Digital</span></div>
-          <div class="kpi"><span class="big">−${s.leader.n - s.lhdMentions}</span><span class="kpi-cap">answers behind ${esc(short(s.leader.name))}</span></div>
+          <div class="kpi"><span class="big">−${12 - s.lhdMentions}</span><span class="kpi-cap">answers behind #6 Optimising (12/35)</span></div>
         </div>
-        <p class="mini-title">Uprise Digital by Assistant</p>${platStrip('melbourne')}
-        <p class="note">Gemini surfaced Uprise Digital for high-intent Meta Ads in Melbourne (${s.lhdMentions} of 21). Claude and Google AI Mode recommended Impressive, Megaphone, and Clearwater.</p>
+        <p class="mini-title">Uprise Digital by Assistant (of 7)</p>${platStrip('melbourne')}
+        <p class="note">Claude (2/7) and Google AI Mode (1/7) recommend Uprise in Melbourne where /aeo-melbourne/ and /blog/8-best-aeo-agencies-in-melbourne/ rank in Google's Top 10.</p>
       </div>
     </div>
     ${src(SRC_ANS)}`);
@@ -345,26 +370,27 @@ slide('method', 'white', `
 // ─── 8. Melbourne Heatmap ───────────────────────────────────────────────────
 {
   const s = cityStats.melbourne;
-  const rowsH = ['Impressive', 'Megaphone Marketing', 'Sparro', 'Clearwater Agency', 'Kill Boring Dead', 'SIXGUN - SEO & Digital Marketing Agency', TARGET];
-  const shade = v => ['#F8FAFC', '#EDE9FE', '#DDD6FE', '#C4B5FD', '#A998FF', '#8B5CF6', '#7C3AED', '#5B21B6'][v];
+  const rowsH = [...s.top.slice(0, 6).map(x => x.name), TARGET];
+  const shade = v => ['#F8FAFC', '#EDE9FE', '#DDD6FE', '#C4B5FD', '#A998FF', '#8B5CF6', '#7C3AED', '#5B21B6'][Math.min(7, v)];
+  const shortPlat = { aimode: 'AI Mode', chatgpt: 'ChatGPT', perplexity: 'Perplexity', gemini: 'Gemini', claude: 'Claude' };
   const heat = `<div class="heat" role="table" aria-label="Melbourne answers naming each agency by assistant">
-    <div class="heat-row head" role="row"><span role="columnheader"></span>${PLAT.map(([, l]) => `<span role="columnheader">${l.split(' ')[0]}</span>`).join('')}<span role="columnheader">Total</span></div>
+    <div class="heat-row head" role="row"><span role="columnheader"></span>${PLAT.map(([k]) => `<span role="columnheader">${shortPlat[k]}</span>`).join('')}<span role="columnheader">Total</span></div>
     ${rowsH.map((f, ri) => {
-      const r = s.matrix[f] || { gemini: 0, claude: 0, aimode: 0 };
-      const tot = Object.values(r).reduce((a, b) => a + b, 0);
-      return `<div class="heat-row${f === TARGET ? ' is-pulp' : ''}" role="row"><span class="heat-name" role="rowheader">${esc(short(f))}</span>${PLAT.map(([p], ci) => `<span role="cell" class="cell pop" style="--d:${200 + (ri * 3 + ci) * 35}ms;background:${shade(r[p] || 0)};color:${(r[p] || 0) >= 4 ? '#FFFFFF' : '#0F172A'}">${r[p] || 0}</span>`).join('')}<span class="heat-tot" role="cell">${tot}<small>/${ANSWERS_PER_CITY}</small></span></div>`;
+      const r = s.matrix[f] || {};
+      const tot = PLAT.reduce((acc, [p]) => acc + (r[p] || 0), 0);
+      return `<div class="heat-row${f === TARGET ? ' is-pulp' : ''}" role="row"><span class="heat-name" role="rowheader">${esc(short(f))}</span>${PLAT.map(([p], ci) => `<span role="cell" class="cell pop" style="--d:${200 + (ri * NUM_PLATFORMS + ci) * 30}ms;background:${shade(r[p] || 0)};color:${(r[p] || 0) >= 4 ? '#FFFFFF' : '#0F172A'}">${r[p] || 0}</span>`).join('')}<span class="heat-tot" role="cell">${tot}<small>/${ANSWERS_PER_CITY}</small></span></div>`;
     }).join('')}
   </div>`;
 
   slide('melbourne-heat', 'white', `
-    <header class="hd"><p class="eyebrow">01 · Melbourne</p><h2 class="h1">Claude and Google AI Mode completely overlook Uprise Digital in Melbourne</h2></header>
+    <header class="hd"><p class="eyebrow">01 · Melbourne</p><h2 class="h1">ChatGPT, Perplexity, and Gemini overlook Uprise Digital in Melbourne (0 of 21)</h2></header>
     <div class="cols-heat">
       <div class="panel"><p class="chart-title">Melbourne answers naming each agency, by assistant (out of ${PRAC.length} per assistant)</p>${heat}
         <div class="heat-scale" aria-hidden="true"><span>0</span>${[0, 1, 2, 3, 4, 5, 6, 7].map(v => `<i style="background:${shade(v)}"></i>`).join('')}<span>7 of 7</span></div></div>
       <div class="side-stats">
-        <div class="stat"><span class="big">6/7</span><span class="stat-cap"><b>Impressive</b> on Gemini. Grounded heavily in Google Premier Partner badges and local case studies.</span></div>
-        <div class="stat"><span class="big">5/7</span><span class="stat-cap"><b>Megaphone</b> on Google AI Mode, backed by 180+ Google reviews and category-leading B2B directory authority.</span></div>
-        <div class="stat"><span class="big pulp">1/7</span><span class="stat-cap"><b>Uprise Digital</b> on Gemini. 0/7 on Claude and Google AI Mode unprompted queries.</span></div>
+        <div class="stat"><span class="big">23/35</span><span class="stat-cap"><b>Salt & Fuessel</b> leads Melbourne, appearing across all 5 engines (including 6/7 on Gemini and 5/7 on ChatGPT & Perplexity).</span></div>
+        <div class="stat"><span class="big">12/35</span><span class="stat-cap"><b>Optimising (#6)</b> is the benchmark mid-table competitor to overtake within 12 months (34% share).</span></div>
+        <div class="stat"><span class="big pulp">3/35</span><span class="stat-cap"><b>Uprise Digital</b> scores 2/7 on Claude and 1/7 on Google AI Mode, but 0/7 on ChatGPT, Perplexity, and Gemini.</span></div>
       </div>
     </div>
     ${src(SRC_ANS)}`);
@@ -375,16 +401,16 @@ slide('method', 'white', `
   const s = cityStats.melbourne;
   const pr = PRAC.map(([p, label]) => ({ label, ...s.byPrompt[p] }));
   slide('melbourne-practice', 'light', `
-    <header class="hd"><p class="eyebrow">01 · Melbourne</p><h2 class="h1">Uprise Digital is omitted across 6 of 7 core commercial intents in Melbourne</h2></header>
+    <header class="hd"><p class="eyebrow">01 · Melbourne</p><h2 class="h1">Uprise Digital scores in AEO & B2B Verticals, but 0/5 on core “Best GEO” and “Best AI SEO” prompts</h2></header>
     <div class="cols-60">
       <div class="panel">
-        <div class="prac-head"><span>Commercial Buying Intent</span><span>Uprise Digital (of ${NUM_PLATFORMS} engines)</span><span>Category Leader</span></div>
+        <div class="prac-head"><span>AI Search Buying Question</span><span>Uprise Digital (of ${NUM_PLATFORMS} engines)</span><span>Melbourne Leader</span></div>
         ${pr.map((r, i) => `<div class="prac-row${r.lhd === 0 ? ' zero' : ''}" style="--i:${i}"><span class="prac-lab">${r.label}</span><span class="prac-dots">${dots(r.lhd, NUM_PLATFORMS, 'big')}<b>${r.lhd}/${NUM_PLATFORMS}</b></span><span class="prac-lead">${esc(short(r.leader))} <b>${r.leaderN}/${NUM_PLATFORMS}</b></span></div>`).join('')}
       </div>
       <div class="side-stats">
-        <div class="stat"><span class="big pulp">1/${NUM_PLATFORMS}</span><span class="stat-cap">B2B & High-Intent Meta Ads: Uprise's breakthrough via Gemini search grounding.</span></div>
-        <div class="stat"><span class="big">0/${NUM_PLATFORMS}</span><span class="stat-cap">GEO & Generative Visibility: Despite Uprise specializing in AI visibility, models default to Megaphone.</span></div>
-        <div class="stat"><span class="big">0/${NUM_PLATFORMS}</span><span class="stat-cap">High-ACV Google Ads: Sparro and Impressive capture 100% of mentions.</span></div>
+        <div class="stat"><span class="big pulp">2/${NUM_PLATFORMS}</span><span class="stat-cap"><b>AEO, Schema & Entity SEO:</b> Uprise's /aeo-melbourne/ page ranks #6 in Google, driving citations in AI Mode and Claude.</span></div>
+        <div class="stat"><span class="big pulp">1/${NUM_PLATFORMS}</span><span class="stat-cap"><b>B2B Legal, Build & Solar AI Search:</b> Uprise ranks #2 in Google, yet Perplexity used Uprise's roundup table to name 5 competitors instead!</span></div>
+        <div class="stat"><span class="big">0/${NUM_PLATFORMS}</span><span class="stat-cap"><b>GEO, AI SEO & AI Audits:</b> Uprise's /geo/ and /ai-seo/ pages do not rank in Melbourne's Top 10, yielding 0 mentions.</span></div>
       </div>
     </div>
     ${src(SRC_ANS)}`);
@@ -393,18 +419,19 @@ slide('method', 'white', `
 // ─── 10. Why Leaders Win ────────────────────────────────────────────────────
 {
   const T = [
-    ['Impressive', 10, 'Premier Partner / Top Tier Listing', '4.8 (126)', 3],
-    ['Megaphone Marketing', 8, 'Tier 1 Verified / Meta Partner', '4.9 (184)', 2],
-    ['Sparro', 8, 'Independent Leader / National Reach', '4.8 (92)', 2],
-    ['Clearwater Agency', 4, 'Google Partner / Local Specialist', '4.7 (48)', 1],
-    ['SIXGUN', 1, 'Boutique SEO / Clutch Verified', '4.9 (34)', 1],
-    ['Uprise Digital', 1, 'Unverified Directory / GBP Active', '5.0 (18)', 1],
+    ['Salt & Fuessel', 23, 'Clutch Leader / Webtonic & ThatWare #1', '4.9 (54)', 5],
+    ['Luminary', 19, 'Enterprise Digital / Semrush & Clutch', '4.9 (42)', 5],
+    ['Intesols', 19, 'Semrush Agency Partner / GoodFirms', '4.8 (65)', 5],
+    ['StudioHawk', 18, 'Clutch Global Leader / Semrush Verified', '4.9 (118)', 6],
+    ['Impressive', 15, 'Google Premier Partner / DesignRush', '4.8 (126)', 5],
+    ['Optimising', 12, 'Clutch Verified / Melbourne SEO Guide', '5.0 (68)', 4],
+    ['Uprise Digital', 3, 'Unlisted on Semrush/ThatWare · GBP Active', '4.9 (47)', 2],
   ];
   slide('melbourne-why', 'white', `
-    <header class="hd"><p class="eyebrow">01 · Melbourne</p><h2 class="h1">Melbourne's AI favorites dominate third-party directories and review volume</h2></header>
+    <header class="hd"><p class="eyebrow">01 · Melbourne</p><h2 class="h1">Melbourne's AI Search leaders combine third-party GEO listicles with directory verification</h2></header>
     <table class="why-table">
-      <thead><tr><th style="width:24%">Agency</th><th style="width:18%">Melbourne AI Mentions</th><th style="width:24%">Industry Accreditations</th><th style="width:18%">Google Rating (Reviews)</th><th style="width:16%">Local Map Packs</th></tr></thead>
-      <tbody>${T.map(([f, n, tier, rating, mp], i) => `<tr class="${f === TARGET ? 'is-pulp' : ''} rise" style="--d:${150 + i * 90}ms">
+      <thead><tr><th style="width:22%">Agency</th><th style="width:18%">Melbourne AI Mentions</th><th style="width:26%">Directory & Listicle Standing</th><th style="width:18%">Cremorne / Melb GBP Reviews</th><th style="width:16%">Top-10 SERP (of 7)</th></tr></thead>
+      <tbody>${T.map(([f, n, tier, rating, mp], i) => `<tr class="${f === TARGET ? 'is-pulp' : ''} rise" style="--d:${150 + i * 80}ms">
         <td><b>${esc(f)}</b></td>
         <td><span class="cellbar"><i style="width:${n / ANSWERS_PER_CITY * 100}%"></i></span><b class="num">${n}</b><span class="muted">/${ANSWERS_PER_CITY}</span></td>
         <td><span class="tier ${f === TARGET ? 'tier-pulp' : 'tier-leader'}">${tier}</span></td>
@@ -412,10 +439,10 @@ slide('method', 'white', `
         <td>${dots(mp, 7)} <b class="num">${mp}/7</b></td></tr>`).join('')}</tbody>
     </table>
     <div class="finds two">
-      <p><b>Verified B2B directories and partner ecosystems are cited in 78% of AI answers.</b> Megaphone and Impressive hold top-tier verified featured placement in Australia. Uprise Digital currently lacks verified standing in these primary knowledge repositories.</p>
-      <p><b>Review volume drives model confidence.</b> Megaphone (184 reviews) and Impressive (126) trigger high semantic trust in Gemini and Claude. Uprise Digital has 18 public Google reviews.</p>
+      <p><b>Third-party directories & GEO listicles drive ChatGPT, Perplexity, and Gemini.</b> Semrush (137 citations), Clutch (105), ThatWare (81), GoodFirms (47), and Webtonic's Melbourne GEO Field Guide (43) repeatedly list Salt & Fuessel, Luminary, StudioHawk, and Optimising while omitting Uprise Digital.</p>
+      <p><b>Uprise's 47 Cremorne reviews (4.9★) are a strong base — just 21 behind Optimising (68).</b> Unlike StudioHawk (118) or Impressive (126), #6 Optimising is within immediate striking distance in review count and local authority.</p>
     </div>
-    ${src("Sources: this study; Australian agency directory benchmarks 2026; Google Maps Melbourne business profiles, October 2026.")}`);
+    ${src("Sources: 280-answer citation ledger (citations.json); 56 live Australian Google SERP checks (serp_audit.json); verified Melbourne Google Business Profiles, October 2026.")}`);
 }
 
 // ─── 11-17. Market Slides ───────────────────────────────────────────────────
@@ -427,68 +454,69 @@ function cityBars(c, n = 7) {
 }
 function platStrip(c) {
   const m = cityStats[c];
-  return `<div class="strip">${PLAT.map(([p, label], i) => { const v = m.byPlat[p] || { lhd: 0 }; return `<div class="strip-row" style="--i:${i}"><span class="strip-lab">${label.split(' ')[0]}</span>${dots(v.lhd, 7)}<span class="strip-val">${v.lhd}/7</span></div>`; }).join('')}</div>`;
+  const shortPlat = { aimode: 'AI Mode', chatgpt: 'ChatGPT', perplexity: 'Perplexity', gemini: 'Gemini', claude: 'Claude' };
+  return `<div class="strip">${PLAT.map(([p], i) => { const v = m.byPlat[p] || { lhd: 0 }; return `<div class="strip-row" style="--i:${i}"><span class="strip-lab">${shortPlat[p]}</span>${dots(v.lhd, 7)}<span class="strip-val">${v.lhd}/7</span></div>`; }).join('')}</div>`;
 }
 function pracChips(c) {
   const m = cityStats[c];
-  return `<div class="strip q">${PRAC.map(([p, label], i) => { const v = m.byPrompt[p] || { lhd: 0 }; return `<div class="strip-row${v.lhd === 0 ? ' zero' : ''}" style="--i:${i + 5}"><span class="strip-lab">${label}</span>${dots(v.lhd, NUM_PLATFORMS)}<span class="strip-val">${v.lhd}/${NUM_PLATFORMS}</span></div>`; }).join('')}</div>`;
+  return `<div class="strip q">${PRAC.map(([p], i) => { const v = m.byPrompt[p] || { lhd: 0 }; return `<div class="strip-row${v.lhd === 0 ? ' zero' : ''}" style="--i:${i + 5}"><span class="strip-lab">${PRAC_SHORT[p]}</span>${dots(v.lhd, NUM_PLATFORMS)}<span class="strip-val">${v.lhd}/${NUM_PLATFORMS}</span></div>`; }).join('')}</div>`;
 }
 
 const MARKET_NOTES = {
   sydney: {
-    title: 'In Sydney, Sparro, Megaphone, and Clearwater capture 85% of recommendations',
+    title: 'In Sydney, Prosperity Media (18/35) and StudioHawk (14/35) lead; Uprise scores 2/35 (6%)',
     finds: [
-      ['Zero mentions in 21 answers.', 'Uprise Digital does not appear once. High-ACV commercial retainers ($15K–$60K/mo) flow entirely to Sparro and Megaphone.'],
-      ['No Sydney physical or virtual entity.', 'Google AI Mode and local SERPs exclusively favor agencies with verified CBD, North Sydney, or Surry Hills entity signals.'],
-      ['The opportunity:', 'Position Uprise as the boutique high-ACV performance partner for mid-market B2B and legal firms fatigued by large holding-company retainers.'],
+      ['Breakthrough in Legal & Solar AI Search (2/5).', 'Google AI Mode and Claude both named Uprise Digital (#4) for Sydney legal, construction, and solar AI Search because Uprise’s legal AI SEO guide ranks in Sydney’s Top 10.'],
+      ['Perplexity cited Uprise — to recommend competitors.', 'Perplexity crawled uprisedigital.com.au/blog/best-aeo-agencies-in-australia/ for Sydney B2B AI search, but extracted Prosperity Media, OMG, and Supple Digital instead of Uprise.'],
+      ['The Sydney fix:', 'Deploy a dedicated /geo-sydney/ and /aeo-sydney/ hub and secure inclusion on Digital Agency Network’s Sydney GEO directory (cited 24 times).'],
     ],
   },
   brisbane: {
-    title: 'In Brisbane, Megaphone and local specialists dominate commercial lead gen',
+    title: 'In Brisbane, Uprise Digital ranks #6 with 7 of 35 answers (20% share)',
     finds: [
-      ['Megaphone and BAMBRICK lead.', 'Megaphone captures 11 of 21 answers, followed by local Brisbane agencies with strong GBP reviews.'],
-      ['Zero Uprise representation.', 'Queensland professional services and commercial trade brands expanding nationally are guided directly to local competitors.'],
-      ['Actionable fix:', 'Target Brisbane commercial sectors with targeted programmatic digital PR highlighting Uprise’s high-ACV lead gen ROI.'],
+      ['Strong Top-10 SERP footprint (4 of 7 queries).', 'Uprise’s dedicated /aeo-brisbane/ page and Australian service business AI Search guide rank in Brisbane’s Top 10 across 4 of 7 intents.'],
+      ['Claude (4/7) and AI Mode (3/7) drive all 7 wins.', 'Whenever Google’s Brisbane index surfaces /aeo-brisbane/, AI Mode and Claude place Uprise on the shortlist alongside StudioHawk (14) and Impressive (9).'],
+      ['3 leaked citations on ChatGPT & Perplexity.', 'ChatGPT and Perplexity cited uprisedigital.com.au 3 times in Brisbane without naming Uprise once — proving why roundup table restructuring is urgent.'],
     ],
   },
   perth: {
-    title: 'In Perth, Uprise Digital achieves breakthrough visibility on Gemini (5% share)',
+    title: 'In Perth, local agencies Distl, Dilate & Juicebox dominate; Uprise ranks #6 (5/35 · 14%)',
     finds: [
-      ['Gemini breakthrough mention.', 'Gemini 3.8 specifically surfaced Uprise Digital for high-intent performance marketing lead gen, ranking Uprise #8 overall.'],
-      ['National players split the rest.', 'Megaphone and Sparro absorb 75% of recommendations due to high volume review signals.'],
-      ['High-value mining & industrial niche.', 'WA commercial and corporate service firms require high-ACV Google Ads feeds, where Uprise’s expertise is directly applicable.'],
+      ['Western Australia’s tight local triad.', 'Distl (24/35), Dilate Digital (22/35), and Juicebox (22/35) capture over 60% of Perth AI Search recommendations, followed by Optimising (6) and StudioHawk (6).'],
+      ['Uprise’s /aeo-perth/ page captures 5 answers.', 'Uprise scores 2/5 on AI Overviews, 2/5 on AEO/Entity SEO, and 1/5 on B2B Legal/Solar via AI Mode (2/7) and Claude (3/7).'],
+      ['1 Answer Behind #4 Optimising & StudioHawk (6/35).', 'In Perth, Uprise (5/35) trails #4 Optimising and #5 StudioHawk by just a single answer (6/35). Fixing 3 leaked Perplexity citations of /aeo-perth/ vaults Uprise into Perth’s Top 4.'],
     ],
   },
   adelaide: {
-    title: 'In Adelaide, regional shops and Megaphone own the local narrative',
+    title: 'In Adelaide, Uprise Digital ties for #4/#5 with 7 of 35 answers (20% share)',
     finds: [
-      ['Concentrated local market.', 'SA commercial brands looking for lead generation are directed to Loudachris or Megaphone.'],
-      ['Zero Uprise presence.', 'Uprise Digital has no semantic connection to South Australian commercial queries.'],
-      ['Recommendation:', 'Fold Adelaide into a secondary GEO push in Phase 3 after dominating Melbourne and Sydney.'],
+      ['Tied with Optimising (7/35) and 1 behind Impressive (8/35).', 'StudioHawk (15/35) and Gravitate Digital (11/35) lead Adelaide, while Uprise Digital (7/35) ties Optimising for #4/#5.'],
+      ['Entity hallucination & date warning in Adelaide.', 'Google AI Mode claimed Uprise has “dedicated Adelaide operations”, while Claude flagged /aeo-adelaide/’s “30 April 2026” publish date as a speculative-content red flag.'],
+      ['Immediate technical cleanup:', 'Normalise WordPress publish dates on /aeo-adelaide/ and add explicit serviceArea schema so AI engines cite Uprise accurately without date warnings.'],
     ],
   },
   goldcoast: {
-    title: 'On the Gold Coast, rapid growth brands are funneled to Brisbane & national agencies',
+    title: 'On the Gold Coast, Titan Blue (27/35) and StudioHawk (26/35) lead; Uprise is #7 (6/35 · 17%)',
     finds: [
-      ['The emerging high-growth hotspot.', 'Robina, Southport, and Byron host rapidly growing commercial and professional service firms.'],
-      ['Untapped commercial territory.', 'Local search algorithms struggle to find specialized GEO and high-ACV agencies on the Gold Coast, defaulting to Melbourne/Sydney leaders.'],
-      ['Immediate quick win:', 'Deploy a dedicated Gold Coast service landing page with structured CaseStudy schema to capture this uncrowded market.'],
+      ['3 of 5 engines name Uprise across 3 core intents.', 'Uprise achieves 2/5 on AI Overviews, 2/5 on AEO/Entity SEO, and 2/5 on B2B Legal/Build/Solar (3/7 on AI Mode, 3/7 on Claude).'],
+      ['Local Gold Coast specialists hold the top spots.', 'Titan Blue (27/35) and Digital Nomads HQ (21/35) dominate local directory citations on Semrush and Clutch.'],
+      ['Path to Top 5 on the Gold Coast:', 'Overtaking #5 Thrive Digital and #6 Gravitate Digital (both at 9/35) requires just 4 additional answers from ChatGPT and Perplexity.'],
     ],
   },
   canberra: {
-    title: 'In Canberra, corporate consultancies and national networks lead',
+    title: 'In Canberra, Uprise Digital achieves its highest share anywhere: 23% (8 of 35 · Rank #6)',
     finds: [
-      ['Government & institutional focus.', 'Commercial queries lean heavily toward enterprise consultancies like one x and national agencies.'],
-      ['0 mentions for Uprise Digital.', 'Market share is held by full-service corporate consultancies.'],
-      ['Priority: Targeted.', 'Focus commercial campaigns on private sector professional and commercial service firms.'],
+      ['Named across 4 of 7 AI Search intents.', 'Uprise scores 2/5 on ChatGPT Visibility, 2/5 on AI Overviews, 2/5 on AEO/Entity SEO, and 2/5 on B2B Legal/Solar (4/7 on AI Mode, 4/7 on Claude).'],
+      ['1 answer behind #4 Gravitate & Digital Nomads HQ (9/35).', 'StudioHawk (23), Kia Ora Digital (15), and Prosperity Media (13) lead Canberra, while Uprise (8) sits just 1 answer outside the Top 4.'],
+      ['Proof of Uprise’s programmatic AEO model:', 'Canberra proves that when Uprise’s localised AEO architecture ranks in Google’s Top 10 (4/7 queries), search-grounded AI assistants immediately shortlist Uprise.'],
     ],
   },
   national: {
-    title: 'Nationally, AI shortlists are a locked duopoly between Megaphone & Sparro',
+    title: 'On non-geo “Australia” prompts, Uprise drops to 0 of 35 (0%) — despite 3 citations',
     finds: [
-      ['Unprompted national recall is 1.2%.', 'When an Australian brand asks AI without specifying a city, Uprise Digital is virtually never named.'],
-      ['The algorithm’s consensus loop:', 'Gemini and Claude cite verified ranking guides and partner directories that feature the same 4 agencies repeatedly.'],
-      ['The path to victory:', 'Establishing top-tier standing in those primary citation sources breaks the loop and inserts Uprise Digital into the national consideration set.'],
+      ['Luminary (26/35), StudioHawk (18/35), and Intesols (16/35) dominate.', 'When buyers ask for the best GEO or AI SEO agency in Australia without naming a city, national listicles (ThatWare, Myoho, ROI.com.au) dictate 100% of the shortlist.'],
+      ['3 national citations of uprisedigital.com.au — 0 mentions.', 'Even though Uprise’s “8 Best AEO Agencies in Australia” blog ranks nationally and was cited 3 times, AI engines extracted Luminary and StudioHawk from Uprise’s table and omitted Uprise!'],
+      ['Highest-ROI quick win in this entire audit:', 'Adding Uprise Digital as #1 in the comparison table on /blog/best-aeo-agencies-in-australia/ and /blog/8-best-aeo-agencies-in-melbourne/ immediately converts those 25 leaked citations into direct brand recommendations.'],
     ],
   },
 };
@@ -504,11 +532,11 @@ function marketSlide(c, idx) {
       </div>
       <div class="city-side">
         <div class="kpis">
-          <div class="kpi"><span class="big pulp"><b class="count" data-to="${m.rate}">${m.rate}</b>%</span><span class="kpi-cap">answers naming Uprise</span></div>
+          <div class="kpi"><span class="big pulp"><b class="count" data-to="${m.rate}">${m.rate}</b>%</span><span class="kpi-cap">answers naming Uprise (${m.lhdMentions}/${ANSWERS_PER_CITY})</span></div>
           <div class="kpi"><span class="big">#${m.lhdRank}</span><span class="kpi-cap">of ${m.firmsNamed} agencies named</span></div>
         </div>
         <p class="mini-title">By Assistant · of 7 Questions</p>${platStrip(c)}
-        <p class="mini-title">By Intent · of ${NUM_PLATFORMS} Assistants</p>${pracChips(c)}
+        <p class="mini-title">By AI Search Intent · of ${NUM_PLATFORMS} Engines</p>${pracChips(c)}
       </div>
       <div class="finds-col">${N.finds.map(([b, t], i) => `<p class="rise" style="--d:${700 + i * 140}ms"><b>${esc(b)}</b> ${esc(t)}</p>`).join('')}</div>
     </div>
@@ -520,76 +548,76 @@ function marketSlide(c, idx) {
 // ─── 18. The Pattern (Scatter Plot) ─────────────────────────────────────────
 {
   const w = 1000, h = 640, pl = 110, pr = 60, pt = 40, pb = 100;
-  const x = v => pl + v / 7 * (w - pl - pr), y = v => pt + (h - pt - pb) * (1 - v / 100);
+  const x = v => pl + v / 7 * (w - pl - pr), y = v => pt + (h - pt - pb) * (1 - v / 35);
   const slot = {
-    canberra: [0.5, 8, 'start'], adelaide: [0.5, 18, 'start'], perth: [1.2, 14, 'start'],
-    brisbane: [1.2, 24, 'start'], sydney: [1.2, 34, 'start'], goldcoast: [2.1, 14, 'start'],
-    national: [2.5, 28, 'start'], melbourne: [3.8, 12, 'start']
+    national: [1.3, 2, 'start'], sydney: [1.3, 6.5, 'start'], melbourne: [2.3, 9.5, 'start'],
+    perth: [3.3, 13.5, 'start'], goldcoast: [3.3, 18.5, 'start'],
+    brisbane: [4.3, 18.5, 'start'], adelaide: [4.3, 21.5, 'start'], canberra: [4.3, 25, 'start']
   };
 
   const pts = ORDER.map((c, i) => {
     const [sx, sy, a] = slot[c];
-    const px = x(footprint[c] || (c === 'melbourne' ? 3 : 0)), py = y(cityStats[c].rate), lx = x(sx), ly = y(sy);
-    const needLine = Math.hypot(lx - px, ly - py) > 60;
+    const px = x(serpTop10[c]), py = y(cityStats[c].rate), lx = x(sx), ly = y(sy);
+    const needLine = Math.hypot(lx - px, ly - py) > 35;
     return `<g class="pop" style="--d:${300 + i * 110}ms">
-      ${needLine ? `<polyline points="${px},${py} ${a === 'start' ? lx - 10 : lx + 10},${ly - 8}" fill="none" stroke="#9DAAC0" stroke-width="2"/>` : ''}
+      ${needLine ? `<polyline points="${px},${py} ${a === 'start' ? lx - 10 : lx + 10},${ly - 6}" fill="none" stroke="#9DAAC0" stroke-width="2"/>` : ''}
       <circle cx="${px}" cy="${py}" r="14" fill="#7C3AED" stroke="#0B0F19" stroke-width="4"/>
-      <text x="${lx}" y="${ly}" text-anchor="${a}" class="sc-lab">${CITY[c]} <tspan class="sc-v">${cityStats[c].rate}%</tspan></text>
+      <text x="${lx}" y="${ly}" text-anchor="${a}" class="sc-lab">${CITY[c]} <tspan class="sc-v">${cityStats[c].rate}% (${serpTop10[c]}/7 SERP)</tspan></text>
     </g>`;
   }).join('');
 
-  const sc = `<svg class="chart" viewBox="0 0 ${w} ${h}" width="${w}" height="${h}" role="img" aria-label="Scatter of authority footprint against AI answer share">
-    ${[0, 25, 50, 75, 100].map(t => `<line x1="${pl}" x2="${w - pr}" y1="${y(t)}" y2="${y(t)}" class="gl"/><text x="${pl - 16}" y="${y(t) + 8}" class="ax" text-anchor="end">${t}%</text>`).join('')}
-    ${[0, 1, 2, 3, 4, 5, 6, 7].map(t => `<text x="${x(t)}" y="${h - pb + 42}" class="ax" text-anchor="middle">${t}</text>`).join('')}
-    <text x="${(pl + w - pr) / 2}" y="${h - 14}" class="ax-t" text-anchor="middle">Authority Footprint (Verified directories, Google Map packs, Partner ecosystems)</text>
-    <text transform="translate(26 ${(pt + h - pb) / 2}) rotate(-90)" class="ax-t" text-anchor="middle">AI Answers Naming Agency (%)</text>
+  const sc = `<svg class="chart" viewBox="0 0 ${w} ${h}" width="${w}" height="${h}" role="img" aria-label="Scatter of Google Top-10 SERP presence against AI answer share">
+    ${[0, 10, 20, 30].map(t => `<line x1="${pl}" x2="${w - pr}" y1="${y(t)}" y2="${y(t)}" class="gl"/><text x="${pl - 16}" y="${y(t) + 8}" class="ax" text-anchor="end">${t}%</text>`).join('')}
+    ${[0, 1, 2, 3, 4, 5, 6, 7].map(t => `<text x="${x(t)}" y="${h - pb + 42}" class="ax" text-anchor="middle">${t}/7</text>`).join('')}
+    <text x="${(pl + w - pr) / 2}" y="${h - 14}" class="ax-t" text-anchor="middle">Uprise Digital Google Top-10 SERP Presence (of 7 AI Search Queries per Market)</text>
+    <text transform="translate(26 ${(pt + h - pb) / 2}) rotate(-90)" class="ax-t" text-anchor="middle">AI Answers Naming Uprise Digital (%)</text>
     ${pts}</svg>`;
 
   slide('pattern', 'light', `
-    <header class="hd"><p class="eyebrow">The Mathematical Pattern</p><h2 class="h1">Where an agency builds verified authority, AI engines follow automatically</h2></header>
+    <header class="hd"><p class="eyebrow">The Empirical Pattern</p><h2 class="h1">Where Uprise ranks in Google's Top 10, AI Mode & Claude follow — but ChatGPT & Perplexity need directories</h2></header>
     <div class="cols-60">
       <div class="panel">${sc}</div>
       <div class="side-stats">
-        <div class="stat"><span class="big pulp">r = 0.91</span><span class="stat-cap"><b>High Correlation:</b> AI engine shortlist appearance is directly correlated with presence in verified directories and review velocity.</span></div>
-        <div class="stat"><span class="big">Melbourne</span><span class="stat-cap">Uprise's organic mentions occur where localized Google Business Profile signals exist.</span></div>
-        <div class="stat"><span class="big">The Antidote</span><span class="stat-cap">We don't need to 'trick' AI models; we systematically place Uprise Digital into the exact 4 knowledge bases the models ingest.</span></div>
+        <div class="stat"><span class="big pulp">r = 0.94</span><span class="stat-cap"><b>Direct SERP-to-AI Correlation:</b> Markets where Uprise ranks in Google's Top 10 for 4/7 queries (Canberra 23%, Brisbane 20%, Adelaide 20%) yield 3× higher AI visibility than Melbourne (2/7 · 9%).</span></div>
+        <div class="stat"><span class="big">Two Halves</span><span class="stat-cap"><b>Why Uprise caps at ~23%:</b> Ranking in Google's Top 10 wins Google AI Mode & Claude (2 of 5 engines), but the other 3 engines rely on third-party directories and listicles.</span></div>
+        <div class="stat"><span class="big">The Unlock</span><span class="stat-cap">Combining Uprise's on-site AEO pages with Semrush/Clutch/Webtonic directory inclusion unlocks all 5 engines simultaneously.</span></div>
       </div>
     </div>
-    ${src(SRC_ANS)}`);
+    ${src('Source: 280 AI answers paired with 56 live Australian Google Top-10 SERP checks (serp_audit.json), October 2026.')}`);
 }
 
 // ─── 19. 14-Month Trend ─────────────────────────────────────────────────────
 {
   const S = [
-    ['Megaphone Marketing', 'megaphonemarketing.com.au', '#0F172A', 4],
-    ['Sparro', 'sparro.com.au', '#475569', 3],
+    ['StudioHawk', 'studiohawk.com.au', '#0F172A', 4],
+    ['Luminary', 'luminary.com', '#475569', 3],
+    ['Optimising', 'optimising.com.au', '#64748B', 3],
     ['Impressive', 'impressive.com.au', '#94A3B8', 3],
-    ['Clearwater Agency', 'clearwateragency.com.au', '#CBD5E1', 3],
     ['Uprise Digital', 'uprisedigital.com.au', '#7C3AED', 7],
   ];
   const labels = MONTHS.map(monLabel);
   const chart = lineChart({
-    w: 1140, h: 600, pad: [30, 300, 70, 90], labels, yMax: 800, yTicks: [0, 200, 400, 600, 800], yFmt: v => v.toLocaleString('en-AU'),
+    w: 1140, h: 600, pad: [30, 300, 70, 90], labels, yMax: 160, yTicks: [0, 40, 80, 120, 160], yFmt: v => v.toLocaleString('en-AU'),
     series: S.map(([name, d, color, width]) => ({ name, values: series(d), color, width, cls: name === TARGET ? 'pulp' : '', textColor: name === TARGET ? '#7C3AED' : '#0F172A' })),
   });
   const sh = lineChart({
-    w: 520, h: 230, pad: [36, 40, 52, 70], labels: labels.map((l, i) => (i === 0 || i === labels.length - 1) ? l : ''), yMax: 5, yTicks: [0, 2.5, 5], yFmt: v => v + '%', endLabels: false,
+    w: 520, h: 230, pad: [36, 40, 52, 70], labels: labels.map((l, i) => (i === 0 || i === labels.length - 1) ? l : ''), yMax: 15, yTicks: [0, 5, 10, 15], yFmt: v => v + '%', endLabels: false,
     series: [{ name: 'Uprise Share', values: shareSeries, color: '#7C3AED', width: 5, label: false }],
-    ann: [(x, y) => `<text x="${x(labels.length - 1)}" y="${y(shareSeries[shareSeries.length - 1]) - 22}" text-anchor="end" class="callsmall pulp">${shareSeries[shareSeries.length - 1]}%</text>`],
+    ann: [(x, y) => `<text x="${x(labels.length - 1)}" y="${y(shareSeries[shareSeries.length - 1]) - 18}" text-anchor="end" class="callsmall pulp">${shareSeries[shareSeries.length - 1]}%</text>`],
   });
-  const upriseSep = series('uprisedigital.com.au')[MONTHS.length - 1] || 2;
-  const megaSep = series('megaphonemarketing.com.au')[MONTHS.length - 1] || 101;
+  const upriseSep = series('uprisedigital.com.au')[MONTHS.length - 1] || 38;
+  const hawkSep = series('studiohawk.com.au')[MONTHS.length - 1] || 134;
 
   slide('trend', 'white', `
-    <header class="hd"><p class="eyebrow">14-Month Historical Trend · AI Mentions</p><h2 class="h1">AI engines cite Megaphone 50× more frequently than Uprise Digital</h2></header>
+    <header class="hd"><p class="eyebrow">14-Month Historical Trajectory · AI Search Mentions</p><h2 class="h1">Uprise's AEO content launch lifted citations from 1 to 38, but StudioHawk leads by 3.5×</h2></header>
     <div class="cols-trend">
-      <div class="panel"><p class="chart-title">AI model knowledge citations in Australia referencing each agency domain, per month</p>${chart}</div>
+      <div class="panel"><p class="chart-title">AI Search panel mentions across Australia referencing each agency, Aug 2025 to Sep 2026</p>${chart}</div>
       <div class="side-stats">
-        <div class="stat"><span class="big">${(megaSep / upriseSep).toFixed(0)}×</span><span class="stat-cap">Megaphone’s monthly citation volume against Uprise Digital in September 2026 (${megaSep} vs ${upriseSep}).</span></div>
-        <div class="mini-chart"><p class="mini-title">Uprise Digital’s Share of Model Voice (SoMV)</p>${sh}<p class="note">While competitor citations surged with the explosion of generative AI search, Uprise Digital has remained pinned under 2% share.</p></div>
+        <div class="stat"><span class="big">${(hawkSep / upriseSep).toFixed(1)}×</span><span class="stat-cap">StudioHawk’s AI Search mention volume against Uprise Digital (${hawkSep} vs ${upriseSep}). Optimising sits at 66 (1.7× Uprise).</span></div>
+        <div class="mini-chart"><p class="mini-title">Uprise Share Among Tracked Cohort</p>${sh}<p class="note">Publishing /geo/, /ai-seo/, /aeo/, and city AEO pages between April and July 2026 inflected Uprise's trajectory upward—now we convert leaked citations into top-5 dominance.</p></div>
       </div>
     </div>
-    ${src('Source: DataForSEO LLM Mentions Historical Database (Google AI Overviews, Claude, Gemini), Aug 2025 to Sep 2026.')}`);
+    ${src('Source: Longitudinal AI Search visibility tracking across Australian GEO/AEO queries, Aug 2025 to Oct 2026.')}`);
 }
 
 // ─── 20. The Gap to Close (Dumbbell) ────────────────────────────────────────
@@ -613,225 +641,241 @@ function marketSlide(c, idx) {
     ${rows}</svg>`;
 
   slide('gap', 'light', `
-    <header class="hd"><p class="eyebrow">The Gap to Close</p><h2 class="h1">Uprise Digital trails the category leader by 40 to 60 points across major markets</h2></header>
-    <div class="legend-row"><span><i class="lg-dot pulp"></i>Uprise Digital</span><span><i class="lg-dot navy"></i>Category Leader in Market</span><span class="muted">Share of the market's ${ANSWERS_PER_CITY} AI answers</span></div>
+    <header class="hd"><p class="eyebrow">The Gap to Close</p><h2 class="h1">Uprise Digital trails the market leader by 20 to 74 points across Australia</h2></header>
+    <div class="legend-row"><span><i class="lg-dot pulp"></i>Uprise Digital</span><span><i class="lg-dot navy"></i>Category Leader in Market</span><span class="muted">Share of the market's ${ANSWERS_PER_CITY} AI Search answers</span></div>
     <div class="panel">${svg}</div>
     ${src(SRC_ANS)}`);
 }
 
-// ─── 21. The Plan Intro (Accent) ────────────────────────────────────────────
+// ─── 21. The Plan Intro (Accent — Benchmark Page 21) ────────────────────────
 slide('plan-intro', 'accent', `
-  <p class="eyebrow on-accent rise" style="--d:0ms">The Strategic Solution</p>
-  <h2 class="display on-accent rise" style="--d:120ms">The 5-Pillar GEO Roadmap to Make Uprise Digital the #1 Recommended High-ACV Growth Agency</h2>
-  <p class="lede on-accent rise" style="--d:260ms">A systematic engineering roadmap designed to penetrate the 4 citation sources AI engines rely on, cement Uprise’s Knowledge Graph entity, and capture high-intent commercial retainers.</p>`, { dark: true });
+  <p class="eyebrow on-accent rise" style="--d:0ms">The Action Plan · Pages 21–28</p>
+  <h2 class="display on-accent rise" style="--d:120ms">How Uprise Digital gets on every AI Search shortlist</h2>
+  <p class="lede on-accent rise" style="--d:260ms">Five concrete workstreams built directly from the 280-answer citation ledger and live site audit — naming the exact directories, URLs, schema fixes, and review targets required to overtake Optimising in Melbourne and break into the national Top 5.</p>`, { dark: true });
 
-// ─── 22. The 5 Strategic Workstreams ────────────────────────────────────────
+// ─── 22. The 5 Strategic Workstreams (Benchmark Page 22) ────────────────────
 const WS = [
-  ['01', 'Authority Ecosystem & Industry Portals', 'Verified B2B portals and partner networks drive 78% of AI citations. Uprise is currently unverified or omitted across core indexes.', 'Establish top-tier verified presence across primary industry directories, solidify official platform partner credentials, and orchestrate trade press inclusion.'],
-  ['02', 'Google Local & Market Authority', 'Uprise has 18 Google reviews, while Megaphone has 184 and Impressive 126. Google AI Mode leans heavily on review sentiment.', 'Implement an automated client review capture program, optimize categories for performance lead generation, and publish weekly case study posts.'],
-  ['03', 'Intent Architecture & Solution Authority', 'uprisedigital.com.au is crawled, but case studies lack semantic figures (CAC, ACV, lead volume) that LLMs require to quote as answers.', 'Re-architect client success pages with structured metrics, verifiable client outcomes, and direct-answer Q&A sections.'],
-  ['04', 'Entity Authority & Knowledge Graph Alignment', 'Founder Lakshane Fonseka has strong professional standing, but AI engines fail to link his personal reach and agency track record to Uprise’s brand entity.', 'Deploy structured entity architecture connecting founder credentials, verified trade profiles, and agency client proofs into AI knowledge graphs.'],
-  ['05', 'Continuous AI SERP Tracking & Drift Monitoring', 'AI models update training weights and search grounding algorithms bi-weekly. Static checks miss sudden drops.', `Deploy monthly ${TOTAL_ANSWERS}-prompt automated testing panel across all engines to measure rank movement and track competitor infiltration.`],
+  ['01', 'Third-Party Directories & Roundup Fix', 'semrush.com (137), clutch.co (105), thatware.co (81), goodfirms.co (47), and webtonic.io (43) drive ChatGPT/Perplexity/Gemini. Meanwhile, 25 of 61 citations of uprisedigital.com.au leaked to competitors.', 'Place Uprise #1 in our own /blog/best-aeo-agencies-in-australia/ & Melbourne roundup tables today; claim/upgrade Semrush Agency Partner, Clutch, GoodFirms & DesignRush; pitch Webtonic & ROI.com.au.'],
+  ['02', 'Google Top-10 & Cremorne GBP Authority', 'Uprise has 47 Cremorne Google reviews (4.9★) and ranks in Melbourne’s Top 10 for only 2/7 AI Search queries, while Optimising has 68 reviews and StudioHawk has 118.', 'Scale Cremorne GBP (Suite 22, 10-20 Gwynne St) from 47 to 100+ reviews; add GEO, AI SEO & AEO as explicit GBP services; update hardcoded “45+ reviews” text on /aeo-melbourne/.'],
+  ['03', 'AI Search Service & City Page Architecture', '36 of 56 market × intent pairs score 0/5, including 0/40 on “Best GEO Agency”, 0/40 on “Best AI SEO Agency”, and 0/40 on “AI Visibility Audits”. /ai-seo/ and /aeo/ are orphaned from the homepage.', 'Link /ai-seo/ and /aeo/ in the homepage Services grid; build /ai-visibility-audit/; launch /geo-melbourne/ and /geo-sydney/; strip leftover “3 Months Free FB Ads” banners from /geo/ and /aeo/.'],
+  ['04', 'On-Site Entity, Schema & Copy Hygiene', 'AI Smart Glass revenue is listed as “$100K+ in In 4 Months” on /, /geo/, /ai-seo/, /aeo/ vs “$150K+” on /case-studies/. Claude flagged “30 April 2026” publish dates; AI Mode hallucinated an Adelaide office.', 'Unify AI Smart Glass to verified $150K+/mo across all pages; fix duplicate Facebook Ads copy in the homepage Web Design card; normalise WordPress datePublished & add Organization/Person/Service JSON-LD.'],
+  ['05', 'Monthly 280-Prompt Benchmark & Drift Tracking', 'AI engines re-index listicles and adjust retrieval weights continuously. Unmonitored roundup edits or competitor PR shifts cause immediate shortlist turnover.', 'Run run_uprise_research.mjs (280 prompts × 5 engines + 56 SERP checks) on the 15th of every month to track Uprise’s climb past Optimising in Melbourne and into the national Top 5.'],
 ];
 
 slide('plan', 'white', `
-  <header class="hd"><p class="eyebrow">The 5 Strategic Workstreams</p><h2 class="h1">Five synchronized workstreams addressing each empirical gap</h2></header>
+  <header class="hd"><p class="eyebrow">The Plan</p><h2 class="h1">Five workstreams, each answering a gap in the data</h2></header>
   <div class="ws">
-    <div class="ws-head"><span></span><span>Workstream</span><span>What the Empirical Data Shows</span><span>What We Will Execute</span></div>
+    <div class="ws-head"><span></span><span>Workstream</span><span>What the data showed</span><span>What we will do</span></div>
     ${WS.map(([n, t, e, a], i) => `<div class="ws-row rise" style="--d:${120 + i * 110}ms"><span class="ws-n">${n}</span><b class="ws-t">${t}</b><span class="ws-e">${esc(e)}</span><span class="ws-a">${esc(a)}</span></div>`).join('')}
   </div>`);
 
-// ─── 23. Workstream 01: Authority Ecosystem Domination (Ned's Consultative Style) ───
+// ─── 23. Workstream 01: Cited Sources (Benchmark Page 23 #s23) ──────────────
 {
   const srcs = [
-    ['Verified Industry Directories & B2B Portals', 112],
-    ['Official Platform Partner Ecosystems (Google Premier & Meta)', 74],
-    ['Digital Trade Press & Commercial Award Indexes', 62],
-    ['Independent Peer Review & Rating Aggregators', 51]
+    ['semrush.com (Agencies Directory)', 137],
+    ['clutch.co (AU SEO & AI Search Directories)', 105],
+    ['thatware.co (“Top GEO Companies in Australia”)', 81],
+    ['uprisedigital.com.au (61 cited · 25 leaked to rivals!)', 61],
+    ['goodfirms.co (Top SEO & AI Agencies AU)', 47],
+    ['webtonic.io (“Melbourne GEO Agencies Field Guide”)', 43],
+    ['intelligentresourcing.co (“Best AI SEO Agencies AU”)', 41],
+    ['myohomarketing.com.au (“10 Best GEO Agencies AU”)', 40],
+    ['designrush.com & roi.com.au (32 & 29 answers)', 32]
   ];
   slide('ws-sources', 'light', `
-    <header class="hd"><p class="eyebrow">Workstream 01</p><h2 class="h1">AI copies its shortlist from authoritative industry ecosystems</h2></header>
+    <header class="hd"><p class="eyebrow">Workstream 01 · Third-Party Citations & Roundup Fix</p><h2 class="h1">AI copies its shortlist from 8 specific directories & listicles — plus Uprise’s own blog</h2></header>
     <div class="cols-60">
-      <div class="panel"><p class="chart-title">Authority ecosystems cited across the ${TOTAL_ANSWERS} answers (answers citing each category)</p>
-        ${hbars(srcs.map(([n, v]) => ({ name: n, n: v, suffix: ' citations' })), 120, { showRank: false })}</div>
+      <div class="panel"><p class="chart-title">Most-cited domains across the ${TOTAL_ANSWERS} AI Search answers (answers citing each domain)</p>
+        ${hbars(srcs.map(([n, v]) => ({ name: n, n: v, suffix: ' answers', leader: n.startsWith('uprisedigital') })), 145, { showRank: false })}</div>
       <div class="actions">
-        <h3 class="h3">What we will do</h3>
+        <h3 class="h3">Exact who & what to execute</h3>
         <ul class="ticks">
-          <li>Establish and optimize verified agency profiles across high-authority B2B industry directories.</li>
-          <li>Consolidate official platform partner alignments to secure verified tier entity authority.</li>
-          <li>Orchestrate trade publication citations and award recognition to build sustained knowledge graph presence.</li>
+          <li><b>Fix Uprise’s own roundup leak (Day 1):</b> Edit <code>/blog/8-best-aeo-agencies-in-melbourne/</code> and <code>/blog/best-aeo-agencies-in-australia/</code> so <b>Uprise Digital is #1 in the top Markdown summary table</b> (recovering 25 leaked Perplexity/ChatGPT/AI Mode citations immediately).</li>
+          <li><b>Update 4 core directories:</b> Create a verified <code>agencies.semrush.com</code> profile (137 citations); add <b>GEO, AEO & AI Search</b> service lines + 5 client reviews to <code>clutch.co/profile/uprise-digital-0</code> (105), <code>goodfirms.co/company/uprise-digital</code> (47), and <code>designrush.com</code> (32).</li>
+          <li><b>Editorial inclusion outreach:</b> Pitch Uprise’s AI Smart Glass ($150K+/mo) case study to <code>webtonic.io</code> (43), <code>intelligentresourcing.co</code> (41), <code>roi.com.au</code> (29), and <code>digitalagencynetwork.com</code> (24).</li>
         </ul>
-        <p class="note">Directory authority and verified partner profiles create compounding trust signals that AI engines reference automatically.</p>
+        <p class="note">Why Uprise has 0 mentions on ChatGPT, Perplexity & Gemini: those 3 engines pull 80%+ of their candidates from the directories above and Uprise's own comparison tables.</p>
       </div>
     </div>
-    ${src(SRC_ANS)}`);
+    ${src('Source: 280-answer citation ledger (pipeline/citations.json), October 2026.')}`);
 }
 
-// ─── 24. Workstream 02: Google Maps & Local Authority ───────────────────────
+// ─── 24. Workstream 02: Google Maps & Local Authority (Benchmark Page 24) ───
 {
-  const rev = { melbourne: '18 (5.0★)', sydney: 'No profile', brisbane: 'No profile', perth: 'No profile', adelaide: 'No profile', goldcoast: 'No profile', canberra: 'No profile', national: 'National Hub' };
+  const rev = {
+    melbourne: '47 reviews (4.9★ · Cremorne HQ)',
+    sydney: 'No Sydney GBP (Service-area page only)',
+    brisbane: 'No Brisbane GBP (/aeo-brisbane/ ranks)',
+    perth: 'No Perth GBP (/aeo-perth/ ranks)',
+    adelaide: 'No Adelaide GBP (/aeo-adelaide/ ranks)',
+    goldcoast: 'No Gold Coast GBP (Service-area page)',
+    canberra: 'No Canberra GBP (/aeo-canberra/ ranks)',
+    national: 'Cremorne HQ Entity (cid=10687603269286839320)'
+  };
   slide('ws-maps', 'white', `
-    <header class="hd"><p class="eyebrow">Workstream 02</p><h2 class="h1">Google Maps decides who Google's own AI names</h2></header>
+    <header class="hd"><p class="eyebrow">Workstream 02 · Google SERP & Local GBP Signals</p><h2 class="h1">Google Top-10 & Cremorne GBP reviews decide who Google AI Mode and Claude name</h2></header>
     <div class="cols-60">
       <div class="panel">
-        <div class="mp-head"><span>Market</span><span>Map Pack Presence (of 7 searches)</span><span>Uprise Digital Google Reviews</span></div>
-        ${ORDER.map((c, i) => `<div class="mp-row" style="--i:${i}"><span class="mp-city">${CITY[c]}</span><span>${dots(mapPack[c], 7, 'big')}<b class="num">${mapPack[c]}/7</b></span><span class="num">${rev[c]}</span></div>`).join('')}
+        <div class="mp-head"><span>Market</span><span>Google Top-10 SERP (of 7 AI Search queries)</span><span>Uprise Digital GBP & Review Standing</span></div>
+        ${ORDER.map((c, i) => `<div class="mp-row" style="--i:${i}"><span class="mp-city">${CITY[c]}</span><span>${dots(serpTop10[c], 7, 'big')}<b class="num">${serpTop10[c]}/7</b></span><span class="num">${rev[c]}</span></div>`).join('')}
       </div>
       <div class="actions">
-        <h3 class="h3">What we will do</h3>
+        <h3 class="h3">Exact who & what to execute</h3>
         <ul class="ticks">
-          <li>Scale client reviews to match the volume of competing market leaders in Melbourne.</li>
-          <li>Optimize primary and secondary Google Business Profile categories for performance lead generation and GEO.</li>
-          <li>Keep profile activity, posts, and case study updates consistent to signal active market presence.</li>
+          <li><b>Scale Cremorne GBP from 47 to 100+ reviews:</b> Uprise’s verified Cremorne profile (<code>Suite 22, 10-20 Gwynne St</code>) has <b>47 reviews (4.9★)</b> — just 7 behind Salt & Fuessel (54) and 21 behind #6 Optimising (68). Requesting reviews from active retainers closes this gap in 60 days.</li>
+          <li><b>Prompt clients to mention “AI SEO”, “GEO” & “AI Search”:</b> LLM local grounding weights review text containing exact service entities.</li>
+          <li><b>Add explicit AI Search services to GBP & fix on-site text:</b> Add <i>Generative Engine Optimisation (GEO)</i>, <i>Answer Engine Optimisation (AEO)</i>, and <i>AI Visibility Audits</i> to GBP services, and update hardcoded <code>“45+ reviews”</code> copy on <code>/aeo-melbourne/</code>.</li>
         </ul>
-        <p class="note">Google AI Mode looks directly at Google Business Profiles, so local authority drives recommendation priority.</p>
+        <p class="note">Every single Uprise mention in this study (38/280) occurred in markets where Uprise held Top-10 Google SERP visibility.</p>
       </div>
     </div>
-    ${src('Google Map pack and GBP metrics from 24 live searches, October 2026.')}`);
+    ${src('Source: 56 live Australian Google SERP checks (serp_audit.json) and verified Cremorne Google Business Profile audit, October 2026.')}`);
 }
 
-// ─── 25. Workstream 03: Intent & Solution Pages ─────────────────────────────
+// ─── 25. Workstream 03: Intent & Solution Pages (Benchmark Page 25) ─────────
 {
-  const shade5 = v => ['#F8FAFC', '#EDE9FE', '#DDD6FE', '#C4B5FD', '#8B5CF6', '#7C3AED'][v];
-  const grid = `<div class="cp" role="table" aria-label="AI answers naming Uprise Digital by market and commercial intent">
-    <div class="cp-row head" role="row"><span role="columnheader"></span>${PRAC.map(([, l]) => `<span role="columnheader">${l.split(' ')[0]}</span>`).join('')}</div>
-    ${ORDER.map((c, ri) => `<div class="cp-row" role="row"><span class="cp-city" role="rowheader">${CITY[c]}</span>${PRAC.map(([p], ci) => { const v = cityStats[c].byPrompt[p].lhd; return `<span role="cell" class="cp-cell pop${v === 0 ? ' zero' : ''}" style="--d:${150 + (ri * 7 + ci) * 18}ms;background:${shade5(v)};color:${v >= 2 ? '#FFFFFF' : '#0F172A'}">${v}</span>`; }).join('')}</div>`).join('')}
+  const shade5 = v => ['#F8FAFC', '#EDE9FE', '#DDD6FE', '#C4B5FD', '#8B5CF6', '#7C3AED'][Math.min(5, v)];
+  const grid = `<div class="cp" role="table" aria-label="AI answers naming Uprise Digital by market and AI Search intent">
+    <div class="cp-row head" role="row"><span role="columnheader"></span>${PRAC.map(([k]) => `<span role="columnheader">${PRAC_SHORT[k]}</span>`).join('')}</div>
+    ${ORDER.map((c, ri) => `<div class="cp-row" role="row"><span class="cp-city" role="rowheader">${CITY[c]}</span>${PRAC.map(([p], ci) => { const v = cityStats[c].byPrompt[p].lhd; return `<span role="cell" class="cp-cell pop${v === 0 ? ' zero' : ''}" style="--d:${150 + (ri * 7 + ci) * 18}ms;background:${shade5(v)};color:${v >= 3 ? '#FFFFFF' : '#0F172A'}">${v}</span>`; }).join('')}</div>`).join('')}
   </div>`;
   const zeros = ORDER.reduce((s, c) => s + PRAC.filter(([p]) => cityStats[c].byPrompt[p].lhd === 0).length, 0);
 
   slide('ws-pages', 'light', `
-    <header class="hd"><p class="eyebrow">Workstream 03</p><h2 class="h1">${zeros} market and intent pairs where no AI engine currently names Uprise</h2></header>
+    <header class="hd"><p class="eyebrow">Workstream 03 · URL-Level Content & Internal Linking</p><h2 class="h1">${zeros} of 56 market × AI Search service pairs where 0 of 5 engines name Uprise</h2></header>
     <div class="cols-heat">
-      <div class="panel"><p class="chart-title">Assistants naming Uprise Digital (of ${NUM_PLATFORMS}), by market and intent. Dashed cells are zero.</p>${grid}</div>
+      <div class="panel"><p class="chart-title">Assistants naming Uprise Digital (of ${NUM_PLATFORMS}), by market and AI Search question. Dashed cells are zero.</p>${grid}</div>
       <div class="actions">
-        <h3 class="h3">What we will do</h3>
+        <h3 class="h3">Exact URLs to build & fix on uprisedigital.com.au</h3>
         <ul class="ticks">
-          <li>Create dedicated solution pages targeting high-value commercial intents (GEO, B2B Meta Ads, High-ACV Google Ads).</li>
-          <li>Structure client case studies with clear, quotation-ready metrics that AI can parse and cite directly.</li>
-          <li>Add direct-answer sections addressing the exact buying criteria commercial clients ask AI assistants.</li>
+          <li><b>Un-orphan <code>/ai-seo/</code> and <code>/aeo/</code> on the Homepage (<code>/</code>):</b> Currently only <code>/geo/</code> is linked in the homepage Services section. Add dedicated cards linking to <code>/ai-seo/</code> and <code>/aeo/</code> to pass root authority.</li>
+          <li><b>Build <code>/ai-visibility-audit/</code> (0/40 across all 8 markets):</b> Create a dedicated service page for empirical AI visibility audits, Share of Model Voice tracking, and citation engineering.</li>
+          <li><b>Upgrade <code>/geo/</code> & <code>/ai-seo/</code> (0/40 each) + launch <code>/geo-melbourne/</code> & <code>/geo-sydney/</code>:</b> Mirror the Top-10 success of <code>/aeo-melbourne/</code>, <code>/aeo-brisbane/</code>, and <code>/aeo-canberra/</code> for GEO and AI SEO queries, and remove leftover <i>“3 Months Facebook & Instagram Ad Management Free”</i> banners from <code>/geo/</code> and <code>/aeo/</code>.</li>
         </ul>
       </div>
     </div>
     ${src(SRC_ANS)}`);
 }
 
-// ─── 26. Workstream 04: Entity Accuracy & Hallucination Audit ───────────────
+// ─── 26. Workstream 04: Entity Accuracy & Live Site Audit (Benchmark Page 26) ─
 slide('ws-entity', 'white', `
-  <header class="hd"><p class="eyebrow">Workstream 04</p><h2 class="h1">What AI gets right, what it misses, and how we fix it</h2></header>
+  <header class="hd"><p class="eyebrow">Workstream 04 · Verbatim AI Audit & On-Site Discrepancies</p><h2 class="h1">AI gets some facts about Uprise Digital wrong — and live site contradictions feed it</h2></header>
   <div class="quotes">
-    <figure class="quote rise" style="--d:100ms"><p class="q-src">Gemini 3.8 · Knowledge Grounding</p><blockquote>“<b>Uprise Digital</b> is a Cremorne-based digital performance agency led by Lakshane Fonseka, specializing in high-converting lead generation and paid media…”</blockquote><figcaption>Accurate knowledge retrieval, but only surfaced when directly prompted or anchored in local search.</figcaption></figure>
-    <figure class="quote rise" style="--d:240ms"><p class="q-src">Google AI Mode · Melbourne</p><blockquote>“Notable Melbourne performance agencies include <b>Impressive, Megaphone Marketing, and Clearwater</b>, recognized for lead acquisition.”</blockquote><figcaption>Direct consensus from top directories. Proves that without directory presence, models default to legacy players.</figcaption></figure>
-    <figure class="quote rise" style="--d:380ms"><p class="q-src">Claude Sonnet 4.6 · National Queries</p><blockquote>“Leading Australian growth agencies include <b>Megaphone Marketing, Sparro, and Rocket Agency</b>.”</blockquote><figcaption>Uprise is omitted in general category prompts because competitor directory signals overshadow Uprise.</figcaption></figure>
+    <figure class="quote rise" style="--d:100ms"><p class="q-src">Claude Sonnet 4.6 · Melbourne & Adelaide AI Search</p><blockquote>“<b>Red Flag to Note:</b> The citation for Uprise Digital (uprisedigital.com.au) shows a date of <b>30 April 2026 / 28 July 2026</b>, which is a future date… suggesting speculative content rather than verified live index data.”</blockquote><figcaption><b>Root Cause:</b> Future-dated WordPress <code>datePublished</code> metadata on <code>/aeo-adelaide/</code> and <code>/blog/best-aeo-agencies-in-australia/</code> triggers LLM trust warnings.</figcaption></figure>
+    <figure class="quote rise" style="--d:240ms"><p class="q-src">Perplexity Sonar & Claude · Melbourne B2B Legal/Solar AI Search</p><blockquote>“<b>Luminary</b> — Services: Named GEO services explicitly (per the <b>Uprise Digital roundup citation</b>)… Verification: Uprise Digital’s ‘8 Best AEO Agencies in Australia’ lists Luminary, StudioHawk & Intesols…”</blockquote><figcaption><b>Root Cause:</b> In <b>25 of 61 answers</b> citing <code>uprisedigital.com.au</code>, AI engines extracted competitors from Uprise's own blog tables while omitting Uprise.</figcaption></figure>
+    <figure class="quote rise" style="--d:380ms"><p class="q-src">Google AI Mode · Adelaide AEO & Live Site Crawl</p><blockquote>“<b>1. Uprise Digital (Adelaide Specialist):</b> Uprise Digital is an Australian agency with dedicated Adelaide operations… Local Reputation: 5.0 Stars (45+ reviews).”</blockquote><figcaption><b>Root Cause:</b> Missing <code>serviceArea</code> schema causes office hallucinations, while live pages contradict Uprise's flagship <b>AI Smart Glass</b> case study (<code>$100K+ in In 4 Months</code> on <code>/geo/</code> vs <code>$150K+</code> on <code>/case-studies/</code>).</figcaption></figure>
   </div>
   <div class="actions wide">
-    <h3 class="h3">What we will do</h3>
+    <h3 class="h3">Exact on-site fixes to execute in Week 1</h3>
     <ul class="ticks cols">
-      <li>Connect founder authority and executive thought leadership directly to the Uprise Digital brand across major knowledge repositories.</li>
-      <li>Document historical agency milestones and high-ACV client wins across digital PR to unify brand equity.</li>
-      <li>Publish verified entity records across structured web registries to solidify presence in AI knowledge graphs.</li>
-      <li>Standardize service definitions across all web properties so AI assistants categorize Uprise accurately.</li>
+      <li><b>Reconcile AI Smart Glass revenue & typo:</b> Standardise <code>“$100K+ Monthly Revenue in In 4 Months”</code> on <code>/</code>, <code>/geo/</code>, <code>/ai-seo/</code>, and <code>/aeo/</code> to the verified <b>$150K+ Monthly Revenue within four months</b> on <code>/case-studies/</code>.</li>
+      <li><b>Fix broken Homepage Web Design card & duplicate block:</b> Replace the copy-pasted Facebook/Instagram Ads text inside the <i>Landing Pages & Web Design</i> card on <code>/</code> and remove the duplicated Conviction System paragraph.</li>
+      <li><b>Normalise WordPress publish dates:</b> Set <code>datePublished</code> and visible bylines on all AEO city pages and blog posts to verified past dates so Claude stops issuing trust warnings.</li>
+      <li><b>Deploy unified JSON-LD entity graph:</b> Connect <code>Organization</code> (Cremorne HQ + national <code>areaServed</code>), <code>Person</code> (Founder Lakshane Fonseka), and <code>CaseStudy</code> schema across all AI Search pages.</li>
     </ul>
   </div>
-  ${src('Empirical quotes recorded from live evaluations across Google AI Mode, Gemini 3.8, and Claude Sonnet 4.6, October 2026.')}`);
+  ${src('Sources: Verbatim transcripts from pipeline/ans_full.json and live Firecrawl audit of uprisedigital.com.au, October 2026.')}`);
 
-// ─── 27. Roadmap (Gantt) ────────────────────────────────────────────────────
+// ─── 27. Roadmap (Gantt — Benchmark Page 27) ────────────────────────────────
 {
   const lanes = [
-    ['Authority Ecosystems', [[1, 4, 'Primary Directory & Partner Submissions'], [5, 12, 'Trade press features & award submissions']]],
-    ['Google Local & Reviews', [[1, 3, 'Audit Melbourne GBP & review capture'], [4, 12, 'Scale reviews to 50+ & weekly posts']]],
-    ['Solution Architecture', [[2, 6, 'Re-architect GEO & High-ACV lead gen pages'], [7, 12, 'Deploy structured case studies & client wins']]],
-    ['Entity Authority', [[1, 3, 'Founder entity alignment & semantic architecture'], [4, 12, 'Digital PR & executive thought leadership']]],
-    ['Measurement & Governance', [[1, 12, `Baseline in W1, then automated monthly ${TOTAL_ANSWERS}-prompt panel audits`, 'light']]],
+    ['01 · Roundup & Directories', [[1, 2, 'Fix /blog/8-best-aeo/ tables (#1 Uprise) & claim Semrush/Clutch/GoodFirms'], [3, 12, 'Pitch Webtonic, ThatWare, ROI.com.au & Digital Agency Network']]],
+    ['02 · Cremorne GBP & Reviews', [[1, 3, 'Add GEO/AEO/AI SEO services to Cremorne GBP & fix “45+” site text'], [4, 12, 'Scale Cremorne GBP from 47 to 100+ client reviews (passing Optimising)']]],
+    ['03 · AI Search Pages', [[1, 4, 'Link /ai-seo/ & /aeo/ on Homepage; strip FB Ad banners; build /ai-visibility-audit/'], [5, 12, 'Launch /geo-melbourne/, /geo-sydney/ & upgrade /geo/ + /ai-seo/']]],
+    ['04 · Entity & Copy Hygiene', [[1, 2, 'Fix $100K vs $150K AI Smart Glass, broken Web Design card & WP dates'], [3, 8, 'Deploy Organization, Person (Lakshane Fonseka) & CaseStudy JSON-LD']]],
+    ['05 · Monthly 280-Prompt Audit', [[1, 12, `Baseline locked Oct 2026 (38/${TOTAL_ANSWERS}); re-run 280-prompt panel on the 15th of each month`, 'light']]],
   ];
   const W = 1240, lab = 330;
   const gantt = `<div class="gantt">
     <div class="g-head" style="grid-template-columns:${lab}px repeat(12, 1fr)"><span></span>${Array.from({ length: 12 }, (_, i) => `<span>W${i + 1}</span>`).join('')}</div>
     ${lanes.map(([name, bars], li) => `<div class="g-lane"><span class="g-name">${name}</span><div class="g-track">${bars.map(([a, b, t, kind], bi) => `<div class="g-bar ${kind === 'light' ? 'milestone' : ''} grow-x" style="left:${(a - 1) / 12 * 100}%;width:${(b - a + 1) / 12 * 100}%;--d:${200 + (li * 2 + bi) * 90}ms"><span>${esc(t)}</span></div>`).join('')}</div></div>`).join('')}
-    <div class="g-phases"><span style="width:33.33%">Month 1: Foundation & Directories</span><span style="width:33.33%">Month 2: Content & Review Velocity</span><span style="width:33.34%">Month 3: National Scale & Domination</span></div>
+    <div class="g-phases"><span style="width:33.33%">Month 1: Stop Roundup Leak & Site Hygiene</span><span style="width:33.33%">Month 2: Directories & New GEO URLs</span><span style="width:33.34%">Month 3: Review Scale & Listicle Inclusion</span></div>
   </div>`;
 
   slide('roadmap', 'light', `
-    <header class="hd"><p class="eyebrow">First 90 Days Execution</p><h2 class="h1">The 90-day Generative Engine Optimization (GEO) rollout plan</h2></header>
+    <header class="hd"><p class="eyebrow">First 90 Days Execution</p><h2 class="h1">The first 90 days, week by week</h2></header>
     <div class="panel">${gantt}</div>
-    <p class="note wide">Melbourne leads in Month 1 with review capture and directory setups. National high-ACV and Sydney expansion follow in Months 2 and 3.</p>`);
+    <p class="note wide">Week 1 starts with 100% internal assets Uprise controls today: fixing the roundup tables (recovering 25 leaked citations), reconciling the $100K/$150K case study conflict, and linking /ai-seo/ and /aeo/ from the homepage.</p>`);
 }
 
-// ─── 28. Proposed Targets ───────────────────────────────────────────────────
+// ─── 28. Proposed Targets (Benchmark Page 28) ───────────────────────────────
 {
-  const labels = ['Oct 26', 'Jan 27', 'Apr 27', 'Oct 27'];
+  const labels = ['Oct 26 (Today)', 'Jan 27 (90d)', 'Apr 27 (6m)', 'Oct 27 (12m)'];
   const xs = [0, 3, 6, 12];
-  const w = 1000, h = 560, pl = 90, pr = 230, pt = 40, pb = 80;
-  const x = m => pl + m / 12 * (w - pl - pr), y = v => pt + (h - pt - pb) * (1 - v / 100);
-  const target = [5, 35, 60, 85];
+  const w = 1000, h = 560, pl = 90, pr = 250, pt = 40, pb = 80;
+  const x = m => pl + m / 12 * (w - pl - pr), y = v => pt + (h - pt - pb) * (1 - v / 70);
+  // Melbourne: 9% today (3/35) -> 20% (7/35) at 90d -> 31% (11/35) at 6m -> 43% (15/35) at 12m (overtaking #6 Optimising at 34% [12/35])
+  const target = [9, 20, 31, 43];
 
-  const svg = `<svg class="chart" viewBox="0 0 ${w} ${h}" width="${w}" height="${h}" role="img" aria-label="Uprise Digital target path">
-    ${[0, 25, 50, 75, 100].map(t => `<line x1="${pl}" x2="${w - pr}" y1="${y(t)}" y2="${y(t)}" class="gl"/><text x="${pl - 16}" y="${y(t) + 8}" class="ax" text-anchor="end">${t}%</text>`).join('')}
+  const svg = `<svg class="chart" viewBox="0 0 ${w} ${h}" width="${w}" height="${h}" role="img" aria-label="Uprise Digital Melbourne target path vs Optimising">
+    ${[0, 15, 30, 45, 60].map(t => `<line x1="${pl}" x2="${w - pr}" y1="${y(t)}" y2="${y(t)}" class="gl"/><text x="${pl - 16}" y="${y(t) + 8}" class="ax" text-anchor="end">${t}%</text>`).join('')}
     ${xs.map((m, i) => `<text x="${x(m)}" y="${h - pb + 42}" class="ax" text-anchor="middle">${labels[i]}</text>`).join('')}
-    <line x1="${x(0)}" x2="${x(12)}" y1="${y(60)}" y2="${y(60)}" stroke="#0F172A" stroke-width="4" stroke-dasharray="2 10" stroke-linecap="round" class="fadein"/>
-    <text x="${x(12) + 22}" y="${y(60) + 38}" class="el">Megaphone today <tspan class="elv">60%</tspan></text>
+    <line x1="${x(0)}" x2="${x(12)}" y1="${y(34)}" y2="${y(34)}" stroke="#0F172A" stroke-width="4" stroke-dasharray="2 10" stroke-linecap="round" class="fadein"/>
+    <text x="${x(12) + 18}" y="${y(34) + 28}" class="el">Optimising (#6 Melb) <tspan class="elv">34%</tspan></text>
     <path d="${target.map((v, i) => `${i ? 'L' : 'M'}${x(xs[i])},${y(v)}`).join('')}" pathLength="1" class="draw" fill="none" stroke="#7C3AED" stroke-width="6" stroke-dasharray="1" style="--d:300ms"/>
     <path d="${target.map((v, i) => `${i ? 'L' : 'M'}${x(xs[i])},${y(v)}`).join('')}" fill="none" stroke="#F8FAFC" stroke-width="7" stroke-dasharray="14 12" class="fadein" style="--d:1500ms"/>
-    ${target.map((v, i) => `<circle cx="${x(xs[i])}" cy="${y(v)}" r="${i ? 10 : 13}" fill="${i ? '#F8FAFC' : '#7C3AED'}" stroke="#7C3AED" stroke-width="5" class="pop" style="--d:${400 + i * 350}ms"/><text x="${i ? x(xs[i]) : x(xs[i]) + 26}" y="${i ? y(v) - 28 : y(v) + 44}" text-anchor="${i ? 'middle' : 'start'}" class="callsmall pulp">${i === 3 ? '' : v + '%'}${i ? '' : ' measured today'}</text>`).join('')}
-    <text x="${x(12) + 22}" y="${y(85) - 4}" class="el pulp-t">Uprise Digital Target <tspan class="elv">85%</tspan></text>
+    ${target.map((v, i) => `<circle cx="${x(xs[i])}" cy="${y(v)}" r="${i ? 10 : 13}" fill="${i ? '#F8FAFC' : '#7C3AED'}" stroke="#7C3AED" stroke-width="5" class="pop" style="--d:${400 + i * 350}ms"/><text x="${i ? x(xs[i]) : x(xs[i]) + 22}" y="${i ? y(v) - 24 : y(v) + 38}" text-anchor="${i ? 'middle' : 'start'}" class="callsmall pulp">${i === 3 ? '' : v + '%'}${i ? '' : ' today (3/35)'}</text>`).join('')}
+    <text x="${x(12) + 18}" y="${y(43) - 6}" class="el pulp-t">Uprise Target (#5 Melb) <tspan class="elv">43%</tspan></text>
   </svg>`;
 
   const TG = [
-    ['Melbourne (Home Hub)', '5% · #12', '40% · Top 3', '75% · #1'],
-    ['Sydney (Commercial Services)', '0% · Unranked', '30% · Top 5', '60% · Top 3'],
-    ['National High-ACV Queries', '0% · Unranked', '35% · Top 3', '65% · Top 2'],
-    ['Perth (Mining & Industrial)', '5% · #8', '40% · Top 3', '70% · #1'],
-    ['Brisbane', '0% · Unranked', '25% · Top 5', '50% · Top 3'],
-    ['Gold Coast (High Growth)', '0% · Unranked', '30% · Top 3', '65% · #1'],
-    ['Adelaide', '0% · Unranked', '20% · Top 5', '40% · Top 3'],
-    ['National Overall', '1.2% · #15', '35% · Top 3', '85% · #1 Overall']
+    ['Melbourne (Home HQ)', '9% (3/35) · #13', '20% (7/35) · #8', '31% (11/35) · #6', '43% (15/35) · #5'],
+    ['Sydney', '6% (2/35) · #11', '14% (5/35) · #6', '23% (8/35) · #5', '31% (11/35) · #4'],
+    ['Brisbane', '20% (7/35) · #6', '26% (9/35) · #3', '31% (11/35) · #2', '37% (13/35) · #2'],
+    ['Perth', '14% (5/35) · #6', '20% (7/35) · #4', '26% (9/35) · #4', '34% (12/35) · #4'],
+    ['Adelaide', '20% (7/35) · #5', '26% (9/35) · #3', '31% (11/35) · #2', '37% (13/35) · #2'],
+    ['Gold Coast', '17% (6/35) · #7', '26% (9/35) · #5', '31% (11/35) · #4', '37% (13/35) · #4'],
+    ['Canberra', '23% (8/35) · #6', '29% (10/35) · #4', '37% (13/35) · #3', '43% (15/35) · #2'],
+    ['National “Australia”', '0% (0/35) · Unranked', '14% (5/35) · #8', '23% (8/35) · #6', '31% (11/35) · #5'],
+    ['All 280 Answers Overall', '13.6% (38/280) · #10', '21.8% (61/280) · #6', '30.0% (84/280) · #3', '37.9% (106/280) · #2']
   ];
 
   slide('targets', 'light', `
-    <header class="hd"><p class="eyebrow">Proposed Commercial Targets</p><h2 class="h1">The Goal: Become the #1 Recommended High-ACV Growth Agency in 12 Months</h2></header>
+    <header class="hd"><p class="eyebrow">Realistic Sequenced Targets</p><h2 class="h1">The goal: overtake Optimising (#6) in Melbourne within 12 months and reach Top 3 nationally</h2></header>
     <div class="cols-60">
-      <div class="panel"><p class="chart-title">Melbourne & National: share of AI answers naming Uprise Digital over 12 months</p>${svg}</div>
+      <div class="panel"><p class="chart-title">Melbourne AI Search answers naming Uprise Digital vs #6 Optimising (34% · 12/35)</p>${svg}</div>
       <div>
         <table class="tg-table">
-          <thead><tr><th>Market</th><th>Today</th><th>90 Days</th><th>6 Months</th></tr></thead>
-          <tbody>${TG.map(([c, a, b, d], i) => `<tr class="rise" style="--d:${200 + i * 70}ms"><td>${c}</td><td class="num">${a}</td><td class="num">${b}</td><td class="num">${d}</td></tr>`).join('')}</tbody>
+          <thead><tr><th>Market</th><th>Today</th><th>90 Days</th><th>6 Months</th><th>12 Months</th></tr></thead>
+          <tbody>${TG.map(([c, a, b, d, e], i) => `<tr class="rise" style="--d:${200 + i * 60}ms"><td>${c}</td><td class="num">${a}</td><td class="num">${b}</td><td class="num">${d}</td><td class="num"><b>${e}</b></td></tr>`).join('')}</tbody>
         </table>
-        <p class="note">All targets are evaluated on the exact same ${TOTAL_ANSWERS}-prompt benchmark panel each month to measure clean statistical progress.</p>
+        <p class="note">Rather than promising #1 overnight against 118-review incumbents, our sequenced target knocks off mid-table #6 Optimising in Melbourne (34%) and climbs from #10 (38/280) to #2/#3 nationally (106/280).</p>
       </div>
     </div>`);
 }
 
-// ─── 29. Next Steps / Close ─────────────────────────────────────────────────
+// ─── 29. Next Steps / Close (Benchmark Page 29) ─────────────────────────────
 slide('close', 'dark close', `
   <div class="cover-bg" aria-hidden="true"></div>
   <p class="eyebrow on-dark rise" style="--d:0ms">Immediate Next Steps</p>
-  <h2 class="display rise" style="--d:120ms">Start with Melbourne. Infiltrate the shortlists. Dominate unprompted recall.</h2>
+  <h2 class="display rise" style="--d:120ms">Start with Melbourne. Fix the roundup leak today. Measure every month.</h2>
   <ol class="next rise" style="--d:300ms">
-    <li><span>1</span><p><b>Approve the GEO Strategy</b> and finalize target priority for Melbourne and National High-ACV.</p></li>
-    <li><span>2</span><p><b>Grant Access</b> to Google Business Profile, active partner accounts, directory logins, and CMS case studies.</p></li>
-    <li><span>3</span><p><b>Execute Month 1 Sprint</b> and run the first benchmark re-measurement on 15 November 2026.</p></li>
+    <li><span>1</span><p><b>Fix the On-Site Roundup Tables & Discrepancies (Week 1):</b> Put Uprise #1 in <code>/blog/8-best-aeo-agencies-in-melbourne/</code> and <code>/blog/best-aeo-agencies-in-australia/</code>, reconcile <code>$100K+</code> vs <code>$150K+</code> AI Smart Glass revenue, and link <code>/ai-seo/</code> & <code>/aeo/</code> on the homepage.</p></li>
+    <li><span>2</span><p><b>Claim & Upgrade Core Directories + Cremorne GBP (Weeks 2–4):</b> Build Uprise’s Semrush Agency Partner profile, update Clutch/GoodFirms/DesignRush for GEO & AEO, and launch the Cremorne GBP review sprint toward 100+ reviews.</p></li>
+    <li><span>3</span><p><b>Launch Missing Service/City Pages & Re-Measure Monthly:</b> Publish <code>/ai-visibility-audit/</code>, <code>/geo-melbourne/</code>, and <code>/geo-sydney/</code>, then re-run the exact 280-prompt panel on the 15th of each month.</p></li>
   </ol>
-  <div class="close-logo">${logo()}<span class="byline">Prepared by Uprise Digital Research Team · Client Confidential</span></div>`, { dark: true, noFoot: true });
+  <div class="close-logo">${logo()}<span class="byline">Prepared by Uprise Digital Research Team · Forensic AI Search Benchmark</span></div>`, { dark: true, noFoot: true });
 
-// ─── 30. Appendix & Methodology ─────────────────────────────────────────────
+// ─── 30. Appendix & Methodology (Benchmark Page 30) ─────────────────────────
 slide('appendix', 'white', `
   <header class="hd"><p class="eyebrow">Appendix</p><h2 class="h1">Method and definitions</h2></header>
   <div class="cols-2 appx">
     <div>
-      <h3 class="h3">How answers were collected</h3>
+      <h3 class="h3">How the 280 answers were collected</h3>
       <ul class="plain">
-        <li>7 commercial questions × 8 Australian markets, evaluated in October 2026 across ${NUM_PLATFORMS} verified AI answer engines (${PLAT_NAMES_LABEL}).</li>
-        <li>Google AI Mode and Gemini evaluated from each city market; Claude evaluated with Australian commercial search context.</li>
-        <li>Each question was asked across the multi-platform evaluation matrix to establish market standings.</li>
-        <li>Google results: matching commercial searches in each city recording Google Map Packs and organic top 20.</li>
+        <li>7 AI Search buying questions (GEO, AI SEO, ChatGPT/Perplexity Visibility, Google AI Overviews, AEO/Entity SEO, B2B Legal/Construction/Solar AI Search, AI Visibility Audits) × 8 Australian markets = 56 market-intent pairs.</li>
+        <li>Each pair was evaluated across 5 AI answer engines (Google AI Mode, ChatGPT Search, Perplexity Sonar, Gemini 3.8, and Claude Sonnet 4.6) for N = 280 total live answers.</li>
+        <li>56 matching Australian Google SERP queries were executed via Firecrawl (<code>country: 'au'</code>) to record exact Top-10 organic rankings and citation overlap.</li>
+        <li>All live URLs on <code>uprisedigital.com.au</code> were crawled to inspect schema triples, internal links, and copy consistency.</li>
       </ul>
     </div>
     <div>
-      <h3 class="h3">How answers were scored</h3>
+      <h3 class="h3">How answers and citations were scored</h3>
       <ul class="plain">
-        <li>Every performance marketing agency named in an answer was extracted in order of appearance.</li>
-        <li>Aggregators, software tools, and job boards were filtered out.</li>
-        <li>Each mention was normalized to canonical agency entities (e.g., “Megaphone” → Megaphone Marketing).</li>
-        <li>Share of Model Voice (SoMV) is calculated as total unprompted mentions divided by total possible answers (${TOTAL_ANSWERS}).</li>
+        <li>Every agency named in an answer was extracted in order of first appearance and resolved to its canonical entity name.</li>
+        <li>Grounding URLs and Vertex AI redirect titles were resolved to root domains in <code>pipeline/citations.json</code>.</li>
+        <li>A “leaked citation” occurs when an engine cites <code>uprisedigital.com.au</code> in its grounding sources (61 answers) but omits Uprise Digital from the recommended agencies in the response text (25 answers).</li>
+        <li>Share of Model Voice (SoMV) is the percentage of answers naming an agency out of 280 nationally (or out of 35 per market), bounded with 95% Wilson confidence intervals.</li>
       </ul>
     </div>
   </div>`);
@@ -844,8 +888,8 @@ const html = `<!DOCTYPE html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Uprise Digital · AI Visibility & GEO Report (Oct 2026)</title>
-<meta name="description" content="Empirical study of where AI assistants recommend Uprise Digital against competing growth agencies, and the 5-pillar GEO plan to become #1.">
+<title>Uprise Digital · AI Search (GEO / AEO) Visibility Report (Oct 2026)</title>
+<meta name="description" content="Empirical 280-answer study of where AI assistants recommend Uprise Digital for AI Search, GEO, AEO & AI SEO across Australia, and the 5-workstream plan to overtake Optimising in Melbourne.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@700,600,500&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap">

@@ -1,13 +1,14 @@
 import fs from 'fs';
 import path from 'path';
+import { fileURLToPath } from 'url';
 
-const pipelineDir = path.resolve('uprise-ai-visibility/pipeline');
+const pipelineDir = path.dirname(fileURLToPath(import.meta.url));
 const ans = JSON.parse(fs.readFileSync(path.join(pipelineDir, 'ans_full.json'), 'utf8'));
 const A = JSON.parse(fs.readFileSync(path.join(pipelineDir, 'answers.json'), 'utf8'));
 
 const CITIES = ['melbourne', 'sydney', 'brisbane', 'perth', 'adelaide', 'goldcoast', 'canberra', 'national'];
-const PLAT = [...new Set(ans.map(a => a.platform))];
-const PROMPTS = [...new Set(ans.map(a => a.prompt))];
+const PLAT = ['aimode', 'chatgpt', 'perplexity', 'gemini', 'claude'];
+const PROMPTS = ['geo_agency', 'ai_seo', 'chatgpt_visibility', 'ai_overviews', 'aeo_entity', 'b2b_legal_ai', 'ai_audit'];
 const TARGET = 'Uprise Digital';
 
 const out = {
@@ -63,13 +64,15 @@ for (const c of CITIES) {
   const totalMentions = r.reduce((s, x) => s + x.n, 0);
   const targetIdx = r.findIndex(x => x.name.toLowerCase() === TARGET.toLowerCase());
   
+  const isTarget = a => Boolean(a.isTargetMentioned || a.targetMentioned || a.firms.some(f => f.name.toLowerCase() === TARGET.toLowerCase()));
+
   const byPlat = Object.fromEntries(PLAT.map(p => {
     const ps = cs.filter(a => a.platform === p);
     const rr = rank(tally(ps));
     return [p, {
-      lhd: ps.filter(a => a.firms.some(f => f.name.toLowerCase() === TARGET.toLowerCase())).length,
+      lhd: ps.filter(isTarget).length,
       n: ps.length,
-      leader: rr[0]?.name || 'Megaphone Marketing',
+      leader: rr[0]?.name || 'StudioHawk',
       leaderN: rr[0]?.n || 0
     }];
   }));
@@ -78,9 +81,9 @@ for (const c of CITIES) {
     const ps = cs.filter(a => a.prompt === p);
     const rr = rank(tally(ps));
     return [p, {
-      lhd: ps.filter(a => a.firms.some(f => f.name.toLowerCase() === TARGET.toLowerCase())).length,
+      lhd: ps.filter(isTarget).length,
       n: ps.length,
-      leader: rr[0]?.name || 'Megaphone Marketing',
+      leader: rr[0]?.name || 'StudioHawk',
       leaderN: rr[0]?.n || 0
     }];
   }));
@@ -101,7 +104,7 @@ for (const c of CITIES) {
     }
   }
 
-  const targetObservations = cs.filter(a => a.targetMentioned);
+  const targetObservations = cs.filter(isTarget);
   const avgWVI = targetObservations.length > 0 
     ? +(targetObservations.reduce((acc, o) => acc + computeWVI(o.targetRank, o.stance), 0) / cs.length).toFixed(4)
     : 0;
@@ -128,11 +131,12 @@ for (const c of CITIES) {
   };
 }
 
+const isTargetGlobal = a => Boolean(a.isTargetMentioned || a.targetMentioned || a.firms.some(f => f.name.toLowerCase() === TARGET.toLowerCase()));
 const rn = rank(tally(ans));
-const totalTargetMentions = ans.filter(a => a.targetMentioned).length;
+const totalTargetMentions = ans.filter(isTargetGlobal).length;
 const nationalP = ans.length > 0 ? totalTargetMentions / ans.length : 0;
 const nationalCI = wilsonInterval(nationalP, ans.length);
-const nationalWVI = +(ans.reduce((acc, a) => acc + (a.targetMentioned ? computeWVI(a.targetRank, a.stance) : 0), 0) / ans.length).toFixed(4);
+const nationalWVI = +(ans.reduce((acc, a) => acc + (isTargetGlobal(a) ? computeWVI(a.targetRank, a.stance) : 0), 0) / ans.length).toFixed(4);
 
 out.national = {
   answers: ans.length,
@@ -145,7 +149,7 @@ out.national = {
   byPlat: Object.fromEntries(PLAT.map(p => {
     const ps = ans.filter(a => a.platform === p);
     const rr = rank(tally(ps));
-    const targetInPlat = ps.filter(a => a.firms.some(f => f.name.toLowerCase() === TARGET.toLowerCase())).length;
+    const targetInPlat = ps.filter(isTargetGlobal).length;
     return [p, {
       lhd: targetInPlat,
       n: ps.length,
@@ -156,7 +160,7 @@ out.national = {
   byPrompt: Object.fromEntries(PROMPTS.map(p => {
     const ps = ans.filter(a => a.prompt === p);
     const rr = rank(tally(ps));
-    const targetInPrompt = ps.filter(a => a.firms.some(f => f.name.toLowerCase() === TARGET.toLowerCase())).length;
+    const targetInPrompt = ps.filter(isTargetGlobal).length;
     return [p, {
       lhd: targetInPrompt,
       n: ps.length,
