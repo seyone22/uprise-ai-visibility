@@ -129,6 +129,74 @@ slide('tech-03-problem-formulation', 'light', `
   <footer class="foot"><span class="foot-logo">${LOGO_SRC}</span><span class="foot-meta">Technical Dossier · Section 2: Mathematical Formulation</span></footer>
 `);
 
+// ─── 03B. PROMPT INSTRUMENTATION & SELECTION RATIONALE (NEW!) ───────────────
+slide('tech-03b-prompt-architecture', 'white', `
+  <header class="hd"><p class="eyebrow">2.5 Prompt Instrumentation &amp; Selection Rationale</p><h2 class="h1">The 7 Verbatim AI Search Prompts, SERP Queries &amp; Selection Rationale</h2></header>
+  <div class="cols-2">
+    <div>
+      <h3 class="h3">Verbatim Prompt Matrix (<code>CORE_PROMPTS</code> in <code>run_uprise_research.mjs</code>)</h3>
+      <table class="tech-table" style="font-size:11.5px;">
+        <thead><tr><th>ID &amp; Uprise Score</th><th>Verbatim LLM Prompt Template (<code>[loc]</code> = 8 Markets)</th><th>Selection Rationale</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><code>geo_agency</code><br/><span class="badge-danger">0 / 40 (0%)</span></td>
+            <td>“Who are the best Generative Engine Optimisation (GEO) agencies in [loc]? Give me a shortlist of specific agencies with reasons.”</td>
+            <td><b>Category Head Term:</b> Tests unprompted directory &amp; listicle consensus (ThatWare, Webtonic, Myoho) for the primary acronym buyers use.</td>
+          </tr>
+          <tr>
+            <td><code>ai_seo</code><br/><span class="badge-danger">0 / 40 (0%)</span></td>
+            <td>“Which are the top AI SEO and AI search optimisation agencies in [loc]? List the leading agencies and why they stand out.”</td>
+            <td><b>High-Volume Transitional Term:</b> Captures traditional CMOs searching for “AI SEO” rather than academic GEO/AEO terminology.</td>
+          </tr>
+          <tr>
+            <td><code>chatgpt_visibility</code><br/><span class="badge-warning">4 / 40 (10%)</span></td>
+            <td>“Which digital marketing or SEO agencies in [loc] help businesses get recommended and cited by ChatGPT, Perplexity, and Claude?”</td>
+            <td><b>Outcome-Oriented Buyer Query:</b> Founders frequently ask by naming the destination platforms (ChatGPT/Perplexity) rather than the discipline.</td>
+          </tr>
+          <tr>
+            <td><code>ai_overviews</code><br/><span class="badge-success">10 / 40 (25%)</span></td>
+            <td>“Who are the leading agencies in [loc] for optimising websites to rank in Google AI Overviews and Google AI Mode?”</td>
+            <td><b>Google-Ecosystem Intent:</b> Isolates demand from search-dependent brands seeing traffic shifts from Google AI Overviews.</td>
+          </tr>
+          <tr>
+            <td><code>aeo_entity</code><br/><span class="badge-success">12 / 40 (30%)</span></td>
+            <td>“Which agencies in [loc] specialise in Answer Engine Optimisation (AEO), technical schema markup, and entity SEO for large language models?”</td>
+            <td><b>Technical Practitioner Intent:</b> Directly tests Uprise's programmatic <code>/aeo-[city]/</code> landing page architecture and schema positioning.</td>
+          </tr>
+          <tr>
+            <td><code>b2b_legal_ai</code><br/><span class="badge-success">12 / 40 (30%)</span></td>
+            <td>“What are the best AI search, GEO, and organic visibility agencies in [loc] for high-value service businesses like law firms, construction builders, and solar companies?”</td>
+            <td><b>Uprise Core ICP Verticals:</b> Aligns with Uprise’s highest-ACV vertical guides (<code>/blog/best-ai-seo-services-law-firms-australia/</code>, builders &amp; solar).</td>
+          </tr>
+          <tr>
+            <td><code>ai_audit</code><br/><span class="badge-danger">0 / 40 (0%)</span></td>
+            <td>“Which agencies in [loc] offer empirical AI visibility audits, Share of Model Voice tracking, and LLM citation building?”</td>
+            <td><b>Commercial Diagnostic Entry-Point:</b> Tests whether AI recommends Uprise for the exact GEO Visibility Audit product we sell as a wedge.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <h3 class="h3">Why We Pivoted from Broad Paid Media to Pure AI Search</h3>
+      <div class="law-card">
+        <span class="law-num">VERTICAL ISOLATION RATIONALE</span>
+        <h4 class="law-title">Eliminating Paid-Social Noise (Why Megaphone Dropped from 101 to 0)</h4>
+        <p class="body-p">In our initial general agency benchmark, broad paid-media prompts (<i>Meta Ads, Google Ads, CRO</i>) caused high-volume paid-social agencies like <b>Megaphone Marketing (101/168)</b> and <b>Sparro (100/168)</b> to dominate. By isolating the 7 pure AI Search intents above, Megaphone dropped to <b>0/280</b>, revealing the true organic/AI Search competitive set: <b>StudioHawk (134)</b>, <b>Luminary (76)</b>, <b>Optimising (66)</b>, <b>Prosperity Media (53)</b>, and <b>Salt &amp; Fuessel (35)</b>.</p>
+      </div>
+      <div class="law-card">
+        <span class="law-num">PRE-TRAINING CUTOFF VS. LIVE RAG TELEMETRY</span>
+        <h4 class="law-title">Why Uprise’s April–July 2026 Content Relies 100% on Live RAG</h4>
+        <p class="body-p">Frontier models (Claude Sonnet 4.6, GPT-4o/5, Gemini) have base pre-training knowledge cutoffs in <b>early 2026 (Jan–March 2026)</b>. Because Uprise published <code>/geo/</code>, <code>/ai-seo/</code>, <code>/aeo/</code>, and its city AEO pages between <b>April and July 2026</b>:</p>
+        <ul class="ticks" style="font-size:13px;">
+          <li><b>0% Un-Grounded Weight Recall:</b> When a buyer asks an LLM <i>without</i> triggering live web search, Uprise is completely absent from pre-trained weights.</li>
+          <li><b>Un-Anchored API Wrapper Drift:</b> While consumer web apps (<code>claude.ai</code>) inject today's date (<code>Oct 2026</code>), enterprise API wrappers that omit <code>system: current_date</code> flag Uprise's <code>30 April 2026</code> and <code>28 July 2026</code> snippets as “future dates” relative to March 2026 training cutoffs.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <footer class="foot"><span class="foot-logo">${LOGO_SRC}</span><span class="foot-meta">Technical Dossier · Section 2.5: Prompt Instrumentation &amp; Selection Rationale</span></footer>
+`);
+
 // ─── 04. SHARE OF MODEL VOICE (SoMV) & WILSON INTERVALS ─────────────────────
 slide('tech-04-somv-wilson', 'white', `
   <header class="hd"><p class="eyebrow">3.0 Statistical Estimators</p><h2 class="h1">Share of Model Voice (SoMV) &amp; Wilson 95% Confidence Bounds</h2></header>

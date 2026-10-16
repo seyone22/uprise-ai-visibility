@@ -78,10 +78,12 @@ test('3. Pages 21-28 forensic specificity: unredacted directories, 47 Cremorne r
   assert.match(indexHtml, /overtake Optimising \(#6\) in Melbourne within 12 months/i);
 });
 
-test('4. Tier 2 Technical Dossier has 12 slides and matches N = 280 telemetry', () => {
+test('4. Tier 2 Technical Dossier has 13 slides (including Prompt Instrumentation & Rationale) and matches N = 280 telemetry', () => {
   const techSlides = [...techHtml.matchAll(/<section id="([^"]+)" class="slide/g)].map(m => m[1]);
-  assert.equal(techSlides.length, 12, 'Technical dossier must contain 12 slides');
+  assert.equal(techSlides.length, 13, 'Technical dossier must contain 13 slides');
+  assert.ok(techSlides.includes('tech-03b-prompt-architecture'), 'Must include prompt instrumentation & rationale slide');
   assert.match(techHtml, /N = 280/);
   assert.match(techHtml, /38 \/ 280/);
   assert.match(techHtml, /61 Cited/);
+  assert.match(techHtml, /PRE-TRAINING CUTOFF VS\. LIVE RAG TELEMETRY/);
 });
