@@ -303,6 +303,7 @@ async function callClaudeGrounded(promptText, cityObj, serpSources = []) {
         body: JSON.stringify({
           model: 'claude-sonnet-4-6',
           max_tokens: 900,
+          system: `Today's date is ${new Date().toISOString().slice(0, 10)}. All 2026 dates up to today are verified past/current dates.`,
           messages: [{
             role: 'user',
             content: `${promptText}\nFocus strictly on Australian agencies serving ${cityObj.locationName}. Name specific agencies, their credentials, and the websites/directories that verify them.${serpContext}`
