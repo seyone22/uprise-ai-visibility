@@ -491,8 +491,8 @@ const MARKET_NOTES = {
     title: 'In Adelaide, Uprise Digital ties for #4/#5 with 7 of 35 answers (20% share)',
     finds: [
       ['Tied with Optimising (7/35) and 1 behind Impressive (8/35).', 'StudioHawk (15/35) and Gravitate Digital (11/35) lead Adelaide, while Uprise Digital (7/35) ties Optimising for #4/#5.'],
-      ['Entity hallucination & date warning in Adelaide.', 'Google AI Mode claimed Uprise has “dedicated Adelaide operations”, while Claude flagged /aeo-adelaide/’s “30 April 2026” publish date as a speculative-content red flag.'],
-      ['Immediate technical cleanup:', 'Normalise WordPress publish dates on /aeo-adelaide/ and add explicit serviceArea schema so AI engines cite Uprise accurately without date warnings.'],
+      ['Physical office hallucination in Adelaide.', 'Google AI Mode claimed Uprise has “dedicated Adelaide operations” because /aeo-adelaide/ lacks explicit areaServed vs. Cremorne HQ schema.'],
+      ['Immediate technical cleanup:', 'Add explicit PostalAddress (Cremorne VIC 3121) + areaServed (Adelaide, SA) JSON-LD schema on /aeo-adelaide/ so AI engines cite Uprise accurately as a national specialist serving Adelaide.'],
     ],
   },
   goldcoast: {
@@ -656,9 +656,9 @@ slide('plan-intro', 'accent', `
 // ─── 22. The 5 Strategic Workstreams (Benchmark Page 22) ────────────────────
 const WS = [
   ['01', 'Third-Party Directories & Roundup Fix', 'semrush.com (137), clutch.co (105), thatware.co (81), goodfirms.co (47), and webtonic.io (43) drive ChatGPT/Perplexity/Gemini. Meanwhile, 25 of 61 citations of uprisedigital.com.au leaked to competitors.', 'Place Uprise #1 in our own /blog/best-aeo-agencies-in-australia/ & Melbourne roundup tables today; claim/upgrade Semrush Agency Partner, Clutch, GoodFirms & DesignRush; pitch Webtonic & ROI.com.au.'],
-  ['02', 'Google Top-10 & Cremorne GBP Authority', 'Uprise has 47 Cremorne Google reviews (4.9★) and ranks in Melbourne’s Top 10 for only 2/7 AI Search queries, while Optimising has 68 reviews and StudioHawk has 118.', 'Scale Cremorne GBP (Suite 22, 10-20 Gwynne St) from 47 to 100+ reviews; add GEO, AI SEO & AEO as explicit GBP services; update hardcoded “45+ reviews” text on /aeo-melbourne/.'],
+  ['02', 'Google Top-10 & Cremorne GBP Authority', 'Uprise has 47 Cremorne Google reviews (4.9★) and ranks in Melbourne’s Top 10 for only 2/7 AI Search queries, while Optimising has 68 reviews and StudioHawk has 118.', 'Scale Cremorne GBP (Suite 22, 10-20 Gwynne St) from 47 to 100+ reviews; add GEO, AI SEO & AEO as explicit GBP services; update hardcoded “40+ / 45+ reviews” text across AEO pages.'],
   ['03', 'AI Search Service & City Page Architecture', '36 of 56 market × intent pairs score 0/5, including 0/40 on “Best GEO Agency”, 0/40 on “Best AI SEO Agency”, and 0/40 on “AI Visibility Audits”. /ai-seo/ and /aeo/ are orphaned from the homepage.', 'Link /ai-seo/ and /aeo/ in the homepage Services grid; build /ai-visibility-audit/; launch /geo-melbourne/ and /geo-sydney/; strip leftover “3 Months Free FB Ads” banners from /geo/ and /aeo/.'],
-  ['04', 'On-Site Entity, Schema & Copy Hygiene', 'AI Smart Glass revenue is listed as “$100K+ in In 4 Months” on /, /geo/, /ai-seo/, /aeo/ vs “$150K+” on /case-studies/. Claude flagged “30 April 2026” publish dates; AI Mode hallucinated an Adelaide office.', 'Unify AI Smart Glass to verified $150K+/mo across all pages; fix duplicate Facebook Ads copy in the homepage Web Design card; normalise WordPress datePublished & add Organization/Person/Service JSON-LD.'],
+  ['04', 'On-Site Entity, Schema & Copy Hygiene', 'AI Smart Glass revenue is listed as “$100K+ in In 4 Months” on /, /geo/, /ai-seo/, /aeo/ vs “$150K+” on /case-studies/. AI Mode hallucinated physical offices in Brisbane, Gold Coast, and Adelaide.', 'Unify AI Smart Glass to verified $150K+/mo across all pages; fix duplicate Facebook Ads copy in the homepage Web Design card; add PostalAddress (Cremorne HQ) + areaServed JSON-LD across city pages.'],
   ['05', 'Monthly 280-Prompt Benchmark & Drift Tracking', 'AI engines re-index listicles and adjust retrieval weights continuously. Unmonitored roundup edits or competitor PR shifts cause immediate shortlist turnover.', 'Run run_uprise_research.mjs (280 prompts × 5 engines + 56 SERP checks) on the 15th of every month to track Uprise’s climb past Optimising in Melbourne and into the national Top 5.'],
 ];
 
@@ -724,7 +724,7 @@ slide('plan', 'white', `
         <ul class="ticks">
           <li><b>Scale Cremorne GBP from 47 to 100+ reviews:</b> Uprise’s verified Cremorne profile (<code>Suite 22, 10-20 Gwynne St</code>) has <b>47 reviews (4.9★)</b> — just 7 behind Salt & Fuessel (54) and 21 behind #6 Optimising (68). Requesting reviews from active retainers closes this gap in 60 days.</li>
           <li><b>Prompt clients to mention “AI SEO”, “GEO” & “AI Search”:</b> LLM local grounding weights review text containing exact service entities.</li>
-          <li><b>Add explicit AI Search services to GBP & fix on-site text:</b> Add <i>Generative Engine Optimisation (GEO)</i>, <i>Answer Engine Optimisation (AEO)</i>, and <i>AI Visibility Audits</i> to GBP services, and update hardcoded <code>“45+ reviews”</code> copy on <code>/aeo-melbourne/</code>.</li>
+          <li><b>Add explicit AI Search services to GBP & fix on-site text:</b> Add <i>Generative Engine Optimisation (GEO)</i>, <i>Answer Engine Optimisation (AEO)</i>, and <i>AI Visibility Audits</i> to GBP services, and update hardcoded <code>“40+ / 45+ reviews”</code> copy on AEO pages.</li>
         </ul>
         <p class="note">Every single Uprise mention in this study (38/280) occurred in markets where Uprise held Top-10 Google SERP visibility.</p>
       </div>
@@ -761,17 +761,17 @@ slide('plan', 'white', `
 slide('ws-entity', 'white', `
   <header class="hd"><p class="eyebrow">Workstream 04 · Verbatim AI Audit & On-Site Discrepancies</p><h2 class="h1">AI gets some facts about Uprise Digital wrong — and live site contradictions feed it</h2></header>
   <div class="quotes">
-    <figure class="quote rise" style="--d:100ms"><p class="q-src">Claude Sonnet 4.6 · Melbourne & Adelaide AI Search</p><blockquote>“<b>Red Flag to Note:</b> The citation for Uprise Digital (uprisedigital.com.au) shows a date of <b>30 April 2026 / 28 July 2026</b>, which is a future date… suggesting speculative content rather than verified live index data.”</blockquote><figcaption><b>Root Cause:</b> Future-dated WordPress <code>datePublished</code> metadata on <code>/aeo-adelaide/</code> and <code>/blog/best-aeo-agencies-in-australia/</code> triggers LLM trust warnings.</figcaption></figure>
+    <figure class="quote rise" style="--d:100ms"><p class="q-src">Google AI Mode · Brisbane, Gold Coast & Adelaide AEO</p><blockquote>“<b>5. Uprise Digital</b> · <b>Location: Brisbane, QLD</b>… <b>Location: Gold Coast, QLD</b>… Uprise Digital is an Australian agency with <b>dedicated Adelaide operations</b>.”</blockquote><figcaption><b>Root Cause:</b> Because <code>/aeo-brisbane/</code> and <code>/aeo-adelaide/</code> lack explicit <code>PostalAddress</code> (Cremorne HQ) vs. <code>areaServed</code> schema, AI hallucinates physical interstate offices.</figcaption></figure>
     <figure class="quote rise" style="--d:240ms"><p class="q-src">Perplexity Sonar & Claude · Melbourne B2B Legal/Solar AI Search</p><blockquote>“<b>Luminary</b> — Services: Named GEO services explicitly (per the <b>Uprise Digital roundup citation</b>)… Verification: Uprise Digital’s ‘8 Best AEO Agencies in Australia’ lists Luminary, StudioHawk & Intesols…”</blockquote><figcaption><b>Root Cause:</b> In <b>25 of 61 answers</b> citing <code>uprisedigital.com.au</code>, AI engines extracted competitors from Uprise's own blog tables while omitting Uprise.</figcaption></figure>
-    <figure class="quote rise" style="--d:380ms"><p class="q-src">Google AI Mode · Adelaide AEO & Live Site Crawl</p><blockquote>“<b>1. Uprise Digital (Adelaide Specialist):</b> Uprise Digital is an Australian agency with dedicated Adelaide operations… Local Reputation: 5.0 Stars (45+ reviews).”</blockquote><figcaption><b>Root Cause:</b> Missing <code>serviceArea</code> schema causes office hallucinations, while live pages contradict Uprise's flagship <b>AI Smart Glass</b> case study (<code>$100K+ in In 4 Months</code> on <code>/geo/</code> vs <code>$150K+</code> on <code>/case-studies/</code>).</figcaption></figure>
+    <figure class="quote rise" style="--d:380ms"><p class="q-src">Google AI Mode · Sydney & Live Site Crawl</p><blockquote>“<b>4. Uprise Digital (National Service to Sydney):</b> Local Google Review Signal: <b>5.0 / 5 (40+ Google reviews)</b>… (45+ reviews).”</blockquote><figcaption><b>Root Cause:</b> Stale hardcoded review counts (<code>40+</code> / <code>45+</code> vs verified <b>47</b>) and conflicting flagship <b>AI Smart Glass</b> revenue (<code>$100K+ in In 4 Months</code> on <code>/geo/</code> vs <code>$150K+</code> on <code>/case-studies/</code>).</figcaption></figure>
   </div>
   <div class="actions wide">
     <h3 class="h3">Exact on-site fixes to execute in Week 1</h3>
     <ul class="ticks cols">
       <li><b>Reconcile AI Smart Glass revenue & typo:</b> Standardise <code>“$100K+ Monthly Revenue in In 4 Months”</code> on <code>/</code>, <code>/geo/</code>, <code>/ai-seo/</code>, and <code>/aeo/</code> to the verified <b>$150K+ Monthly Revenue within four months</b> on <code>/case-studies/</code>.</li>
       <li><b>Fix broken Homepage Web Design card & duplicate block:</b> Replace the copy-pasted Facebook/Instagram Ads text inside the <i>Landing Pages & Web Design</i> card on <code>/</code> and remove the duplicated Conviction System paragraph.</li>
-      <li><b>Normalise WordPress publish dates:</b> Set <code>datePublished</code> and visible bylines on all AEO city pages and blog posts to verified past dates so Claude stops issuing trust warnings.</li>
-      <li><b>Deploy unified JSON-LD entity graph:</b> Connect <code>Organization</code> (Cremorne HQ + national <code>areaServed</code>), <code>Person</code> (Founder Lakshane Fonseka), and <code>CaseStudy</code> schema across all AI Search pages.</li>
+      <li><b>Clarify Cremorne HQ vs. National Service Areas:</b> Add explicit <code>PostalAddress</code> (Suite 22, 10-20 Gwynne St, Cremorne VIC 3121) + <code>areaServed</code> JSON-LD on all interstate city pages so AI stops hallucinating regional offices.</li>
+      <li><b>Deploy unified JSON-LD entity graph:</b> Connect <code>Organization</code>, <code>Person</code> (Founder Lakshane Fonseka), and <code>CaseStudy</code> schema across all AI Search pages.</li>
     </ul>
   </div>
   ${src('Sources: Verbatim transcripts from pipeline/ans_full.json and live Firecrawl audit of uprisedigital.com.au, October 2026.')}`);
@@ -780,9 +780,9 @@ slide('ws-entity', 'white', `
 {
   const lanes = [
     ['01 · Roundup & Directories', [[1, 2, 'Fix /blog/8-best-aeo/ tables (#1 Uprise) & claim Semrush/Clutch/GoodFirms'], [3, 12, 'Pitch Webtonic, ThatWare, ROI.com.au & Digital Agency Network']]],
-    ['02 · Cremorne GBP & Reviews', [[1, 3, 'Add GEO/AEO/AI SEO services to Cremorne GBP & fix “45+” site text'], [4, 12, 'Scale Cremorne GBP from 47 to 100+ client reviews (passing Optimising)']]],
+    ['02 · Cremorne GBP & Reviews', [[1, 3, 'Add GEO/AEO/AI SEO services to Cremorne GBP & fix “40+/45+” site text'], [4, 12, 'Scale Cremorne GBP from 47 to 100+ client reviews (passing Optimising)']]],
     ['03 · AI Search Pages', [[1, 4, 'Link /ai-seo/ & /aeo/ on Homepage; strip FB Ad banners; build /ai-visibility-audit/'], [5, 12, 'Launch /geo-melbourne/, /geo-sydney/ & upgrade /geo/ + /ai-seo/']]],
-    ['04 · Entity & Copy Hygiene', [[1, 2, 'Fix $100K vs $150K AI Smart Glass, broken Web Design card & WP dates'], [3, 8, 'Deploy Organization, Person (Lakshane Fonseka) & CaseStudy JSON-LD']]],
+    ['04 · Entity & Copy Hygiene', [[1, 2, 'Fix $100K vs $150K AI Smart Glass, broken Web Design card & HQ schema'], [3, 8, 'Deploy Organization, Person (Lakshane Fonseka) & CaseStudy JSON-LD']]],
     ['05 · Monthly 280-Prompt Audit', [[1, 12, `Baseline locked Oct 2026 (38/${TOTAL_ANSWERS}); re-run 280-prompt panel on the 15th of each month`, 'light']]],
   ];
   const W = 1240, lab = 330;

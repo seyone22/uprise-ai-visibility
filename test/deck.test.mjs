@@ -72,7 +72,7 @@ test('3. Pages 21-28 forensic specificity: unredacted directories, 47 Cremorne r
   // Slide 26 (ws-entity): live site discrepancies & verbatim quotes
   assert.match(indexHtml, /\$100K\+ Monthly Revenue in In 4 Months/);
   assert.match(indexHtml, /\$150K\+ Monthly Revenue/);
-  assert.match(indexHtml, /30 April 2026/);
+  assert.match(indexHtml, /dedicated Adelaide operations/);
 
   // Slide 28 (targets): realistic 12-month mid-table target overtaking Optimising
   assert.match(indexHtml, /overtake Optimising \(#6\) in Melbourne within 12 months/i);
